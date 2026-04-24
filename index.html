@@ -7782,6 +7782,409 @@
         grid-template-columns: 1fr;
       }
     }
+
+    :root {
+      --ui-control-height: 40px;
+      --ui-control-height-lg: 56px;
+      --ui-font-size: 14px;
+      --ui-line-height: 22px;
+      --ui-caption-size: 12px;
+      --ui-caption-line-height: 20px;
+      --ui-radius-control: 8px;
+      --ui-radius-card: 12px;
+      --ui-border: #c7d5eb;
+      --ui-border-hover: #8eaee6;
+      --ui-border-active: #2451c6;
+      --ui-fill-soft: #f4f8ff;
+      --ui-fill-active: #eaf1ff;
+      --ui-fill-disabled: #f3f6fb;
+      --ui-focus-ring: 0 0 0 3px rgba(36, 81, 198, 0.14);
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      letter-spacing: 0;
+    }
+
+    .btn,
+    .btn-primary,
+    .btn-link,
+    .view-btn,
+    .tab-btn,
+    .subtab-btn,
+    .mini-btn,
+    .algorithm-action-btn,
+    .twod-action-view,
+    .electrolyte-link-btn,
+    .twod-pagination-btn,
+    .pager button,
+    .page-jump button {
+      min-height: var(--ui-control-height);
+      padding: 8px 16px;
+      border: 1px solid var(--ui-border);
+      border-radius: var(--ui-radius-control);
+      font-size: var(--ui-font-size);
+      line-height: var(--ui-line-height);
+      font-weight: 600;
+      transition: border-color 0.16s ease, background-color 0.16s ease, color 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .btn,
+    .view-btn,
+    .tab-btn,
+    .subtab-btn,
+    .mini-btn,
+    .algorithm-action-btn,
+    .twod-action-view,
+    .electrolyte-link-btn,
+    .twod-pagination-btn,
+    .pager button,
+    .page-jump button {
+      background: #ffffff;
+      color: var(--primary-strong);
+    }
+
+    .btn-primary,
+    .mini-btn.primary,
+    .algorithm-action-btn.primary,
+    .pager button.active,
+    .twod-pagination-btn.active,
+    .view-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-link {
+      min-height: auto;
+      padding: 0;
+      border-color: transparent;
+      background: transparent;
+      color: var(--primary-strong);
+      font-weight: 600;
+    }
+
+    .btn:hover,
+    .view-btn:hover,
+    .tab-btn:hover,
+    .subtab-btn:hover,
+    .mini-btn:hover,
+    .algorithm-action-btn:hover,
+    .twod-action-view:hover,
+    .electrolyte-link-btn:hover,
+    .twod-pagination-btn:hover,
+    .pager button:hover,
+    .page-jump button:hover {
+      border-color: var(--ui-border-hover);
+      background: var(--ui-fill-soft);
+      color: var(--primary-strong);
+      box-shadow: none;
+    }
+
+    .btn-primary:hover,
+    .mini-btn.primary:hover,
+    .algorithm-action-btn.primary:hover,
+    .pager button.active:hover,
+    .twod-pagination-btn.active:hover,
+    .view-btn.active:hover {
+      background: var(--primary-strong);
+      border-color: var(--primary-strong);
+      color: #ffffff;
+    }
+
+    .btn:focus-visible,
+    .btn-primary:focus-visible,
+    .btn-link:focus-visible,
+    .view-btn:focus-visible,
+    .tab-btn:focus-visible,
+    .subtab-btn:focus-visible,
+    .mini-btn:focus-visible,
+    .algorithm-action-btn:focus-visible,
+    .twod-action-view:focus-visible,
+    .electrolyte-link-btn:focus-visible,
+    .twod-pagination-btn:focus-visible,
+    .pager button:focus-visible,
+    .page-jump button:focus-visible,
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus,
+    .page-select:focus,
+    .page-jump input:focus,
+    .twod-search-input:focus-within {
+      outline: none;
+      box-shadow: var(--ui-focus-ring);
+    }
+
+    .btn:disabled,
+    .btn-primary:disabled,
+    .btn-link:disabled,
+    .mini-btn:disabled,
+    .algorithm-action-btn:disabled,
+    .twod-action-view:disabled,
+    .electrolyte-link-btn:disabled,
+    .twod-pagination-btn:disabled,
+    .pager button:disabled,
+    .page-jump button:disabled {
+      background: var(--ui-fill-disabled);
+      border-color: #d7e1ef;
+      color: #94a3b8;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .tab-btn,
+    .subtab-btn,
+    .view-btn {
+      background: #f8fbff;
+      color: #56718f;
+    }
+
+    .tab-btn.active,
+    .subtab-btn.active {
+      background: #edf3ff;
+      border-color: #c8d9fb;
+      color: var(--primary-strong);
+    }
+
+    .field label,
+    .twod-table-control span,
+    .page-jump label,
+    .twod-upload-slot p,
+    .twod-upload-file-list,
+    .electrolyte-upload-note,
+    .selected-hint {
+      font-size: var(--ui-caption-size);
+      line-height: var(--ui-caption-line-height);
+      color: #56718f;
+    }
+
+    .field input,
+    .field select,
+    .field textarea,
+    .page-select,
+    .page-jump input,
+    .twod-search-input {
+      border: 1px solid var(--ui-border);
+      border-radius: var(--ui-radius-control);
+      background: #ffffff;
+      color: var(--text);
+      box-shadow: none;
+    }
+
+    .field input,
+    .field select,
+    .page-select,
+    .page-jump input {
+      min-height: var(--ui-control-height);
+      padding: 8px 12px;
+      font-size: var(--ui-font-size);
+      line-height: var(--ui-line-height);
+    }
+
+    .field textarea {
+      min-height: 96px;
+      padding: 10px 12px;
+      font-size: var(--ui-font-size);
+      line-height: var(--ui-line-height);
+      resize: vertical;
+    }
+
+    .field input:hover,
+    .field select:hover,
+    .field textarea:hover,
+    .page-select:hover,
+    .page-jump input:hover,
+    .twod-search-input:hover {
+      border-color: var(--ui-border-hover);
+    }
+
+    .field select,
+    .page-select,
+    .twod-detail-actions select {
+      appearance: none;
+      padding-right: 36px;
+      background-image:
+        linear-gradient(45deg, transparent 50%, #6f8298 50%),
+        linear-gradient(135deg, #6f8298 50%, transparent 50%);
+      background-position:
+        calc(100% - 18px) calc(50% - 2px),
+        calc(100% - 12px) calc(50% - 2px);
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+    }
+
+    .twod-mode-selector {
+      padding: 8px;
+      border: 1px solid #d7e3fb;
+      border-radius: 12px;
+      background: #eef4ff;
+      backdrop-filter: none;
+    }
+
+    .twod-mode-btn {
+      min-height: var(--ui-control-height);
+      padding: 8px 14px;
+      border: 1px solid transparent;
+      border-radius: var(--ui-radius-control);
+      background: transparent;
+      color: #476580;
+      font-size: var(--ui-font-size);
+      line-height: var(--ui-line-height);
+      font-weight: 600;
+      transition: border-color 0.16s ease, background-color 0.16s ease, color 0.16s ease;
+    }
+
+    .twod-mode-btn:hover {
+      border-color: #d6e3fb;
+      background: #f7fbff;
+    }
+
+    .twod-mode-btn.active {
+      border-color: var(--ui-border-active);
+      background: #ffffff;
+      color: var(--primary-strong);
+      box-shadow: none;
+    }
+
+    .twod-search-input {
+      min-height: var(--ui-control-height-lg);
+      padding: 0 16px;
+      gap: 12px;
+    }
+
+    .twod-search-input input {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 500;
+    }
+
+    .twod-search-submit {
+      min-height: var(--ui-control-height-lg);
+      border-radius: var(--ui-radius-control);
+      font-size: 14px;
+      line-height: 22px;
+      box-shadow: none;
+    }
+
+    .twod-result-table-wrap,
+    .twod-process-table,
+    .twod-upload-card,
+    .twod-convert-card,
+    .twod-record-detail-card,
+    .electrolyte-property-card {
+      border-radius: var(--ui-radius-card);
+      box-shadow: none;
+    }
+
+    .twod-upload-type-item,
+    .electrolyte-upload-category-item,
+    .electrolyte-check-item {
+      min-height: 72px;
+      padding: 14px 16px;
+      border: 1px solid var(--ui-border);
+      border-radius: var(--ui-radius-card);
+      background: #ffffff;
+      box-shadow: none;
+      transition: border-color 0.16s ease, background-color 0.16s ease, box-shadow 0.16s ease;
+      transform: none;
+    }
+
+    .twod-upload-type-item:hover,
+    .electrolyte-upload-category-item:hover,
+    .electrolyte-check-item:hover {
+      border-color: var(--ui-border-hover);
+      background: #f8fbff;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .twod-upload-type-item:has(input:checked),
+    .electrolyte-upload-category-item:has(input:checked) {
+      border-color: var(--ui-border-active);
+      background: var(--ui-fill-active);
+      box-shadow: none;
+    }
+
+    .twod-upload-slot,
+    .upload-dropzone,
+    .tooldev-upload-zone,
+    .twod-external-stage {
+      border-radius: var(--ui-radius-card);
+      border-color: #9eb9e8;
+      background: linear-gradient(180deg, #fbfdff 0%, #f5f9ff 100%);
+      box-shadow: none;
+    }
+
+    .twod-upload-slot:hover,
+    .upload-dropzone:hover,
+    .tooldev-upload-zone:hover {
+      border-color: var(--ui-border-active);
+      background: #f7fbff;
+    }
+
+    .electrolyte-category-selector {
+      gap: 8px;
+    }
+
+    .electrolyte-category-btn {
+      min-height: 88px;
+      padding: 16px;
+      border: 1px solid rgba(199, 213, 235, 0.9);
+      border-radius: var(--ui-radius-card);
+      background: #f7fbff;
+      color: #2a4265;
+      transition: border-color 0.16s ease, background-color 0.16s ease, color 0.16s ease, box-shadow 0.16s ease;
+      transform: none;
+    }
+
+    .electrolyte-category-btn:hover {
+      border-color: var(--ui-border-hover);
+      background: #f1f7ff;
+      transform: none;
+    }
+
+    .electrolyte-category-btn.active {
+      border-color: var(--ui-border-active);
+      background: #ffffff;
+      color: var(--primary-strong);
+      box-shadow: 0 0 0 1px rgba(36, 81, 198, 0.08) inset;
+    }
+
+    .electrolyte-category-btn span,
+    .twod-upload-type-item span,
+    .electrolyte-upload-category-item span {
+      font-size: var(--ui-caption-size);
+      line-height: var(--ui-caption-line-height);
+    }
+
+    .twod-pagination-btn,
+    .pager button {
+      min-width: 32px;
+      min-height: 32px;
+      height: 32px;
+      padding: 0 10px;
+      font-size: 12px;
+      line-height: 20px;
+    }
+
+    .opto-icon-btn {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border: 1px solid var(--ui-border);
+      border-radius: var(--ui-radius-control);
+      background: #ffffff;
+      color: var(--primary-strong);
+      box-shadow: none;
+    }
+
+    .opto-icon-btn:hover {
+      border-color: var(--ui-border-hover);
+      background: var(--ui-fill-soft);
+    }
+
   </style>
 </head>
 <body>
@@ -13366,7 +13769,7 @@ Authorization: Bearer YOUR_API_KEY
           <td><span class="tag-green">${item.status}</span></td>
           <td>
             <div class="table-actions">
-              <button class="mini-btn primary" type="button" data-open-material="twod:${item.id}">查看</button>
+              <button class="mini-btn primary" type="button" data-open-material="twod:${item.id}" onclick="return handleMaterialDetailOpen('twod:${item.id}')">查看</button>
               <button class="mini-btn" type="button" data-download-material="twod:${item.id}">下载</button>
             </div>
           </td>
@@ -13379,7 +13782,7 @@ Authorization: Bearer YOUR_API_KEY
           <h4>${item.name}</h4>
           <p>材料编号：${item.id}<br>空间群：${item.spaceGroup}<br>带隙：${item.bandGap.toFixed(2)} eV</p>
           <div class="table-actions">
-            <button class="mini-btn primary" type="button" data-open-material="twod:${item.id}">查看</button>
+            <button class="mini-btn primary" type="button" data-open-material="twod:${item.id}" onclick="return handleMaterialDetailOpen('twod:${item.id}')">查看</button>
             <button class="mini-btn" type="button" data-download-material="twod:${item.id}">下载</button>
           </div>
         `;
@@ -14001,7 +14404,7 @@ Authorization: Bearer YOUR_API_KEY
                     <td><span class="${getElectrolyteSafetyTagClass(item.safety)}">${item.safety}</span></td>
                     <td>
                       <div class="table-actions">
-                        <button class="electrolyte-link-btn" type="button" data-open-material="electrolyte:${item.id}">◉ 查看</button>
+                        <button class="electrolyte-link-btn" type="button" data-open-material="electrolyte:${item.id}" onclick="return handleMaterialDetailOpen('electrolyte:${item.id}')">◉ 查看</button>
                         <button class="electrolyte-link-btn" type="button" data-download-material="electrolyte:${item.id}">⬇ 下载</button>
                       </div>
                     </td>
@@ -14719,7 +15122,7 @@ Authorization: Bearer YOUR_API_KEY
           <td><span class="${getElectrolyteSafetyTagClass(item.safety)}">${item.safety}</span></td>
           <td>
             <div class="table-actions">
-              <button class="electrolyte-link-btn" type="button" data-open-material="electrolyte:${item.id}">查看</button>
+              <button class="electrolyte-link-btn" type="button" data-open-material="electrolyte:${item.id}" onclick="return handleMaterialDetailOpen('electrolyte:${item.id}')">查看</button>
               <button class="electrolyte-link-btn" type="button" data-download-material="electrolyte:${item.id}">下载</button>
             </div>
           </td>
@@ -19630,12 +20033,12 @@ Authorization: Bearer YOUR_API_KEY
       body.innerHTML = pageItems.length
         ? pageItems.map((item) => `
           <tr>
-            <td><button class="twod-material-link" type="button" data-open-material="twod:${item.id}">${item.name}</button></td>
+            <td><button class="twod-material-link" type="button" data-open-material="twod:${item.id}" onclick="return handleMaterialDetailOpen('twod:${item.id}')">${item.name}</button></td>
             <td><em>${item.formula}</em></td>
             <td>${item.bandGap.toFixed(2)}</td>
             <td>${item.formation.toFixed(2)}</td>
             <td>${item.latticeA.toFixed(2)}</td>
-            <td><button class="twod-action-view" type="button" data-open-material="twod:${item.id}">查看详情</button></td>
+            <td><button class="twod-action-view" type="button" data-open-material="twod:${item.id}" onclick="return handleMaterialDetailOpen('twod:${item.id}')">查看详情</button></td>
           </tr>
         `).join("")
         : `<tr><td colspan="6" class="table-empty">暂无符合条件的二维材料数据</td></tr>`;
@@ -20631,12 +21034,12 @@ Authorization: Bearer YOUR_API_KEY
       body.innerHTML = pageItems.length
         ? pageItems.map((item) => `
           <tr>
-            <td><button class="twod-material-link" type="button" data-open-material="twod:${item.id}">${item.name}</button></td>
+            <td><button class="twod-material-link" type="button" data-open-material="twod:${item.id}" onclick="return handleMaterialDetailOpen('twod:${item.id}')">${item.name}</button></td>
             <td><em>${item.formula}</em></td>
             <td>${item.bandGap.toFixed(2)}</td>
             <td>${item.formation.toFixed(2)}</td>
             <td>${item.latticeA.toFixed(2)}</td>
-            <td><button class="twod-action-view" type="button" data-open-material="twod:${item.id}">查看详情</button></td>
+            <td><button class="twod-action-view" type="button" data-open-material="twod:${item.id}" onclick="return handleMaterialDetailOpen('twod:${item.id}')">查看详情</button></td>
           </tr>
         `).join("")
         : `<tr><td colspan="6" class="table-empty">暂无符合条件的二维材料数据</td></tr>`;
@@ -21733,7 +22136,7 @@ Authorization: Bearer YOUR_API_KEY
           <td><span class="${getElectrolyteTypeTagClass(item.typeTag)}">${item.typeTag}</span></td>
           <td class="electrolyte-keywords">${(item.keywords || []).slice(0, 2).join(" / ") || "-"}</td>
           <td>${item.updatedAt}</td>
-          <td><button class="twod-action-view" type="button" data-open-material="electrolyte:${item.id}">查看详情</button></td>
+          <td><button class="twod-action-view" type="button" data-open-material="electrolyte:${item.id}" onclick="return handleMaterialDetailOpen('electrolyte:${item.id}')">查看详情</button></td>
         </tr>
       `).join("");
     }
@@ -22623,7 +23026,7 @@ Authorization: Bearer YOUR_API_KEY
           <td>${Number(item.molecularWeight).toLocaleString()}</td>
           <td>${getOptoApplicationTag(item)}</td>
           <td>${item.updatedAt}</td>
-          <td><button class="twod-action-view" type="button" data-open-material="opto:${item.id}">查看详情</button></td>
+          <td><button class="twod-action-view" type="button" data-open-material="opto:${item.id}" onclick="return handleMaterialDetailOpen('opto:${item.id}')">查看详情</button></td>
         </tr>
       `).join("");
     }
@@ -23371,7 +23774,7 @@ Authorization: Bearer YOUR_API_KEY
           <td>${item.method}</td>
           <td>${item.parameterName}</td>
           <td>${item.updatedAt}</td>
-          <td><button class="twod-action-view" type="button" data-open-material="mlff:${item.id}">查看详情</button></td>
+          <td><button class="twod-action-view" type="button" data-open-material="mlff:${item.id}" onclick="return handleMaterialDetailOpen('mlff:${item.id}')">查看详情</button></td>
         </tr>
       `).join("");
     }
@@ -25493,11 +25896,399 @@ Authorization: Bearer YOUR_API_KEY
       }, true);
     }
 
+    function getCanonicalMaterialBySource(source, materialId) {
+      if (source === "electrolyte") return electrolyteMaterials.find((item) => item.id === materialId) || electrolyteMaterials[0] || null;
+      if (source === "opto") return typeof findOptoMaterial === "function" ? (findOptoMaterial(materialId) || optoMaterials[0] || null) : null;
+      if (source === "mlff") return typeof findMlffMaterial === "function" ? (findMlffMaterial(materialId) || mlffMaterials[0] || null) : null;
+      return twodMaterials.find((item) => item.id === materialId) || twodMaterials[0] || null;
+    }
+
+    function getCanonicalMaterialProfile(source, material) {
+      if (!material) return null;
+      if (source === "electrolyte") {
+        return {
+          viewTitle: material.structureView?.title || "结构示意",
+          infoTitle: "基础信息",
+          dataTitle: "数据来源",
+          metricsTitle: "详细信息",
+          chartTitle: "图谱与可视化",
+          structureView: material.structureView,
+          detailTabs: typeof buildElectrolyteSyntheticTabs === "function" ? buildElectrolyteSyntheticTabs(material) : (material.detailTabs || {}),
+          visualTabs: material.visualTabs || [],
+          visuals: material.visuals || {}
+        };
+      }
+      if (source === "opto") {
+        const visuals = buildOptoVisualProfile(material);
+        return {
+          viewTitle: "三维结构",
+          infoTitle: "基础信息",
+          dataTitle: "数据来源",
+          metricsTitle: "参数特征与外部关联",
+          chartTitle: "表征图谱与态密度",
+          structureView: buildOptoStructureView(material),
+          detailTabs: buildOptoDetailTabs(material),
+          visualTabs: visuals.visualTabs,
+          visuals: visuals.visuals
+        };
+      }
+      if (source === "mlff") {
+        return buildMlffMaterialProfile(material);
+      }
+      return {
+        viewTitle: "3D晶体结构",
+        infoTitle: "基本信息",
+        dataTitle: "数据信息",
+        metricsTitle: "材料性质详情",
+        chartTitle: "物性可视化图谱",
+        structureView: buildTwodStructureView(material),
+        detailTabs: materialDetailTabs,
+        visualTabs: materialVisualTabs,
+        visuals: buildTwodVisuals(material)
+      };
+    }
+
+    function canonicalRenderMaterialInfo(material) {
+      const source = state.selectedMaterialSource;
+      const profile = getCanonicalMaterialProfile(source, material);
+      const infoWrap = document.getElementById("materialInfoGrid");
+      const dataWrap = document.getElementById("materialDataGrid");
+      document.getElementById("materialInfoPanelTitle").textContent = profile.infoTitle;
+      document.getElementById("materialDataPanelTitle").textContent = profile.dataTitle;
+      document.getElementById("materialMetricsTitle").textContent = profile.metricsTitle;
+      document.getElementById("materialChartTitle").textContent = profile.chartTitle;
+
+      let infoFields = [];
+      let dataFields = [];
+
+      if (source === "electrolyte") {
+        infoFields = material.infoFields || [];
+        dataFields = material.dataFields || [];
+      } else if (source === "opto") {
+        infoFields = [
+          { label: "材料名称", value: material.name },
+          { label: "材料全称", value: material.fullName },
+          { label: "分子式", value: material.formula },
+          { label: "分子编号", value: material.code },
+          { label: "分子量", value: `${Number(material.molecularWeight).toLocaleString()} g/mol` },
+          { label: "应用类型", value: material.application }
+        ];
+        dataFields = [
+          { label: "类别", value: material.category },
+          { label: "发射颜色", value: material.emissionColor },
+          { label: "数据来源", value: material.source },
+          { label: "更新时间", value: material.updatedAt }
+        ];
+      } else if (source === "mlff") {
+        infoFields = [
+          { label: "化学名称", value: material.name },
+          { label: "英文名称", value: material.english },
+          { label: "分子式", value: material.formula },
+          { label: "PUBCHEM", value: material.pubchem },
+          { label: "能量", value: `${material.energy} kcal/mol` },
+          { label: "偶极矩", value: `${material.dipole} D` }
+        ];
+        dataFields = [
+          { label: "力场类型", value: material.forceField },
+          { label: "计算方法", value: material.method },
+          { label: "核心参数项", value: material.parameterName },
+          { label: "参数值", value: material.parameterValue },
+          { label: "数据来源", value: material.source },
+          { label: "更新时间", value: material.updatedAt }
+        ];
+      } else {
+        infoFields = [
+          { label: "化学式", value: material.formula },
+          { label: "空间群", value: material.spaceGroup },
+          { label: "晶系", value: material.crystalSystem },
+          { label: "层厚", value: `${material.layerThickness} nm` }
+        ];
+        dataFields = [
+          { label: "数据来源", value: material.source },
+          { label: "更新时间", value: material.updatedAt },
+          { label: "数据质量", value: material.quality },
+          { label: "材料状态", value: material.status }
+        ];
+      }
+
+      infoWrap.innerHTML = infoFields.map((item) => `<div class="material-info-item"><span>${item.label}</span><strong>${item.value}</strong></div>`).join("");
+      dataWrap.innerHTML = dataFields.map((item) => `<div class="material-info-item"><span>${item.label}</span><strong>${item.value}</strong></div>`).join("");
+    }
+
+    function canonicalRenderMaterialStructure(material) {
+      const source = state.selectedMaterialSource;
+      const profile = getCanonicalMaterialProfile(source, material);
+      const structure = profile.structureView;
+      const wrap = document.getElementById("materialStructureCanvas");
+      const legend = document.getElementById("materialLegend");
+      document.getElementById("materialViewTitle").textContent = structure.title;
+      document.getElementById("materialStructureCaption").textContent = structure.caption;
+
+      if (source === "mlff") {
+        const scene = buildMlffScene(material, "molecule");
+        wrap.className = "material-atom-cluster mlff-scene";
+        wrap.dataset.mlffSceneSize = scene.size;
+        wrap.innerHTML = renderMlffSceneMarkup(scene);
+        legend.innerHTML = scene.legend.map((item) => {
+          const border = String(item.color).toLowerCase() === "#ffffff" || String(item.color).toLowerCase() === "#fff" || String(item.color).toLowerCase() === "#edf2fb"
+            ? "border:1px solid #c7d5eb;"
+            : "";
+          return `<span><i class="legend-dot" style="background:${item.color}; ${border}"></i>${item.label}</span>`;
+        }).join("");
+        return;
+      }
+
+      wrap.className = "material-atom-cluster";
+      delete wrap.dataset.mlffSceneSize;
+      wrap.innerHTML = `
+        ${structure.bonds.map((bond) => {
+          const from = structure.nodes[bond.from];
+          const to = structure.nodes[bond.to];
+          const dx = to.x - from.x;
+          const dy = to.y - from.y;
+          const length = Math.sqrt(dx * dx + dy * dy);
+          const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+          return `<span class="material-bond" style="left:${from.x}%; top:${from.y}%; width:${length}%; transform:rotate(${angle}deg);"></span>`;
+        }).join("")}
+        ${structure.nodes.map((node) => `<span class="material-node" style="left:${node.x}%; top:${node.y}%; background:${node.color};">${node.label}</span>`).join("")}
+      `;
+      legend.innerHTML = (structure.legend || []).map((item) => `<span><i class="legend-dot" style="background:${item.color};"></i>${item.label}</span>`).join("");
+    }
+
+    function canonicalRenderMaterialMetrics(material) {
+      const source = state.selectedMaterialSource;
+      const profile = getCanonicalMaterialProfile(source, material);
+      const wrap = document.getElementById("materialMetricGrid");
+
+      if (source === "mlff") {
+        const activeTab = state.selectedMaterialTab || "molecule";
+        const scene = buildMlffScene(material, activeTab);
+        const facts = buildMlffDetailFacts(material, activeTab);
+        wrap.innerHTML = `
+          <div class="mlff-detail-layout">
+            <article class="mlff-detail-stage-card">
+              <h4>${MATERIAL_TAB_LABELS[activeTab] || "结构页面"}</h4>
+              <p>${scene.caption}</p>
+              <div class="material-atom-cluster mlff-scene" data-mlff-scene-size="${scene.size}">${renderMlffSceneMarkup(scene)}</div>
+              <div class="material-legend">${scene.legend.map((item) => {
+                const border = String(item.color).toLowerCase() === "#ffffff" || String(item.color).toLowerCase() === "#fff" || String(item.color).toLowerCase() === "#edf2fb"
+                  ? "border:1px solid #c7d5eb;"
+                  : "";
+                return `<span><i class="legend-dot" style="background:${item.color}; ${border}"></i>${item.label}</span>`;
+              }).join("")}</div>
+            </article>
+            <div class="mlff-detail-facts">
+              ${facts.map((item) => `<article class="mlff-fact-card"><span>${item.label}</span><strong>${item.value}</strong></article>`).join("")}
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      const detailTabs = profile.detailTabs || {};
+      const firstTab = Object.keys(detailTabs)[0] || "";
+      const activeTab = detailTabs[state.selectedMaterialTab] ? state.selectedMaterialTab : firstTab;
+      state.selectedMaterialTab = activeTab;
+      const metrics = detailTabs[activeTab] || [];
+      wrap.innerHTML = metrics.map((item) => `
+        <article class="material-metric-card">
+          <span>${item.label}</span>
+          <strong>${formatMetricValue(material, item)}</strong>
+        </article>
+      `).join("");
+    }
+
+    function canonicalRenderMaterialVisuals(material) {
+      const source = state.selectedMaterialSource;
+      const profile = getCanonicalMaterialProfile(source, material);
+
+      if (source === "mlff") {
+        const firstVisual = profile.visualTabs[0]?.key || "forceField";
+        const activeVisual = profile.visualTabs.some((item) => item.key === state.selectedMaterialVisual) ? state.selectedMaterialVisual : firstVisual;
+        state.selectedMaterialVisual = activeVisual;
+        const current = buildMlffFileProfile(material, activeVisual);
+        document.getElementById("materialVisualChips").innerHTML = profile.visualTabs.map((item) => `
+          <button class="material-visual-chip${item.key === activeVisual ? " active" : ""}" type="button" data-material-visual="${item.key}">${item.label}</button>
+        `).join("");
+        document.getElementById("materialLineChart").innerHTML = `
+          <article class="mlff-file-panel">
+            <h4>${current.title}</h4>
+            <p>${current.caption}</p>
+            <div class="mlff-file-meta">
+              <article class="mlff-fact-card"><span>文件名称</span><strong>${current.fileName}</strong></article>
+              <article class="mlff-fact-card"><span>文件格式</span><strong>${current.format}</strong></article>
+              <article class="mlff-fact-card"><span>数据内容</span><strong>${current.content}</strong></article>
+              <article class="mlff-fact-card"><span>适用场景</span><strong>${current.target}</strong></article>
+            </div>
+            <ul class="mlff-file-list">${current.items.map((item) => `<li>${item}</li>`).join("")}</ul>
+          </article>
+        `;
+        document.getElementById("materialChartCaption").textContent = `${current.title}支持按“全部”或“当前文件类型”下载。`;
+        return;
+      }
+
+      const visuals = profile.visuals || {};
+      const visualTabs = profile.visualTabs || [];
+      const firstVisual = visualTabs[0]?.key;
+      const activeVisual = visuals[state.selectedMaterialVisual] ? state.selectedMaterialVisual : firstVisual;
+      state.selectedMaterialVisual = activeVisual;
+      const currentVisual = visuals[activeVisual];
+      document.getElementById("materialVisualChips").innerHTML = visualTabs.map((item) => `
+        <button class="material-visual-chip${state.selectedMaterialVisual === item.key ? " active" : ""}" type="button" data-material-visual="${item.key}">${item.label}</button>
+      `).join("");
+      document.getElementById("materialLineChart").innerHTML = buildChartSvg(currentVisual);
+      document.getElementById("materialChartCaption").textContent = currentVisual.caption;
+    }
+
+    function canonicalSyncMaterialModalChrome(material) {
+      const source = state.selectedMaterialSource;
+      const labels = source === "mlff"
+        ? { basic: "基础信息", properties: "结构页面", visualization: "文件下载" }
+        : source === "opto"
+          ? { basic: "基础信息", properties: "参数特征", visualization: "图谱与态密度" }
+          : { basic: "基本信息", properties: "材料性质", visualization: "可视化" };
+
+      document.querySelectorAll("#materialSectionNav .twod-detail-nav-btn").forEach((button) => {
+        button.textContent = labels[button.dataset.materialSection] || button.textContent;
+      });
+
+      const jumpWrap = document.querySelector("#materialModal .twod-detail-jump");
+      if (!jumpWrap) return;
+
+      if (source === "mlff") {
+        jumpWrap.innerHTML = `
+          <button class="btn" type="button" data-material-section="properties" data-material-tab="molecule">分子结构</button>
+          <button class="btn" type="button" data-material-section="properties" data-material-tab="smallSystem">小体系结构</button>
+          <button class="btn" type="button" data-material-section="properties" data-material-tab="largeSystem">大体系结构</button>
+          <button class="btn" type="button" data-material-section="visualization" data-material-visual="forceField">文件下载</button>
+        `;
+      } else if (source === "opto") {
+        jumpWrap.innerHTML = `
+          <button class="btn" type="button" data-material-section="basic">三维结构</button>
+          <button class="btn" type="button" data-material-section="visualization" data-material-visual="uv">表征图谱</button>
+          <button class="btn" type="button" data-material-section="properties" data-material-tab="params">参数特征</button>
+          <button class="btn" type="button" data-material-section="visualization" data-material-visual="dos">态密度</button>
+          <button class="btn" type="button" data-material-section="properties" data-material-tab="external">外部数据关联</button>
+        `;
+      } else {
+        jumpWrap.innerHTML = `
+          <button class="btn" type="button" data-material-section="properties">材料性质</button>
+          <button class="btn" type="button" data-material-section="visualization">可视化</button>
+        `;
+      }
+    }
+
+    findMaterialBySource = function (source, materialId) {
+      return getCanonicalMaterialBySource(source, materialId);
+    };
+    getMaterialProfile = function (material) {
+      return getCanonicalMaterialProfile(state.selectedMaterialSource, material);
+    };
+    renderMaterialInfo = function (material) {
+      return canonicalRenderMaterialInfo(material);
+    };
+    renderMaterialStructure = function (material) {
+      return canonicalRenderMaterialStructure(material);
+    };
+    renderMaterialMetrics = function (material) {
+      return canonicalRenderMaterialMetrics(material);
+    };
+    renderMaterialVisuals = function (material) {
+      return canonicalRenderMaterialVisuals(material);
+    };
+    syncMaterialModalChrome = function (material) {
+      return canonicalSyncMaterialModalChrome(material);
+    };
+    renderMaterialModal = function (materialToken) {
+      return openRichMaterialModal(materialToken, "detail");
+    };
+
+    function openRichMaterialModal(materialToken, targetView = "detail") {
+      if (!materialToken) return false;
+      const parsed = parseMaterialToken(materialToken);
+      const material = getCanonicalMaterialBySource(parsed.source, parsed.id);
+      if (!material) return false;
+
+      state.selectedMaterialSource = parsed.source;
+      state.selectedMaterialId = material.id;
+      state.selectedMaterialSection = "basic";
+
+      const profile = getCanonicalMaterialProfile(parsed.source, material);
+      const detailKeys = Object.keys(profile?.detailTabs || {});
+      state.selectedMaterialTab = detailKeys[0] || "";
+      state.selectedMaterialVisual = profile?.visualTabs?.[0]?.key || "";
+
+      if (parsed.source === "opto") {
+        if (targetView === "spectra") {
+          state.selectedMaterialSection = "visualization";
+          state.selectedMaterialVisual = "uv";
+        } else if (targetView === "dos") {
+          state.selectedMaterialSection = "visualization";
+          state.selectedMaterialVisual = "dos";
+        } else if (targetView === "params") {
+          state.selectedMaterialSection = "properties";
+          state.selectedMaterialTab = "params";
+        } else if (targetView === "external") {
+          state.selectedMaterialSection = "properties";
+          state.selectedMaterialTab = "external";
+        }
+      }
+
+      document.getElementById("materialModalTitle").textContent = material.name;
+      document.getElementById("materialModalSubtitle").textContent = `ID: ${material.id}${material.alias ? ` / ${material.alias}` : ""}`;
+      canonicalRenderMaterialInfo(material);
+      canonicalRenderMaterialStructure(material);
+      renderMaterialDetailTabs(material);
+      canonicalRenderMaterialMetrics(material);
+      canonicalRenderMaterialVisuals(material);
+      if (typeof renderMaterialDetailSection === "function") renderMaterialDetailSection(material);
+      canonicalSyncMaterialModalChrome(material);
+      openModal("materialModal");
+      return false;
+    }
+
+    function openOptoMaterialDetail(materialId, targetView = "detail") {
+      return openRichMaterialModal(`opto:${materialId}`, targetView);
+    }
+
+    function handleMaterialDetailOpen(materialToken, targetView = "detail") {
+      return openRichMaterialModal(materialToken, targetView);
+    }
+
+    if (typeof window !== "undefined") {
+      window.handleMaterialDetailOpen = handleMaterialDetailOpen;
+      window.openOptoMaterialDetail = openOptoMaterialDetail;
+      window.renderMaterialModal = renderMaterialModal;
+    }
+
+    function bindUnifiedMaterialDetailActions() {
+      if (document.body.dataset.materialDetailDelegated === "true") return;
+      document.body.dataset.materialDetailDelegated = "true";
+
+      document.body.addEventListener("click", (event) => {
+        const materialButton = event.target.closest("[data-open-material]");
+        if (materialButton?.dataset.openMaterial) {
+          event.preventDefault();
+          event.stopPropagation();
+          handleMaterialDetailOpen(materialButton.dataset.openMaterial);
+          return;
+        }
+
+        const optoButton = event.target.closest("[data-open-opto]");
+        if (optoButton?.dataset.optoId) {
+          event.preventDefault();
+          event.stopPropagation();
+          openOptoMaterialDetail(optoButton.dataset.optoId, optoButton.dataset.openOpto || "detail");
+        }
+      }, true);
+    }
+
     function init() {
       bindSidebar();
       bindPageSwitching();
       bindTabs();
       bindTwodInteractions();
+      bindUnifiedMaterialDetailActions();
       renderElectrolyteModule();
       bindElectrolyteInteractions();
       bindElectrolyteWorkflowInteractions();
