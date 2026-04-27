@@ -258,6 +258,293 @@
       box-shadow: var(--shadow-sm);
     }
 
+    .login-shell {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 32px;
+      background:
+        radial-gradient(circle at top left, rgba(31, 94, 255, 0.18), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(24, 73, 204, 0.14), transparent 24%),
+        linear-gradient(135deg, #eef4ff 0%, #f8fbff 46%, #edf3ff 100%);
+    }
+
+    .login-shell[hidden] {
+      display: none;
+    }
+
+    .login-stage {
+      width: min(1120px, 100%);
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(380px, 420px);
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(188, 201, 219, 0.92);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(28, 57, 117, 0.16);
+      backdrop-filter: blur(16px);
+    }
+
+    .login-hero {
+      position: relative;
+      padding: 56px 56px 48px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(242, 247, 255, 0.98) 100%);
+    }
+
+    .login-hero::before,
+    .login-hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(31, 94, 255, 0.12), rgba(31, 94, 255, 0.02));
+      pointer-events: none;
+    }
+
+    .login-hero::before {
+      width: 320px;
+      height: 320px;
+      top: -120px;
+      right: -90px;
+    }
+
+    .login-hero::after {
+      width: 220px;
+      height: 220px;
+      left: -80px;
+      bottom: -110px;
+    }
+
+    .login-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid #cfe0ff;
+      background: #f4f8ff;
+      color: #1f4cb8;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+    }
+
+    .login-badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #1f5eff;
+      box-shadow: 0 0 0 4px rgba(31, 94, 255, 0.12);
+    }
+
+    .login-hero h2 {
+      margin: 22px 0 14px;
+      color: #163a80;
+      font-size: 42px;
+      line-height: 56px;
+      letter-spacing: 0.02em;
+    }
+
+    .login-hero p {
+      margin: 0;
+      max-width: 560px;
+      color: #58708d;
+      font-size: 15px;
+      line-height: 28px;
+    }
+
+    .login-panel-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .login-panel-card {
+      padding: 20px 22px;
+      border-radius: 18px;
+      border: 1px solid #dce7f8;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 12px 24px rgba(31, 45, 61, 0.06);
+    }
+
+    .login-panel-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #1d3d76;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .login-panel-card span {
+      display: block;
+      color: #5f7492;
+      font-size: 13px;
+      line-height: 24px;
+    }
+
+    .login-form-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px 36px;
+      background: linear-gradient(180deg, #fdfefe 0%, #f6f9ff 100%);
+    }
+
+    .login-form-card {
+      padding: 28px;
+      border-radius: 24px;
+      border: 1px solid #d9e5f6;
+      background: #ffffff;
+      box-shadow: 0 18px 36px rgba(31, 45, 61, 0.08);
+    }
+
+    .login-form-head {
+      margin-bottom: 24px;
+    }
+
+    .login-form-head h3 {
+      margin: 0 0 8px;
+      color: #173a7d;
+      font-size: 26px;
+      line-height: 34px;
+    }
+
+    .login-form-head p {
+      margin: 0;
+      color: #6a7f99;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    .login-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .login-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .login-field label {
+      color: #4d6481;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 700;
+    }
+
+    .login-field input {
+      width: 100%;
+      min-height: 46px;
+      padding: 0 14px;
+      border: 1px solid #cfddef;
+      border-radius: 14px;
+      background: #fbfdff;
+      color: #20324d;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .login-field input:focus {
+      border-color: #1f5eff;
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(31, 94, 255, 0.12);
+    }
+
+    .login-captcha-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 112px 46px;
+      gap: 10px;
+      align-items: end;
+    }
+
+    .login-captcha-box {
+      height: 46px;
+      border-radius: 14px;
+      border: 1px solid #cfddef;
+      background:
+        linear-gradient(135deg, #edf4ff 0%, #ffffff 100%);
+      color: #173a7d;
+      display: grid;
+      place-items: center;
+      letter-spacing: 0.24em;
+      font-size: 20px;
+      font-weight: 800;
+      user-select: none;
+    }
+
+    .login-captcha-refresh {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      border: 1px solid #cfddef;
+      background: #f7faff;
+      color: #1f5eff;
+      font-weight: 800;
+    }
+
+    .login-submit {
+      min-height: 46px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #1f5eff 0%, #2c74ff 100%);
+      color: #ffffff;
+      font-size: 15px;
+      line-height: 22px;
+      font-weight: 800;
+      box-shadow: 0 16px 28px rgba(31, 94, 255, 0.24);
+    }
+
+    .login-submit:hover {
+      filter: brightness(1.02);
+    }
+
+    .login-error {
+      min-height: 22px;
+      color: #c62828;
+      font-size: 13px;
+      line-height: 22px;
+    }
+
+    .login-note {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px dashed #d7e2f3;
+      color: #6d819a;
+      font-size: 12px;
+      line-height: 22px;
+    }
+
+    .logout-btn {
+      min-height: 34px;
+      padding: 0 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #f4f8ff;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    @media (max-width: 980px) {
+      .login-stage {
+        grid-template-columns: 1fr;
+      }
+
+      .login-hero,
+      .login-form-wrap {
+        padding: 28px;
+      }
+
+      .login-panel-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .sidebar-toggle {
       width: 40px;
       height: 40px;
@@ -7557,6 +7844,116 @@
       gap: 16px;
     }
 
+    .twod-convert-route-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .twod-convert-route {
+      width: 100%;
+      padding: 16px 18px;
+      border: 1px solid #dbe5f6;
+      border-radius: 16px;
+      background: #ffffff;
+      color: #223657;
+      text-align: left;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
+    }
+
+    .twod-convert-route strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+      line-height: 22px;
+      color: #223657;
+    }
+
+    .twod-convert-route span {
+      display: block;
+      color: #6f8298;
+      font-size: 12px;
+      line-height: 20px;
+    }
+
+    .twod-convert-route:hover {
+      border-color: #9fb8ea;
+      transform: translateY(-1px);
+    }
+
+    .twod-convert-route.active {
+      border-color: #2c52cc;
+      box-shadow: inset 0 0 0 1px #2c52cc;
+      background: linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
+    }
+
+    .twod-convert-note {
+      margin: 0 0 16px;
+      color: #6f8298;
+      font-size: 13px;
+      line-height: 22px;
+    }
+
+    .twod-convert-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .twod-convert-grid .field {
+      margin-bottom: 0;
+    }
+
+    .twod-convert-summary {
+      display: grid;
+      gap: 10px;
+      padding: 16px;
+      border: 1px solid #d7e3fb;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
+    }
+
+    .twod-convert-summary-inline {
+      width: min(100%, 520px);
+      margin: 18px auto 0;
+      text-align: left;
+    }
+
+    .twod-convert-summary-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 13px;
+      line-height: 20px;
+    }
+
+    .twod-convert-summary-item strong {
+      color: #6f8298;
+      font-weight: 600;
+    }
+
+    .twod-convert-summary-item span {
+      color: #223657;
+      font-weight: 700;
+      text-align: right;
+      word-break: break-word;
+    }
+
+    .twod-convert-file-pill {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border: 1px dashed #b8caeb;
+      border-radius: 14px;
+      background: #ffffff;
+      color: #223657;
+      font-size: 13px;
+      line-height: 20px;
+      word-break: break-all;
+    }
+
     .twod-step-indicator {
       display: flex;
       gap: 12px;
@@ -7947,6 +8344,11 @@
       .twod-mode-selector,
       .twod-upload-grid,
       .twod-search-row {
+        grid-template-columns: 1fr;
+      }
+
+      .twod-convert-route-grid,
+      .twod-convert-grid {
         grid-template-columns: 1fr;
       }
 
@@ -8546,7 +8948,67 @@
   </style>
 </head>
 <body>
-  <div class="app">
+  <section class="login-shell" id="loginShell">
+    <div class="login-stage">
+      <div class="login-hero">
+        <span class="login-badge">科研主题数据库平台</span>
+        <h2>低维材料主题库</h2>
+        <p>围绕二维材料、电解质材料、有机光电材料、机器学习力场与催化材料场景，提供规范化检索、可视化分析与数据应用服务。</p>
+        <div class="login-panel-grid">
+          <article class="login-panel-card">
+            <strong>蓝白科研风格</strong>
+            <span>遵循现有 UI 规范，保持专业、克制、清晰的信息层级与操作反馈。</span>
+          </article>
+          <article class="login-panel-card">
+            <strong>统一身份入口</strong>
+            <span>登录成功后方可进入系统，默认进入工作台，避免未授权直接访问业务模块。</span>
+          </article>
+          <article class="login-panel-card">
+            <strong>验证码校验</strong>
+            <span>账号、密码与验证码同时校验通过后，系统才开放页面导航和模块访问。</span>
+          </article>
+          <article class="login-panel-card">
+            <strong>主题库工作台</strong>
+            <span>登录后默认进入工作台，可继续进入主题应用、数据算法和开发工具模块。</span>
+          </article>
+        </div>
+      </div>
+      <div class="login-form-wrap">
+        <div class="login-form-card">
+          <div class="login-form-head">
+            <h3>系统登录</h3>
+            <p>请输入账号、密码并完成验证码校验。</p>
+          </div>
+          <form class="login-form" id="loginForm">
+            <div class="login-field">
+              <label for="loginAccount">账号</label>
+              <input id="loginAccount" type="text" autocomplete="username" placeholder="请输入账号">
+            </div>
+            <div class="login-field">
+              <label for="loginPassword">密码</label>
+              <input id="loginPassword" type="password" autocomplete="current-password" placeholder="请输入密码">
+            </div>
+            <div class="login-field">
+              <label for="loginCaptchaInput">验证码</label>
+              <div class="login-captcha-row">
+                <input id="loginCaptchaInput" type="text" autocomplete="off" placeholder="请输入验证码">
+                <div class="login-captcha-box" id="loginCaptchaBox">ABCD</div>
+                <button class="login-captcha-refresh" id="loginCaptchaRefresh" type="button" aria-label="刷新验证码">↻</button>
+              </div>
+            </div>
+            <div class="login-error" id="loginError"></div>
+            <button class="login-submit" type="submit">登录进入系统</button>
+          </form>
+          <div class="login-note">
+            演示账号：researcher<br>
+            演示密码：123456
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="app" id="appRoot" hidden>
     <header class="topbar">
       <div class="brand">
         <div class="brand-mark"></div>
@@ -11239,35 +11701,72 @@ Authorization: Bearer YOUR_API_KEY
       <div class="modal-body modal-scroll">
         <div class="twod-convert-layout">
           <div class="twod-convert-card" id="twodConvertStepLocal">
-            <div class="twod-step-indicator">
-              <span class="twod-step-item">01 连接第三方工具</span>
-              <span class="twod-step-item">02 外部转换</span>
-              <span class="twod-step-item">03 返回系统</span>
+            <div class="workflow-stepper">
+              <span class="workflow-step active"><i>1</i>选择路径</span>
+              <span class="workflow-step"><i>2</i>执行转换</span>
+              <span class="workflow-step"><i>3</i>返回系统</span>
             </div>
-            <h4>转换配置</h4>
-            <div class="twod-form-stack">
-              <div class="field">
-                <label for="convertSourceRecord">选择待转换文件</label>
-                <select id="convertSourceRecord"></select>
+            <h4>转换路径选择</h4>
+            <div class="twod-convert-route-grid">
+              <button class="twod-convert-route active" type="button" data-twod-convert-path="local">
+                <strong>本地环境上传</strong>
+                <span>上传当前数据库已收录的数据文件，系统自动识别类别并完成格式转换。</span>
+              </button>
+              <button class="twod-convert-route" type="button" data-twod-convert-path="thirdParty">
+                <strong>第三方工具转换</strong>
+                <span>从系统记录带入源文件，模拟跳转至第三方工具完成转换并回传结果。</span>
+              </button>
+            </div>
+
+            <div id="twodConvertLocalPanel">
+              <p class="twod-convert-note">请上传当前数据库已收录的数据文件，系统会自动识别为结构文件、计算数据或可视化文件，并按类别提供可选目标格式。</p>
+              <div class="twod-convert-grid">
+                <div class="twod-upload-slot">
+                  <strong>本地文件上传</strong>
+                  <p>支持自动识别常见二维材料结构文件、计算结果文件与图谱文件。</p>
+                  <div class="upload-action-bar">
+                    <button class="btn-primary" type="button" id="twodConvertLocalTrigger">点击上传文件</button>
+                  </div>
+                  <input id="twodConvertLocalFileInput" type="file" hidden>
+                  <div class="twod-convert-file-pill" id="twodConvertLocalFileName">未选择文件</div>
+                </div>
+                <div class="twod-convert-summary" id="twodConvertLocalSummary">
+                  <div class="twod-convert-summary-item"><strong>识别类别</strong><span id="twodConvertLocalDetectedType">待识别</span></div>
+                  <div class="twod-convert-summary-item"><strong>源格式</strong><span id="twodConvertLocalSourceFormat">-</span></div>
+                  <div class="twod-convert-summary-item"><strong>文件大小</strong><span id="twodConvertLocalFileSize">-</span></div>
+                </div>
               </div>
               <div class="field">
-                <label for="convertTargetFormat">目标格式</label>
-                <select id="convertTargetFormat">
-                  <option>POSCAR</option>
-                  <option>CIF</option>
-                  <option>JSON</option>
-                  <option>CSV</option>
+                <label for="twodConvertLocalTargetFormat">目标格式</label>
+                <select id="twodConvertLocalTargetFormat" disabled>
+                  <option value="">请先上传文件</option>
                 </select>
               </div>
+            </div>
+
+            <div id="twodConvertThirdPartyPanel" hidden>
+              <p class="twod-convert-note">从当前系统记录中选择源文件，模拟跳转至第三方工具进行同类格式转换，并在完成后将结果回传到当前系统。</p>
+              <div class="twod-convert-grid">
+                <div class="field">
+                  <label for="convertSourceRecord">选择系统内文件</label>
+                  <select id="convertSourceRecord"></select>
+                </div>
+                <div class="field">
+                  <label for="convertTargetFormat">目标格式</label>
+                  <select id="convertTargetFormat"></select>
+                </div>
+              </div>
+              <div class="twod-convert-summary" id="twodConvertThirdPartyInfo"></div>
             </div>
           </div>
 
           <div class="twod-convert-card" id="twodConvertStepExternal" hidden>
-            <h4>第三方工具转换中</h4>
+            <h4>第三方工具工作区</h4>
             <div class="twod-external-stage">
               <div>
-                <strong>第三方格式转换工具</strong>
+                <strong>已跳转至第三方工具</strong>
                 <p id="twodConvertExternalText">系统已将文件转换请求发送至第三方工具，完成后可将结果回传至当前系统。</p>
+                <div class="twod-convert-summary twod-convert-summary-inline" id="twodConvertExternalMeta"></div>
               </div>
             </div>
           </div>
@@ -11551,6 +12050,9 @@ Authorization: Bearer YOUR_API_KEY
 
     const state = {
       page: "dashboard",
+      isAuthenticated: false,
+      loginUser: "",
+      loginCaptchaCode: "",
       periodic: new Set(),
       twodBaseView: "table",
       twodPropertyView: "table",
@@ -11602,6 +12104,9 @@ Authorization: Bearer YOUR_API_KEY
         parameterName: "",
         parameterValue: ""
       },
+      twodConvertPath: "local",
+      twodConvertDraft: null,
+      twodConvertLocalDraft: null,
       catalystTab: "base",
       catalystViewMode: "table",
       catalystPage: 1,
@@ -28350,9 +28855,455 @@ Authorization: Bearer YOUR_API_KEY
       switchPage(config.page);
     }
 
+    const AUTH_CONFIG = {
+      account: "researcher",
+      password: "123456"
+    };
+
+    const originalSwitchPage = switchPage;
+    switchPage = function (page) {
+      if (!state.isAuthenticated) {
+        state.page = "dashboard";
+        syncAuthView();
+        return;
+      }
+      originalSwitchPage(page);
+    };
+
+    function generateLoginCaptcha() {
+      const chars = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+      state.loginCaptchaCode = Array.from({ length: 4 }).map(() => chars[Math.floor(Math.random() * chars.length)]).join("");
+      const box = document.getElementById("loginCaptchaBox");
+      if (box) box.textContent = state.loginCaptchaCode;
+    }
+
+    function setLoginError(message = "") {
+      const error = document.getElementById("loginError");
+      if (error) error.textContent = message;
+    }
+
+    function ensureTopbarSessionActions() {
+      const chipName = document.getElementById("userChipName") || document.querySelector(".user-chip span");
+      if (chipName) chipName.textContent = state.loginUser || "科研用户";
+
+      const actions = document.querySelector(".topbar-actions");
+      if (!actions || document.getElementById("logoutBtn")) return;
+      const logoutBtn = document.createElement("button");
+      logoutBtn.type = "button";
+      logoutBtn.id = "logoutBtn";
+      logoutBtn.className = "logout-btn";
+      logoutBtn.textContent = "退出";
+      actions.appendChild(logoutBtn);
+    }
+
+    function syncAuthView() {
+      const loginShell = document.getElementById("loginShell");
+      const appRoot = document.getElementById("appRoot");
+      if (!loginShell || !appRoot) return;
+
+      if (state.isAuthenticated) {
+        loginShell.hidden = true;
+        appRoot.hidden = false;
+        ensureTopbarSessionActions();
+        const accountInput = document.getElementById("loginAccount");
+        const passwordInput = document.getElementById("loginPassword");
+        const captchaInput = document.getElementById("loginCaptchaInput");
+        if (accountInput) accountInput.value = "";
+        if (passwordInput) passwordInput.value = "";
+        if (captchaInput) captchaInput.value = "";
+        setLoginError("");
+        return;
+      }
+
+      loginShell.hidden = false;
+      appRoot.hidden = true;
+      generateLoginCaptcha();
+    }
+
+    function handleLoginSubmit(event) {
+      event.preventDefault();
+      const account = document.getElementById("loginAccount")?.value.trim() || "";
+      const password = document.getElementById("loginPassword")?.value || "";
+      const captcha = (document.getElementById("loginCaptchaInput")?.value || "").trim().toUpperCase();
+
+      if (!account || !password || !captcha) {
+        setLoginError("请完整填写账号、密码和验证码。");
+        generateLoginCaptcha();
+        return;
+      }
+      if (account !== AUTH_CONFIG.account || password !== AUTH_CONFIG.password) {
+        setLoginError("账号或密码错误。");
+        generateLoginCaptcha();
+        return;
+      }
+      if (captcha !== state.loginCaptchaCode) {
+        setLoginError("验证码输入错误，请重新输入。");
+        generateLoginCaptcha();
+        const captchaInput = document.getElementById("loginCaptchaInput");
+        if (captchaInput) captchaInput.value = "";
+        return;
+      }
+
+      state.isAuthenticated = true;
+      state.loginUser = account;
+      state.page = "dashboard";
+      syncAuthView();
+      originalSwitchPage("dashboard");
+      showToast("登录成功", "已进入低维材料主题库工作台。");
+    }
+
+    function handleLogout() {
+      state.isAuthenticated = false;
+      state.loginUser = "";
+      state.page = "dashboard";
+      syncAuthView();
+      setLoginError("");
+    }
+
+    function bindLoginInteractions() {
+      document.getElementById("loginForm")?.addEventListener("submit", handleLoginSubmit);
+      document.getElementById("loginCaptchaRefresh")?.addEventListener("click", () => {
+        setLoginError("");
+        generateLoginCaptcha();
+      });
+      document.body.addEventListener("click", (event) => {
+        if (event.target.closest("#logoutBtn")) {
+          handleLogout();
+        }
+      });
+    }
+
+    function inferTwodConvertFileType(fileName) {
+      const ext = detectFileFormat(fileName).toLowerCase();
+      if (["cif", "poscar", "vasp", "xsf", "xyz"].includes(ext)) return "结构文件";
+      if (["json", "xml", "txt", "dat", "out", "log"].includes(ext)) return "计算数据";
+      if (["csv", "png", "jpg", "jpeg", "svg"].includes(ext)) return "可视化文件";
+      return "";
+    }
+
+    function getTwodConvertTargetFormats(fileType) {
+      if (fileType === "结构文件") return ["POSCAR", "CIF", "XSF", "XYZ", "VASP"];
+      if (fileType === "计算数据") return ["JSON", "XML", "TXT", "DAT", "CSV"];
+      if (fileType === "可视化文件") return ["PNG", "SVG", "CSV", "JSON", "JPG"];
+      return [];
+    }
+
+    function buildTwodConvertSummary(items) {
+      return items.map((item) => `
+        <div class="twod-convert-summary-item">
+          <strong>${item.label}</strong>
+          <span>${item.value}</span>
+        </div>
+      `).join("");
+    }
+
+    function populateTwodConvertTargetFormats(selectId, fileType, sourceFormat = "") {
+      const select = document.getElementById(selectId);
+      if (!select) return;
+      const normalizedSource = String(sourceFormat || "").toUpperCase() === "JPEG"
+        ? "JPG"
+        : String(sourceFormat || "").toUpperCase();
+      const formats = getTwodConvertTargetFormats(fileType);
+      const available = formats.filter((item) => item !== normalizedSource);
+      const list = available.length ? available : formats;
+      select.innerHTML = list.length
+        ? list.map((item) => `<option value="${item}">${item}</option>`).join("")
+        : '<option value="">请先选择文件</option>';
+      select.disabled = !list.length;
+    }
+
+    function renderTwodConvertLocalDraft() {
+      const draft = state.twodConvertLocalDraft;
+      const fileName = document.getElementById("twodConvertLocalFileName");
+      const detectedType = document.getElementById("twodConvertLocalDetectedType");
+      const sourceFormat = document.getElementById("twodConvertLocalSourceFormat");
+      const fileSize = document.getElementById("twodConvertLocalFileSize");
+      if (!fileName || !detectedType || !sourceFormat || !fileSize) return;
+      fileName.textContent = draft?.fileName || "未选择文件";
+      detectedType.textContent = draft?.fileType || "待识别";
+      sourceFormat.textContent = draft?.sourceFormat || "-";
+      fileSize.textContent = draft?.fileSizeText || "-";
+      populateTwodConvertTargetFormats("twodConvertLocalTargetFormat", draft?.fileType || "", draft?.sourceFormat || "");
+    }
+
+    function renderTwodConvertThirdPartyInfo() {
+      const select = document.getElementById("convertSourceRecord");
+      const info = document.getElementById("twodConvertThirdPartyInfo");
+      if (!select || !info) return;
+      const record = findRecord(select.value);
+      if (!record) {
+        info.innerHTML = buildTwodConvertSummary([
+          { label: "文件类别", value: "-" },
+          { label: "源格式", value: "-" },
+          { label: "记录来源", value: "-" }
+        ]);
+        populateTwodConvertTargetFormats("convertTargetFormat", "", "");
+        return;
+      }
+      info.innerHTML = buildTwodConvertSummary([
+        { label: "文件类别", value: record.fileType || "-" },
+        { label: "源格式", value: record.sourceFormat || "-" },
+        { label: "记录来源", value: record.source || "系统记录" }
+      ]);
+      populateTwodConvertTargetFormats("convertTargetFormat", record.fileType || "", record.sourceFormat || "");
+    }
+
+    function refreshConvertSourceOptions() {
+      const select = document.getElementById("convertSourceRecord");
+      if (!select) return;
+      const currentValue = select.value;
+      select.innerHTML = twodUpdateRecords.length
+        ? twodUpdateRecords.map((record) => `<option value="${record.id}">${record.fileName} · ${record.fileType}</option>`).join("")
+        : '<option value="">暂无可选文件</option>';
+      if (currentValue && twodUpdateRecords.some((record) => record.id === currentValue)) {
+        select.value = currentValue;
+      } else if (twodUpdateRecords[0]) {
+        select.value = twodUpdateRecords[0].id;
+      }
+      select.disabled = !twodUpdateRecords.length;
+      renderTwodConvertThirdPartyInfo();
+    }
+
+    function setTwodConvertPath(path) {
+      state.twodConvertPath = path;
+      document.querySelectorAll("[data-twod-convert-path]").forEach((button) => {
+        button.classList.toggle("active", button.dataset.twodConvertPath === path);
+      });
+      const localPanel = document.getElementById("twodConvertLocalPanel");
+      const thirdPartyPanel = document.getElementById("twodConvertThirdPartyPanel");
+      const localStep = document.getElementById("twodConvertStepLocal");
+      const externalStep = document.getElementById("twodConvertStepExternal");
+      const returnStep = document.getElementById("twodConvertStepReturn");
+      const startBtn = document.getElementById("startConvertBtn");
+      const finishBtn = document.getElementById("finishConvertBtn");
+      if (localPanel) localPanel.hidden = path !== "local";
+      if (thirdPartyPanel) thirdPartyPanel.hidden = path !== "thirdParty";
+      if (localStep) localStep.hidden = false;
+      if (externalStep) externalStep.hidden = true;
+      if (returnStep) returnStep.hidden = true;
+      if (startBtn) {
+        startBtn.hidden = false;
+        startBtn.textContent = path === "local" ? "开始转换" : "跳转至第三方工具";
+      }
+      if (finishBtn) finishBtn.hidden = true;
+    }
+
+    function resetTwodConvertModal() {
+      state.twodConvertDraft = null;
+      state.twodConvertLocalDraft = null;
+      const localInput = document.getElementById("twodConvertLocalFileInput");
+      const returnInfo = document.getElementById("twodConvertReturnInfo");
+      const externalText = document.getElementById("twodConvertExternalText");
+      const externalMeta = document.getElementById("twodConvertExternalMeta");
+      if (localInput) localInput.value = "";
+      if (returnInfo) returnInfo.innerHTML = "";
+      if (externalText) externalText.textContent = "系统已将文件转换请求发送至第三方工具，完成后可将结果回传至当前系统。";
+      if (externalMeta) {
+        externalMeta.innerHTML = buildTwodConvertSummary([
+          { label: "源文件", value: "-" },
+          { label: "目标格式", value: "-" },
+          { label: "执行状态", value: "待发起" }
+        ]);
+      }
+      setTwodConvertPath("local");
+      renderTwodConvertLocalDraft();
+      refreshConvertSourceOptions();
+    }
+
+    function appendTwodConvertedRecord(sourceName, fileType, targetFormat, source) {
+      const convertedName = replaceFileExtension(sourceName, targetFormat);
+      twodUpdateRecords.unshift({
+        id: `rec-${Date.now()}`,
+        uploadedAt: getCurrentTimestamp(),
+        fileName: convertedName,
+        fileType,
+        sourceFormat: targetFormat,
+        category: "文件格式转换",
+        status: "approved",
+        source
+      });
+      renderTwodRecords();
+      return convertedName;
+    }
+
+    function showTwodConvertReturn(details) {
+      const localStep = document.getElementById("twodConvertStepLocal");
+      const externalStep = document.getElementById("twodConvertStepExternal");
+      const returnStep = document.getElementById("twodConvertStepReturn");
+      const startBtn = document.getElementById("startConvertBtn");
+      const finishBtn = document.getElementById("finishConvertBtn");
+      const returnInfo = document.getElementById("twodConvertReturnInfo");
+      if (localStep) localStep.hidden = true;
+      if (externalStep) externalStep.hidden = true;
+      if (returnStep) returnStep.hidden = false;
+      if (startBtn) startBtn.hidden = true;
+      if (finishBtn) finishBtn.hidden = true;
+      if (returnInfo) {
+        returnInfo.innerHTML = `
+          <div class="twod-record-detail-card">
+            <h4>转换结果</h4>
+            <div class="detail-grid">
+              <strong>转换路径</strong><div>${details.route}</div>
+              <strong>源文件</strong><div>${details.sourceName}</div>
+              <strong>文件类别</strong><div>${details.fileType || "-"}</div>
+              <strong>源格式</strong><div>${details.sourceFormat || "-"}</div>
+              <strong>目标格式</strong><div>${details.targetFormat}</div>
+              <strong>输出文件</strong><div>${details.resultName}</div>
+              <strong>系统状态</strong><div>${details.statusText}</div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function handleTwodConvertStart() {
+      if (state.twodConvertPath === "local") {
+        const draft = state.twodConvertLocalDraft;
+        const targetFormat = document.getElementById("twodConvertLocalTargetFormat")?.value || "";
+        if (!draft?.fileName) {
+          showToast("文件格式转换", "请先上传待转换文件。");
+          return;
+        }
+        if (!draft.fileType) {
+          showToast("文件格式转换", "当前文件类别未识别，请上传当前数据库已收录的数据文件。");
+          return;
+        }
+        if (!targetFormat) {
+          showToast("文件格式转换", "请先选择目标格式。");
+          return;
+        }
+        const convertedName = appendTwodConvertedRecord(draft.fileName, draft.fileType, targetFormat, "本地环境上传");
+        showTwodConvertReturn({
+          route: "本地环境上传",
+          sourceName: draft.fileName,
+          fileType: draft.fileType,
+          sourceFormat: draft.sourceFormat,
+          targetFormat,
+          resultName: convertedName,
+          statusText: "系统已完成本地文件识别、格式转换并写入记录。"
+        });
+        showToast("文件格式转换", "本地文件已完成格式转换并写入记录。");
+        return;
+      }
+
+      const record = findRecord(document.getElementById("convertSourceRecord")?.value || "");
+      const targetFormat = document.getElementById("convertTargetFormat")?.value || "";
+      if (!record) {
+        showToast("文件格式转换", "请先选择待转换文件。");
+        return;
+      }
+      if (!targetFormat) {
+        showToast("文件格式转换", "请先选择目标格式。");
+        return;
+      }
+      state.twodConvertDraft = {
+        route: "thirdParty",
+        recordId: record.id,
+        sourceName: record.fileName,
+        fileType: record.fileType,
+        sourceFormat: record.sourceFormat,
+        targetFormat
+      };
+      document.getElementById("twodConvertStepLocal").hidden = true;
+      document.getElementById("twodConvertStepExternal").hidden = false;
+      document.getElementById("twodConvertStepReturn").hidden = true;
+      document.getElementById("startConvertBtn").hidden = true;
+      document.getElementById("finishConvertBtn").hidden = false;
+      document.getElementById("twodConvertExternalText").textContent = `已模拟跳转至第三方工具，当前正在处理 ${record.fileName} 的 ${record.sourceFormat} → ${targetFormat} 格式转换任务。完成后可将结果回传至当前系统。`;
+      document.getElementById("twodConvertExternalMeta").innerHTML = buildTwodConvertSummary([
+        { label: "源文件", value: record.fileName },
+        { label: "文件类别", value: record.fileType || "-" },
+        { label: "目标格式", value: targetFormat },
+        { label: "执行状态", value: "第三方处理中" }
+      ]);
+      showToast("文件格式转换", "已进入第三方工具工作区，可继续模拟转换结果回传。");
+    }
+
+    function handleTwodConvertFinish() {
+      const draft = state.twodConvertDraft;
+      if (!draft) {
+        showToast("文件格式转换", "请先发起第三方工具转换。");
+        return;
+      }
+      const record = findRecord(draft.recordId);
+      const sourceName = draft.sourceName || record?.fileName || "目标文件";
+      const fileType = draft.fileType || record?.fileType || "";
+      const sourceFormat = draft.sourceFormat || record?.sourceFormat || "";
+      const convertedName = appendTwodConvertedRecord(sourceName, fileType, draft.targetFormat, "第三方工具回传");
+      showTwodConvertReturn({
+        route: "第三方工具回传",
+        sourceName,
+        fileType,
+        sourceFormat,
+        targetFormat: draft.targetFormat,
+        resultName: convertedName,
+        statusText: "第三方工具转换已完成，结果已回传并写入当前系统。"
+      });
+      state.twodConvertDraft = null;
+      showToast("文件格式转换", "第三方工具已返回转换结果，系统记录已更新。");
+    }
+
+    function replaceTwodConvertTrigger(node, handler) {
+      if (!node) return null;
+      const clone = node.cloneNode(true);
+      node.replaceWith(clone);
+      clone.addEventListener("click", handler);
+      return clone;
+    }
+
+    function overrideTwodConvertFlow() {
+      const modal = document.getElementById("convertModal");
+      if (!modal || modal.dataset.twodConvertOverride === "true") return;
+      modal.dataset.twodConvertOverride = "true";
+
+      document.querySelectorAll('[id="twodConvertBtn"]').forEach((button) => {
+        replaceTwodConvertTrigger(button, () => {
+          resetTwodConvertModal();
+          openModal("convertModal");
+        });
+      });
+
+      replaceTwodConvertTrigger(document.getElementById("startConvertBtn"), handleTwodConvertStart);
+      replaceTwodConvertTrigger(document.getElementById("finishConvertBtn"), handleTwodConvertFinish);
+
+      document.querySelectorAll("[data-twod-convert-path]").forEach((button) => {
+        button.addEventListener("click", () => {
+          setTwodConvertPath(button.dataset.twodConvertPath);
+        });
+      });
+
+      document.getElementById("twodConvertLocalTrigger")?.addEventListener("click", () => {
+        document.getElementById("twodConvertLocalFileInput")?.click();
+      });
+
+      document.getElementById("twodConvertLocalFileInput")?.addEventListener("change", (event) => {
+        const file = event.target.files?.[0];
+        if (!file) {
+          state.twodConvertLocalDraft = null;
+          renderTwodConvertLocalDraft();
+          return;
+        }
+        state.twodConvertLocalDraft = {
+          fileName: file.name,
+          fileSizeText: formatFileSize(file.size),
+          fileType: inferTwodConvertFileType(file.name),
+          sourceFormat: detectFileFormat(file.name)
+        };
+        renderTwodConvertLocalDraft();
+        if (!state.twodConvertLocalDraft.fileType) {
+          showToast("文件格式转换", "当前文件类别未识别，请上传当前数据库已收录的数据文件。");
+        }
+      });
+
+      document.getElementById("convertSourceRecord")?.addEventListener("change", renderTwodConvertThirdPartyInfo);
+
+      resetTwodConvertModal();
+    }
+
     function init() {
       bindSidebar();
       bindPageSwitching();
+      bindLoginInteractions();
       bindTabs();
       bindTwodInteractions();
       bindUnifiedPaginationActions();
@@ -28374,7 +29325,8 @@ Authorization: Bearer YOUR_API_KEY
       bindAlgorithmInteractions();
       bindGlobalSearch();
       bindStaticActions();
-      switchPage(state.page);
+      overrideTwodConvertFlow();
+      syncAuthView();
     }
 
     init();
