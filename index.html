@@ -259,6 +259,10 @@
     }
 
     .login-shell {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      overflow-y: auto;
       min-height: 100vh;
       display: grid;
       place-items: center;
@@ -271,6 +275,10 @@
 
     .login-shell[hidden] {
       display: none;
+    }
+
+    [hidden] {
+      display: none !important;
     }
 
     .login-stage {
@@ -1648,7 +1656,7 @@
     }
 
     .tooldev-intro {
-      padding: 28px 0 18px;
+      padding: 28px 4px 18px;
     }
 
     .tooldev-intro h3 {
@@ -1808,6 +1816,89 @@
       inset: 5px;
       border-radius: 50%;
       background: #1290ff;
+    }
+
+    /* 数据工具开发模块步骤条 */
+    .tooldev-stepper {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      margin: 0 0 24px;
+    }
+    .tooldev-step {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      text-align: center;
+    }
+    .tooldev-step::before {
+      content: '';
+      position: absolute;
+      top: 14px;
+      left: calc(-50% + 16px);
+      right: calc(50% + 16px);
+      height: 2px;
+      background: #e2eaf7;
+    }
+    .tooldev-step:first-child::before { display: none; }
+    .tooldev-step.active::before { background: linear-gradient(90deg, #2f6bff 0%, #74a2ff 100%); }
+    .tooldev-step-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #2f6bff;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 4px rgba(47, 107, 255, 0.12);
+    }
+    .tooldev-step-label {
+      margin-top: 8px;
+      font-size: 12px;
+      line-height: 20px;
+      color: #1e3154;
+      font-weight: 700;
+      max-width: 100px;
+    }
+
+    /* 数据工具开发模块两列布局 */
+    #tool-inverse .tooldev-layout,
+    #tool-assistant .tooldev-layout,
+    #tool-catalyst .tooldev-layout,
+    #tool-model .tooldev-layout,
+    #tool-clean .tooldev-layout {
+      grid-template-columns: 1fr;
+    }
+    #tool-inverse .tooldev-stack,
+    #tool-assistant .tooldev-stack {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    #tool-catalyst .tooldev-stack,
+    #tool-model .tooldev-stack {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    #tool-catalyst .tooldev-stack > .tooldev-card:nth-child(3):nth-last-child(1),
+    #tool-model .tooldev-stack > .tooldev-card:nth-child(3):nth-last-child(1) {
+      grid-column: 1 / -1;
+    }
+    @media (max-width: 900px) {
+      #tool-inverse .tooldev-stack,
+      #tool-assistant .tooldev-stack,
+      #tool-catalyst .tooldev-stack,
+      #tool-model .tooldev-stack {
+        grid-template-columns: 1fr;
+      }
+      #tool-catalyst .tooldev-stack > .tooldev-card:nth-child(3):nth-last-child(1),
+      #tool-model .tooldev-stack > .tooldev-card:nth-child(3):nth-last-child(1) {
+        grid-column: auto;
+      }
     }
 
     .tooldev-side-list,
@@ -7344,8 +7435,8 @@
 
     .twod-result-table-wrap,
     .twod-process-table {
-      border-radius: 18px;
-      border: 1px solid #dbe5f6;
+      border-radius: 4px;
+      border: 1px solid #ebeef5;
       overflow: hidden;
     }
 
@@ -7358,30 +7449,30 @@
 
     .twod-result-table thead th,
     .twod-process-table thead th {
-      padding: 16px 20px;
-      background: #f3f7ff;
-      color: #486688;
-      font-size: 16px;
-      line-height: 24px;
-      font-weight: 700;
+      padding: 12px 16px;
+      background: #f5f7fa;
+      color: #606266;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 600;
       text-align: left;
-      border-bottom: 1px solid #dbe5f6;
+      border-bottom: 1px solid #ebeef5;
     }
 
     .twod-result-table tbody td,
     .twod-process-table tbody td {
-      padding: 18px 20px;
-      border-bottom: 1px solid #edf2fb;
-      color: #223657;
-      font-size: 15px;
-      line-height: 24px;
+      padding: 12px 16px;
+      border-bottom: 1px solid #ebeef5;
+      color: #606266;
+      font-size: 14px;
+      line-height: 22px;
       vertical-align: middle;
       background: #ffffff;
     }
 
     .twod-result-table tbody tr:hover td,
     .twod-process-table tbody tr:hover td {
-      background: #f8fbff;
+      background: #f5f7fa;
     }
 
     .twod-result-table tbody tr:last-child td,
@@ -7389,15 +7480,42 @@
       border-bottom: none;
     }
 
+    .twod-result-card table thead th {
+      padding: 12px 16px;
+      background: #f5f7fa;
+      color: #606266;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 600;
+      text-align: left;
+      border-bottom: 1px solid #ebeef5;
+    }
+    .twod-result-card table tbody td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #ebeef5;
+      color: #606266;
+      font-size: 14px;
+      line-height: 22px;
+      vertical-align: middle;
+      background: #ffffff;
+    }
+    .twod-result-card table tbody tr:hover td {
+      background: #f5f7fa;
+    }
+    .twod-result-card table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
     .twod-material-link {
       color: #2451c6;
-      font-size: 16px;
-      line-height: 24px;
-      font-weight: 700;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 600;
       background: transparent;
       border: none;
       padding: 0;
       text-align: left;
+      cursor: pointer;
     }
 
     .twod-action-view {
@@ -7410,6 +7528,26 @@
       font-size: 14px;
       line-height: 22px;
       font-weight: 700;
+    }
+
+    .twod-search-results .twod-action-view,
+    .twod-result-card .twod-action-view {
+      min-width: auto;
+      padding: 0;
+      border-radius: 0;
+      border: none;
+      background: transparent;
+      color: #2451c6;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .twod-search-results .twod-action-view:hover,
+    .twod-result-card .twod-action-view:hover {
+      background: transparent;
+      border-color: transparent;
+      text-decoration: underline;
     }
 
     .twod-record-status {
@@ -8645,15 +8783,15 @@
 
     .result-footer.twod-result-footer .twod-pagination-btn,
     .result-footer.twod-result-footer .pager button {
-      min-width: 34px;
-      height: 34px;
-      min-height: 34px;
-      padding: 0 10px;
+      min-width: 28px;
+      height: 28px;
+      min-height: 28px;
+      padding: 0 6px;
       border-color: transparent;
-      border-radius: 8px;
+      border-radius: 4px;
       background: transparent;
-      color: #33455f;
-      font-size: 14px;
+      color: #606266;
+      font-size: 13px;
       line-height: 20px;
       font-weight: 500;
       box-shadow: none;
@@ -8661,24 +8799,24 @@
 
     .result-footer.twod-result-footer .twod-pagination-btn:hover,
     .result-footer.twod-result-footer .pager button:hover {
-      background: #f2f6fd;
+      background: #f5f7fa;
       border-color: transparent;
-      color: #1f4cb8;
+      color: #2451c6;
     }
 
     .result-footer.twod-result-footer .twod-pagination-btn.active,
     .result-footer.twod-result-footer .pager button.active {
-      background: #eaf2ff;
-      border-color: #eaf2ff;
-      color: #1f5fff;
-      box-shadow: inset 0 0 0 1px rgba(31, 95, 255, 0.08);
+      background: #2451c6;
+      border-color: #2451c6;
+      color: #ffffff;
+      box-shadow: none;
     }
 
     .result-footer.twod-result-footer .twod-pagination-btn.active:hover,
     .result-footer.twod-result-footer .pager button.active:hover {
-      background: #eaf2ff;
-      border-color: #eaf2ff;
-      color: #1f5fff;
+      background: #2451c6;
+      border-color: #2451c6;
+      color: #ffffff;
     }
 
     .result-footer.twod-result-footer .twod-pagination-btn:disabled,
@@ -8690,34 +8828,60 @@
     }
 
     .result-footer.twod-result-footer .page-select {
-      min-width: 94px;
-      height: 34px;
-      min-height: 34px;
-      padding: 0 34px 0 12px;
-      border-color: #eef2f7;
-      background-color: #f5f7fb;
-      color: #33455f;
+      min-width: 90px;
+      height: 28px;
+      min-height: 28px;
+      padding: 0 28px 0 10px;
+      border-color: #ebeef5;
+      background-color: #f5f7fa;
+      color: #606266;
       font-size: 13px;
       font-weight: 500;
     }
 
     .result-footer.twod-result-footer .page-select:hover {
-      border-color: #dbe5f3;
+      border-color: #d3d9e4;
       background-color: #eff3f9;
     }
 
     .result-footer.twod-result-footer .page-jump input {
-      height: 34px;
-      min-height: 34px;
-      padding: 0 8px;
-      border-color: #d8e3f7;
+      height: 28px;
+      min-height: 28px;
+      padding: 0 6px;
+      border-color: #ebeef5;
       background: #ffffff;
-      color: #1f2f49;
-      border-radius: 8px;
+      color: #606266;
+      border-radius: 4px;
     }
 
     .result-footer.twod-result-footer .page-jump input:hover {
-      border-color: #a9c0ef;
+      border-color: #d3d9e4;
+    }
+
+    .twod-shell .result-footer .pager button {
+      min-width: 28px;
+      height: 28px;
+      min-height: 28px;
+      padding: 0 6px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .twod-shell .result-footer .pager button.active {
+      background: #2451c6;
+      border-color: #2451c6;
+      color: #ffffff;
+    }
+    .twod-shell .result-footer .pager button:hover {
+      background: #f5f7fa;
+      color: #2451c6;
+    }
+    .twod-shell .result-footer .page-select {
+      min-width: 90px;
+      height: 28px;
+      min-height: 28px;
+      font-size: 13px;
+      font-weight: 500;
     }
 
     .twod-mode-selector {
@@ -8945,6 +9109,316 @@
       background: var(--ui-fill-soft);
     }
 
+    /* ===== 数据工具开发模块新样式（融合 tools.html 交互） ===== */
+    .tooldev-flat { padding: 24px; }
+    .tooldev-flat .tool-card {
+      background: var(--panel);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--primary);
+      overflow: hidden;
+      margin-bottom: 24px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .tooldev-flat .tool-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .tooldev-flat .card-header {
+      padding: 20px 24px;
+      background: linear-gradient(135deg, var(--primary-soft) 0%, #e6f2ff 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .tooldev-flat .card-header h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: var(--primary-strong);
+    }
+    .tooldev-flat .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tooldev-flat .tag {
+      background: rgba(31, 94, 255, 0.08);
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .tooldev-flat .card-body {
+      padding: 20px 24px;
+    }
+    .tooldev-flat .card-description {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .tooldev-flat .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .tooldev-flat .feature-list li {
+      padding: 6px 0;
+      font-size: 13px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tooldev-flat .feature-list li::before {
+      content: '✓';
+      color: var(--success);
+      font-weight: bold;
+    }
+
+    /* 流程图 */
+    .tooldev-flat .flow-chart {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      margin: 12px 0;
+      gap: 8px;
+    }
+    .tooldev-flat .flow-step {
+      flex: 1;
+      text-align: center;
+      position: relative;
+    }
+    .tooldev-flat .flow-step::after {
+      content: '→';
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary);
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .tooldev-flat .flow-step:last-child::after { display: none; }
+    .tooldev-flat .flow-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary) 0%, #00bfff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 6px;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(31, 94, 255, 0.25);
+    }
+    .tooldev-flat .flow-label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* 质量标签 */
+    .tooldev-flat .quality-tags {
+      display: flex;
+      justify-content: space-around;
+      margin: 16px 0;
+    }
+    .tooldev-flat .quality-tag {
+      text-align: center;
+      padding: 12px;
+    }
+    .tooldev-flat .quality-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 6px;
+      font-size: 22px;
+    }
+    .tooldev-flat .quality-high .quality-badge { border: 3px solid var(--success); background: rgba(22, 163, 74, 0.08); }
+    .tooldev-flat .quality-medium .quality-badge { border: 3px solid var(--warning); background: rgba(217, 119, 6, 0.08); }
+    .tooldev-flat .quality-low .quality-badge { border: 3px solid var(--danger); background: rgba(220, 38, 38, 0.08); }
+    .tooldev-flat .quality-label { font-size: 12px; font-weight: 700; color: var(--text); }
+
+    /* 软件/模型卡片网格 */
+    .tooldev-flat .option-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin: 12px 0;
+    }
+    .tooldev-flat .option-card {
+      background: var(--panel);
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      border: 2px solid var(--line);
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tooldev-flat .option-card:hover { border-color: var(--primary); box-shadow: var(--shadow-sm); }
+    .tooldev-flat .option-card.active { border-color: var(--primary); background: var(--primary-soft); }
+    .tooldev-flat .option-card strong { display: block; font-size: 14px; color: var(--text); }
+    .tooldev-flat .option-card p { margin: 4px 0 0; font-size: 12px; color: var(--muted); }
+    .tooldev-flat .option-card .rec { margin-top: 6px; color: var(--warning); font-size: 12px; }
+
+    /* 模型网格（大） */
+    .tooldev-flat .model-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin: 12px 0;
+    }
+
+    /* 3D预览区 */
+    .tooldev-flat .model-preview {
+      background: linear-gradient(135deg, var(--panel-soft) 0%, #e6f2ff 100%);
+      border-radius: var(--radius-sm);
+      padding: 32px;
+      text-align: center;
+      margin: 12px 0;
+      border: 2px dashed var(--line-strong);
+    }
+    .tooldev-flat .model-preview-icon { font-size: 40px; margin-bottom: 8px; }
+    .tooldev-flat .model-preview-text { color: var(--muted); font-size: 13px; }
+
+    /* 神经网络可视化 */
+    .tooldev-flat .nn-visualization {
+      background: linear-gradient(135deg, var(--panel-soft) 0%, #e6f2ff 100%);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      margin: 12px 0;
+    }
+    .tooldev-flat .nn-layers {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      min-height: 120px;
+    }
+    .tooldev-flat .nn-layer { display: flex; flex-direction: column; gap: 6px; }
+    .tooldev-flat .nn-neuron {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary) 0%, #00bfff 100%);
+      box-shadow: 0 2px 8px rgba(31, 94, 255, 0.3);
+      animation: nnPulse 2s infinite;
+    }
+    @keyframes nnPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+    .tooldev-flat .nn-label { text-align: center; font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+    /* 控制面板 */
+    .tooldev-flat .control-panel {
+      background: var(--panel);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin-top: 16px;
+      border: 1px solid var(--line);
+    }
+    .tooldev-flat .control-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .tooldev-flat .control-label { font-size: 13px; color: var(--text); }
+    .tooldev-flat .slider-container { display: flex; align-items: center; gap: 10px; }
+    .tooldev-flat .slider {
+      width: 140px;
+      -webkit-appearance: none;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--line);
+      outline: none;
+    }
+    .tooldev-flat .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(31, 94, 255, 0.3);
+    }
+    .tooldev-flat .slider-value { font-size: 14px; font-weight: 700; color: var(--primary); min-width: 28px; }
+
+    /* 编码对比 */
+    .tooldev-flat .encoding-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 12px 0;
+    }
+    .tooldev-flat .encoding-box {
+      background: var(--panel);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      border: 2px solid var(--line);
+    }
+    .tooldev-flat .encoding-title {
+      font-size: 14px; font-weight: 700; color: var(--text);
+      margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+    }
+    .tooldev-flat .encoding-code {
+      background: var(--panel-soft);
+      padding: 10px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: var(--primary);
+      line-height: 1.7;
+    }
+
+    /* 进度条 */
+    .tooldev-flat .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
+    .tooldev-flat .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary) 0%, #00bfff 100%);
+      border-radius: 4px;
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+
+    /* Toast（局部，不覆盖全局 toast） */
+    .tooldev-toast {
+      position: fixed;
+      top: 100px;
+      right: 24px;
+      background: var(--panel);
+      padding: 14px 20px;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transform: translateX(400px);
+      transition: transform 0.3s ease;
+      z-index: 2000;
+    }
+    .tooldev-toast.show { transform: translateX(0); }
+    .tooldev-toast.ok { border-left: 4px solid var(--success); }
+    .tooldev-toast.err { border-left: 4px solid var(--danger); }
+    .tooldev-toast .t-icon { font-size: 18px; }
+    .tooldev-toast .t-msg { font-size: 14px; color: var(--text); }
+
+    @media (max-width: 768px) {
+      .tooldev-flat .encoding-comparison { grid-template-columns: 1fr; }
+      .tooldev-flat .option-grid { grid-template-columns: 1fr 1fr; }
+      .tooldev-flat .flow-chart { flex-wrap: wrap; gap: 12px; }
+      .tooldev-flat .flow-step { flex: 1 1 30%; }
+      .tooldev-flat .flow-step::after { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -9950,181 +10424,60 @@
           <div class="tab-panel active" id="tool-inverse">
             <div class="tooldev-intro">
               <h3>二维材料多目标逆向设计工具</h3>
-              <p>分为材料结构文件可视化生成器和第一性原理计算软件接口</p>
+              <p>包含材料结构文件可视化生成器和第一性原理计算软件接口</p>
             </div>
-
-            <div class="card tabs-shell tooldev-subshell">
-              <div class="subtab-row" data-tabs="tool-inverse-tabs">
-                <button class="subtab-btn active" data-tab="tool-inverse-visual">◧ 材料结构文件可视化生成器</button>
-                <button class="subtab-btn" data-tab="tool-inverse-dft">▦ 第一性原理计算软件接口</button>
-              </div>
-
-              <div class="subtab-panel active" id="tool-inverse-visual">
-                <div class="tooldev-layout">
-                  <div class="tooldev-stack">
-                    <section class="tooldev-card">
-                      <div class="tooldev-view-head">
-                        <h4 class="tooldev-section-title"><span class="icon">◧</span><span>结构可视化</span></h4>
-                        <div class="tooldev-view-actions">
-                          <button class="btn" type="button">⟳ 重置视角</button>
-                          <button class="btn-primary" type="button">▣ 导出图片</button>
-                        </div>
-                      </div>
-                      <div class="tooldev-viewer">
-                        <div>
-                          <div class="cube">⌬</div>
-                          <strong>3D结构可视化区域</strong>
-                          <p>双击原子调节参数 | 悬停查看键信息</p>
-                        </div>
-                      </div>
-                      <div class="tooldev-opbar">
-                        <button class="tooldev-ghost-btn" type="button">〉测量键角</button>
-                        <button class="tooldev-ghost-btn" type="button">↗ 更改周期</button>
-                        <button class="tooldev-ghost-btn" type="button">＋ 添加原子</button>
-                        <button class="tooldev-ghost-btn" type="button">⇄ 替换原子</button>
-                      </div>
-                    </section>
-
-                    <section class="tooldev-card soft">
-                      <h4 class="tooldev-section-title"><span class="icon">♪</span><span>声子振动模式</span></h4>
-                      <div class="tooldev-slider-grid">
-                        <div class="tooldev-slider-card">
-                          <label for="tooldevFreqRange">振动频率调节</label>
-                          <input id="tooldevFreqRange" type="range" min="0" max="100" value="50">
-                          <div class="tooldev-slider-scale"><span>0 THz</span><span>50 THz</span><span>100 THz</span></div>
-                        </div>
-                        <div class="tooldev-slider-card">
-                          <label for="tooldevAmpRange">振动幅度调节</label>
-                          <input id="tooldevAmpRange" type="range" min="0" max="100" value="48">
-                          <div class="tooldev-slider-scale"><span>小</span><span>中</span><span>大</span></div>
-                        </div>
-                      </div>
-                      <div class="tooldev-actions">
-                        <button class="btn-primary" type="button">⇪ 加载声子数据</button>
-                        <button class="btn" type="button">▶ 播放振动</button>
-                      </div>
-                    </section>
-
-                    <section class="tooldev-code-card">
-                      <div class="tooldev-code-head">
-                        <h4 class="tooldev-section-title" style="margin:0; color:#f0f5ff;"><span class="icon" style="color:#34d399;">&lt;/&gt;</span><span>API 调用示例</span></h4>
-                        <span class="tooldev-code-copy">⧉ 复制</span>
-                      </div>
-                      <pre>POST /api/v1/structure/visualize
-Content-Type: application/json
-Authorization: Bearer YOUR_API_KEY
-
-{
-  "structure_file": "POSCAR",
-  "format": "vasp",
-  "options": {
-    "show_bonds": true,
-    "show_labels": true,
-    "phonon_mode": 3,
-    "export": ["png", "obj", "poscar"]
-  }
-}</pre>
-                    </section>
+            <div class="tooldev-stepper">
+              <div class="tooldev-step active"><div class="tooldev-step-dot">1</div><div class="tooldev-step-label">结构可视化</div></div>
+              <div class="tooldev-step active"><div class="tooldev-step-dot">2</div><div class="tooldev-step-label">软件接口选择</div></div>
+              <div class="tooldev-step active"><div class="tooldev-step-dot">3</div><div class="tooldev-step-label">生成输入文件</div></div>
+            </div>
+            <div class="tooldev-layout">
+              <div class="tooldev-stack">
+                <section class="tooldev-card">
+                  <h4 class="tooldev-section-title"><span class="icon">◧</span><span>材料结构文件可视化生成器</span></h4>
+                  <div class="model-preview" style="margin-bottom:16px;">
+                    <div class="model-preview-icon">🔮</div>
+                    <div class="model-preview-text">3D晶体结构可视化预览区</div>
                   </div>
-
-                  <aside class="tooldev-card">
-                    <h4 class="tooldev-section-title"><span class="icon">⇩</span><span>导出选项</span></h4>
-                    <div class="tooldev-export-list">
-                      <div class="tooldev-export-item"><strong>PNG图片</strong><span>⇩</span></div>
-                      <div class="tooldev-export-item"><strong>OBJ模型</strong><span>⇩</span></div>
-                      <div class="tooldev-export-item"><strong>POSCAR文件</strong><span>⇩</span></div>
+                  <ul class="feature-list">
+                    <li>晶体结构3D实时展示</li>
+                    <li>原子参数调节（大小、颜色）</li>
+                    <li>声子振动模式可视化</li>
+                    <li>多格式导出（POSCAR、CIF、PNG、3D模型）</li>
+                  </ul>
+                  <div class="tooldev-actions" style="margin-top:16px;">
+                    <button class="btn-primary" type="button" onclick="tdToast('ok','可视化工具启动中...')">启动可视化工具</button>
+                  </div>
+                </section>
+                <section class="tooldev-card">
+                  <h4 class="tooldev-section-title"><span class="icon">▦</span><span>第一性原理计算软件接口</span></h4>
+                  <div class="tooldev-grid-2" id="tdInverseSoftware">
+                    <div class="tooldev-option-card active" onclick="tdSelectOption(this,'tdInverseSoftware'); tdSelectedSoftware='vasp'; tdToast('ok','已选择 VASP 接口');">
+                      <span class="tooldev-option-check"></span>
+                      <strong>VASP</strong>
+                      <p>Vienna Ab initio Simulation Package</p>
                     </div>
-                  </aside>
-                </div>
-              </div>
-
-              <div class="subtab-panel" id="tool-inverse-dft">
-                <div class="tooldev-layout">
-                  <div class="tooldev-stack">
-                    <section class="tooldev-card">
-                      <h4 class="tooldev-section-title"><span class="icon">▦</span><span>选择计算软件</span></h4>
-                      <div class="tooldev-grid-2">
-                        <div class="tooldev-option-card active">
-                          <span class="tooldev-option-check"></span>
-                          <strong>VASP</strong>
-                          <p>Vienna Ab initio Simulation Package</p>
-                        </div>
-                        <div class="tooldev-option-card">
-                          <span class="tooldev-option-check"></span>
-                          <strong>Quantum ESPRESSO</strong>
-                          <p>开源第一性原理计算软件</p>
-                        </div>
-                      </div>
-                    </section>
-
-                    <section class="tooldev-card soft">
-                      <h4 class="tooldev-section-title"><span class="icon">⚙</span><span>计算参数配置</span></h4>
-                      <div class="tooldev-form-grid">
-                        <div class="field">
-                          <label for="tooldevEncut">ENCUT (eV)</label>
-                          <input id="tooldevEncut" type="text" value="520">
-                        </div>
-                        <div class="field">
-                          <label for="tooldevKmesh">K点网格</label>
-                          <input id="tooldevKmesh" type="text" value="9 9 1">
-                        </div>
-                        <div class="field">
-                          <label for="tooldevXc">交换关联泛函</label>
-                          <select id="tooldevXc">
-                            <option selected>PBE</option>
-                            <option>SCAN</option>
-                            <option>HSE06</option>
-                          </select>
-                        </div>
-                        <div class="field">
-                          <label for="tooldevCalcType">计算类型</label>
-                          <select id="tooldevCalcType">
-                            <option selected>自洽计算 (SCF)</option>
-                            <option>结构弛豫</option>
-                            <option>能带计算</option>
-                          </select>
-                        </div>
-                      </div>
-                    </section>
-
-                    <section class="tooldev-code-card">
-                      <div class="tooldev-code-head">
-                        <h4 class="tooldev-section-title" style="margin:0; color:#f0f5ff;"><span class="icon" style="color:#34d399;">&lt;/&gt;</span><span>API 调用示例</span></h4>
-                        <span class="tooldev-code-copy">⧉ 复制</span>
-                      </div>
-                      <pre>POST /api/v1/dft/input-generate
-Content-Type: application/json
-Authorization: Bearer YOUR_API_KEY
-
-{
-  "software": "vasp",
-  "structure": "POSCAR_content",
-  "parameters": {
-    "encut": 520,
-    "kpoints": [9, 9, 1],
-    "xc_functional": "PBE",
-    "calculation": "relax"
-  }
-}</pre>
-                    </section>
-
-                    <div class="tooldev-actions">
-                      <button class="btn-primary" type="button">▣ 生成输入文件</button>
-                      <button class="btn" type="button">⇪ 导入计算结果</button>
-                      <button class="btn" type="button">▤ 结果对比</button>
+                    <div class="tooldev-option-card" onclick="tdSelectOption(this,'tdInverseSoftware'); tdSelectedSoftware='qe'; tdToast('ok','已选择 Quantum ESPRESSO 接口');">
+                      <span class="tooldev-option-check"></span>
+                      <strong>Quantum ESPRESSO</strong>
+                      <p>开源第一性原理计算软件</p>
                     </div>
                   </div>
-
-                  <aside class="tooldev-card">
-                    <h4 class="tooldev-section-title"><span class="icon">☰</span><span>计算结果类型</span></h4>
-                    <div class="tooldev-side-list">
-                      <div class="tooldev-side-item"><strong>能带结构</strong></div>
-                      <div class="tooldev-side-item"><strong>声子谱</strong></div>
-                      <div class="tooldev-side-item"><strong>电荷密度</strong></div>
-                      <div class="tooldev-side-item"><strong>态密度</strong></div>
-                    </div>
-                  </aside>
-                </div>
+                  <div class="field" style="margin-top:16px;">
+                    <label for="tdCalcProperty">计算性质</label>
+                    <select id="tdCalcProperty">
+                      <option value="">请选择计算性质</option>
+                      <option value="band">电子能带结构</option>
+                      <option value="dos">态密度</option>
+                      <option value="phonon">声子谱</option>
+                      <option value="charge">电荷密度</option>
+                      <option value="formation">形成能</option>
+                    </select>
+                  </div>
+                  <div class="tooldev-actions" style="margin-top:16px;">
+                    <button class="btn-primary" type="button" onclick="tdGenerateInput()">生成输入文件</button>
+                  </div>
+                </section>
               </div>
             </div>
           </div>
@@ -10132,531 +10485,206 @@ Authorization: Bearer YOUR_API_KEY
           <div class="tab-panel" id="tool-clean">
             <div class="tooldev-intro">
               <h3>分子数据集智能清洗和质量控制工具</h3>
-              <p>对用户存入条目和批量取出条目进行清洗，剔除不合理条目并对用户进行提醒，维护数据集质量</p>
+              <p>针对分子数据管理过程中的核心需求，提供全面且高效的清洗服务，自动检测不合理条目并进行智能判定</p>
             </div>
-
+            <div class="tooldev-stepper">
+              <div class="tooldev-step active"><div class="tooldev-step-dot">1</div><div class="tooldev-step-label">数据输入</div></div>
+              <div class="tooldev-step active"><div class="tooldev-step-dot">2</div><div class="tooldev-step-label">自动校验</div></div>
+              <div class="tooldev-step active"><div class="tooldev-step-dot">3</div><div class="tooldev-step-label">异常识别</div></div>
+              <div class="tooldev-step active"><div class="tooldev-step-dot">4</div><div class="tooldev-step-label">清洗处理</div></div>
+              <div class="tooldev-step active"><div class="tooldev-step-dot">5</div><div class="tooldev-step-label">输出报告</div></div>
+            </div>
             <div class="tooldev-layout">
               <div class="tooldev-stack">
                 <section class="tooldev-card soft">
-                  <h4 class="tooldev-section-title"><span class="icon">⚙</span><span>质控规则配置</span></h4>
-                  <div class="tooldev-check-grid">
-                    <div class="tooldev-check-card">
-                      <label><input type="checkbox" checked> 分子结构合理性</label>
-                      <span class="tooldev-badge blue">核心</span>
-                    </div>
-                    <div class="tooldev-check-card">
-                      <label><input type="checkbox" checked> 连接拓扑检查</label>
-                      <span class="tooldev-badge blue">核心</span>
-                    </div>
-                    <div class="tooldev-check-card">
-                      <label><input type="checkbox" checked> 计算收敛性判定</label>
-                      <span class="tooldev-badge green">计算</span>
-                    </div>
-                    <div class="tooldev-check-card">
-                      <label><input type="checkbox" checked> 计算结果合理性</label>
-                      <span class="tooldev-badge green">计算</span>
-                    </div>
-                    <div class="tooldev-check-card">
-                      <label><input type="checkbox"> 重复条目检测</label>
-                      <span class="tooldev-badge yellow">可选</span>
-                    </div>
-                    <div class="tooldev-check-card">
-                      <label><input type="checkbox"> 数据完整性</label>
-                      <span class="tooldev-badge yellow">可选</span>
-                    </div>
+                  <h4 class="tooldev-section-title"><span class="icon">⚙</span><span>清洗流程与质量控制</span></h4>
+                  <div class="quality-tags" style="margin-bottom:16px;">
+                    <div class="quality-tag quality-high"><div class="quality-badge">🟢</div><div class="quality-label">高质量</div></div>
+                    <div class="quality-tag quality-medium"><div class="quality-badge">🟡</div><div class="quality-label">中质量</div></div>
+                    <div class="quality-tag quality-low"><div class="quality-badge">🔴</div><div class="quality-label">低质量</div></div>
+                  </div>
+                  <div class="field">
+                    <label for="tdDataFile">上传数据文件</label>
+                    <input type="file" id="tdDataFile" accept=".csv,.json,.txt" onchange="if(this.files[0]) tdToast('ok','已上传: '+this.files[0].name)">
+                  </div>
+                  <div class="tooldev-actions" style="margin-top:16px;">
+                    <button class="btn-primary" type="button" onclick="tdStartCleaning()">开始清洗</button>
                   </div>
                 </section>
-
-                <section class="tooldev-card soft">
-                  <h4 class="tooldev-section-title"><span class="icon">⇄</span><span>数据操作范围</span></h4>
-                  <div class="tooldev-scope-grid">
-                    <div class="tooldev-dashed-card">
-                      <div>
-                        <div class="lead">⇪</div>
-                        <strong>存入条目清洗</strong>
-                        <p>对新存入的分子数据进行质量检查</p>
-                      </div>
-                    </div>
-                    <div class="tooldev-dashed-card">
-                      <div>
-                        <div class="lead">⇩</div>
-                        <strong>取出条目清洗</strong>
-                        <p>对批量取出的数据进行质量维护</p>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-
-                <section class="tooldev-code-card">
-                  <div class="tooldev-code-head">
-                    <h4 class="tooldev-section-title" style="margin:0; color:#f0f5ff;"><span class="icon" style="color:#34d399;">&lt;/&gt;</span><span>API 调用示例</span></h4>
-                    <span class="tooldev-code-copy">⧉ 复制</span>
-                  </div>
-                  <pre>POST /api/v1/data-quality/check
-Content-Type: application/json
-Authorization: Bearer YOUR_API_KEY
-
-{
-  "operation": "store",
-  "dataset_id": "dataset_001",
-  "rules": [
-    "structure_validation",
-    "topology_check",
-    "convergence_check",
-    "result_validation"
-  ],
-  "auto_clean": true,
-  "alert_user": true,
-  "threshold": 0.95
-}</pre>
-                </section>
-
-                <div class="tooldev-actions">
-                  <button class="btn-primary" type="button">▶ 调用API</button>
-                  <button class="btn" type="button">⟳ 重置</button>
-                </div>
-                <div class="tooldev-link-row"><a href="javascript:void(0)">▣ 查看完整API文档</a></div>
               </div>
-
-              <aside class="tooldev-stack">
-                <section class="tooldev-card">
-                  <h4 class="tooldev-section-title"><span class="icon">☰</span><span>质控统计</span></h4>
-                  <div class="tooldev-side-list">
-                    <div class="tooldev-side-item"><strong>检测记录数</strong><span class="value">-</span></div>
-                    <div class="tooldev-side-item"><strong>结构异常</strong><span class="value danger">-</span></div>
-                    <div class="tooldev-side-item"><strong>拓扑问题</strong><span class="value danger">-</span></div>
-                    <div class="tooldev-side-item"><strong>收敛失败</strong><span class="value warning">-</span></div>
-                    <div class="tooldev-side-item"><strong>质量评分</strong><span class="value success">-</span></div>
-                  </div>
-                </section>
-
-                <section class="tooldev-code-card">
-                  <div class="tooldev-code-head">
-                    <h4 class="tooldev-section-title" style="margin:0; color:#f0f5ff;"><span>返回示例</span></h4>
-                  </div>
-                  <pre>{
-  "status": "success",
-  "operation": "store",
-  "total_records": 10523,
-  "passed": 9847,
-  "structure_anomalies": 320,
-  "topology_issues": 145,
-  "convergence_fails": 67,
-  "quality_score": 93.6,
-  "alerts": [...],
-  "report_url": "/reports/12345.pdf"
-}</pre>
-                </section>
-              </aside>
             </div>
           </div>
 
           <div class="tab-panel" id="tool-assistant">
             <div class="tooldev-intro">
               <h3>复杂系统模拟智能助手工具</h3>
-              <p>协助用户对复杂分子体系进行结构和力场建模，并针对主流分子模拟软件导出相应的输入文件</p>
+              <p>包含结构构建与力场建模和多软件格式支持</p>
             </div>
-
+            <div class="tooldev-stepper">
+              <div class="tooldev-step active"><div class="tooldev-step-dot">1</div><div class="tooldev-step-label">体系选择</div></div>
+              <div class="tooldev-step active"><div class="tooldev-step-dot">2</div><div class="tooldev-step-label">力场建模</div></div>
+              <div class="tooldev-step active"><div class="tooldev-step-dot">3</div><div class="tooldev-step-label">软件格式</div></div>
+              <div class="tooldev-step active"><div class="tooldev-step-dot">4</div><div class="tooldev-step-label">导出文件</div></div>
+            </div>
             <div class="tooldev-layout">
               <div class="tooldev-stack">
-                <section class="tooldev-card soft">
-                  <h4 class="tooldev-section-title"><span class="icon">◫</span><span>结构建模功能</span></h4>
-                  <div class="tooldev-feature-grid">
-                    <div class="tooldev-check-tile"><label>◧ 分子体系构建</label><span>构建复杂分子体系的三维结构模型</span></div>
-                    <div class="tooldev-check-tile"><label>◌ 力场参数分配</label><span>自动为分子体系分配合适的力场参数</span></div>
-                    <div class="tooldev-check-tile"><label>▣ 输入文件生成</label><span>导出主流分子模拟软件的输入文件</span></div>
-                    <div class="tooldev-check-tile"><label>✎ 参数编辑工具</label><span>可视化编辑模拟参数和模型设置</span></div>
-                  </div>
-                </section>
-
-                <section class="tooldev-card soft">
-                  <h4 class="tooldev-section-title"><span class="icon">▥</span><span>支持的模拟软件</span></h4>
-                  <div class="tooldev-softwares">
-                    <div class="tooldev-software-card"><strong>LAMMPS</strong><span>分子动力学</span></div>
-                    <div class="tooldev-software-card"><strong>GROMACS</strong><span>生物分子模拟</span></div>
-                    <div class="tooldev-software-card"><strong>Amber</strong><span>生物分子力场</span></div>
-                    <div class="tooldev-software-card"><strong>NAMD</strong><span>大规模模拟</span></div>
-                  </div>
-                  <div class="tooldev-scrollbar"></div>
-                </section>
-
-                <section class="tooldev-card soft">
-                  <h4 class="tooldev-section-title"><span class="icon">⇪</span><span>模拟输入分析</span></h4>
-                  <div class="tooldev-upload-zone">
-                    <div class="upload-mark">☁</div>
-                    <strong>上传模拟输入文件进行分析</strong>
-                    <p>支持 in.lammps、mdp、inp 等格式</p>
-                  </div>
-                </section>
-
-                <section class="tooldev-card soft">
-                  <h4 class="tooldev-section-title"><span class="icon">▤</span><span>结构化存储与管理</span></h4>
-                  <div class="tooldev-storage-list">
-                    <div class="tooldev-storage-item"><strong>模型参数存储</strong><button type="button">查看</button></div>
-                    <div class="tooldev-storage-item"><strong>模拟配置历史</strong><button type="button">查看</button></div>
-                    <div class="tooldev-storage-item"><strong>结果一致性对比</strong><button type="button">查看</button></div>
-                  </div>
-                </section>
-
-                <section class="tooldev-code-card">
-                  <div class="tooldev-code-head">
-                    <h4 class="tooldev-section-title" style="margin:0; color:#f0f5ff;"><span class="icon" style="color:#34d399;">&lt;/&gt;</span><span>API 调用示例</span></h4>
-                    <span class="tooldev-code-copy">⧉ 复制</span>
-                  </div>
-                  <pre>POST /api/v1/simulation/assistant
-Content-Type: application/json
-Authorization: Bearer YOUR_API_KEY
-
-{
-  "action": "generate_input",
-  "software": "lammps",
-  "molecule_data": {...},
-  "forcefield": "OPLS-AA",
-  "parameters": {
-    "ensemble": "NPT",
-    "temperature": 300,
-    "pressure": 1.0,
-    "timestep": 1.0,
-    "steps": 1000000
-  },
-  "analysis": {
-    "check_consistency": true,
-    "compare_software": ["gromacs", "amber"]
-  }
-}</pre>
-                </section>
-
-                <div class="tooldev-actions">
-                  <button class="btn-primary" type="button">▶ 调用API</button>
-                  <button class="btn" type="button">⟳ 重置</button>
-                </div>
-                <div class="tooldev-link-row"><a href="javascript:void(0)">▣ 查看完整API文档</a></div>
-              </div>
-
-              <aside class="tooldev-stack">
                 <section class="tooldev-card">
-                  <h4 class="tooldev-section-title"><span class="icon">☰</span><span>建模统计</span></h4>
-                  <div class="tooldev-side-list">
-                    <div class="tooldev-side-item"><strong>已建模型</strong><span class="value">-</span></div>
-                    <div class="tooldev-side-item"><strong>生成输入文件</strong><span class="value">-</span></div>
-                    <div class="tooldev-side-item"><strong>分析项目</strong><span class="value success">-</span></div>
-                    <div class="tooldev-side-item"><strong>一致性验证</strong><span class="value">-</span></div>
+                  <h4 class="tooldev-section-title"><span class="icon">◫</span><span>结构构建与力场建模</span></h4>
+                  <div class="field">
+                    <label for="tdMolType">分子体系类型</label>
+                    <select id="tdMolType">
+                      <option value="">请选择类型</option>
+                      <option value="protein">蛋白质</option>
+                      <option value="polymer">聚合物</option>
+                      <option value="surface">表面吸附系统</option>
+                      <option value="solution">溶液体系</option>
+                    </select>
+                  </div>
+                  <div class="field" style="margin-top:10px;">
+                    <label for="tdForcefield">力场类型</label>
+                    <select id="tdForcefield">
+                      <option value="">请选择力场</option>
+                      <option value="gaff">GAFF</option>
+                      <option value="charmm">CHARMM</option>
+                      <option value="amber">AMBER</option>
+                      <option value="opls">OPLS</option>
+                    </select>
                   </div>
                 </section>
-
-                <section class="tooldev-code-card">
-                  <div class="tooldev-code-head">
-                    <h4 class="tooldev-section-title" style="margin:0; color:#f0f5ff;"><span>返回示例</span></h4>
+                <section class="tooldev-card">
+                  <h4 class="tooldev-section-title"><span class="icon">▥</span><span>多软件格式支持</span></h4>
+                  <div class="tooldev-grid-3" id="tdSimSoftware">
+                    <div class="tooldev-option-card" onclick="tdSelectOption(this,'tdSimSoftware'); tdToast('ok','已选择 GROMACS');">
+                      <span class="tooldev-option-check"></span>
+                      <strong>GROMACS</strong>
+                      <p>生物分子模拟</p>
+                    </div>
+                    <div class="tooldev-option-card" onclick="tdSelectOption(this,'tdSimSoftware'); tdToast('ok','已选择 LAMMPS');">
+                      <span class="tooldev-option-check"></span>
+                      <strong>LAMMPS</strong>
+                      <p>分子动力学</p>
+                    </div>
+                    <div class="tooldev-option-card" onclick="tdSelectOption(this,'tdSimSoftware'); tdToast('ok','已选择 AMBER');">
+                      <span class="tooldev-option-check"></span>
+                      <strong>AMBER</strong>
+                      <p>生物分子力场</p>
+                    </div>
                   </div>
-                  <pre>{
-  "status": "success",
-  "input_files": {
-    "lammps": "in.system",
-    "data": "data.system"
-  },
-  "forcefield_params": {...},
-  "consistency_check": {
-    "passed": true,
-    "software_compared": [...]
-  },
-  "recommendations": [...]
-}</pre>
+                  <div class="field" style="margin-top:16px;">
+                    <label for="tdTargetSoftware">目标软件格式</label>
+                    <select id="tdTargetSoftware">
+                      <option value="">请选择目标格式</option>
+                      <option value="gromacs">GROMACS (.gro/.top)</option>
+                      <option value="lammps">LAMMPS (.data/.in)</option>
+                      <option value="amber">AMBER (.prmtop/.inpcrd)</option>
+                    </select>
+                  </div>
+                  <div class="tooldev-actions" style="margin-top:16px;">
+                    <button class="btn-primary" type="button" onclick="tdExportSim()">导出输入文件</button>
+                  </div>
                 </section>
-              </aside>
+              </div>
             </div>
           </div>
 
           <div class="tab-panel" id="tool-catalyst">
             <div class="tooldev-intro">
               <h3>高效催化剂设计优化工具</h3>
-              <p>分为材料结构文件可视化生成器、催化材料结构特征生成器和催化材料元素特征生成器</p>
+              <p>包含POSCAR生成与结构可视化、催化材料结构特征生成和催化材料元素特征编码</p>
             </div>
-
-            <div class="card tabs-shell tooldev-subshell">
-              <div class="subtab-row" data-tabs="tool-catalyst-tabs">
-                <button class="subtab-btn active" data-tab="tool-catalyst-visual">◧ 材料结构文件可视化生成器</button>
-                <button class="subtab-btn" data-tab="tool-catalyst-structure">◫ 催化材料结构特征生成器</button>
-                <button class="subtab-btn" data-tab="tool-catalyst-element">▦ 催化材料元素特征生成器</button>
-              </div>
-
-              <div class="subtab-panel active" id="tool-catalyst-visual">
-                <div class="tooldev-stack">
-                  <section class="tooldev-card">
-                    <div class="tooldev-view-head">
-                      <h4 class="tooldev-section-title"><span class="icon">◧</span><span>催化材料结构可视化</span></h4>
-                      <div class="tooldev-view-actions">
-                        <button class="btn" type="button">⟳ 重置视角</button>
-                        <button class="btn-primary" type="button">⇩ 下载POSCAR</button>
-                      </div>
-                    </div>
-                    <div class="tooldev-viewer">
-                      <div>
-                        <strong>催化材料3D可视化区域</strong>
-                        <p>选择晶面 | 添加吸附分子 | 调整构型</p>
-                      </div>
-                    </div>
-                  </section>
-
-                  <section class="tooldev-card soft">
-                    <h4 class="tooldev-section-title"><span class="icon">⚙</span><span>结构操作</span></h4>
-                    <div class="tooldev-form-grid">
-                      <div class="field">
-                        <label for="tooldevCatMaterial">选择催化材料</label>
-                        <select id="tooldevCatMaterial">
-                          <option selected>请选择材料</option>
-                          <option>Pt</option>
-                          <option>Fe-N-C</option>
-                          <option>Co3O4</option>
-                        </select>
-                      </div>
-                      <div class="field">
-                        <label for="tooldevFacet">选择晶面</label>
-                        <select id="tooldevFacet">
-                          <option selected>(111)</option>
-                          <option>(100)</option>
-                          <option>(110)</option>
-                        </select>
-                      </div>
-                      <div class="field">
-                        <label for="tooldevAdsorbate">添加吸附分子</label>
-                        <select id="tooldevAdsorbate">
-                          <option selected>无</option>
-                          <option>OH</option>
-                          <option>OOH</option>
-                          <option>CO</option>
-                        </select>
-                      </div>
-                      <div class="field">
-                        <label for="tooldevSite">吸附位点</label>
-                        <select id="tooldevSite">
-                          <option selected>top</option>
-                          <option>bridge</option>
-                          <option>fcc</option>
-                          <option>hcp</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="tooldev-actions">
-                      <button class="btn-primary" type="button">＋ 添加吸附分子</button>
-                      <button class="btn" type="button">✥ 移动位置</button>
-                      <button class="btn" type="button">☷ 调整构型</button>
-                    </div>
-                  </section>
-
-                  <section class="tooldev-code-card">
-                    <div class="tooldev-code-head">
-                      <h4 class="tooldev-section-title" style="margin:0; color:#f0f5ff;"><span class="icon" style="color:#34d399;">&lt;/&gt;</span><span>API 调用示例</span></h4>
-                      <span class="tooldev-code-copy">⧉ 复制</span>
-                    </div>
-                    <pre>POST /api/v1/catalyst/build-slab
-Content-Type: application/json
-Authorization: Bearer YOUR_API_KEY
-
-{
-  "material": "Pt",
-  "facet": "111",
-  "adsorbate": {
-    "molecule": "OH",
-    "site": "fcc",
-    "position": [0.5, 0.5, 2.1]
-  },
-  "output_format": "poscar"
-}</pre>
-                  </section>
-                </div>
-              </div>
-
-              <div class="subtab-panel" id="tool-catalyst-structure">
-                <div class="card tabs-shell tooldev-subshell" style="margin:0;">
-                  <div class="subtab-row" data-tabs="tool-catalyst-structure-tabs">
-                    <button class="subtab-btn active" data-tab="tool-catalyst-gcn">▦ 吸附分子广义配位数生成器</button>
-                    <button class="subtab-btn" data-tab="tool-catalyst-symmetry">&lt;/&gt; 材料结构对称性函数生成器</button>
+            <div class="tooldev-stepper">
+              <div class="tooldev-step active"><div class="tooldev-step-dot">1</div><div class="tooldev-step-label">POSCAR生成</div></div>
+              <div class="tooldev-step active"><div class="tooldev-step-dot">2</div><div class="tooldev-step-label">结构特征</div></div>
+              <div class="tooldev-step active"><div class="tooldev-step-dot">3</div><div class="tooldev-step-label">元素编码</div></div>
+              <div class="tooldev-step active"><div class="tooldev-step-dot">4</div><div class="tooldev-step-label">优化输出</div></div>
+            </div>
+            <div class="tooldev-layout">
+              <div class="tooldev-stack">
+                <section class="tooldev-card">
+                  <h4 class="tooldev-section-title"><span class="icon">◧</span><span>POSCAR 生成与结构可视化</span></h4>
+                  <div class="model-preview" style="margin-bottom:16px;">
+                    <div class="model-preview-icon">⚗️</div>
+                    <div class="model-preview-text">催化材料结构预览区</div>
                   </div>
-
-                  <div class="subtab-panel active" id="tool-catalyst-gcn">
-                    <div class="tooldev-stack">
-                      <section class="tooldev-card">
-                        <h4 class="tooldev-section-title"><span class="icon">⇪</span><span>上传催化材料文件</span></h4>
-                        <div class="tooldev-upload-zone">
-                          <div class="upload-mark">☁</div>
-                          <strong>上传结构文件</strong>
-                          <p>支持POSCAR、CONTCAR、CIF等格式</p>
-                          <button class="btn-primary" type="button">▣ 选择文件</button>
-                        </div>
-                      </section>
-
-                      <section class="tooldev-card soft">
-                        <h4 class="tooldev-section-title"><span class="icon">⚙</span><span>填充方法选择</span></h4>
-                        <div class="tooldev-grid-2">
-                          <div class="tooldev-option-card active">
-                            <span class="tooldev-option-check"></span>
-                            <strong>高斯填充</strong>
-                            <p>Gaussian smearing</p>
-                          </div>
-                          <div class="tooldev-option-card">
-                            <span class="tooldev-option-check"></span>
-                            <strong>费米填充</strong>
-                            <p>Fermi-Dirac distribution</p>
-                          </div>
-                        </div>
-                      </section>
-
-                      <section class="tooldev-code-card">
-                        <div class="tooldev-code-head">
-                          <h4 class="tooldev-section-title" style="margin:0; color:#f0f5ff;"><span class="icon" style="color:#34d399;">&lt;/&gt;</span><span>API 调用示例</span></h4>
-                          <span class="tooldev-code-copy">⧉ 复制</span>
-                        </div>
-                        <pre>POST /api/v1/catalyst/generalized-cn
-Content-Type: application/json
-Authorization: Bearer YOUR_API_KEY
-
-{
-  "structure_file": "POSCAR",
-  "adsorbate_index": 45,
-  "filling_method": "gaussian",
-  "cutoff_radius": 6.0,
-  "output_format": "json"
-}</pre>
-                      </section>
-
-                      <div class="tooldev-actions">
-                        <button class="btn-primary" type="button">▶ 生成广义配位数</button>
-                        <button class="btn" type="button">⇩ 下载结果</button>
+                  <div class="field">
+                    <label for="tdCatMaterial">选择催化材料</label>
+                    <select id="tdCatMaterial">
+                      <option value="">请选择材料</option>
+                      <option value="pt">Pt (铂)</option>
+                      <option value="au">Au (金)</option>
+                      <option value="ni">Ni (镍)</option>
+                      <option value="fe">Fe (铁)</option>
+                    </select>
+                  </div>
+                  <div class="field" style="margin-top:10px;">
+                    <label for="tdCatFacet">选择晶面</label>
+                    <select id="tdCatFacet">
+                      <option value="">请选择晶面</option>
+                      <option value="111">(111)</option>
+                      <option value="100">(100)</option>
+                      <option value="110">(110)</option>
+                    </select>
+                  </div>
+                  <div class="tooldev-actions" style="margin-top:16px;">
+                    <button class="btn-primary" type="button" onclick="tdToast('ok','POSCAR文件已生成')">生成POSCAR</button>
+                  </div>
+                </section>
+                <section class="tooldev-card soft">
+                  <h4 class="tooldev-section-title"><span class="icon">◫</span><span>催化材料结构特征生成</span></h4>
+                  <div class="field">
+                    <label for="tdFeatureType">特征类型</label>
+                    <select id="tdFeatureType" onchange="tdUpdateFeatureFormula()">
+                      <option value="">请选择</option>
+                      <option value="gcn">吸附分子广义配位数 (GCN)</option>
+                      <option value="symmetry">对称性函数</option>
+                    </select>
+                  </div>
+                  <div id="tdFeatureFormula" style="background: var(--panel-soft); padding: 14px; border-radius: 8px; margin: 12px 0; font-family: 'Times New Roman', serif; text-align: center; color: var(--primary-strong);">
+                    <em>选择特征类型以显示公式</em>
+                  </div>
+                  <div class="field">
+                    <label for="tdFillMethod">填充方法</label>
+                    <select id="tdFillMethod">
+                      <option value="">请选择填充方法</option>
+                      <option value="max">最大维度向量</option>
+                      <option value="zero">空值填充为0</option>
+                      <option value="mean">均值填充</option>
+                    </select>
+                  </div>
+                </section>
+                <section class="tooldev-card">
+                  <h4 class="tooldev-section-title"><span class="icon">▦</span><span>催化材料元素特征编码</span></h4>
+                  <div class="encoding-comparison" style="margin-bottom:12px;">
+                    <div class="encoding-box">
+                      <div class="encoding-title">One-hot 编码</div>
+                      <div class="encoding-code">
+[H: 1,0,0,0,0]<br>
+[C: 0,1,0,0,0]<br>
+[N: 0,0,1,0,0]<br>
+[O: 0,0,0,1,0]<br>
+[S: 0,0,0,0,1]
+                      </div>
+                    </div>
+                    <div class="encoding-box">
+                      <div class="encoding-title">周期表信息编码</div>
+                      <div class="encoding-code">
+[周期, 族, 电荷,<br>
+ 原子质量, 半径,<br>
+ 电负性, d带中心,<br>
+ 第一电离能, ...]<br>
+(11维向量)
                       </div>
                     </div>
                   </div>
-
-                  <div class="subtab-panel" id="tool-catalyst-symmetry">
-                    <div class="tooldev-stack">
-                      <section class="tooldev-card">
-                        <h4 class="tooldev-section-title"><span class="icon">☷</span><span>对称性函数参数配置</span></h4>
-                        <div class="tooldev-form-grid">
-                          <div class="field">
-                            <label for="tooldevCutoff">截断半径 (Å)</label>
-                            <input id="tooldevCutoff" type="text" value="6.0">
-                          </div>
-                          <div class="field">
-                            <label for="tooldevFunctionType">函数类型</label>
-                            <select id="tooldevFunctionType">
-                              <option selected>G2 (径向)</option>
-                              <option>G4 (角向)</option>
-                              <option>G5 (改进角向)</option>
-                            </select>
-                          </div>
-                        </div>
-                      </section>
-
-                      <section class="tooldev-code-card">
-                        <div class="tooldev-code-head">
-                          <h4 class="tooldev-section-title" style="margin:0; color:#f0f5ff;"><span class="icon" style="color:#34d399;">&lt;/&gt;</span><span>API 调用示例</span></h4>
-                          <span class="tooldev-code-copy">⧉ 复制</span>
-                        </div>
-                        <pre>POST /api/v1/catalyst/symmetry-functions
-Content-Type: application/json
-Authorization: Bearer YOUR_API_KEY
-
-{
-  "structure_file": "POSCAR",
-  "cutoff_radius": 6.0,
-  "function_types": ["g2", "g4"],
-  "eta_values": [0.05, 0.1, 0.2],
-  "output_format": "numpy"
-}</pre>
-                      </section>
-
-                      <div class="tooldev-actions">
-                        <button class="btn-primary" type="button">✎ 生成对称性函数</button>
-                        <button class="btn" type="button">&lt;/&gt; 导出代码</button>
-                      </div>
-                    </div>
+                  <div class="field">
+                    <label for="tdEncodingType">选择编码方式</label>
+                    <select id="tdEncodingType">
+                      <option value="">请选择编码方式</option>
+                      <option value="onehot">One-hot 编码</option>
+                      <option value="periodic">周期表信息编码</option>
+                    </select>
                   </div>
-                </div>
-              </div>
-
-              <div class="subtab-panel" id="tool-catalyst-element">
-                <div class="card tabs-shell tooldev-subshell" style="margin:0;">
-                  <div class="subtab-row" data-tabs="tool-catalyst-element-tabs">
-                    <button class="subtab-btn active" data-tab="tool-catalyst-onehot">◔ 独热元素编码</button>
-                    <button class="subtab-btn" data-tab="tool-catalyst-periodic">▦ 元素周期表信息编码</button>
-                  </div>
-
-                  <div class="subtab-panel active" id="tool-catalyst-onehot">
-                    <div class="tooldev-stack">
-                      <section class="tooldev-card">
-                        <h4 class="tooldev-section-title"><span class="icon">☰</span><span>选择元素</span></h4>
-                        <div class="tooldev-element-grid">
-                          <label class="tooldev-element-card"><input type="checkbox" checked><span>Fe</span></label>
-                          <label class="tooldev-element-card"><input type="checkbox" checked><span>Co</span></label>
-                          <label class="tooldev-element-card"><input type="checkbox" checked><span>Pt</span></label>
-                          <label class="tooldev-element-card"><input type="checkbox" checked><span>N</span></label>
-                          <label class="tooldev-element-card"><input type="checkbox" checked><span>C</span></label>
-                          <label class="tooldev-element-card"><input type="checkbox"><span>O</span></label>
-                        </div>
-                      </section>
-
-                      <section class="tooldev-code-card">
-                        <div class="tooldev-code-head">
-                          <h4 class="tooldev-section-title" style="margin:0; color:#f0f5ff;"><span class="icon" style="color:#34d399;">&lt;/&gt;</span><span>API 调用示例</span></h4>
-                          <span class="tooldev-code-copy">⧉ 复制</span>
-                        </div>
-                        <pre>POST /api/v1/catalyst/onehot-encoding
-Content-Type: application/json
-Authorization: Bearer YOUR_API_KEY
-
-{
-  "elements": ["Fe", "Co", "Pt", "N", "C"],
-  "include_all_elements": false,
-  "output_format": "numpy"
-}</pre>
-                      </section>
-
-                      <div class="tooldev-actions">
-                        <button class="btn-primary" type="button">◔ 生成独热编码</button>
-                        <button class="btn" type="button">⇩ 下载结果</button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="subtab-panel" id="tool-catalyst-periodic">
-                    <div class="tooldev-stack">
-                      <section class="tooldev-card">
-                        <h4 class="tooldev-section-title"><span class="icon">▦</span><span>选择元素属性</span></h4>
-                        <div class="tooldev-mini-check-grid">
-                          <div class="tooldev-check-card"><label><input type="checkbox" checked> 原子序数</label></div>
-                          <div class="tooldev-check-card"><label><input type="checkbox" checked> 原子质量</label></div>
-                          <div class="tooldev-check-card"><label><input type="checkbox" checked> 电负性</label></div>
-                          <div class="tooldev-check-card"><label><input type="checkbox" checked> 原子半径</label></div>
-                        </div>
-                      </section>
-
-                      <section class="tooldev-code-card">
-                        <div class="tooldev-code-head">
-                          <h4 class="tooldev-section-title" style="margin:0; color:#f0f5ff;"><span class="icon" style="color:#34d399;">&lt;/&gt;</span><span>API 调用示例</span></h4>
-                          <span class="tooldev-code-copy">⧉ 复制</span>
-                        </div>
-                        <pre>POST /api/v1/catalyst/element-properties
-Content-Type: application/json
-Authorization: Bearer YOUR_API_KEY
-
-{
-  "elements": ["Fe", "Co", "Pt"],
-  "properties": [
-    "atomic_number",
-    "atomic_mass",
-    "electronegativity",
-    "atomic_radius"
-  ],
-  "normalize": true
-}</pre>
-                      </section>
-
-                      <div class="tooldev-actions">
-                        <button class="btn-primary" type="button">▦ 生成元素属性编码</button>
-                        <button class="btn" type="button">⇩ 下载结果</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                </section>
               </div>
             </div>
           </div>
@@ -10664,307 +10692,165 @@ Authorization: Bearer YOUR_API_KEY
           <div class="tab-panel" id="tool-model">
             <div class="tooldev-intro">
               <h3>机器学习模型接口</h3>
-              <p>分为传统机器学习模型接口、全连接神经网络模型接口和经典图神经网络模型接口</p>
+              <p>包含传统机器学习、全连接神经网络和图神经网络</p>
             </div>
-
-            <div class="card tabs-shell tooldev-subshell">
-              <div class="subtab-row" data-tabs="tool-model-tabs">
-                <button class="subtab-btn active" data-tab="tool-model-traditional">▥ 传统机器学习模型接口</button>
-                <button class="subtab-btn" data-tab="tool-model-fcnn">◫ 全连接神经网络模型接口</button>
-                <button class="subtab-btn" data-tab="tool-model-gnn">◌ 经典图神经网络模型接口</button>
-              </div>
-
-              <div class="subtab-panel active" id="tool-model-traditional">
-                <div class="tooldev-stack">
-                  <section class="tooldev-card">
-                    <h4 class="tooldev-section-title"><span class="icon">◫</span><span>选择机器学习模型</span></h4>
-                    <div class="tooldev-grid-2">
-                      <div class="tooldev-option-card active">
-                        <span class="tooldev-option-check"></span>
-                        <strong>随机森林</strong>
-                        <p>基于决策树的集成学习方法</p>
+            <div class="tooldev-stepper">
+              <div class="tooldev-step active"><div class="tooldev-step-dot">1</div><div class="tooldev-step-label">模型选择</div></div>
+              <div class="tooldev-step active"><div class="tooldev-step-dot">2</div><div class="tooldev-step-label">参数配置</div></div>
+              <div class="tooldev-step active"><div class="tooldev-step-dot">3</div><div class="tooldev-step-label">数据上传</div></div>
+              <div class="tooldev-step active"><div class="tooldev-step-dot">4</div><div class="tooldev-step-label">开始训练</div></div>
+            </div>
+            <div class="tooldev-layout">
+              <div class="tooldev-stack">
+                <section class="tooldev-card">
+                  <h4 class="tooldev-section-title"><span class="icon">▥</span><span>传统机器学习</span></h4>
+                  <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">选择传统机器学习模型进行材料性质预测。</p>
+                  <div class="tooldev-grid-2" id="tdMlModels">
+                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'gbdt')">
+                      <span class="tooldev-option-check"></span>
+                      <strong>GBDT</strong>
+                      <p>梯度提升决策树</p>
+                    </div>
+                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'ridge')">
+                      <span class="tooldev-option-check"></span>
+                      <strong>Ridge Regression</strong>
+                      <p>岭回归模型</p>
+                    </div>
+                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'rf')">
+                      <span class="tooldev-option-check"></span>
+                      <strong>Random Forest</strong>
+                      <p>随机森林</p>
+                    </div>
+                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'pca')">
+                      <span class="tooldev-option-check"></span>
+                      <strong>PCA</strong>
+                      <p>主成分分析降维</p>
+                    </div>
+                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'tsne')">
+                      <span class="tooldev-option-check"></span>
+                      <strong>t-SNE</strong>
+                      <p>高维数据可视化</p>
+                    </div>
+                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'svm')">
+                      <span class="tooldev-option-check"></span>
+                      <strong>SVM</strong>
+                      <p>支持向量机</p>
+                    </div>
+                  </div>
+                  <div id="tdMlParams" style="margin-top:16px; display:none;">
+                    <div class="field">
+                      <label for="tdMlHyper">超参数设置</label>
+                      <textarea id="tdMlHyper" rows="3" placeholder="输入超参数（JSON格式）&#10;例如: {'n_estimators': 100, 'max_depth': 5}"></textarea>
+                    </div>
+                    <div class="field" style="margin-top:10px;">
+                      <label>上传训练数据</label>
+                      <input type="file" accept=".csv,.json" onchange="if(this.files[0]) tdToast('ok','已上传: '+this.files[0].name)">
+                    </div>
+                  </div>
+                  <div class="tooldev-actions" style="margin-top:16px;">
+                    <button class="btn-primary" type="button" onclick="tdTrainMl()">开始训练</button>
+                  </div>
+                </section>
+                <section class="tooldev-card soft">
+                  <h4 class="tooldev-section-title"><span class="icon">◫</span><span>全连接神经网络</span></h4>
+                  <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">自定义全连接神经网络架构，实时调节网络参数。</p>
+                  <div class="nn-visualization" style="margin-bottom:16px;">
+                    <div class="nn-layers">
+                      <div class="nn-layer">
+                        <div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron" style="visibility:hidden;"></div>
+                        <div class="nn-label">输入层</div>
                       </div>
-                      <div class="tooldev-option-card">
-                        <span class="tooldev-option-check"></span>
-                        <strong>XGBoost</strong>
-                        <p>极端梯度提升算法</p>
+                      <div class="nn-layer">
+                        <div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron" style="visibility:hidden;"></div>
+                        <div class="nn-label">隐藏层1</div>
                       </div>
-                      <div class="tooldev-option-card">
-                        <span class="tooldev-option-check"></span>
-                        <strong>支持向量回归</strong>
-                        <p>基于核函数的非线性回归</p>
+                      <div class="nn-layer">
+                        <div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron" style="visibility:hidden;"></div>
+                        <div class="nn-label">隐藏层2</div>
                       </div>
-                      <div class="tooldev-option-card">
-                        <span class="tooldev-option-check"></span>
-                        <strong>K近邻</strong>
-                        <p>基于实例的学习算法</p>
+                      <div class="nn-layer">
+                        <div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron" style="visibility:hidden;"></div><div class="nn-neuron" style="visibility:hidden;"></div><div class="nn-neuron" style="visibility:hidden;"></div>
+                        <div class="nn-label">输出层</div>
                       </div>
                     </div>
-                  </section>
-
-                  <section class="tooldev-card soft">
-                    <h4 class="tooldev-section-title"><span class="icon">☷</span><span>超参数配置</span></h4>
-                    <div class="tooldev-form-grid">
-                      <div class="field">
-                        <label for="tooldevNest">n_estimators</label>
-                        <input id="tooldevNest" type="text" value="100">
-                      </div>
-                      <div class="field">
-                        <label for="tooldevDepth">max_depth</label>
-                        <input id="tooldevDepth" type="text" value="10">
+                  </div>
+                  <div class="control-panel" style="margin-bottom:16px;">
+                    <div class="control-row">
+                      <span class="control-label">隐藏层数量</span>
+                      <div class="slider-container">
+                        <input type="range" class="slider" min="1" max="5" value="2" onchange="document.getElementById('tdNnLayersVal').textContent=this.value">
+                        <span class="slider-value" id="tdNnLayersVal">2</span>
                       </div>
                     </div>
-                  </section>
-
-                  <section class="tooldev-code-card">
-                    <div class="tooldev-code-head">
-                      <h4 class="tooldev-section-title" style="margin:0; color:#f0f5ff;"><span class="icon" style="color:#34d399;">&lt;/&gt;</span><span>API 调用示例</span></h4>
-                      <span class="tooldev-code-copy">⧉ 复制</span>
+                    <div class="control-row">
+                      <span class="control-label">神经元数量</span>
+                      <div class="slider-container">
+                        <input type="range" class="slider" min="4" max="128" value="64" step="4" onchange="document.getElementById('tdNnNeuronsVal').textContent=this.value">
+                        <span class="slider-value" id="tdNnNeuronsVal">64</span>
+                      </div>
                     </div>
-                    <pre>POST /api/v1/ml/traditional/train
-Content-Type: application/json
-Authorization: Bearer YOUR_API_KEY
-
-{
-  "model_type": "random_forest",
-  "hyperparameters": {
-    "n_estimators": 100,
-    "max_depth": 10
-  },
-  "data_url": "https://your-storage.com/training_data.csv",
-  "target_column": "bandgap"
-}</pre>
-                  </section>
-
+                    <div class="control-row">
+                      <span class="control-label">激活函数</span>
+                      <select style="width:140px;">
+                        <option value="relu">ReLU</option>
+                        <option value="sigmoid">Sigmoid</option>
+                        <option value="tanh">Tanh</option>
+                        <option value="softplus">Shifted Softplus</option>
+                      </select>
+                    </div>
+                    <div class="control-row">
+                      <span class="control-label">池化方式</span>
+                      <select style="width:140px;">
+                        <option value="max">Max Pooling</option>
+                        <option value="avg">Average Pooling</option>
+                        <option value="sum">Sum Pooling</option>
+                      </select>
+                    </div>
+                  </div>
                   <div class="tooldev-actions">
-                    <button class="btn-primary" type="button">▶ 训练模型</button>
-                    <button class="btn" type="button">◉ 交叉验证</button>
-                    <button class="btn" type="button">⇩ 下载模型</button>
+                    <button class="btn-primary" type="button" onclick="tdTrainNn()">开始训练</button>
                   </div>
-                </div>
-              </div>
-
-              <div class="subtab-panel" id="tool-model-fcnn">
-                <div class="tooldev-layout">
-                  <div class="tooldev-stack">
-                    <section class="tooldev-card">
-                      <div class="tooldev-row-head">
-                        <h4 class="tooldev-section-title" style="margin:0;"><span class="icon">◫</span><span>神经网络架构设计</span></h4>
-                        <button class="btn" type="button">＋ 添加层</button>
-                      </div>
-                      <div class="tooldev-layer-list">
-                        <div class="tooldev-layer-card input">
-                          <div class="tooldev-layer-grid">
-                            <div class="tooldev-layer-name">输入层</div>
-                            <div class="field">
-                              <label>神经元数</label>
-                              <input type="text" value="64">
-                            </div>
-                            <div class="field">
-                              <label>激活函数</label>
-                              <input type="text" value="None">
-                            </div>
-                            <div></div>
-                          </div>
-                        </div>
-
-                        <div class="tooldev-layer-card hidden">
-                          <div class="tooldev-layer-grid">
-                            <div class="tooldev-layer-name">隐藏层 1</div>
-                            <div class="field">
-                              <label>神经元数</label>
-                              <input type="text" value="128">
-                            </div>
-                            <div class="field">
-                              <label>激活函数</label>
-                              <select>
-                                <option selected>ReLU</option>
-                                <option>Sigmoid</option>
-                                <option>Tanh</option>
-                              </select>
-                            </div>
-                            <div class="tooldev-layer-delete">×</div>
-                          </div>
-                        </div>
-
-                        <div class="tooldev-layer-card pooling">
-                          <div class="tooldev-layer-grid">
-                            <div class="tooldev-layer-name">池化层</div>
-                            <div class="field">
-                              <label>池化方式</label>
-                              <select>
-                                <option selected>取最大 (Max)</option>
-                                <option>均值池化</option>
-                              </select>
-                            </div>
-                            <div class="field">
-                              <label>池化大小</label>
-                              <input type="text" value="2">
-                            </div>
-                            <div class="tooldev-layer-delete">×</div>
-                          </div>
-                        </div>
-
-                        <div class="tooldev-layer-card output">
-                          <div class="tooldev-layer-grid">
-                            <div class="tooldev-layer-name">输出层</div>
-                            <div class="field">
-                              <label>神经元数</label>
-                              <input type="text" value="1">
-                            </div>
-                            <div class="field">
-                              <label>激活函数</label>
-                              <select>
-                                <option selected>Linear</option>
-                                <option>Sigmoid</option>
-                              </select>
-                            </div>
-                            <div></div>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-
-                    <section class="tooldev-card soft">
-                      <h4 class="tooldev-section-title"><span class="icon">⚙</span><span>训练参数配置</span></h4>
-                      <div class="tooldev-form-grid three">
-                        <div class="field">
-                          <label for="tooldevLr">学习率</label>
-                          <input id="tooldevLr" type="text" value="0.001">
-                        </div>
-                        <div class="field">
-                          <label for="tooldevEpochs">训练轮数</label>
-                          <input id="tooldevEpochs" type="text" value="100">
-                        </div>
-                        <div class="field">
-                          <label for="tooldevBatch">批次大小</label>
-                          <input id="tooldevBatch" type="text" value="32">
-                        </div>
-                      </div>
-                    </section>
-
-                    <section class="tooldev-code-card">
-                      <div class="tooldev-code-head">
-                        <h4 class="tooldev-section-title" style="margin:0; color:#f0f5ff;"><span class="icon" style="color:#34d399;">&lt;/&gt;</span><span>API 调用示例</span></h4>
-                        <span class="tooldev-code-copy">⧉ 复制</span>
-                      </div>
-                      <pre>POST /api/v1/ml/neural-network/train
-Content-Type: application/json
-Authorization: Bearer YOUR_API_KEY
-
-{
-  "architecture": {
-    "input_dim": 64,
-    "layers": [
-      {"type": "dense", "units": 128, "activation": "relu"},
-      {"type": "pooling", "method": "max", "size": 2},
-      {"type": "dense", "units": 1, "activation": "linear"}
-    ]
-  },
-  "training_params": {
-    "learning_rate": 0.001,
-    "epochs": 100,
-    "batch_size": 32
-  }
-}</pre>
-                    </section>
-
-                    <div class="tooldev-actions">
-                      <button class="btn-primary" type="button">▶ 训练网络</button>
-                      <button class="btn" type="button">▣ 保存架构</button>
-                      <button class="btn" type="button">▤ 加载架构</button>
+                </section>
+                <section class="tooldev-card">
+                  <h4 class="tooldev-section-title"><span class="icon">◌</span><span>图神经网络</span></h4>
+                  <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">选择图神经网络模型，自动进行数据格式转换和训练。</p>
+                  <div class="tooldev-grid-3" id="tdGnnModels">
+                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'cgcnn')">
+                      <span class="tooldev-option-check"></span>
+                      <strong>CGCNN</strong>
+                      <p>晶体图卷积神经网络</p>
+                      <div class="rec" style="margin-top:6px; font-size:12px; color:#c38b00;">⭐⭐⭐⭐⭐ 推荐</div>
+                    </div>
+                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'schnet')">
+                      <span class="tooldev-option-check"></span>
+                      <strong>SchNet</strong>
+                      <p>连续卷积神经网络</p>
+                    </div>
+                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'dimenet')">
+                      <span class="tooldev-option-check"></span>
+                      <strong>DimeNet++</strong>
+                      <p>方向消息传递网络</p>
                     </div>
                   </div>
-
-                  <aside class="tooldev-card">
-                    <h4 class="tooldev-section-title"><span class="icon">☰</span><span>支持的激活函数</span></h4>
-                    <div class="tooldev-activation-list">
-                      <div class="tooldev-activation-item"><strong>ReLU</strong></div>
-                      <div class="tooldev-activation-item"><strong>Sigmoid</strong></div>
-                      <div class="tooldev-activation-item"><strong>Tanh</strong></div>
-                      <div class="tooldev-activation-item"><strong>Shifted Softplus</strong></div>
+                  <div id="tdGnnParams" style="margin-top:16px; display:none;">
+                    <div class="field">
+                      <label>上传晶体结构数据</label>
+                      <input type="file" accept=".cif,.json" onchange="if(this.files[0]) tdToast('ok','已上传: '+this.files[0].name)">
                     </div>
-                  </aside>
-                </div>
-              </div>
-
-              <div class="subtab-panel" id="tool-model-gnn">
-                <div class="tooldev-stack">
-                  <section class="tooldev-card">
-                    <h4 class="tooldev-section-title"><span class="icon">◌</span><span>选择图神经网络模型</span></h4>
-                    <div class="tooldev-grid-2">
-                      <div class="tooldev-option-card active">
-                        <span class="tooldev-option-check"></span>
-                        <strong>SchNet</strong>
-                        <p>连续滤波卷积神经网络</p>
-                      </div>
-                      <div class="tooldev-option-card">
-                        <span class="tooldev-option-check"></span>
-                        <strong>DimeNet++</strong>
-                        <p>方向性消息传递网络</p>
-                      </div>
-                      <div class="tooldev-option-card">
-                        <span class="tooldev-option-check"></span>
-                        <strong>GAT</strong>
-                        <p>图注意力网络</p>
-                      </div>
-                      <div class="tooldev-option-card">
-                        <span class="tooldev-option-check"></span>
-                        <strong>MPNN</strong>
-                        <p>消息传递神经网络</p>
-                      </div>
+                    <div class="progress-bar" style="margin-top:10px;">
+                      <div class="progress-fill" id="tdGnnProgress" style="width:0%"></div>
                     </div>
-                  </section>
-
-                  <section class="tooldev-card soft">
-                    <h4 class="tooldev-section-title"><span class="icon">⚙</span><span>模型超参数配置</span></h4>
-                    <div class="tooldev-form-grid three">
-                      <div class="field">
-                        <label for="tooldevHiddenDim">隐藏层维度</label>
-                        <input id="tooldevHiddenDim" type="text" value="128">
-                      </div>
-                      <div class="field">
-                        <label for="tooldevNumLayers">图卷积层数</label>
-                        <input id="tooldevNumLayers" type="text" value="3">
-                      </div>
-                      <div class="field">
-                        <label for="tooldevCutoffGnn">截断半径 (Å)</label>
-                        <input id="tooldevCutoffGnn" type="text" value="5.0">
-                      </div>
-                    </div>
-                  </section>
-
-                  <section class="tooldev-code-card">
-                    <div class="tooldev-code-head">
-                      <h4 class="tooldev-section-title" style="margin:0; color:#f0f5ff;"><span class="icon" style="color:#34d399;">&lt;/&gt;</span><span>API 调用示例</span></h4>
-                      <span class="tooldev-code-copy">⧉ 复制</span>
-                    </div>
-                    <pre>POST /api/v1/ml/gnn/train
-Content-Type: application/json
-Authorization: Bearer YOUR_API_KEY
-
-{
-  "model_type": "schnet",
-  "hyperparameters": {
-    "hidden_dim": 128,
-    "num_layers": 3,
-    "cutoff": 5.0
-  },
-  "data_url": "https://your-storage.com/graph_data.lmdb",
-  "automatic_format_conversion": true
-}</pre>
-                  </section>
-
-                  <div class="tooldev-actions">
-                    <button class="btn-primary" type="button">▶ 训练GNN模型</button>
-                    <button class="btn" type="button">◉ 预览数据转换</button>
-                    <button class="btn" type="button">⇩ 导出模型</button>
+                    <p style="font-size:12px; color:var(--muted); margin-top:6px;">数据格式将自动转换为模型所需格式</p>
                   </div>
-                </div>
+                  <div class="tooldev-actions" style="margin-top:16px;">
+                    <button class="btn-primary" type="button" onclick="tdTrainGnn()">开始训练</button>
+                  </div>
+                </section>
               </div>
             </div>
           </div>
         </div>
+        <div id="tooldevToast" class="tooldev-toast"><span class="t-icon"></span><span class="t-msg"></span></div>
       </section>
       <section class="page" id="page-catalyst-site"></section>
       <section class="page" id="page-catalyst-compare"></section>
@@ -29298,6 +29184,91 @@ Authorization: Bearer YOUR_API_KEY
       document.getElementById("convertSourceRecord")?.addEventListener("change", renderTwodConvertThirdPartyInfo);
 
       resetTwodConvertModal();
+    }
+
+    /* ===== 数据工具开发模块交互函数 ===== */
+    let tdSelectedSoftware = 'vasp';
+    let tdSelectedModel = null;
+
+    function tdToast(type, message) {
+      const toast = document.getElementById('tooldevToast');
+      if (!toast) return;
+      toast.className = 'tooldev-toast ' + (type === 'ok' ? 'ok' : 'err');
+      toast.querySelector('.t-icon').textContent = type === 'ok' ? '✓' : '✗';
+      toast.querySelector('.t-msg').textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    function tdSelectOption(el, groupId) {
+      const parent = document.getElementById(groupId);
+      if (!parent) return;
+      parent.querySelectorAll('.option-card, .tooldev-option-card').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    function tdSelectModel(el, model) {
+      const parent = el.closest('[id]');
+      if (parent) tdSelectOption(el, parent.id);
+      tdSelectedModel = model;
+      const mlParams = document.getElementById('tdMlParams');
+      const gnnParams = document.getElementById('tdGnnParams');
+      if (mlParams && el.closest('#tdMlModels')) mlParams.style.display = 'block';
+      if (gnnParams && el.closest('#tdGnnModels')) gnnParams.style.display = 'block';
+      tdToast('ok', '已选择模型: ' + model.toUpperCase());
+    }
+
+    function tdGenerateInput() {
+      const prop = document.getElementById('tdCalcProperty')?.value;
+      if (!prop) { tdToast('err', '请选择计算性质'); return; }
+      if (!tdSelectedSoftware) { tdToast('err', '请选择计算软件'); return; }
+      tdToast('ok', tdSelectedSoftware.toUpperCase() + ' 输入文件生成中...');
+      setTimeout(() => tdToast('ok', '输入文件已生成，可下载使用'), 1500);
+    }
+
+    function tdStartCleaning() {
+      const file = document.getElementById('tdDataFile')?.files[0];
+      if (!file) { tdToast('err', '请先上传数据文件'); return; }
+      tdToast('ok', '数据清洗进行中...');
+      setTimeout(() => tdToast('ok', '清洗完成！已处理 234 条数据，发现 12 条异常'), 2000);
+    }
+
+    function tdExportSim() {
+      const sw = document.getElementById('tdTargetSoftware')?.value;
+      if (!sw) { tdToast('err', '请选择目标软件格式'); return; }
+      tdToast('ok', '输入文件导出中...');
+    }
+
+    function tdUpdateFeatureFormula() {
+      const val = document.getElementById('tdFeatureType')?.value;
+      const box = document.getElementById('tdFeatureFormula');
+      if (!box) return;
+      if (val === 'gcn') {
+        box.innerHTML = '<strong>GCN<sub>x</sub></strong> = Σ<sub>y</sub> CN(y) × (n<sub>y</sub> / CN<sub>max</sub>)';
+      } else if (val === 'symmetry') {
+        box.innerHTML = '<strong>G(r)</strong> = exp(-(r - r<sub>ij</sub>)² / 2σ²)';
+      } else {
+        box.innerHTML = '<em>选择特征类型以显示公式</em>';
+      }
+    }
+
+    function tdTrainMl() {
+      if (!tdSelectedModel) { tdToast('err', '请先选择模型'); return; }
+      tdToast('ok', '模型训练启动中...');
+      setTimeout(() => tdToast('ok', '训练完成！模型准确率: 94.3%'), 3000);
+    }
+
+    function tdTrainNn() {
+      tdToast('ok', '神经网络训练启动中...');
+      setTimeout(() => tdToast('ok', '训练完成！验证集 Loss: 0.032'), 3000);
+    }
+
+    function tdTrainGnn() {
+      if (!tdSelectedModel) { tdToast('err', '请先选择模型'); return; }
+      const bar = document.getElementById('tdGnnProgress');
+      if (bar) { bar.style.width = '0%'; setTimeout(() => bar.style.width = '100%', 100); }
+      tdToast('ok', 'GNN 模型训练启动中...');
+      setTimeout(() => tdToast('ok', '训练完成！MAE: 0.18 eV'), 3000);
     }
 
     function init() {
