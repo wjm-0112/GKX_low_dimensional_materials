@@ -3026,6 +3026,115 @@
       color: #9ebcff;
     }
 
+    .notify {
+      position: fixed;
+      left: 50%;
+      top: 24px;
+      transform: translate(-50%, -14px);
+      min-width: 320px;
+      max-width: 420px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 50;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .notify.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    .notify-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .notify-body {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .notify-title {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .notify-msg {
+      color: #4a5568;
+    }
+
+    .notify-info {
+      background: #eef6ff;
+      border: 1px solid #cce0ff;
+    }
+
+    .notify-info .notify-icon {
+      background: #2b6de3;
+      color: white;
+    }
+
+    .notify-info .notify-title {
+      color: #1a3a6e;
+    }
+
+    .notify-success {
+      background: #f0faf0;
+      border: 1px solid #c8eac8;
+    }
+
+    .notify-success .notify-icon {
+      background: #2ecc71;
+      color: white;
+    }
+
+    .notify-success .notify-title {
+      color: #1a5c1a;
+    }
+
+    .notify-warning {
+      background: #fff8e6;
+      border: 1px solid #ffe4b3;
+    }
+
+    .notify-warning .notify-icon {
+      background: #f5a623;
+      color: white;
+    }
+
+    .notify-warning .notify-title {
+      color: #7a4d00;
+    }
+
+    .notify-error {
+      background: #fff0f0;
+      border: 1px solid #ffcccc;
+    }
+
+    .notify-error .notify-icon {
+      background: #e53935;
+      color: white;
+    }
+
+    .notify-error .notify-title {
+      color: #7a1f1f;
+    }
+
     .twod-shell {
       overflow: visible;
     }
@@ -6850,9 +6959,29 @@
       color: #1b8c4a;
     }
 
+    .catalyst-status-tag.blue {
+      background: #e6f2ff;
+      color: #1a6fc4;
+    }
+
     .catalyst-status-tag.purple {
       background: #f2ebff;
       color: #7a41e0;
+    }
+
+    .catalyst-status-tag.orange {
+      background: #fff4e8;
+      color: #b96a00;
+    }
+
+    .catalyst-status-tag.red {
+      background: #fff0f0;
+      color: #d63a3a;
+    }
+
+    .catalyst-status-tag.cyan {
+      background: #e6f8ff;
+      color: #1690c7;
     }
 
     .catalyst-status-tag.gray {
@@ -7029,6 +7158,64 @@
       width: 18px;
       height: 18px;
       border-radius: 6px;
+      display: inline-block;
+    }
+
+    .catalyst-donut-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      padding: 8px 4px;
+    }
+
+    .catalyst-donut-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .catalyst-donut-chart {
+      position: relative;
+      width: 180px;
+      height: 180px;
+    }
+
+    .catalyst-donut-chart svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .catalyst-donut-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 600;
+      color: #0f2544;
+    }
+
+    .catalyst-donut-legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 18px;
+    }
+
+    .catalyst-donut-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #51647e;
+    }
+
+    .catalyst-donut-legend i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
       display: inline-block;
     }
 
@@ -11306,30 +11493,94 @@
   </div>
 
   <div class="overlay" id="mlffConvertModal">
-    <div class="modal modal-md">
+    <div class="modal modal-lg">
       <div class="modal-header">
-        <h3>机器学习力场文件转换</h3>
+        <h3>文件格式转换</h3>
         <button class="modal-close" type="button" data-close-modal="mlffConvertModal">×</button>
       </div>
-      <div class="modal-body">
-        <div class="field">
-          <label for="mlffConvertRecord">选择源文件</label>
-          <select id="mlffConvertRecord"></select>
-        </div>
-        <div class="field">
-          <label for="mlffConvertTarget">目标格式</label>
-          <select id="mlffConvertTarget">
-            <option>JSON</option>
-            <option>CSV</option>
-            <option>PDB</option>
-            <option>XYZ</option>
-            <option>NPZ</option>
-          </select>
+      <div class="modal-body modal-scroll">
+        <div class="twod-convert-layout">
+          <div class="twod-convert-card" id="mlffConvertStepLocal">
+            <div class="workflow-stepper">
+              <span class="workflow-step active"><i>1</i>选择路径</span>
+              <span class="workflow-step"><i>2</i>执行转换</span>
+              <span class="workflow-step"><i>3</i>返回系统</span>
+            </div>
+            <h4>转换路径选择</h4>
+            <div class="twod-convert-route-grid">
+              <button class="twod-convert-route active" type="button" data-mlff-convert-path="local">
+                <strong>本地环境上传</strong>
+                <span>上传力场相关数据文件，系统自动识别类别并完成格式转换。</span>
+              </button>
+              <button class="twod-convert-route" type="button" data-mlff-convert-path="thirdParty">
+                <strong>第三方工具转换</strong>
+                <span>从系统记录带入源文件，模拟跳转至第三方工具完成转换并回传结果。</span>
+              </button>
+            </div>
+
+            <div id="mlffConvertLocalPanel">
+              <p class="twod-convert-note">请上传力场相关的数据文件，系统会自动识别为结构文件、力场参数或拓扑文件，并按类别提供可选目标格式。</p>
+              <div class="twod-convert-grid">
+                <div class="twod-upload-slot">
+                  <strong>本地文件上传</strong>
+                  <p>支持自动识别常见力场结构文件、参数文件与拓扑文件。</p>
+                  <div class="upload-action-bar">
+                    <button class="btn-primary" type="button" id="mlffConvertLocalTrigger">点击上传文件</button>
+                  </div>
+                  <input id="mlffConvertLocalFileInput" type="file" hidden>
+                  <div class="twod-convert-file-pill" id="mlffConvertLocalFileName">未选择文件</div>
+                </div>
+                <div class="twod-convert-summary" id="mlffConvertLocalSummary">
+                  <div class="twod-convert-summary-item"><strong>识别类别</strong><span id="mlffConvertLocalDetectedType">待识别</span></div>
+                  <div class="twod-convert-summary-item"><strong>源格式</strong><span id="mlffConvertLocalSourceFormat">-</span></div>
+                  <div class="twod-convert-summary-item"><strong>文件大小</strong><span id="mlffConvertLocalFileSize">-</span></div>
+                </div>
+              </div>
+              <div class="field">
+                <label for="mlffConvertLocalTargetFormat">目标格式</label>
+                <select id="mlffConvertLocalTargetFormat" disabled>
+                  <option value="">请先上传文件</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="mlffConvertThirdPartyPanel" hidden>
+              <p class="twod-convert-note">从当前系统记录中选择源文件，模拟跳转至第三方工具进行同类格式转换，并在完成后将结果回传到当前系统。</p>
+              <div class="twod-convert-grid">
+                <div class="field">
+                  <label for="mlffConvertSourceRecord">选择系统内文件</label>
+                  <select id="mlffConvertSourceRecord"></select>
+                </div>
+                <div class="field">
+                  <label for="mlffConvertTargetFormat">目标格式</label>
+                  <select id="mlffConvertTargetFormat"></select>
+                </div>
+              </div>
+              <div class="twod-convert-summary" id="mlffConvertThirdPartyInfo"></div>
+            </div>
+          </div>
+
+          <div class="twod-convert-card" id="mlffConvertStepExternal" hidden>
+            <h4>第三方工具工作区</h4>
+            <div class="twod-external-stage">
+              <div>
+                <strong>已跳转至第三方工具</strong>
+                <p id="mlffConvertExternalText">系统已将文件转换请求发送至第三方工具，完成后可将结果回传至当前系统。</p>
+                <div class="twod-convert-summary twod-convert-summary-inline" id="mlffConvertExternalMeta"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="twod-convert-card" id="mlffConvertStepReturn" hidden>
+            <h4>回传结果</h4>
+            <div class="twod-record-detail-grid" id="mlffConvertReturnInfo"></div>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
         <button class="btn" type="button" data-close-modal="mlffConvertModal">取消</button>
-        <button class="btn-primary" type="button" id="mlffConvertSubmitBtn">开始转换</button>
+        <button class="btn-primary" type="button" id="mlffStartConvertBtn">跳转至第三方工具</button>
+        <button class="btn-primary" type="button" id="mlffFinishConvertBtn" hidden>模拟转换成功并返回</button>
       </div>
     </div>
   </div>
@@ -11993,6 +12244,8 @@
       twodConvertPath: "local",
       twodConvertDraft: null,
       twodConvertLocalDraft: null,
+      mlffConvertPath: "local",
+      mlffConvertLocalDraft: null,
       catalystTab: "base",
       catalystViewMode: "table",
       catalystPage: 1,
@@ -14527,6 +14780,27 @@
       showToast.timer = setTimeout(() => toast.classList.remove("show"), 2400);
     }
 
+    function showNotify(type, title, message) {
+      let el = document.getElementById("notify");
+      if (!el) {
+        el = document.createElement("div");
+        el.id = "notify";
+        document.body.appendChild(el);
+      }
+      const icons = { info: "i", success: "✓", warning: "!", error: "×" };
+      el.className = `notify notify-${type}`;
+      el.innerHTML = `
+        <div class="notify-icon">${icons[type]}</div>
+        <div class="notify-body">
+          <div class="notify-title">${title}</div>
+          <div class="notify-msg">${message}</div>
+        </div>
+      `;
+      requestAnimationFrame(() => el.classList.add("show"));
+      clearTimeout(showNotify.timer);
+      showNotify.timer = setTimeout(() => el.classList.remove("show"), 2800);
+    }
+
     function setOpenSidebarGroup(groupKey) {
       document.querySelectorAll(".sidebar-group").forEach((group) => {
         group.classList.toggle("is-open", group.dataset.group === groupKey);
@@ -14620,6 +14894,9 @@
       }
       bindCatalystBuildFlowInteractions();
       bindCatalystGenerateConfirm();
+      if (mode === "compare") {
+        syncCatalystCompareSelectionFromCurrent(getCatalystPlatformResults());
+      }
       renderCatalystWorkbenchPage(mode);
       const config = CATALYST_WORKBENCH_PAGE_CONFIG[mode] || CATALYST_WORKBENCH_PAGE_CONFIG.site;
       switchPage(config.page);
@@ -14719,6 +14996,9 @@
       }
       bindCatalystBuildFlowInteractions();
       bindCatalystGenerateConfirm();
+      if (mode === "compare") {
+        syncCatalystCompareSelectionFromCurrent(getCatalystPlatformResults());
+      }
       renderCatalystWorkbenchPage(mode);
       const config = CATALYST_WORKBENCH_PAGE_CONFIG[mode] || CATALYST_WORKBENCH_PAGE_CONFIG.site;
       switchPage(config.page);
@@ -16830,29 +17110,58 @@
         <text class="chart-label" transform="translate(22 ${height / 2}) rotate(-90)" text-anchor="middle">${config.axisY}</text>
       `;
       const xLabels = config.labels.map((label, index) => `<text class="chart-label" x="${x(index)}" y="${height - 34}" text-anchor="middle">${label}</text>`).join("");
-      let seriesSvg = "";
-      if (config.type === "bar") {
-        const values = config.series[0].values;
-        const barWidth = Math.min(42, innerWidth / Math.max(values.length, 1) * 0.52);
-        seriesSvg = values.map((value, index) => {
-          const xPos = x(index) - barWidth / 2;
-          const yPos = y(value);
-          const barHeight = height - margin.bottom - yPos;
-          return `<rect class="chart-bar" x="${xPos}" y="${yPos}" width="${barWidth}" height="${barHeight}" fill="${config.series[0].color}"></rect>`;
-        }).join("");
-      } else {
-        seriesSvg = config.series.map((series) => {
-          const points = series.values.map((value, index) => `${x(index)},${y(value)}`).join(" ");
-          const dots = series.values.map((value, index) => `<circle class="chart-series-dot" cx="${x(index)}" cy="${y(value)}" r="4.5" fill="${series.color}"></circle>`).join("");
-          return `<polyline class="chart-series-line" points="${points}" stroke="${series.color}"></polyline>${dots}`;
-        }).join("");
+  let defs = "";
+  let seriesSvg = "";
+  if (config.type === "bar") {
+    const values = config.series[0].values;
+    const barWidth = Math.min(42, innerWidth / Math.max(values.length, 1) * 0.52);
+    seriesSvg = values.map((value, index) => {
+      const xPos = x(index) - barWidth / 2;
+      const yPos = y(value);
+      const barHeight = height - margin.bottom - yPos;
+      const fill = config.colors?.[index] || config.series[0].color;
+      return `<rect class="chart-bar" x="${xPos}" y="${yPos}" width="${barWidth}" height="${barHeight}" fill="${fill}"></rect>`;
+    }).join("");
+  } else if (config.type === "curve") {
+    defs = config.series.map((series, idx) => `
+      <linearGradient id="areaGrad-${idx}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="${series.color}" stop-opacity="0.22"/>
+        <stop offset="100%" stop-color="${series.color}" stop-opacity="0.02"/>
+      </linearGradient>
+    `).join("");
+    seriesSvg = config.series.map((series, idx) => {
+      const points = series.values.map((value, index) => ({x: x(index), y: y(value)}));
+      if (points.length < 2) return "";
+      let d = `M ${points[0].x},${points[0].y}`;
+      for (let i = 0; i < points.length - 1; i++) {
+        const p0 = points[i === 0 ? 0 : i - 1];
+        const p1 = points[i];
+        const p2 = points[i + 1];
+        const p3 = points[i + 2] || p2;
+        const cp1x = p1.x + (p2.x - p0.x) * 0.2;
+        const cp1y = p1.y + (p2.y - p0.y) * 0.2;
+        const cp2x = p2.x - (p3.x - p1.x) * 0.2;
+        const cp2y = p2.y - (p3.y - p1.y) * 0.2;
+        d += ` C ${cp1x},${cp1y} ${cp2x},${cp2y} ${p2.x},${p2.y}`;
       }
-      const highlight = config.highlight && config.type !== "bar"
-        ? `<circle cx="${x(config.highlight.index)}" cy="${y(config.series[0].values[config.highlight.index])}" r="6.5" fill="${config.highlight.color || "#e53935"}"></circle>
-           <text x="${x(config.highlight.index)}" y="${y(config.series[0].values[config.highlight.index]) - 18}" text-anchor="middle" style="font-size:14px;fill:${config.highlight.color || "#e53935"};font-weight:600;">${config.highlight.label}</text>`
-        : "";
-      const legend = `<div class="chart-title-note">${config.series.map((item) => `<span><i style="background:${item.color};"></i>${item.name}</span>`).join("")}</div>`;
-      return `<svg viewBox="0 0 ${width} ${height}" class="material-line-chart-svg">${grid}${axes}${xLabels}${seriesSvg}${highlight}</svg>${legend}`;
+      const baseY = height - margin.bottom;
+      const areaD = `${d} L ${points[points.length - 1].x},${baseY} L ${points[0].x},${baseY} Z`;
+      const dots = points.map((p) => `<circle class="chart-series-dot" cx="${p.x}" cy="${p.y}" r="4.5" fill="${series.color}"></circle>`).join("");
+      return `<path d="${areaD}" fill="url(#areaGrad-${idx})" stroke="none"></path><path class="chart-series-line" d="${d}" fill="none" stroke="${series.color}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>${dots}`;
+    }).join("");
+  } else {
+    seriesSvg = config.series.map((series) => {
+      const points = series.values.map((value, index) => `${x(index)},${y(value)}`).join(" ");
+      const dots = series.values.map((value, index) => `<circle class="chart-series-dot" cx="${x(index)}" cy="${y(value)}" r="4.5" fill="${series.color}"></circle>`).join("");
+      return `<polyline class="chart-series-line" points="${points}" stroke="${series.color}"></polyline>${dots}`;
+    }).join("");
+  }
+  const highlight = config.highlight && config.type !== "bar"
+    ? `<circle cx="${x(config.highlight.index)}" cy="${y(config.series[0].values[config.highlight.index])}" r="6.5" fill="${config.highlight.color || "#e53935"}"></circle>
+       <text x="${x(config.highlight.index)}" y="${y(config.series[0].values[config.highlight.index]) - 18}" text-anchor="middle" style="font-size:14px;fill:${config.highlight.color || "#e53935"};font-weight:600;">${config.highlight.label}</text>`
+    : "";
+  const legend = `<div class="chart-title-note">${config.series.map((item) => `<span><i style="background:${item.color};"></i>${item.name}</span>`).join("")}</div>`;
+  return `<svg viewBox="0 0 ${width} ${height}" class="material-line-chart-svg">${defs ? `<defs>${defs}</defs>` : ""}${grid}${axes}${xLabels}${seriesSvg}${highlight}</svg>${legend}`;
     }
 
     function renderOptoStructureCanvas(targetId, material, mode, preview) {
@@ -17863,8 +18172,7 @@
           return;
         }
         if (openConvert) {
-          syncMlffConvertOptions();
-          openModal("mlffConvertModal");
+          openMlffConvertModal();
           return;
         }
         if (reviewTrigger) {
@@ -17934,29 +18242,6 @@
         closeModal("mlffUploadModal");
         renderMlffModule();
         showToast("数据上传", "机器学习力场数据更新记录已写入。");
-      });
-
-      document.getElementById("mlffConvertSubmitBtn")?.addEventListener("click", () => {
-        const sourceId = document.getElementById("mlffConvertRecord").value;
-        const targetFormat = document.getElementById("mlffConvertTarget").value;
-        const sourceRecord = findMlffRecord(sourceId);
-        if (!sourceRecord) {
-          showToast("文件转换", "请先选择源文件。");
-          return;
-        }
-        mlffUpdateRecords.unshift({
-          id: `mlff-rec-${Date.now()}`,
-          uploadedAt: "2026-04-22 11:28",
-          fileName: sourceRecord.fileName,
-          fileType: sourceRecord.fileType,
-          sourceFormat: targetFormat,
-          category: "文件格式转换",
-          status: "pending",
-          source: "格式转换服务"
-        });
-        closeModal("mlffConvertModal");
-        renderMlffModule();
-        showToast("文件转换", `${sourceRecord.fileName} 的格式转换任务已创建。`);
       });
 
       document.getElementById("mlffRecordDownloadBtn")?.addEventListener("click", (event) => {
@@ -18121,16 +18406,14 @@
     function getCatalystSelectionState(materialId) {
       const index = state.catalystCompareSelected.indexOf(materialId);
       if (index === 0) return "基准";
-      if (index === 1) return "对比1";
-      if (index === 2) return "对比2";
+      if (index > 0) return `对比${index}`;
       return "未选";
     }
 
     function getCatalystSelectionTagClass(materialId) {
       const index = state.catalystCompareSelected.indexOf(materialId);
-      if (index === 0) return "green";
-      if (index === 1) return "blue";
-      if (index === 2) return "purple";
+      const colors = ["green", "blue", "purple", "orange", "red", "cyan"];
+      if (index >= 0) return colors[index % colors.length];
       return "gray";
     }
 
@@ -18140,7 +18423,6 @@
       const shouldSelect = typeof forceChecked === "boolean" ? forceChecked : index === -1;
       if (shouldSelect) {
         if (index === -1) {
-          if (selected.length >= 3) selected.pop();
           selected.push(materialId);
         }
       } else if (index !== -1) {
@@ -18385,17 +18667,98 @@
       });
     }
 
+    function renderCatalystCompareDonut(materials, metrics) {
+      const labelMap = {
+        ea: { title: "活化能", key: "activationEnergy", unit: "eV" },
+        selectivity: { title: "选择性", key: "selectivity", unit: "%" },
+        tof: { title: "TOF", key: "tof", unit: "s⁻¹" }
+      };
+      const colors = ["#2453d4", "#2ecc71", "#ad55f3", "#2fb7e3", "#f5a623", "#e53935"];
+      const radius = 70;
+      const circumference = 2 * Math.PI * radius;
+      return `
+        <div class="catalyst-donut-grid">
+          ${materials.map((material) => {
+            const values = metrics.map((metric) => material[labelMap[metric].key]);
+            const total = values.reduce((a, b) => a + b, 0) || 1;
+            let accumulated = 0;
+            const rings = values.map((value, index) => {
+              const ratio = value / total;
+              const dasharray = `${(circumference * ratio).toFixed(2)} ${(circumference * (1 - ratio)).toFixed(2)}`;
+              const offset = -(accumulated * circumference).toFixed(2);
+              accumulated += ratio;
+              return `<circle cx="100" cy="100" r="${radius}" fill="none" stroke="${colors[index % colors.length]}" stroke-width="22" stroke-dasharray="${dasharray}" stroke-dashoffset="${offset}" transform="rotate(-90 100 100)" stroke-linecap="butt" />`;
+            }).join("");
+            return `
+              <div class="catalyst-donut-card">
+                <div class="catalyst-donut-chart">
+                  <svg viewBox="0 0 200 200">${rings}</svg>
+                  <div class="catalyst-donut-label">${material.name}</div>
+                </div>
+                <div class="catalyst-donut-legend">
+                  ${metrics.map((metric, index) => `
+                    <span><i style="background:${colors[index % colors.length]}"></i>${labelMap[metric].title} ${material[labelMap[metric].key]}${labelMap[metric].unit}</span>
+                  `).join("")}
+                </div>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      `;
+    }
+
     function renderCatalystCompareVisualization() {
       const materials = getCatalystCompareMaterials();
       const metrics = state.catalystCompareMetrics.length ? state.catalystCompareMetrics : ["ea"];
-      if (state.catalystCompareChart === "line") {
-        return metrics.map((metric) => `
-          <section class="catalyst-main-card">
-            <h4>${metric === "ea" ? "活化能折线分析" : metric === "selectivity" ? "选择性折线分析" : "TOF 折线分析"}</h4>
-            <div class="line-chart">${buildCatalystCompareLineChart(materials, metric)}</div>
-          </section>
-        `).join("");
+      const chartType = state.catalystCompareChart;
+
+      if (chartType === "horizontal") {
+        return `<section class="catalyst-main-card"><h4>催化性能对比分析</h4>${renderCatalystCompareBars(materials, metrics)}</section>`;
       }
+
+      const labelMap = {
+        ea: { title: "活化能", key: "activationEnergy", unit: "eV" },
+        selectivity: { title: "选择性", key: "selectivity", unit: "%" },
+        tof: { title: "TOF", key: "tof", unit: "s⁻¹" }
+      };
+
+      if (chartType === "donut") {
+        return `<section class="catalyst-main-card"><h4>催化性能占比分析</h4>${renderCatalystCompareDonut(materials, metrics)}</section>`;
+      }
+
+      const buildChart = (type) => metrics.map((metric) => {
+        const target = labelMap[metric];
+        return `
+          <section class="catalyst-main-card">
+            <h4>${target.title}${type === "curve" ? "曲线分析" : "对比"}</h4>
+            <div class="line-chart">${buildOptoChartSvg({
+              type,
+              labels: materials.map((item) => item.name),
+              axisX: "催化材料",
+              axisY: `${target.title} (${target.unit})`,
+              series: [{
+                name: target.title,
+                color: "#2453d4",
+                values: materials.map((item) => item[target.key])
+              }],
+              highlight: {
+                index: 0,
+                label: materials[0].name,
+                color: "#2453d4"
+              }
+            })}</div>
+          </section>
+        `;
+      }).join("");
+
+      if (chartType === "bar") {
+        return buildChart("bar");
+      }
+
+      if (chartType === "curve") {
+        return buildChart("curve");
+      }
+
       return `<section class="catalyst-main-card"><h4>催化性能对比分析</h4>${renderCatalystCompareBars(materials, metrics)}</section>`;
     }
 
@@ -18715,7 +19078,9 @@
                 <h4 style="margin:0;">催化性能对比分析</h4>
                 <select id="catalystCompareChartType">
                   <option value="bar"${state.catalystCompareChart === "bar" ? " selected" : ""}>柱状图</option>
-                  <option value="line"${state.catalystCompareChart === "line" ? " selected" : ""}>折线图</option>
+                  <option value="horizontal"${state.catalystCompareChart === "horizontal" ? " selected" : ""}>条状图</option>
+                  <option value="donut"${state.catalystCompareChart === "donut" ? " selected" : ""}>环形图</option>
+                  <option value="curve"${state.catalystCompareChart === "curve" ? " selected" : ""}>曲线图</option>
                 </select>
               </div>
               ${renderCatalystCompareVisualization()}
@@ -18915,6 +19280,9 @@
       }
       bindCatalystBuildFlowInteractions();
       bindCatalystGenerateConfirm();
+      if (mode === "compare") {
+        syncCatalystCompareSelectionFromCurrent(getCatalystPlatformResults());
+      }
       renderCatalystWorkbenchPage(mode);
       const config = CATALYST_WORKBENCH_PAGE_CONFIG[mode] || CATALYST_WORKBENCH_PAGE_CONFIG.site;
       switchPage(config.page);
@@ -25706,69 +26074,131 @@
       openModal("mlffUploadModal");
     }
 
-    function resetMlffConvertState() {
-      state.mlffConvertDraft = {
-        materialId: mlffMaterials[0]?.id || "",
-        sourceFormat: "XYZ",
-        targetFormat: "PDB",
-        connected: false
-      };
+    function inferMlffConvertFileType(fileName) {
+      const ext = detectFileFormat(fileName).toLowerCase();
+      if (["xyz", "pdb", "mol2", "sdf", "cif"].includes(ext)) return "结构文件";
+      if (["xml", "json", "txt", "csv", "dat"].includes(ext)) return "力场参数";
+      if (["npz", "npy", "h5", "pt"].includes(ext)) return "拓扑/模型文件";
+      return "";
     }
 
-    function renderMlffConvertModal() {
-      ensureMlffRuntimeState();
-      const modal = document.getElementById("mlffConvertModal");
-      if (!modal) return;
-      const title = modal.querySelector(".modal-header h3");
-      const body = modal.querySelector(".modal-body");
-      const footer = modal.querySelector(".modal-footer");
-      if (!body || !footer) return;
-      if (title) title.textContent = "文件格式转换";
-      const draft = state.mlffConvertDraft;
-      const material = findMlffMaterial(draft.materialId) || mlffMaterials[0];
-      body.innerHTML = `
-        <div class="twod-upload-layout">
-          <div class="twod-upload-card">
-            <div class="field">
-              <label for="mlffConvertMaterial">目标材料</label>
-              <select id="mlffConvertMaterial">
-                ${mlffMaterials.map((item) => `<option value="${item.id}" ${draft.materialId === item.id ? "selected" : ""}>${item.name} / ${item.formula}</option>`).join("")}
-              </select>
-            </div>
-            <div class="search-grid two" style="margin-top:16px;">
-              <div class="field">
-                <label for="mlffConvertSourceFormat">源文件格式</label>
-                <select id="mlffConvertSourceFormat">
-                  ${MLFF_CONVERT_FORMATS.map((item) => `<option value="${item}" ${draft.sourceFormat === item ? "selected" : ""}>${item}</option>`).join("")}
-                </select>
-              </div>
-              <div class="field">
-                <label for="mlffConvertTargetFormat">目标文件格式</label>
-                <select id="mlffConvertTargetFormat">
-                  ${MLFF_CONVERT_FORMATS.map((item) => `<option value="${item}" ${draft.targetFormat === item ? "selected" : ""}>${item}</option>`).join("")}
-                </select>
-              </div>
-            </div>
-            <div class="mlff-convert-note">该流程模拟调用第三方格式转换工具，支持力场文件与拓扑文件格式转换，例如 XYZ 转 PDB。转换完成后，可模拟结果回传至本系统。</div>
-            ${draft.connected ? `
-              <div class="mlff-convert-status">
-                <div class="status-message status-message-success">已连接第三方工具：当前任务为 ${material.name} 的 ${draft.sourceFormat} → ${draft.targetFormat} 转换。</div>
-                <div class="status-message status-message-warning">点击“模拟返回系统”后，将生成一条新的文件格式转换记录。</div>
-              </div>
-            ` : ""}
-          </div>
-        </div>
-      `;
-      footer.innerHTML = `
-        <button class="btn" type="button" data-close-modal="mlffConvertModal">取消</button>
-        <button class="btn" type="button" data-mlff-convert-connect>连接第三方工具</button>
-        <button class="btn-primary" type="button" data-mlff-convert-return ${draft.connected ? "" : "disabled"}>模拟返回系统</button>
-      `;
+    function getMlffConvertTargetFormats(fileType) {
+      if (fileType === "结构文件") return ["XYZ", "PDB", "MOL2", "CIF", "SDF"];
+      if (fileType === "力场参数") return ["JSON", "XML", "TXT", "CSV"];
+      if (fileType === "拓扑/模型文件") return ["NPZ", "NPY", "H5", "PT"];
+      return [];
+    }
+
+    function populateMlffConvertTargetFormats(selectId, fileType, sourceFormat = "") {
+      const select = document.getElementById(selectId);
+      if (!select) return;
+      const normalizedSource = String(sourceFormat || "").toUpperCase();
+      const formats = getMlffConvertTargetFormats(fileType);
+      const available = formats.filter((item) => item !== normalizedSource);
+      const list = available.length ? available : formats;
+      select.innerHTML = list.length
+        ? list.map((item) => `<option value="${item}">${item}</option>`).join("")
+        : '<option value="">请先选择文件</option>';
+      select.disabled = !list.length;
+    }
+
+    function renderMlffConvertLocalDraft() {
+      const draft = state.mlffConvertLocalDraft;
+      const fileName = document.getElementById("mlffConvertLocalFileName");
+      const detectedType = document.getElementById("mlffConvertLocalDetectedType");
+      const sourceFormat = document.getElementById("mlffConvertLocalSourceFormat");
+      const fileSize = document.getElementById("mlffConvertLocalFileSize");
+      if (!fileName || !detectedType || !sourceFormat || !fileSize) return;
+      fileName.textContent = draft?.fileName || "未选择文件";
+      detectedType.textContent = draft?.fileType || "待识别";
+      sourceFormat.textContent = draft?.sourceFormat || "-";
+      fileSize.textContent = draft?.fileSizeText || "-";
+      populateMlffConvertTargetFormats("mlffConvertLocalTargetFormat", draft?.fileType || "", draft?.sourceFormat || "");
+    }
+
+    function renderMlffConvertThirdPartyInfo() {
+      const select = document.getElementById("mlffConvertSourceRecord");
+      const info = document.getElementById("mlffConvertThirdPartyInfo");
+      if (!select || !info) return;
+      const record = findMlffRecord(select.value);
+      if (!record) {
+        info.innerHTML = buildTwodConvertSummary([
+          { label: "文件类别", value: "-" },
+          { label: "源格式", value: "-" },
+          { label: "记录来源", value: "-" }
+        ]);
+        populateMlffConvertTargetFormats("mlffConvertTargetFormat", "", "");
+        return;
+      }
+      info.innerHTML = buildTwodConvertSummary([
+        { label: "文件类别", value: record.fileType || "-" },
+        { label: "源格式", value: record.sourceFormat || "-" },
+        { label: "记录来源", value: record.source || "系统记录" }
+      ]);
+      populateMlffConvertTargetFormats("mlffConvertTargetFormat", record.fileType || "", record.sourceFormat || "");
+    }
+
+    function refreshMlffConvertSourceOptions() {
+      const select = document.getElementById("mlffConvertSourceRecord");
+      if (!select) return;
+      const currentValue = select.value;
+      select.innerHTML = mlffUpdateRecords.length
+        ? mlffUpdateRecords.map((record) => `<option value="${record.id}">${record.fileName} · ${record.fileType}</option>`).join("")
+        : '<option value="">暂无可选文件</option>';
+      if (currentValue && mlffUpdateRecords.some((record) => record.id === currentValue)) {
+        select.value = currentValue;
+      }
+      renderMlffConvertThirdPartyInfo();
+    }
+
+    function setMlffConvertPath(path) {
+      state.mlffConvertPath = path;
+      document.querySelectorAll("[data-mlff-convert-path]").forEach((button) => {
+        button.classList.toggle("active", button.dataset.mlffConvertPath === path);
+      });
+      const localPanel = document.getElementById("mlffConvertLocalPanel");
+      const thirdPartyPanel = document.getElementById("mlffConvertThirdPartyPanel");
+      const localStep = document.getElementById("mlffConvertStepLocal");
+      const externalStep = document.getElementById("mlffConvertStepExternal");
+      const returnStep = document.getElementById("mlffConvertStepReturn");
+      const startBtn = document.getElementById("mlffStartConvertBtn");
+      const finishBtn = document.getElementById("mlffFinishConvertBtn");
+      if (localPanel) localPanel.hidden = path !== "local";
+      if (thirdPartyPanel) thirdPartyPanel.hidden = path !== "thirdParty";
+      if (localStep) localStep.hidden = false;
+      if (externalStep) externalStep.hidden = true;
+      if (returnStep) returnStep.hidden = true;
+      if (startBtn) {
+        startBtn.hidden = false;
+        startBtn.textContent = path === "local" ? "开始转换" : "跳转至第三方工具";
+      }
+      if (finishBtn) finishBtn.hidden = true;
+    }
+
+    function resetMlffConvertModal() {
+      state.mlffConvertDraft = null;
+      state.mlffConvertLocalDraft = null;
+      const localInput = document.getElementById("mlffConvertLocalFileInput");
+      const returnInfo = document.getElementById("mlffConvertReturnInfo");
+      const externalText = document.getElementById("mlffConvertExternalText");
+      const externalMeta = document.getElementById("mlffConvertExternalMeta");
+      if (localInput) localInput.value = "";
+      if (returnInfo) returnInfo.innerHTML = "";
+      if (externalText) externalText.textContent = "系统已将文件转换请求发送至第三方工具，完成后可将结果回传至当前系统。";
+      if (externalMeta) {
+        externalMeta.innerHTML = buildTwodConvertSummary([
+          { label: "源文件", value: "-" },
+          { label: "目标格式", value: "-" },
+          { label: "执行状态", value: "待发起" }
+        ]);
+      }
+      setMlffConvertPath("local");
+      renderMlffConvertLocalDraft();
     }
 
     function openMlffConvertModal() {
-      resetMlffConvertState();
-      renderMlffConvertModal();
+      resetMlffConvertModal();
+      refreshMlffConvertSourceOptions();
       openModal("mlffConvertModal");
     }
 
@@ -26336,16 +26766,27 @@
           renderMlffUploadModal();
           return;
         }
-        if (event.target.id === "mlffConvertMaterial") {
-          state.mlffConvertDraft.materialId = event.target.value;
+        if (event.target.id === "mlffConvertLocalFileInput") {
+          const file = event.target.files?.[0];
+          if (!file) {
+            state.mlffConvertLocalDraft = null;
+            renderMlffConvertLocalDraft();
+            return;
+          }
+          state.mlffConvertLocalDraft = {
+            fileName: file.name,
+            fileSizeText: formatFileSize(file.size),
+            fileType: inferMlffConvertFileType(file.name),
+            sourceFormat: detectFileFormat(file.name)
+          };
+          renderMlffConvertLocalDraft();
+          if (!state.mlffConvertLocalDraft.fileType) {
+            showToast("文件格式转换", "当前文件类别未识别，请上传力场相关的数据文件。");
+          }
           return;
         }
-        if (event.target.id === "mlffConvertSourceFormat") {
-          state.mlffConvertDraft.sourceFormat = event.target.value;
-          return;
-        }
-        if (event.target.id === "mlffConvertTargetFormat") {
-          state.mlffConvertDraft.targetFormat = event.target.value;
+        if (event.target.id === "mlffConvertSourceRecord") {
+          renderMlffConvertThirdPartyInfo();
         }
       });
 
@@ -26402,30 +26843,114 @@
           return;
         }
 
-        if (event.target.closest("[data-mlff-convert-connect]")) {
-          state.mlffConvertDraft.connected = true;
-          renderMlffConvertModal();
-          showToast("文件格式转换", "已连接第三方工具，可继续模拟转换结果回传。");
+        if (event.target.closest("[data-mlff-convert-path]")) {
+          const path = event.target.closest("[data-mlff-convert-path]").dataset.mlffConvertPath;
+          setMlffConvertPath(path);
           return;
         }
 
-        if (event.target.closest("[data-mlff-convert-return]")) {
-          if (!state.mlffConvertDraft.connected) {
-            showToast("文件格式转换", "请先连接第三方工具。");
-            return;
+        if (event.target.closest("#mlffConvertLocalTrigger")) {
+          document.getElementById("mlffConvertLocalFileInput")?.click();
+          return;
+        }
+
+        if (event.target.closest("#mlffStartConvertBtn")) {
+          if (state.mlffConvertPath === "local") {
+            const draft = state.mlffConvertLocalDraft;
+            if (!draft?.fileName) {
+              showToast("文件格式转换", "请先上传待转换的文件。");
+              return;
+            }
+            const targetFormat = document.getElementById("mlffConvertLocalTargetFormat")?.value;
+            if (!targetFormat) {
+              showToast("文件格式转换", "请先选择目标格式。");
+              return;
+            }
+            const convertedName = replaceFileExtension(draft.fileName, targetFormat);
+            mlffUpdateRecords.unshift({
+              id: `mlff-convert-${Date.now()}`,
+              uploadedAt: getMlffNowText(),
+              fileName: convertedName,
+              fileType: draft.fileType || "文件格式转换",
+              sourceFormat: `${draft.sourceFormat} → ${targetFormat}`,
+              category: "文件格式转换",
+              status: "approved",
+              source: "本地转换"
+            });
+            document.getElementById("mlffConvertStepLocal").hidden = true;
+            document.getElementById("mlffConvertStepExternal").hidden = false;
+            document.getElementById("mlffConvertStepReturn").hidden = false;
+            document.getElementById("mlffStartConvertBtn").hidden = true;
+            document.getElementById("mlffFinishConvertBtn").hidden = true;
+            document.getElementById("mlffConvertExternalText").textContent = `本地转换已完成：${draft.fileName} 已转换为 ${convertedName}。`;
+            document.getElementById("mlffConvertExternalMeta").innerHTML = buildTwodConvertSummary([
+              { label: "源文件", value: draft.fileName },
+              { label: "目标格式", value: targetFormat },
+              { label: "执行状态", value: "转换成功" }
+            ]);
+            document.getElementById("mlffConvertReturnInfo").innerHTML = `
+              <div class="twod-record-detail-card">
+                <h4>转换完成</h4>
+                <div class="detail-grid">
+                  <strong>源文件</strong><div>${draft.fileName}</div>
+                  <strong>目标格式</strong><div>${targetFormat}</div>
+                  <strong>新文件名</strong><div>${convertedName}</div>
+                  <strong>文件类别</strong><div>${draft.fileType || "-"}</div>
+                </div>
+              </div>
+            `;
+            showToast("文件格式转换", `${draft.fileName} 已转换完成。`);
+          } else {
+            const record = findMlffRecord(document.getElementById("mlffConvertSourceRecord").value);
+            const targetFormat = document.getElementById("mlffConvertTargetFormat").value;
+            if (!record) {
+              showToast("文件格式转换", "请先选择待转换文件。");
+              return;
+            }
+            state.mlffConvertDraft = { recordId: record.id, targetFormat };
+            document.getElementById("mlffConvertStepLocal").hidden = true;
+            document.getElementById("mlffConvertStepExternal").hidden = false;
+            document.getElementById("mlffFinishConvertBtn").hidden = false;
+            document.getElementById("mlffStartConvertBtn").hidden = true;
+            document.getElementById("mlffConvertExternalText").textContent = `第三方工具正在将 ${record.fileName} 转换为 ${targetFormat} 格式。转换成功后可回传到当前系统。`;
+            document.getElementById("mlffConvertExternalMeta").innerHTML = buildTwodConvertSummary([
+              { label: "源文件", value: record.fileName },
+              { label: "目标格式", value: targetFormat },
+              { label: "执行状态", value: "转换中" }
+            ]);
           }
-          const material = findMlffMaterial(state.mlffConvertDraft.materialId) || mlffMaterials[0];
+          return;
+        }
+
+        if (event.target.closest("#mlffFinishConvertBtn")) {
+          const draft = state.mlffConvertDraft;
+          const record = findMlffRecord(draft?.recordId);
+          if (!record) return;
+          const convertedName = replaceFileExtension(record.fileName, draft.targetFormat);
           mlffUpdateRecords.unshift({
             id: `mlff-convert-${Date.now()}`,
             uploadedAt: getMlffNowText(),
-            fileName: `${String(material.english || material.name).toLowerCase().replace(/[^a-z0-9]+/g, "_")}.${state.mlffConvertDraft.targetFormat.toLowerCase()}`,
-            fileType: "文件格式转换",
-            sourceFormat: `${state.mlffConvertDraft.sourceFormat} → ${state.mlffConvertDraft.targetFormat}`,
+            fileName: convertedName,
+            fileType: record.fileType,
+            sourceFormat: `${record.sourceFormat || "-"} → ${draft.targetFormat}`,
             category: "文件格式转换",
             status: "approved",
-            source: "第三方工具返回"
+            source: "第三方工具回传"
           });
-          closeModal("mlffConvertModal");
+          document.getElementById("mlffConvertStepExternal").hidden = true;
+          document.getElementById("mlffConvertStepReturn").hidden = false;
+          document.getElementById("mlffFinishConvertBtn").hidden = true;
+          document.getElementById("mlffConvertReturnInfo").innerHTML = `
+            <div class="twod-record-detail-card">
+              <h4>回传完成</h4>
+              <div class="detail-grid">
+                <strong>源文件</strong><div>${record.fileName}</div>
+                <strong>目标格式</strong><div>${draft.targetFormat}</div>
+                <strong>新文件名</strong><div>${convertedName}</div>
+                <strong>记录来源</strong><div>第三方工具回传</div>
+              </div>
+            </div>
+          `;
           showToast("文件格式转换", "第三方工具已返回转换结果，系统记录已更新。");
           return;
         }
@@ -26864,7 +27389,7 @@
       if (typeof state.catalystDetailRotation !== "number") state.catalystDetailRotation = 0;
       if (!state.selectedCatalystTool) state.selectedCatalystTool = "site";
       if (!state.catalystCompareMetrics?.length) state.catalystCompareMetrics = ["ea", "selectivity", "tof"];
-      if (!state.catalystCompareChart) state.catalystCompareChart = "bar";
+      if (!state.catalystCompareChart || state.catalystCompareChart === "line") state.catalystCompareChart = "bar";
     }
 
     function getCatalystSearchLabel(mode) {
@@ -27089,9 +27614,9 @@
     }
 
     function syncCatalystCompareSelectionFromCurrent(list) {
-      const picked = state.catalystBatchSelection.map(findCatalystMaterial).filter(Boolean).slice(0, 3);
-      const fallback = (list.length ? list : catalystMaterials).slice(0, 3);
-      state.catalystCompareSelected = (picked.length >= 2 ? picked : fallback).map((item) => item.id);
+      const picked = state.catalystBatchSelection.map(findCatalystMaterial).filter(Boolean);
+      const fallback = list.length ? list : catalystMaterials;
+      state.catalystCompareSelected = (picked.length >= 1 ? picked : fallback).map((item) => item.id);
     }
 
     function getCatalystBuildStepIndex(stepKey = state.selectedCatalystTool) {
@@ -27184,7 +27709,6 @@
     }
 
     function renderCatalystCompareWorkbench(list) {
-      syncCatalystCompareSelectionFromCurrent(list);
       const compareMaterials = getCatalystCompareMaterials();
       return `
         <section class="card table-card catalyst-platform-workbench" id="catalystWorkbenchSection">
@@ -27218,7 +27742,9 @@
                   <label for="catalystCompareChartType">图表类型</label>
                   <select id="catalystCompareChartType">
                     <option value="bar"${state.catalystCompareChart === "bar" ? " selected" : ""}>柱状图</option>
-                    <option value="line"${state.catalystCompareChart === "line" ? " selected" : ""}>折线图</option>
+                    <option value="horizontal"${state.catalystCompareChart === "horizontal" ? " selected" : ""}>条状图</option>
+                    <option value="donut"${state.catalystCompareChart === "donut" ? " selected" : ""}>环形图</option>
+                    <option value="curve"${state.catalystCompareChart === "curve" ? " selected" : ""}>曲线图</option>
                   </select>
                 </div>
                 <label class="algorithm-radio"><input type="checkbox" data-catalyst-metric="ea" ${state.catalystCompareMetrics.includes("ea") ? "checked" : ""}>活化能</label>
@@ -27339,7 +27865,6 @@
 
       state.catalystWorkbenchMode = mode;
       const resultList = getCatalystPlatformResults();
-      if (mode === "compare") syncCatalystCompareSelectionFromCurrent(resultList);
       const material = getCatalystWorkbenchMaterial(resultList);
       const content = mode === "compare"
         ? renderCatalystCompareWorkbench(resultList)
@@ -27388,7 +27913,8 @@
     }
 
     function renderCatalystModelPreview() {
-      const material = getCatalystCurrentMaterial();
+      const isWorkbench = !!document.getElementById("catalystWorkbenchSection");
+      const material = isWorkbench ? getCatalystWorkbenchMaterial(null) : getCatalystCurrentMaterial();
       const tool = getCatalystActiveToolConfig();
       const values = readCatalystToolValues();
       if (!tool) return;
@@ -27735,7 +28261,7 @@
                 <p class="twod-result-hint">${getCatalystPlatformHint(resultList)}</p>
               </div>
               <div class="twod-result-actions">
-                <button class="btn" type="button" data-catalyst-batch-download>批量下载POSCAR</button>
+                ${state.catalystBatchSelection.length ? `<button class="btn" type="button" data-catalyst-batch-download>批量下载POSCAR</button>` : ""}
                 <button class="btn-primary" type="button" data-catalyst-open-upload>数据上传</button>
                 <button class="btn" type="button" data-catalyst-workbench="site">活性位点分析</button>
                 <button class="btn" type="button" data-catalyst-workbench="compare">材料对比</button>
@@ -27950,6 +28476,7 @@
             } else {
               state.catalystBatchSelection = state.catalystBatchSelection.filter((id) => id !== batchPick);
             }
+            renderCatalystModule();
             return;
           }
           if (event.target.id === "catalystCompareChartType") {
@@ -28031,7 +28558,16 @@
             return;
           }
           if (workbenchButton) {
-            openCatalystWorkbenchPage(workbenchButton.dataset.catalystWorkbench);
+            const mode = workbenchButton.dataset.catalystWorkbench;
+            if (mode === "site" && !state.catalystBatchSelection.length) {
+              showNotify("warning", "活性位点分析", "请先在检索结果栏中选择一个材料。");
+              return;
+            }
+            if (mode === "compare" && !state.catalystBatchSelection.length) {
+              showNotify("warning", "材料对比", "请先在检索结果栏中至少选择一个材料。");
+              return;
+            }
+            openCatalystWorkbenchPage(mode);
             return;
           }
           if (toolSelect) {
@@ -28736,6 +29272,9 @@
       }
       bindCatalystBuildFlowInteractions();
       bindCatalystGenerateConfirm();
+      if (mode === "compare") {
+        syncCatalystCompareSelectionFromCurrent(getCatalystPlatformResults());
+      }
       renderCatalystWorkbenchPage(mode);
       const config = CATALYST_WORKBENCH_PAGE_CONFIG[mode] || CATALYST_WORKBENCH_PAGE_CONFIG.site;
       switchPage(config.page);
