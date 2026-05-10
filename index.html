@@ -10576,7 +10576,7 @@
         <div class="page-head">
           <div>
             <h2>数据应用算法</h2>
-            <p>算法知识库 - 多级筛选选择所需算法，查看使用手册、说明文档和下载代码包。所有能力均通过外部 API 数据服务返回结果，不在系统内展示算力执行过程。</p>
+            <p>算法知识库 - 多级筛选选择所需算法，查看使用手册、查看算法和下载代码包。所有能力均通过外部 API 数据服务返回结果，不在系统内展示算力执行过程。</p>
           </div>
           <div class="page-tools">
             <button class="btn" id="algoResetBtn">⟳ 重置筛选</button>
@@ -10609,107 +10609,6 @@
           </section>
         </div>
 
-        <div class="algorithm-detail-grid" style="margin-top:20px;">
-          <article class="card pad">
-            <div class="page-tools" style="justify-content:space-between; margin-bottom:14px; gap:16px;">
-              <h3 class="section-title" style="margin:0;">算法详情</h3>
-              <span class="tag-blue" id="algorithmPathTag">二维材料数据应用算法 / 晶体结构驰豫算法</span>
-            </div>
-            <div class="algorithm-detail-card">
-              <div class="algorithm-item-head">
-                <div>
-                  <h3 class="section-title" id="algorithmDetailTitle" style="margin-bottom:4px;">非磁单层材料结构驰豫算法</h3>
-                  <div class="algorithm-item-subtitle" id="algorithmDetailSubtitle">Non-magnetic Monolayer Relaxation</div>
-                </div>
-                <span class="algorithm-status-pill available" id="algorithmDetailStatus">可用</span>
-              </div>
-              <p id="algorithmDetailDesc" class="section-subtitle" style="margin-top:14px; margin-bottom:0;">针对非磁性二维单层材料的结构优化算法，通过 API 调用返回优化后的晶格参数与原子位置信息。</p>
-              <div class="algorithm-tag-row" id="algorithmDetailTags"></div>
-              <div class="algorithm-info-grid" id="algorithmDetailMeta"></div>
-              <div class="algorithm-endpoint-list" id="algorithmEndpointList"></div>
-              <div class="algorithm-alert" id="algorithmMaintenanceAlert" hidden>
-                <strong>维护中说明</strong>
-                <p id="algorithmMaintenanceText">当前算法服务处于维护窗口，下载与调用入口已临时关闭，可继续查看手册和说明文档。</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="card pad">
-            <h3 class="section-title">算法调用登记</h3>
-            <p class="section-subtitle">登记调用需求后，由外部 API 服务返回数据结果与状态通知，平台仅展示接口参数与结果摘要。</p>
-            <div class="algorithm-request-card">
-              <form id="algorithmRequestForm" class="algorithm-request-form">
-                <div class="algorithm-request-grid">
-                  <div class="field">
-                    <label for="algorithmRequestName">调用名称</label>
-                    <input id="algorithmRequestName" type="text" placeholder="请输入调用名称">
-                  </div>
-                  <div class="field">
-                    <label for="algorithmRequestSource">调用环境</label>
-                    <select id="algorithmRequestSource">
-                      <option>材料主题库统一 API</option>
-                      <option>外部镜像 API</option>
-                      <option>内部联调环境</option>
-                    </select>
-                  </div>
-                  <div class="field">
-                    <label for="algorithmRequestKeyword">检索关键词 / 编号</label>
-                    <input id="algorithmRequestKeyword" type="text" placeholder="如 MoS2 / MAT-001 / ORR">
-                  </div>
-                  <div class="field">
-                    <label for="algorithmRequestFormat">返回格式</label>
-                    <select id="algorithmRequestFormat">
-                      <option>JSON</option>
-                      <option>CSV</option>
-                      <option>ZIP</option>
-                    </select>
-                  </div>
-                  <div class="field span-2">
-                    <label>通知方式</label>
-                    <div class="algorithm-radio-row">
-                      <label class="algorithm-radio"><input type="radio" name="algorithmNotify" value="站内通知" checked>站内通知</label>
-                      <label class="algorithm-radio"><input type="radio" name="algorithmNotify" value="邮件回调">邮件回调</label>
-                      <label class="algorithm-radio"><input type="radio" name="algorithmNotify" value="Webhook">Webhook</label>
-                    </div>
-                  </div>
-                  <div class="field span-2">
-                    <label for="algorithmRequestNote">调用说明</label>
-                    <textarea id="algorithmRequestNote" placeholder="填写筛选目标、返回字段或联调说明"></textarea>
-                  </div>
-                </div>
-                <div class="algorithm-form-actions">
-                  <button class="btn-primary" type="submit">提交调用</button>
-                  <button class="btn" type="button" id="algorithmFormResetBtn">重置表单</button>
-                </div>
-              </form>
-            </div>
-          </article>
-        </div>
-
-        <div class="card table-card" style="margin-top:20px;">
-          <div class="table-head">
-            <h3>最近调用记录</h3>
-            <div class="table-tools">
-              <span class="tag-green">仅展示 API 接口登记记录</span>
-              <span class="tag-blue" id="algorithmRequestHint">当前算法：非磁单层材料结构驰豫算法</span>
-            </div>
-          </div>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>调用名称</th>
-                  <th>算法</th>
-                  <th>调用环境</th>
-                  <th>返回格式</th>
-                  <th>通知方式</th>
-                  <th>状态</th>
-                </tr>
-              </thead>
-              <tbody id="algorithmRequestTableBody"></tbody>
-            </table>
-          </div>
-        </div>
 
         <div class="stats-grid" style="margin-top:20px;">
           <div class="stats-box stats-blue"><strong>算法总数</strong><span>22</span></div>
@@ -12222,25 +12121,30 @@
   <div class="overlay" id="algorithmDocModal">
     <div class="modal modal-lg">
       <div class="modal-header">
-        <h3 id="algorithmDocTitle">非磁单层材料结构驰豫算法 - 说明文档</h3>
+        <h3 id="algorithmDocTitle">非磁单层材料结构驰豫算法 - 算法详情</h3>
         <button class="modal-close" type="button" data-close-modal="algorithmDocModal">×</button>
       </div>
       <div class="modal-body modal-scroll">
-        <h4 class="section-title" style="margin-bottom:10px;">文档信息</h4>
-        <div class="algorithm-file-meta" id="algorithmDocMeta"></div>
-        <div class="doc-box" style="margin-top:20px;">
-          <h4>快速入门</h4>
-          <p id="algorithmDocQuickStart">通过统一 API 入口提交结构文件索引和参数模板，返回结构优化结果与摘要信息。</p>
-          <code id="algorithmDocQuickCode">POST /api/v1/algorithms/twod/relax/nonmagnetic</code>
-        </div>
-        <div class="algorithm-doc-directory">
-          <h4>说明文档目录</h4>
-          <ol id="algorithmDocToc"></ol>
+        <div class="algorithm-detail-card">
+          <div class="algorithm-item-head">
+            <div>
+              <h3 class="section-title" id="algorithmDetailTitle" style="margin-bottom:4px;">非磁单层材料结构驰豫算法</h3>
+              <div class="algorithm-item-subtitle" id="algorithmDetailSubtitle">Non-magnetic Monolayer Relaxation</div>
+            </div>
+            <span class="algorithm-status-pill available" id="algorithmDetailStatus">可用</span>
+          </div>
+          <p id="algorithmDetailDesc" class="section-subtitle" style="margin-top:14px; margin-bottom:0;">针对非磁性二维单层材料的结构优化算法，通过 API 调用返回优化后的晶格参数与原子位置信息。</p>
+          <div class="algorithm-tag-row" id="algorithmDetailTags"></div>
+          <div class="algorithm-info-grid" id="algorithmDetailMeta"></div>
+          <div class="algorithm-endpoint-list" id="algorithmEndpointList"></div>
+          <div class="algorithm-alert" id="algorithmMaintenanceAlert" hidden>
+            <strong>维护中说明</strong>
+            <p id="algorithmMaintenanceText">当前算法服务处于维护窗口，下载与调用入口已临时关闭，可继续查看手册和算法详情。</p>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
         <button class="btn" type="button" data-close-modal="algorithmDocModal">关闭</button>
-        <button class="btn-primary" type="button" id="algorithmDocDownloadBtn">下载文档</button>
       </div>
     </div>
   </div>
@@ -12284,7 +12188,7 @@
       </div>
       <div class="modal-body">
         <div class="algorithm-maintenance-box">
-          <p id="algorithmMaintenanceModalText">当前算法服务处于维护中，可继续查看使用手册与说明文档。维护窗口为 2026-04-21 至 2026-04-25。</p>
+          <p id="algorithmMaintenanceModalText">当前算法服务处于维护中，可继续查看使用手册与算法详情。维护窗口为 2026-04-21 至 2026-04-25。</p>
         </div>
       </div>
       <div class="modal-footer">
@@ -20351,7 +20255,7 @@
           </div>
           <div class="algorithm-actions">
             <button class="algorithm-action-btn" type="button" data-algo-action="manual" data-algo-id="${item.id}">使用手册</button>
-            <button class="algorithm-action-btn" type="button" data-algo-action="doc" data-algo-id="${item.id}">说明文档</button>
+            <button class="algorithm-action-btn" type="button" data-algo-action="doc" data-algo-id="${item.id}">查看算法</button>
             <button class="algorithm-action-btn primary" type="button" data-algo-action="${item.status === "maintenance" ? "maintenance" : "code"}" data-algo-id="${item.id}">${item.status === "maintenance" ? "维护中" : "代码包"}</button>
           </div>
         </article>
@@ -20431,15 +20335,37 @@
       const algorithm = findAlgorithmById(algorithmId);
       if (!algorithm) return;
       state.activeAlgorithmResourceId = algorithm.id;
-      document.getElementById("algorithmDocTitle").textContent = `${algorithm.title} - 说明文档`;
-      document.getElementById("algorithmDocMeta").innerHTML = `
-        <div>文件名：${getAlgorithmResourceName(algorithm, "doc")}</div>
-        <div>文件大小：0.9 MB</div>
-        <div>更新日期：${algorithm.updatedAt}</div>
+      document.getElementById("algorithmDocTitle").textContent = `${algorithm.title} - 算法详情`;
+      document.getElementById("algorithmDetailTitle").textContent = algorithm.title;
+      document.getElementById("algorithmDetailSubtitle").textContent = algorithm.enTitle;
+      document.getElementById("algorithmDetailDesc").textContent = algorithm.desc;
+      const statusNode = document.getElementById("algorithmDetailStatus");
+      statusNode.textContent = getAlgorithmStatusText(algorithm.status);
+      statusNode.className = `algorithm-status-pill ${algorithm.status}`;
+      document.getElementById("algorithmDetailTags").innerHTML = algorithm.tags.map((tag) => `<span class="algorithm-tag">${tag}</span>`).join("");
+      document.getElementById("algorithmDetailMeta").innerHTML = `
+        <div class="algorithm-info-item"><span>接口地址</span><strong>${algorithm.endpoint}</strong></div>
+        <div class="algorithm-info-item"><span>版本</span><strong>${algorithm.version}</strong></div>
+        <div class="algorithm-info-item"><span>最近更新</span><strong>${algorithm.updatedAt}</strong></div>
+        <div class="algorithm-info-item"><span>代码包大小</span><strong>${algorithm.packageSize}</strong></div>
       `;
-      document.getElementById("algorithmDocQuickStart").textContent = `通过统一 API 入口调用 ${algorithm.title}，输入 ${algorithm.input}，返回 ${algorithm.output}。`;
-      document.getElementById("algorithmDocQuickCode").textContent = `${algorithm.endpoint}\nContent-Type: application/json`;
-      document.getElementById("algorithmDocToc").innerHTML = getAlgorithmDocChapters().map((item) => `<li>${item}</li>`).join("");
+      document.getElementById("algorithmEndpointList").innerHTML = `
+        <div class="endpoint-card">
+          <strong>输入参数</strong>
+          <p>${algorithm.input}</p>
+          <code>${algorithm.endpoint}</code>
+        </div>
+        <div class="endpoint-card">
+          <strong>返回内容</strong>
+          <p>${algorithm.output}</p>
+          <code>GET /api/v1/tasks/{taskId}/result</code>
+        </div>
+      `;
+      const maintenanceAlert = document.getElementById("algorithmMaintenanceAlert");
+      if (maintenanceAlert) {
+        maintenanceAlert.hidden = algorithm.status !== "maintenance";
+        document.getElementById("algorithmMaintenanceText").textContent = `${algorithm.title} 当前处于维护中。维护窗口为 2026-04-21 至 2026-04-25，维护期间暂停代码包下载与接口登记。`;
+      }
       openModal("algorithmDocModal");
     }
 
@@ -20468,7 +20394,7 @@
     function openAlgorithmMaintenanceModal(algorithmId) {
       const algorithm = findAlgorithmById(algorithmId) || getSelectedAlgorithm();
       document.getElementById("algorithmMaintenanceModalTitle").textContent = `${algorithm.title} - 维护提示`;
-      document.getElementById("algorithmMaintenanceModalText").textContent = `${algorithm.title} 当前处于维护中，可继续查看使用手册与说明文档。维护窗口为 2026-04-21 至 2026-04-25。`;
+      document.getElementById("algorithmMaintenanceModalText").textContent = `${algorithm.title} 当前处于维护中，可继续查看使用手册与算法详情。维护窗口为 2026-04-21 至 2026-04-25。`;
       openModal("algorithmMaintenanceModal");
     }
 
@@ -20496,9 +20422,6 @@
       renderAlgorithmCategories();
       renderAlgorithmSubcategories();
       renderAlgorithmCards();
-      renderAlgorithmDetail();
-      renderAlgorithmRequestLogs();
-      populateAlgorithmRequestForm();
     }
 
     function bindAlgorithmInteractions() {
@@ -20510,45 +20433,6 @@
         showToast("数据应用算法", "已重置算法筛选并恢复默认算法视图。");
       });
 
-      document.getElementById("algorithmFormResetBtn").addEventListener("click", () => {
-        populateAlgorithmRequestForm();
-      });
-
-      document.getElementById("algorithmRequestForm").addEventListener("submit", (event) => {
-        event.preventDefault();
-        const algorithm = getSelectedAlgorithm();
-        if (algorithm.status === "maintenance") {
-          openAlgorithmMaintenanceModal(algorithm.id);
-          return;
-        }
-
-        const requestName = document.getElementById("algorithmRequestName").value.trim();
-        const keyword = document.getElementById("algorithmRequestKeyword").value.trim();
-        const source = document.getElementById("algorithmRequestSource").value;
-        const format = document.getElementById("algorithmRequestFormat").value;
-        const notify = document.querySelector('input[name="algorithmNotify"]:checked')?.value || "站内通知";
-        const note = document.getElementById("algorithmRequestNote").value.trim();
-
-        if (!requestName || !keyword) {
-          showToast("算法调用登记", "请填写调用名称和检索关键词/编号。");
-          return;
-        }
-
-        const payload = `POST ${algorithm.endpoint}\n{\n  "requestName": "${requestName}",\n  "keyword": "${keyword}",\n  "source": "${source}",\n  "format": "${format}",\n  "notify": "${notify}",\n  "note": "${note.replace(/\n/g, " ")}"\n}`;
-        state.algorithmRequestPayload = payload;
-        algorithmRequestLogs.unshift({
-          name: requestName,
-          algorithmId: algorithm.id,
-          source,
-          format,
-          notify,
-          status: "排队中",
-          time: "2026-04-21 14:30"
-        });
-        renderAlgorithmRequestLogs();
-        openAlgorithmRequestModal(algorithm, payload);
-        showToast("算法调用登记", "调用登记已创建，结果将通过外部 API 服务返回。");
-      });
 
       document.getElementById("algorithmCodeAgree").addEventListener("change", (event) => {
         document.getElementById("algorithmCodeConfirmBtn").disabled = !event.target.checked;
@@ -20565,10 +20449,6 @@
         showToast("使用手册", `${algorithm ? algorithm.title : "当前算法"} 的手册下载已触发。`);
       });
 
-      document.getElementById("algorithmDocDownloadBtn").addEventListener("click", () => {
-        const algorithm = findAlgorithmById(state.activeAlgorithmResourceId);
-        showToast("说明文档", `${algorithm ? algorithm.title : "当前算法"} 的说明文档下载已触发。`);
-      });
 
       document.getElementById("algorithmRequestCopyBtn").addEventListener("click", () => {
         showToast("请求示例", "请求示例已生成，可用于后续接口联调。");
