@@ -1655,417 +1655,451 @@
       padding: 0;
     }
 
-    .tooldev-intro {
-      padding: 20px 0 16px;
+    /* ===== 数据工具开发模块静态展示样式 ===== */
+    .tool-static-card {
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      overflow: hidden;
     }
 
-    .tooldev-intro h3 {
-      margin: 0;
-      font-size: 18px;
+    .tool-static-header {
+      display: flex;
+      gap: 20px;
+      padding: 28px 28px 24px;
+      background: linear-gradient(180deg, #f8fafc, #ffffff);
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .tool-static-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      flex: none;
+    }
+
+    .tool-static-icon.blue { background: #dce9ff; color: #2861e4; }
+    .tool-static-icon.green { background: #dbf8e7; color: #18b35f; }
+    .tool-static-icon.purple { background: #efe2ff; color: #9747ff; }
+    .tool-static-icon.orange { background: #ffe8cf; color: #ef6b00; }
+
+    .tool-static-title-group { flex: 1; min-width: 0; }
+
+    .tool-static-title-group h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
       line-height: 28px;
       color: #111827;
       font-weight: 700;
     }
 
-    .tooldev-intro p {
-      margin: 6px 0 0;
+    .tool-static-title-group p {
+      margin: 0;
       color: #4b5563;
-      font-size: 13px;
+      font-size: 14px;
       line-height: 22px;
     }
 
-    .tooldev-card,
-    .tooldev-code-card {
-      border-radius: 12px;
-      border: 1px solid #e5e7eb;
-      background: #ffffff;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    .tool-static-body {
+      padding: 24px 28px 28px;
     }
 
-    .tooldev-card {
-      padding: 20px;
-    }
-
-    .tooldev-card.soft {
-      background: #f9fafb;
-      border-color: #e5e7eb;
-    }
-
-    .tooldev-card + .tooldev-card,
-    .tooldev-card + .tooldev-code-card,
-    .tooldev-code-card + .tooldev-card {
-      margin-top: 20px;
-    }
-
-    .tooldev-layout {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.78fr);
-    }
-
-    .tooldev-stack {
-      display: grid;
-      gap: 20px;
-    }
-
-    .tooldev-grid-2,
-    .tooldev-grid-3,
-    .tooldev-grid-4 {
-      display: grid;
-      gap: 12px;
-    }
-
-    .tooldev-grid-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .tooldev-grid-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .tooldev-grid-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .tooldev-section-title {
+    .tool-static-meta {
       display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tool-static-meta .tag-blue,
+    .tool-static-meta .tag-green,
+    .tool-static-meta .tag-orange {
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      margin: 0 0 16px;
-      font-size: 15px;
-      line-height: 24px;
-      font-weight: 700;
-      color: #111827;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 18px;
     }
 
-    .tooldev-section-title .icon {
-      color: #1a56db;
-      font-size: 16px;
-      line-height: 1;
+    .tool-static-meta .tag-blue { background: #eff6ff; color: #1a56db; }
+    .tool-static-meta .tag-green { background: #f0fdf4; color: #15803d; }
+    .tool-static-meta .tag-orange { background: #fff7ed; color: #c2410c; }
+
+    .tool-static-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #f3f4f6;
     }
 
-    .tooldev-subshell {
-      overflow: hidden;
-    }
-
-    .tooldev-subshell + .tooldev-card,
-    .tooldev-subshell + .tooldev-layout,
-    .tooldev-subshell + .tooldev-stack,
-    .tooldev-layout + .tooldev-code-card,
-    .tooldev-layout + .tooldev-card,
-    .tooldev-card + .tooldev-actions,
-    .tooldev-code-card + .tooldev-actions {
-      margin-top: 20px;
-    }
-
-    .tooldev-subshell .subtab-row {
-      padding: 0 20px;
-      min-height: 56px;
-    }
-
-    .tooldev-subshell .subtab-panel {
-      padding: 20px;
-    }
-
-    .tooldev-option-card {
-      position: relative;
-      padding: 16px 18px;
-      border-radius: 10px;
-      border: 1px solid #e5e7eb;
-      background: #fff;
-      min-height: 100px;
+    .tool-static-actions .btn-primary,
+    .tool-static-actions .btn {
+      min-height: 40px;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 22px;
       cursor: pointer;
+      border: 1px solid transparent;
       transition: all 0.15s;
     }
 
-    .tooldev-option-card:hover {
-      border-color: #bfdbfe;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-
-    .tooldev-option-card.active {
+    .tool-static-actions .btn-primary {
+      background: #1a56db;
+      color: #ffffff;
       border-color: #1a56db;
-      box-shadow: inset 0 0 0 1px #1a56db;
-      background: #eff6ff;
     }
 
-    .tooldev-option-card strong {
-      display: block;
-      margin-bottom: 6px;
+    .tool-static-actions .btn-primary:hover {
+      background: #164bc9;
+      border-color: #164bc9;
+    }
+
+    .tool-static-actions .btn {
+      background: #ffffff;
+      color: #374151;
+      border-color: #e5e7eb;
+    }
+
+    .tool-static-actions .btn:hover {
+      background: #f9fafb;
+      border-color: #d1d5db;
+    }
+
+    .tool-static-detail-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tool-static-detail-actions .btn-outline {
+      min-height: 36px;
+      padding: 6px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 20px;
+      cursor: pointer;
+      border: 1px solid #dbeafe;
+      background: #ffffff;
+      color: #1a56db;
+      transition: all 0.15s;
+    }
+
+    .tool-static-detail-actions .btn-outline:hover {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+    }
+
+    .tool-submodule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .tool-submodule-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      transition: all 0.15s;
+    }
+
+    .tool-submodule-card:hover {
+      border-color: #dbeafe;
+      box-shadow: 0 4px 12px rgba(26,86,219,0.08);
+    }
+
+    .tool-submodule-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex: none;
+    }
+
+    .tool-submodule-icon.blue { background: #dce9ff; color: #2861e4; }
+    .tool-submodule-icon.green { background: #dbf8e7; color: #18b35f; }
+    .tool-submodule-icon.purple { background: #efe2ff; color: #9747ff; }
+    .tool-submodule-icon.orange { background: #ffe8cf; color: #ef6b00; }
+
+    .tool-submodule-info { flex: 1; min-width: 0; }
+
+    .tool-submodule-info h4 {
+      margin: 0 0 6px;
       font-size: 15px;
       line-height: 22px;
+      font-weight: 700;
       color: #111827;
-      font-weight: 600;
     }
 
-    .tooldev-option-card p {
+    .tool-submodule-info p {
       margin: 0;
-      color: #6b7280;
-      font-size: 12px;
+      font-size: 13px;
       line-height: 20px;
+      color: #4b5563;
     }
 
-    .tooldev-option-check {
-      position: absolute;
-      right: 14px;
-      top: 14px;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      border: 2px solid #d1d5db;
-      background: #fff;
+    .tool-submodule-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid #f3f4f6;
     }
 
-    .tooldev-option-card.active .tooldev-option-check {
+    .tool-submodule-actions .btn-primary,
+    .tool-submodule-actions .btn {
+      min-height: 32px;
+      padding: 5px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 20px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s;
+    }
+
+    .tool-submodule-actions .btn-primary {
+      background: #1a56db;
+      color: #ffffff;
       border-color: #1a56db;
     }
 
-    .tooldev-option-card.active .tooldev-option-check::after {
-      content: "";
-      position: absolute;
-      inset: 4px;
-      border-radius: 50%;
-      background: #1a56db;
+    .tool-submodule-actions .btn-primary:hover {
+      background: #164bc9;
+      border-color: #164bc9;
     }
 
-    /* ===== 数据工具开发模块子元素视觉升级（参考 tool.html） ===== */
-    #page-tools .model-preview {
-      background: #f8fafc;
-      border-radius: 10px;
-      padding: 32px;
-      text-align: center;
-      border: 2px dashed #e5e7eb;
-      margin: 12px 0;
+    .tool-submodule-actions .btn {
+      background: #ffffff;
+      color: #374151;
+      border-color: #e5e7eb;
     }
-    #page-tools .model-preview-icon { font-size: 40px; margin-bottom: 8px; }
-    #page-tools .model-preview-text { color: #6b7280; font-size: 13px; }
 
-    #page-tools .feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    .tool-submodule-actions .btn:hover {
+      background: #f9fafb;
+      border-color: #d1d5db;
     }
-    #page-tools .feature-list li {
-      padding: 6px 0;
-      font-size: 13px;
-      color: #111827;
+
+    .tool-submodule-detail-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tool-submodule-detail-actions .btn-outline {
+      min-height: 30px;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 18px;
+      cursor: pointer;
+      border: 1px solid #dbeafe;
+      background: #ffffff;
+      color: #1a56db;
+      transition: all 0.15s;
+    }
+
+    .tool-submodule-detail-actions .btn-outline:hover {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+    }
+
+    .tool-download-stepper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tool-download-step {
       display: flex;
       align-items: center;
       gap: 8px;
-    }
-    #page-tools .feature-list li::before {
-      content: '\2713';
-      color: #10b981;
-      font-weight: bold;
+      font-size: 13px;
+      color: #9ca3af;
     }
 
-    #page-tools .quality-tags {
-      display: flex;
-      justify-content: space-around;
-      margin: 16px 0;
-    }
-    #page-tools .quality-tag { text-align: center; padding: 12px; }
-    #page-tools .quality-badge {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 6px;
-      font-size: 22px;
-    }
-    #page-tools .quality-high .quality-badge { border: 3px solid #10b981; background: rgba(22, 163, 74, 0.08); }
-    #page-tools .quality-medium .quality-badge { border: 3px solid #f59e0b; background: rgba(217, 119, 6, 0.08); }
-    #page-tools .quality-low .quality-badge { border: 3px solid #ef4444; background: rgba(220, 38, 38, 0.08); }
-    #page-tools .quality-label { font-size: 12px; font-weight: 700; color: #111827; }
+    .tool-download-step.active { color: #1a56db; font-weight: 700; }
+    .tool-download-step.done { color: #15803d; }
 
-    #page-tools .encoding-comparison {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin: 12px 0;
-    }
-    #page-tools .encoding-box {
-      background: #ffffff;
-      border-radius: 8px;
-      padding: 14px;
-      border: 2px solid #e5e7eb;
-    }
-    #page-tools .encoding-title {
-      font-size: 14px; font-weight: 700; color: #111827;
-      margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #e5e7eb;
-    }
-    #page-tools .encoding-code {
-      background: #f9fafb;
-      padding: 10px;
-      border-radius: 8px;
-      font-family: 'Courier New', monospace;
-      font-size: 12px;
-      color: #1a56db;
-      line-height: 1.7;
-    }
-
-    #page-tools .nn-visualization {
-      background: #f8fafc;
-      border-radius: 8px;
-      padding: 20px;
-      margin: 12px 0;
-    }
-    #page-tools .nn-layers {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      min-height: 120px;
-    }
-    #page-tools .nn-layer { display: flex; flex-direction: column; gap: 6px; }
-    #page-tools .nn-neuron {
+    .tool-download-step-num {
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #1a56db 0%, #3b82f6 100%);
-      box-shadow: 0 2px 8px rgba(26, 86, 219, 0.3);
+      display: grid;
+      place-items: center;
+      background: #f3f4f6;
+      font-size: 13px;
     }
-    #page-tools .nn-label { text-align: center; font-size: 12px; color: #6b7280; margin-top: 6px; }
 
-    #page-tools .control-panel {
-      background: #ffffff;
-      border-radius: 8px;
-      padding: 16px;
-      margin-top: 16px;
-      border: 1px solid #e5e7eb;
-    }
-    #page-tools .control-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    #page-tools .control-row:last-child { margin-bottom: 0; }
-    #page-tools .control-label { font-size: 13px; color: #111827; }
-    #page-tools .slider-container { display: flex; align-items: center; gap: 10px; }
-    #page-tools .slider {
-      width: 140px;
-      -webkit-appearance: none;
-      height: 6px;
-      border-radius: 3px;
+    .tool-download-step.active .tool-download-step-num { background: #1a56db; color: #fff; }
+    .tool-download-step.done .tool-download-step-num { background: #15803d; color: #fff; }
+
+    .tool-download-step-line {
+      width: 24px;
+      height: 2px;
       background: #e5e7eb;
-      outline: none;
+      border-radius: 1px;
     }
-    #page-tools .slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: #1a56db;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(26, 86, 219, 0.3);
-    }
-    #page-tools .slider-value { font-size: 14px; font-weight: 700; color: #1a56db; min-width: 28px; }
 
-    #page-tools .progress-bar {
-      width: 100%;
+    .tool-download-step.done + .tool-download-step-line,
+    .tool-download-step-line.done { background: #15803d; }
+
+    .tool-download-panel { display: none; }
+    .tool-download-panel.active { display: block; }
+
+    .tool-progress-bar {
       height: 8px;
+      border-radius: 999px;
       background: #e5e7eb;
-      border-radius: 4px;
       overflow: hidden;
-      margin: 10px 0;
+      margin: 16px 0;
     }
-    #page-tools .progress-fill {
+
+    .tool-progress-fill {
       height: 100%;
-      background: linear-gradient(90deg, #1a56db 0%, #3b82f6 100%);
-      border-radius: 4px;
       width: 0%;
-      transition: width 0.5s ease;
+      background: #1a56db;
+      border-radius: 999px;
+      transition: width 0.3s;
+    }
+
+    .tool-guide-layout {
+      display: flex;
+      gap: 0;
+      min-height: 400px;
+    }
+
+    .tool-guide-nav {
+      width: 200px;
+      border-right: 1px solid #e5e7eb;
+      padding: 8px 0;
+      flex: none;
+    }
+
+    .tool-guide-nav button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 10px 20px;
+      border: none;
+      background: transparent;
+      font-size: 14px;
+      color: #4b5563;
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      transition: all 0.15s;
+    }
+
+    .tool-guide-nav button:hover { background: #f8fafc; }
+    .tool-guide-nav button.active {
+      color: #1a56db;
+      background: #eff6ff;
+      border-left-color: #1a56db;
+      font-weight: 600;
+    }
+
+    .tool-guide-body {
+      flex: 1;
+      padding: 20px 28px;
+      overflow: auto;
+    }
+
+    .tool-guide-section { display: none; }
+    .tool-guide-section.active { display: block; }
+
+    .tool-guide-section h4 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      color: #111827;
+    }
+
+    .tool-guide-section p,
+    .tool-guide-section li {
+      font-size: 14px;
+      line-height: 22px;
+      color: #374151;
+    }
+
+    .tool-guide-section ol,
+    .tool-guide-section ul {
+      padding-left: 20px;
+      margin: 0 0 16px;
+    }
+
+    .tool-guide-section li { margin-bottom: 6px; }
+
+    .tool-detail-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tool-detail-list li {
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 22px;
+      color: #374151;
+      background: #fafbfc;
+    }
+
+    .tool-detail-list li::before {
+      content: attr(data-index);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: #1a56db;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      margin-right: 10px;
+      flex: none;
     }
 
     @media (max-width: 768px) {
-      #page-tools .encoding-comparison { grid-template-columns: 1fr; }
-      #page-tools .tooldev-grid-2,
-      #page-tools .tooldev-grid-3 { grid-template-columns: 1fr; }
-    }
-
-    /* 数据工具开发模块步骤条 */
-    .tooldev-stepper {
-      display: flex;
-      align-items: flex-start;
-      gap: 0;
-      margin: 0 0 20px;
-    }
-    .tooldev-step {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      text-align: center;
-    }
-    .tooldev-step::before {
-      content: '';
-      position: absolute;
-      top: 14px;
-      left: calc(-50% + 16px);
-      right: calc(50% + 16px);
-      height: 2px;
-      background: #e5e7eb;
-    }
-    .tooldev-step:first-child::before { display: none; }
-    .tooldev-step.active::before { background: #3b82f6; }
-    .tooldev-step-dot {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: #1a56db;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: 700;
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 0 0 4px rgba(26, 86, 219, 0.12);
-    }
-    .tooldev-step-label {
-      margin-top: 8px;
-      font-size: 12px;
-      line-height: 18px;
-      color: #374151;
-      font-weight: 600;
-      max-width: 100px;
-    }
-
-    /* 数据工具开发模块两列布局 */
-    #tool-inverse .tooldev-layout,
-    #tool-assistant .tooldev-layout,
-    #tool-catalyst .tooldev-layout,
-    #tool-model .tooldev-layout,
-    #tool-clean .tooldev-layout {
-      grid-template-columns: 1fr;
-    }
-    #tool-inverse .tooldev-stack,
-    #tool-assistant .tooldev-stack {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    #tool-catalyst .tooldev-stack,
-    #tool-model .tooldev-stack {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    #tool-catalyst .tooldev-stack > .tooldev-card:nth-child(3):nth-last-child(1),
-    #tool-model .tooldev-stack > .tooldev-card:nth-child(3):nth-last-child(1) {
-      grid-column: 1 / -1;
-    }
-    @media (max-width: 900px) {
-      #tool-inverse .tooldev-stack,
-      #tool-assistant .tooldev-stack,
-      #tool-catalyst .tooldev-stack,
-      #tool-model .tooldev-stack {
-        grid-template-columns: 1fr;
-      }
-      #tool-catalyst .tooldev-stack > .tooldev-card:nth-child(3):nth-last-child(1),
-      #tool-model .tooldev-stack > .tooldev-card:nth-child(3):nth-last-child(1) {
-        grid-column: auto;
-      }
+      .tool-submodule-grid { grid-template-columns: 1fr; }
+      .tool-guide-layout { flex-direction: column; }
+      .tool-guide-nav { width: 100%; border-right: none; border-bottom: 1px solid #e5e7eb; display: flex; flex-wrap: wrap; padding: 8px; }
+      .tool-guide-nav button { width: auto; border-left: none; border-bottom: 3px solid transparent; padding: 8px 12px; }
+      .tool-guide-nav button.active { border-left-color: transparent; border-bottom-color: #1a56db; }
+      .tool-download-stepper { flex-wrap: wrap; }
+      .tool-static-header { flex-direction: column; padding: 20px; }
+      .tool-static-icon { width: 48px; height: 48px; font-size: 22px; }
+      .tool-static-title-group h3 { font-size: 18px; }
+      .tool-static-body { padding: 20px; }
+      .tool-static-actions .btn-primary,
+      .tool-static-actions .btn { width: 100%; justify-content: center; }
     }
 
     .tooldev-side-list,
@@ -9463,315 +9497,61 @@
       background: var(--ui-fill-soft);
     }
 
-    /* ===== 数据工具开发模块新样式（融合 tools.html 交互） ===== */
-    .tooldev-flat { padding: 24px; }
-    .tooldev-flat .tool-card {
-      background: var(--panel);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-      border-left: 4px solid var(--primary);
-      overflow: hidden;
-      margin-bottom: 24px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .tooldev-flat .tool-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-    .tooldev-flat .card-header {
-      padding: 20px 24px;
-      background: linear-gradient(135deg, var(--primary-soft) 0%, #e6f2ff 100%);
-      border-bottom: 1px solid var(--line);
-    }
-    .tooldev-flat .card-header h3 {
-      margin: 0 0 10px;
-      font-size: 18px;
-      color: var(--primary-strong);
-    }
-    .tooldev-flat .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .tooldev-flat .tag {
-      background: rgba(31, 94, 255, 0.08);
-      color: var(--primary);
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 600;
-    }
-    .tooldev-flat .card-body {
-      padding: 20px 24px;
-    }
-    .tooldev-flat .card-description {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 16px;
-      line-height: 1.6;
-    }
-    .tooldev-flat .feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .tooldev-flat .feature-list li {
-      padding: 6px 0;
-      font-size: 13px;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .tooldev-flat .feature-list li::before {
-      content: '✓';
-      color: var(--success);
-      font-weight: bold;
-    }
-
-    /* 流程图 */
-    .tooldev-flat .flow-chart {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0;
-      margin: 12px 0;
-      gap: 8px;
-    }
-    .tooldev-flat .flow-step {
-      flex: 1;
-      text-align: center;
-      position: relative;
-    }
-    .tooldev-flat .flow-step::after {
-      content: '→';
-      position: absolute;
-      right: -10px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--primary);
-      font-size: 16px;
-      font-weight: bold;
-    }
-    .tooldev-flat .flow-step:last-child::after { display: none; }
-    .tooldev-flat .flow-circle {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary) 0%, #00bfff 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 6px;
-      color: white;
-      font-size: 12px;
-      font-weight: bold;
-      box-shadow: 0 4px 12px rgba(31, 94, 255, 0.25);
-    }
-    .tooldev-flat .flow-label {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    /* 质量标签 */
-    .tooldev-flat .quality-tags {
-      display: flex;
-      justify-content: space-around;
-      margin: 16px 0;
-    }
-    .tooldev-flat .quality-tag {
-      text-align: center;
-      padding: 12px;
-    }
-    .tooldev-flat .quality-badge {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 6px;
-      font-size: 22px;
-    }
-    .tooldev-flat .quality-high .quality-badge { border: 3px solid var(--success); background: rgba(22, 163, 74, 0.08); }
-    .tooldev-flat .quality-medium .quality-badge { border: 3px solid var(--warning); background: rgba(217, 119, 6, 0.08); }
-    .tooldev-flat .quality-low .quality-badge { border: 3px solid var(--danger); background: rgba(220, 38, 38, 0.08); }
-    .tooldev-flat .quality-label { font-size: 12px; font-weight: 700; color: var(--text); }
-
-    /* 软件/模型卡片网格 */
-    .tooldev-flat .option-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
-      margin: 12px 0;
-    }
-    .tooldev-flat .option-card {
-      background: var(--panel);
-      padding: 14px;
-      border-radius: var(--radius-sm);
-      border: 2px solid var(--line);
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .tooldev-flat .option-card:hover { border-color: var(--primary); box-shadow: var(--shadow-sm); }
-    .tooldev-flat .option-card.active { border-color: var(--primary); background: var(--primary-soft); }
-    .tooldev-flat .option-card strong { display: block; font-size: 14px; color: var(--text); }
-    .tooldev-flat .option-card p { margin: 4px 0 0; font-size: 12px; color: var(--muted); }
-    .tooldev-flat .option-card .rec { margin-top: 6px; color: var(--warning); font-size: 12px; }
-
-    /* 模型网格（大） */
-    .tooldev-flat .model-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 12px;
-      margin: 12px 0;
-    }
-
-    /* 3D预览区 */
-    .tooldev-flat .model-preview {
-      background: linear-gradient(135deg, var(--panel-soft) 0%, #e6f2ff 100%);
-      border-radius: var(--radius-sm);
-      padding: 32px;
-      text-align: center;
-      margin: 12px 0;
-      border: 2px dashed var(--line-strong);
-    }
-    .tooldev-flat .model-preview-icon { font-size: 40px; margin-bottom: 8px; }
-    .tooldev-flat .model-preview-text { color: var(--muted); font-size: 13px; }
-
-    /* 神经网络可视化 */
-    .tooldev-flat .nn-visualization {
-      background: linear-gradient(135deg, var(--panel-soft) 0%, #e6f2ff 100%);
-      border-radius: var(--radius-sm);
-      padding: 20px;
-      margin: 12px 0;
-    }
-    .tooldev-flat .nn-layers {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      min-height: 120px;
-    }
-    .tooldev-flat .nn-layer { display: flex; flex-direction: column; gap: 6px; }
-    .tooldev-flat .nn-neuron {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary) 0%, #00bfff 100%);
-      box-shadow: 0 2px 8px rgba(31, 94, 255, 0.3);
-      animation: nnPulse 2s infinite;
-    }
-    @keyframes nnPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
-    .tooldev-flat .nn-label { text-align: center; font-size: 12px; color: var(--muted); margin-top: 6px; }
-
-    /* 控制面板 */
-    .tooldev-flat .control-panel {
-      background: var(--panel);
-      border-radius: var(--radius-sm);
-      padding: 16px;
-      margin-top: 16px;
-      border: 1px solid var(--line);
-    }
-    .tooldev-flat .control-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    .tooldev-flat .control-label { font-size: 13px; color: var(--text); }
-    .tooldev-flat .slider-container { display: flex; align-items: center; gap: 10px; }
-    .tooldev-flat .slider {
-      width: 140px;
-      -webkit-appearance: none;
-      height: 6px;
-      border-radius: 3px;
-      background: var(--line);
-      outline: none;
-    }
-    .tooldev-flat .slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--primary);
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(31, 94, 255, 0.3);
-    }
-    .tooldev-flat .slider-value { font-size: 14px; font-weight: 700; color: var(--primary); min-width: 28px; }
-
-    /* 编码对比 */
-    .tooldev-flat .encoding-comparison {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin: 12px 0;
-    }
-    .tooldev-flat .encoding-box {
-      background: var(--panel);
-      border-radius: var(--radius-sm);
-      padding: 14px;
-      border: 2px solid var(--line);
-    }
-    .tooldev-flat .encoding-title {
-      font-size: 14px; font-weight: 700; color: var(--text);
-      margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
-    }
-    .tooldev-flat .encoding-code {
-      background: var(--panel-soft);
-      padding: 10px;
-      border-radius: 8px;
-      font-family: 'Courier New', monospace;
-      font-size: 12px;
-      color: var(--primary);
+    /* ===== 数据工具开发模块详情页样式 ===== */
+    .tool-detail-page {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 24px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+      color: #111827;
       line-height: 1.7;
     }
-
-    /* 进度条 */
-    .tooldev-flat .progress-bar {
-      width: 100%;
-      height: 8px;
-      background: var(--line);
-      border-radius: 4px;
-      overflow: hidden;
-      margin: 10px 0;
+    .tool-detail-page h2 {
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: 700;
+      margin: 0 0 8px;
+      color: #111827;
     }
-    .tooldev-flat .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--primary) 0%, #00bfff 100%);
-      border-radius: 4px;
-      width: 0%;
-      transition: width 0.5s ease;
+    .tool-detail-page .subtitle {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #e5e7eb;
     }
-
-    /* Toast（局部，不覆盖全局 toast） */
-    .tooldev-toast {
-      position: fixed;
-      top: 100px;
-      right: 24px;
-      background: var(--panel);
-      padding: 14px 20px;
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-lg);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transform: translateX(400px);
-      transition: transform 0.3s ease;
-      z-index: 2000;
+    .tool-detail-page h3 {
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 700;
+      margin: 24px 0 12px;
+      color: #1a56db;
     }
-    .tooldev-toast.show { transform: translateX(0); }
-    .tooldev-toast.ok { border-left: 4px solid var(--success); }
-    .tooldev-toast.err { border-left: 4px solid var(--danger); }
-    .tooldev-toast .t-icon { font-size: 18px; }
-    .tooldev-toast .t-msg { font-size: 14px; color: var(--text); }
-
-    @media (max-width: 768px) {
-      .tooldev-flat .encoding-comparison { grid-template-columns: 1fr; }
-      .tooldev-flat .option-grid { grid-template-columns: 1fr 1fr; }
-      .tooldev-flat .flow-chart { flex-wrap: wrap; gap: 12px; }
-      .tooldev-flat .flow-step { flex: 1 1 30%; }
-      .tooldev-flat .flow-step::after { display: none; }
+    .tool-detail-page ul {
+      margin: 0 0 16px;
+      padding-left: 20px;
+    }
+    .tool-detail-page ul li {
+      margin-bottom: 8px;
+      font-size: 14px;
+      line-height: 22px;
+      color: #374151;
+    }
+    .tool-detail-page .notice-box {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    .tool-detail-page .notice-box strong {
+      color: #c2410c;
+      font-size: 14px;
+    }
+    .tool-detail-page .notice-box p {
+      margin: 6px 0 0;
+      font-size: 13px;
+      color: #7c2d12;
     }
   </style>
 </head>
@@ -10675,435 +10455,350 @@
           </div>
 
           <div class="tab-panel active" id="tool-inverse">
-            <div class="tooldev-intro">
-              <h3>二维材料多目标逆向设计工具</h3>
-              <p>包含材料结构文件可视化生成器和第一性原理计算软件接口</p>
+            <div class="tool-static-card">
+              <div class="tool-static-header">
+                <div class="tool-static-icon blue">◧</div>
+                <div class="tool-static-title-group">
+                  <h3>二维材料多目标逆向设计工具</h3>
+                  <p>本工具面向二维材料研发，具备数据智能质控清洗、多目标材料逆向筛选、晶体结构可视化适配、主流第一性原理计算软件接口适配能力，支撑材料数据标准化管理与科研批量筛选、文件生成需求。</p>
+                </div>
+              </div>
+              <div class="tool-static-body">
+                <div class="tool-static-meta">
+                  <span class="tag-blue">代码包</span>
+                  <span class="tag-green">V1.2.0</span>
+                  <span class="tag-orange">Python</span>
+                </div>
+              </div>
             </div>
-            <div class="tooldev-stepper">
-              <div class="tooldev-step active"><div class="tooldev-step-dot">1</div><div class="tooldev-step-label">结构可视化</div></div>
-              <div class="tooldev-step active"><div class="tooldev-step-dot">2</div><div class="tooldev-step-label">软件接口选择</div></div>
-              <div class="tooldev-step active"><div class="tooldev-step-dot">3</div><div class="tooldev-step-label">生成输入文件</div></div>
-            </div>
-            <div class="tooldev-layout">
-              <div class="tooldev-stack">
-                <section class="tooldev-card">
-                  <h4 class="tooldev-section-title"><span class="icon">◧</span><span>材料结构文件可视化生成器</span></h4>
-                  <div class="model-preview" style="margin-bottom:16px;">
-                    <div class="model-preview-icon">🔮</div>
-                    <div class="model-preview-text">3D晶体结构可视化预览区</div>
+            <div class="tool-submodule-grid">
+              <div class="tool-submodule-card">
+                <div class="tool-submodule-icon blue">&#9672;</div>
+                <div class="tool-submodule-info">
+                  <h4>材料结构文件可视化生成器</h4>
+                  <p>支持晶体结构预览、原子编辑、键长键角测量、声子振动模式可视化，可导出 PNG / DAE / GLTF / POSCAR / CIF 等格式。</p>
+                  <div class="tool-submodule-actions">
+                    <button class="btn-primary" type="button" onclick="tdDownloadCode('inverse-visualizer')">下载代码包</button>
+                    <button class="btn" type="button" onclick="tdOpenGuide('inverse-visualizer')">查看指引</button>
                   </div>
-                  <ul class="feature-list">
-                    <li>晶体结构3D实时展示</li>
-                    <li>原子参数调节（大小、颜色）</li>
-                    <li>声子振动模式可视化</li>
-                    <li>多格式导出（POSCAR、CIF、PNG、3D模型）</li>
-                  </ul>
-                  <div class="tooldev-actions" style="margin-top:16px;">
-                    <button class="btn-primary" type="button" onclick="tdToast('ok','可视化工具启动中...')">启动可视化工具</button>
+                  <div class="tool-submodule-detail-actions">
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('inverse-visualizer','effect')">功能成效</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('inverse-visualizer','operation')">操作方式</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('inverse-visualizer','notice')">注意事宜</button>
                   </div>
-                </section>
-                <section class="tooldev-card">
-                  <h4 class="tooldev-section-title"><span class="icon">▦</span><span>第一性原理计算软件接口</span></h4>
-                  <div class="tooldev-grid-2" id="tdInverseSoftware">
-                    <div class="tooldev-option-card active" onclick="tdSelectOption(this,'tdInverseSoftware'); tdSelectedSoftware='vasp'; tdToast('ok','已选择 VASP 接口');">
-                      <span class="tooldev-option-check"></span>
-                      <strong>VASP</strong>
-                      <p>Vienna Ab initio Simulation Package</p>
-                    </div>
-                    <div class="tooldev-option-card" onclick="tdSelectOption(this,'tdInverseSoftware'); tdSelectedSoftware='qe'; tdToast('ok','已选择 Quantum ESPRESSO 接口');">
-                      <span class="tooldev-option-check"></span>
-                      <strong>Quantum ESPRESSO</strong>
-                      <p>开源第一性原理计算软件</p>
-                    </div>
+                </div>
+              </div>
+              <div class="tool-submodule-card">
+                <div class="tool-submodule-icon blue">&#9673;</div>
+                <div class="tool-submodule-info">
+                  <h4>第一性原理计算软件接口</h4>
+                  <p>提供 VASP 和 QE 两种主流软件接口，自动生成输入文件，支持能带、声子、电荷等计算结果对标校验。</p>
+                  <div class="tool-submodule-actions">
+                    <button class="btn-primary" type="button" onclick="tdDownloadCode('inverse-dft')">下载代码包</button>
+                    <button class="btn" type="button" onclick="tdOpenGuide('inverse-dft')">查看指引</button>
                   </div>
-                  <div class="field" style="margin-top:16px;">
-                    <label for="tdCalcProperty">计算性质</label>
-                    <select id="tdCalcProperty">
-                      <option value="">请选择计算性质</option>
-                      <option value="band">电子能带结构</option>
-                      <option value="dos">态密度</option>
-                      <option value="phonon">声子谱</option>
-                      <option value="charge">电荷密度</option>
-                      <option value="formation">形成能</option>
-                    </select>
+                  <div class="tool-submodule-detail-actions">
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('inverse-dft','effect')">功能成效</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('inverse-dft','operation')">操作方式</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('inverse-dft','notice')">注意事宜</button>
                   </div>
-                  <div class="tooldev-actions" style="margin-top:16px;">
-                    <button class="btn-primary" type="button" onclick="tdGenerateInput()">生成输入文件</button>
-                  </div>
-                </section>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="tab-panel" id="tool-clean">
-            <div class="tooldev-intro">
-              <h3>分子数据集智能清洗和质量控制工具</h3>
-              <p>针对分子数据管理过程中的核心需求，提供全面且高效的清洗服务，自动检测不合理条目并进行智能判定</p>
+            <div class="tool-static-card">
+              <div class="tool-static-header">
+                <div class="tool-static-icon green">⚙</div>
+                <div class="tool-static-title-group">
+                  <h3>分子数据集智能清洗和质量控制工具</h3>
+                  <p>面向分子科学研究与产业应用，提供分子数据集批量智能清洗、多维度质量校验、分子结构合理性判别、计算收敛性检测能力，保障分子数据准确、完整、规范，支撑模型构建与科研成果转化。</p>
+                </div>
+              </div>
+              <div class="tool-static-body">
+                <div class="tool-static-meta">
+                  <span class="tag-blue">代码包</span>
+                  <span class="tag-green">V2.0.1</span>
+                  <span class="tag-orange">Python</span>
+                </div>
+              </div>
             </div>
-            <div class="tooldev-stepper">
-              <div class="tooldev-step active"><div class="tooldev-step-dot">1</div><div class="tooldev-step-label">数据输入</div></div>
-              <div class="tooldev-step active"><div class="tooldev-step-dot">2</div><div class="tooldev-step-label">自动校验</div></div>
-              <div class="tooldev-step active"><div class="tooldev-step-dot">3</div><div class="tooldev-step-label">异常识别</div></div>
-              <div class="tooldev-step active"><div class="tooldev-step-dot">4</div><div class="tooldev-step-label">清洗处理</div></div>
-              <div class="tooldev-step active"><div class="tooldev-step-dot">5</div><div class="tooldev-step-label">输出报告</div></div>
-            </div>
-            <div class="tooldev-layout">
-              <div class="tooldev-stack">
-                <section class="tooldev-card soft">
-                  <h4 class="tooldev-section-title"><span class="icon">⚙</span><span>清洗流程与质量控制</span></h4>
-                  <div class="quality-tags" style="margin-bottom:16px;">
-                    <div class="quality-tag quality-high"><div class="quality-badge">🟢</div><div class="quality-label">高质量</div></div>
-                    <div class="quality-tag quality-medium"><div class="quality-badge">🟡</div><div class="quality-label">中质量</div></div>
-                    <div class="quality-tag quality-low"><div class="quality-badge">🔴</div><div class="quality-label">低质量</div></div>
+            <div class="tool-submodule-grid">
+              <div class="tool-submodule-card">
+                <div class="tool-submodule-icon green">&#9672;</div>
+                <div class="tool-submodule-info">
+                  <h4>分子数据集智能清洗引擎</h4>
+                  <p>适配单条存入与批量提取场景，自动筛查格式违规、逻辑矛盾、数值越界等异常数据并生成质检报告。</p>
+                  <div class="tool-submodule-actions">
+                    <button class="btn-primary" type="button" onclick="tdDownloadCode('clean-engine')">下载代码包</button>
+                    <button class="btn" type="button" onclick="tdOpenGuide('clean-engine')">查看指引</button>
                   </div>
-                  <div class="field">
-                    <label for="tdDataFile">上传数据文件</label>
-                    <input type="file" id="tdDataFile" accept=".csv,.json,.txt" onchange="if(this.files[0]) tdToast('ok','已上传: '+this.files[0].name)">
+                  <div class="tool-submodule-detail-actions">
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-engine','effect')">功能成效</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-engine','operation')">操作方式</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-engine','notice')">注意事宜</button>
                   </div>
-                  <div class="tooldev-actions" style="margin-top:16px;">
-                    <button class="btn-primary" type="button" onclick="tdStartCleaning()">开始清洗</button>
+                </div>
+              </div>
+              <div class="tool-submodule-card">
+                <div class="tool-submodule-icon green">&#9673;</div>
+                <div class="tool-submodule-info">
+                  <h4>分子结构合理性判别模块</h4>
+                  <p>从分子构成、原子排列、拓扑连接多维度智能判别结构化学合理性，确保存入数据科学可信。</p>
+                  <div class="tool-submodule-actions">
+                    <button class="btn-primary" type="button" onclick="tdDownloadCode('clean-structure')">下载代码包</button>
+                    <button class="btn" type="button" onclick="tdOpenGuide('clean-structure')">查看指引</button>
                   </div>
-                </section>
+                  <div class="tool-submodule-detail-actions">
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-structure','effect')">功能成效</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-structure','operation')">操作方式</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-structure','notice')">注意事宜</button>
+                  </div>
+                </div>
+              </div>
+              <div class="tool-submodule-card">
+                <div class="tool-submodule-icon green">&#9670;</div>
+                <div class="tool-submodule-info">
+                  <h4>计算收敛性监测模块</h4>
+                  <p>动态监测分子性质计算收敛性，结合行业校验规则智能判定计算结果合理性，规避未收敛偏差。</p>
+                  <div class="tool-submodule-actions">
+                    <button class="btn-primary" type="button" onclick="tdDownloadCode('clean-convergence')">下载代码包</button>
+                    <button class="btn" type="button" onclick="tdOpenGuide('clean-convergence')">查看指引</button>
+                  </div>
+                  <div class="tool-submodule-detail-actions">
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-convergence','effect')">功能成效</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-convergence','operation')">操作方式</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-convergence','notice')">注意事宜</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="tab-panel" id="tool-assistant">
-            <div class="tooldev-intro">
-              <h3>复杂系统模拟智能助手工具</h3>
-              <p>包含结构构建与力场建模和多软件格式支持</p>
+            <div class="tool-static-card">
+              <div class="tool-static-header">
+                <div class="tool-static-icon purple">◫</div>
+                <div class="tool-static-title-group">
+                  <h3>复杂系统模拟智能助手工具</h3>
+                  <p>针对复杂分子体系，提供智能化结构搭建、力场参数匹配、跨模拟软件格式转换、模拟输入文件解析与参数管理能力，降低多软件协同模拟门槛，保障仿真结果一致性与可靠性。</p>
+                </div>
+              </div>
+              <div class="tool-static-body">
+                <div class="tool-static-meta">
+                  <span class="tag-blue">代码包</span>
+                  <span class="tag-green">V1.5.2</span>
+                  <span class="tag-orange">Python</span>
+                </div>
+              </div>
             </div>
-            <div class="tooldev-stepper">
-              <div class="tooldev-step active"><div class="tooldev-step-dot">1</div><div class="tooldev-step-label">体系选择</div></div>
-              <div class="tooldev-step active"><div class="tooldev-step-dot">2</div><div class="tooldev-step-label">力场建模</div></div>
-              <div class="tooldev-step active"><div class="tooldev-step-dot">3</div><div class="tooldev-step-label">软件格式</div></div>
-              <div class="tooldev-step active"><div class="tooldev-step-dot">4</div><div class="tooldev-step-label">导出文件</div></div>
-            </div>
-            <div class="tooldev-layout">
-              <div class="tooldev-stack">
-                <section class="tooldev-card">
-                  <h4 class="tooldev-section-title"><span class="icon">◫</span><span>结构构建与力场建模</span></h4>
-                  <div class="field">
-                    <label for="tdMolType">分子体系类型</label>
-                    <select id="tdMolType">
-                      <option value="">请选择类型</option>
-                      <option value="protein">蛋白质</option>
-                      <option value="polymer">聚合物</option>
-                      <option value="surface">表面吸附系统</option>
-                      <option value="solution">溶液体系</option>
-                    </select>
+            <div class="tool-submodule-grid">
+              <div class="tool-submodule-card">
+                <div class="tool-submodule-icon purple">&#9672;</div>
+                <div class="tool-submodule-info">
+                  <h4>分子结构搭建与力场匹配模块</h4>
+                  <p>辅助完成从分子结构初步搭建到力场参数精准匹配的全流程，确保建模科学性与力场设置合理性。</p>
+                  <div class="tool-submodule-actions">
+                    <button class="btn-primary" type="button" onclick="tdDownloadCode('assistant-build')">下载代码包</button>
+                    <button class="btn" type="button" onclick="tdOpenGuide('assistant-build')">查看指引</button>
                   </div>
-                  <div class="field" style="margin-top:10px;">
-                    <label for="tdForcefield">力场类型</label>
-                    <select id="tdForcefield">
-                      <option value="">请选择力场</option>
-                      <option value="gaff">GAFF</option>
-                      <option value="charmm">CHARMM</option>
-                      <option value="amber">AMBER</option>
-                      <option value="opls">OPLS</option>
-                    </select>
+                  <div class="tool-submodule-detail-actions">
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-build','effect')">功能成效</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-build','operation')">操作方式</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-build','notice')">注意事宜</button>
                   </div>
-                </section>
-                <section class="tooldev-card">
-                  <h4 class="tooldev-section-title"><span class="icon">▥</span><span>多软件格式支持</span></h4>
-                  <div class="tooldev-grid-3" id="tdSimSoftware">
-                    <div class="tooldev-option-card" onclick="tdSelectOption(this,'tdSimSoftware'); tdToast('ok','已选择 GROMACS');">
-                      <span class="tooldev-option-check"></span>
-                      <strong>GROMACS</strong>
-                      <p>生物分子模拟</p>
-                    </div>
-                    <div class="tooldev-option-card" onclick="tdSelectOption(this,'tdSimSoftware'); tdToast('ok','已选择 LAMMPS');">
-                      <span class="tooldev-option-check"></span>
-                      <strong>LAMMPS</strong>
-                      <p>分子动力学</p>
-                    </div>
-                    <div class="tooldev-option-card" onclick="tdSelectOption(this,'tdSimSoftware'); tdToast('ok','已选择 AMBER');">
-                      <span class="tooldev-option-check"></span>
-                      <strong>AMBER</strong>
-                      <p>生物分子力场</p>
-                    </div>
+                </div>
+              </div>
+              <div class="tool-submodule-card">
+                <div class="tool-submodule-icon purple">&#9673;</div>
+                <div class="tool-submodule-info">
+                  <h4>跨模拟软件格式转换模块</h4>
+                  <p>自动导出符合 LAMMPS、GROMACS 等主流分子模拟软件标准的输入文件，避免手动转换错误。</p>
+                  <div class="tool-submodule-actions">
+                    <button class="btn-primary" type="button" onclick="tdDownloadCode('assistant-convert')">下载代码包</button>
+                    <button class="btn" type="button" onclick="tdOpenGuide('assistant-convert')">查看指引</button>
                   </div>
-                  <div class="field" style="margin-top:16px;">
-                    <label for="tdTargetSoftware">目标软件格式</label>
-                    <select id="tdTargetSoftware">
-                      <option value="">请选择目标格式</option>
-                      <option value="gromacs">GROMACS (.gro/.top)</option>
-                      <option value="lammps">LAMMPS (.data/.in)</option>
-                      <option value="amber">AMBER (.prmtop/.inpcrd)</option>
-                    </select>
+                  <div class="tool-submodule-detail-actions">
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-convert','effect')">功能成效</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-convert','operation')">操作方式</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-convert','notice')">注意事宜</button>
                   </div>
-                  <div class="tooldev-actions" style="margin-top:16px;">
-                    <button class="btn-primary" type="button" onclick="tdExportSim()">导出输入文件</button>
+                </div>
+              </div>
+              <div class="tool-submodule-card">
+                <div class="tool-submodule-icon purple">&#9670;</div>
+                <div class="tool-submodule-info">
+                  <h4>模拟输入文件解析管理模块</h4>
+                  <p>系统化解析模型结构信息与模拟参数，支持结构化存储、在线编辑与跨软件参数统一校验。</p>
+                  <div class="tool-submodule-actions">
+                    <button class="btn-primary" type="button" onclick="tdDownloadCode('assistant-parse')">下载代码包</button>
+                    <button class="btn" type="button" onclick="tdOpenGuide('assistant-parse')">查看指引</button>
                   </div>
-                </section>
+                  <div class="tool-submodule-detail-actions">
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-parse','effect')">功能成效</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-parse','operation')">操作方式</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-parse','notice')">注意事宜</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="tab-panel" id="tool-catalyst">
-            <div class="tooldev-intro">
-              <h3>高效催化剂设计优化工具</h3>
-              <p>包含POSCAR生成与结构可视化、催化材料结构特征生成和催化材料元素特征编码</p>
+            <div class="tool-static-card">
+              <div class="tool-static-header">
+                <div class="tool-static-icon orange">⚗</div>
+                <div class="tool-static-title-group">
+                  <h3>高效催化剂设计优化工具</h3>
+                  <p>聚焦催化材料研发，集成催化材料结构可视化建模、吸附分子构型调控、广义配位数、结构对称性函数、元素特征编码等专用生成工具，支撑催化剂结构设计与机器学习特征工程构建。</p>
+                </div>
+              </div>
+              <div class="tool-static-body">
+                <div class="tool-static-meta">
+                  <span class="tag-blue">代码包</span>
+                  <span class="tag-green">V1.3.0</span>
+                  <span class="tag-orange">Python</span>
+                </div>
+              </div>
             </div>
-            <div class="tooldev-stepper">
-              <div class="tooldev-step active"><div class="tooldev-step-dot">1</div><div class="tooldev-step-label">POSCAR生成</div></div>
-              <div class="tooldev-step active"><div class="tooldev-step-dot">2</div><div class="tooldev-step-label">结构特征</div></div>
-              <div class="tooldev-step active"><div class="tooldev-step-dot">3</div><div class="tooldev-step-label">元素编码</div></div>
-              <div class="tooldev-step active"><div class="tooldev-step-dot">4</div><div class="tooldev-step-label">优化输出</div></div>
-            </div>
-            <div class="tooldev-layout">
-              <div class="tooldev-stack">
-                <section class="tooldev-card">
-                  <h4 class="tooldev-section-title"><span class="icon">◧</span><span>POSCAR 生成与结构可视化</span></h4>
-                  <div class="model-preview" style="margin-bottom:16px;">
-                    <div class="model-preview-icon">⚗️</div>
-                    <div class="model-preview-text">催化材料结构预览区</div>
+            <div class="tool-submodule-grid">
+              <div class="tool-submodule-card">
+                <div class="tool-submodule-icon orange">&#9672;</div>
+                <div class="tool-submodule-info">
+                  <h4>催化材料结构可视化生成器</h4>
+                  <p>支持晶面选取、吸附分子添加与构型调控，可移动吸附分子位置并调整接触构型，生成 POSCAR 结构文件。</p>
+                  <div class="tool-submodule-actions">
+                    <button class="btn-primary" type="button" onclick="tdDownloadCode('catalyst-visualizer')">下载代码包</button>
+                    <button class="btn" type="button" onclick="tdOpenGuide('catalyst-visualizer')">查看指引</button>
                   </div>
-                  <div class="field">
-                    <label for="tdCatMaterial">选择催化材料</label>
-                    <select id="tdCatMaterial">
-                      <option value="">请选择材料</option>
-                      <option value="pt">Pt (铂)</option>
-                      <option value="au">Au (金)</option>
-                      <option value="ni">Ni (镍)</option>
-                      <option value="fe">Fe (铁)</option>
-                    </select>
+                  <div class="tool-submodule-detail-actions">
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-visualizer','effect')">功能成效</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-visualizer','operation')">操作方式</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-visualizer','notice')">注意事宜</button>
                   </div>
-                  <div class="field" style="margin-top:10px;">
-                    <label for="tdCatFacet">选择晶面</label>
-                    <select id="tdCatFacet">
-                      <option value="">请选择晶面</option>
-                      <option value="111">(111)</option>
-                      <option value="100">(100)</option>
-                      <option value="110">(110)</option>
-                    </select>
+                </div>
+              </div>
+              <div class="tool-submodule-card">
+                <div class="tool-submodule-icon orange">&#9673;</div>
+                <div class="tool-submodule-info">
+                  <h4>吸附分子广义配位数生成器</h4>
+                  <p>自动计算 GCN 特征，支持多种维度填充策略，适配电催化局部吸附环境表征与机器学习特征工程。</p>
+                  <div class="tool-submodule-actions">
+                    <button class="btn-primary" type="button" onclick="tdDownloadCode('catalyst-gcn')">下载代码包</button>
+                    <button class="btn" type="button" onclick="tdOpenGuide('catalyst-gcn')">查看指引</button>
                   </div>
-                  <div class="tooldev-actions" style="margin-top:16px;">
-                    <button class="btn-primary" type="button" onclick="tdToast('ok','POSCAR文件已生成')">生成POSCAR</button>
+                  <div class="tool-submodule-detail-actions">
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-gcn','effect')">功能成效</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-gcn','operation')">操作方式</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-gcn','notice')">注意事宜</button>
                   </div>
-                </section>
-                <section class="tooldev-card soft">
-                  <h4 class="tooldev-section-title"><span class="icon">◫</span><span>催化材料结构特征生成</span></h4>
-                  <div class="field">
-                    <label for="tdFeatureType">特征类型</label>
-                    <select id="tdFeatureType" onchange="tdUpdateFeatureFormula()">
-                      <option value="">请选择</option>
-                      <option value="gcn">吸附分子广义配位数 (GCN)</option>
-                      <option value="symmetry">对称性函数</option>
-                    </select>
+                </div>
+              </div>
+              <div class="tool-submodule-card">
+                <div class="tool-submodule-icon orange">&#9670;</div>
+                <div class="tool-submodule-info">
+                  <h4>材料结构对称性函数生成器</h4>
+                  <p>快速生成高斯核函数、球谐函数等结构向量化特征，减少多尺度模拟与机器学习建模的代码工作量。</p>
+                  <div class="tool-submodule-actions">
+                    <button class="btn-primary" type="button" onclick="tdDownloadCode('catalyst-symmetry')">下载代码包</button>
+                    <button class="btn" type="button" onclick="tdOpenGuide('catalyst-symmetry')">查看指引</button>
                   </div>
-                  <div id="tdFeatureFormula" style="background: var(--panel-soft); padding: 14px; border-radius: 8px; margin: 12px 0; font-family: 'Times New Roman', serif; text-align: center; color: var(--primary-strong);">
-                    <em>选择特征类型以显示公式</em>
+                  <div class="tool-submodule-detail-actions">
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-symmetry','effect')">功能成效</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-symmetry','operation')">操作方式</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-symmetry','notice')">注意事宜</button>
                   </div>
-                  <div class="field">
-                    <label for="tdFillMethod">填充方法</label>
-                    <select id="tdFillMethod">
-                      <option value="">请选择填充方法</option>
-                      <option value="max">最大维度向量</option>
-                      <option value="zero">空值填充为0</option>
-                      <option value="mean">均值填充</option>
-                    </select>
+                </div>
+              </div>
+              <div class="tool-submodule-card">
+                <div class="tool-submodule-icon orange">&#9635;</div>
+                <div class="tool-submodule-info">
+                  <h4>催化材料元素特征生成器</h4>
+                  <p>提供 One-hot 编码与元素周期表 11 维属性编码两种方式，支撑催化材料机器学习模型的特征构建。</p>
+                  <div class="tool-submodule-actions">
+                    <button class="btn-primary" type="button" onclick="tdDownloadCode('catalyst-element')">下载代码包</button>
+                    <button class="btn" type="button" onclick="tdOpenGuide('catalyst-element')">查看指引</button>
                   </div>
-                </section>
-                <section class="tooldev-card">
-                  <h4 class="tooldev-section-title"><span class="icon">▦</span><span>催化材料元素特征编码</span></h4>
-                  <div class="encoding-comparison" style="margin-bottom:12px;">
-                    <div class="encoding-box">
-                      <div class="encoding-title">One-hot 编码</div>
-                      <div class="encoding-code">
-[H: 1,0,0,0,0]<br>
-[C: 0,1,0,0,0]<br>
-[N: 0,0,1,0,0]<br>
-[O: 0,0,0,1,0]<br>
-[S: 0,0,0,0,1]
-                      </div>
-                    </div>
-                    <div class="encoding-box">
-                      <div class="encoding-title">周期表信息编码</div>
-                      <div class="encoding-code">
-[周期, 族, 电荷,<br>
- 原子质量, 半径,<br>
- 电负性, d带中心,<br>
- 第一电离能, ...]<br>
-(11维向量)
-                      </div>
-                    </div>
+                  <div class="tool-submodule-detail-actions">
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-element','effect')">功能成效</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-element','operation')">操作方式</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-element','notice')">注意事宜</button>
                   </div>
-                  <div class="field">
-                    <label for="tdEncodingType">选择编码方式</label>
-                    <select id="tdEncodingType">
-                      <option value="">请选择编码方式</option>
-                      <option value="onehot">One-hot 编码</option>
-                      <option value="periodic">周期表信息编码</option>
-                    </select>
-                  </div>
-                </section>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="tab-panel" id="tool-model">
-            <div class="tooldev-intro">
-              <h3>机器学习模型接口</h3>
-              <p>包含传统机器学习、全连接神经网络和图神经网络</p>
+            <div class="tool-static-card">
+              <div class="tool-static-header">
+                <div class="tool-static-icon blue">▦</div>
+                <div class="tool-static-title-group">
+                  <h3>机器学习模型接口</h3>
+                  <p>集成传统机器学习、全连接神经网络、图神经网络三大类模型接口，提供数据降维、可视化、模型训练、超参数配置、自动格式适配能力，适配催化与材料性能预测建模场景。</p>
+                </div>
+              </div>
+              <div class="tool-static-body">
+                <div class="tool-static-meta">
+                  <span class="tag-blue">代码包</span>
+                  <span class="tag-green">V2.1.0</span>
+                  <span class="tag-orange">Python / PyTorch</span>
+                </div>
+              </div>
             </div>
-            <div class="tooldev-stepper">
-              <div class="tooldev-step active"><div class="tooldev-step-dot">1</div><div class="tooldev-step-label">模型选择</div></div>
-              <div class="tooldev-step active"><div class="tooldev-step-dot">2</div><div class="tooldev-step-label">参数配置</div></div>
-              <div class="tooldev-step active"><div class="tooldev-step-dot">3</div><div class="tooldev-step-label">数据上传</div></div>
-              <div class="tooldev-step active"><div class="tooldev-step-dot">4</div><div class="tooldev-step-label">开始训练</div></div>
-            </div>
-            <div class="tooldev-layout">
-              <div class="tooldev-stack">
-                <section class="tooldev-card">
-                  <h4 class="tooldev-section-title"><span class="icon">▥</span><span>传统机器学习</span></h4>
-                  <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">选择传统机器学习模型进行材料性质预测。</p>
-                  <div class="tooldev-grid-2" id="tdMlModels">
-                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'gbdt')">
-                      <span class="tooldev-option-check"></span>
-                      <strong>GBDT</strong>
-                      <p>梯度提升决策树</p>
-                    </div>
-                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'ridge')">
-                      <span class="tooldev-option-check"></span>
-                      <strong>Ridge Regression</strong>
-                      <p>岭回归模型</p>
-                    </div>
-                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'rf')">
-                      <span class="tooldev-option-check"></span>
-                      <strong>Random Forest</strong>
-                      <p>随机森林</p>
-                    </div>
-                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'pca')">
-                      <span class="tooldev-option-check"></span>
-                      <strong>PCA</strong>
-                      <p>主成分分析降维</p>
-                    </div>
-                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'tsne')">
-                      <span class="tooldev-option-check"></span>
-                      <strong>t-SNE</strong>
-                      <p>高维数据可视化</p>
-                    </div>
-                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'svm')">
-                      <span class="tooldev-option-check"></span>
-                      <strong>SVM</strong>
-                      <p>支持向量机</p>
-                    </div>
+            <div class="tool-submodule-grid">
+              <div class="tool-submodule-card">
+                <div class="tool-submodule-icon blue">&#9672;</div>
+                <div class="tool-submodule-info">
+                  <h4>传统机器学习模型接口</h4>
+                  <p>内置 GBDT、岭回归、随机森林等算法，支持 PCA / t-SNE 降维与高维数据可视化，适配材料性能回归预测。</p>
+                  <div class="tool-submodule-actions">
+                    <button class="btn-primary" type="button" onclick="tdDownloadCode('model-traditional')">下载代码包</button>
+                    <button class="btn" type="button" onclick="tdOpenGuide('model-traditional')">查看指引</button>
                   </div>
-                  <div id="tdMlParams" style="margin-top:16px; display:none;">
-                    <div class="field">
-                      <label for="tdMlHyper">超参数设置</label>
-                      <textarea id="tdMlHyper" rows="3" placeholder="输入超参数（JSON格式）&#10;例如: {'n_estimators': 100, 'max_depth': 5}"></textarea>
-                    </div>
-                    <div class="field" style="margin-top:10px;">
-                      <label>上传训练数据</label>
-                      <input type="file" accept=".csv,.json" onchange="if(this.files[0]) tdToast('ok','已上传: '+this.files[0].name)">
-                    </div>
+                  <div class="tool-submodule-detail-actions">
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-traditional','effect')">功能成效</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-traditional','operation')">操作方式</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-traditional','notice')">注意事宜</button>
                   </div>
-                  <div class="tooldev-actions" style="margin-top:16px;">
-                    <button class="btn-primary" type="button" onclick="tdTrainMl()">开始训练</button>
+                </div>
+              </div>
+              <div class="tool-submodule-card">
+                <div class="tool-submodule-icon blue">&#9673;</div>
+                <div class="tool-submodule-info">
+                  <h4>全连接神经网络模型接口</h4>
+                  <p>可视化搭建神经网络结构，支持自定义层数、神经元数、激活函数与池化方式，减少代码编写与调试时间。</p>
+                  <div class="tool-submodule-actions">
+                    <button class="btn-primary" type="button" onclick="tdDownloadCode('model-nn')">下载代码包</button>
+                    <button class="btn" type="button" onclick="tdOpenGuide('model-nn')">查看指引</button>
                   </div>
-                </section>
-                <section class="tooldev-card soft">
-                  <h4 class="tooldev-section-title"><span class="icon">◫</span><span>全连接神经网络</span></h4>
-                  <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">自定义全连接神经网络架构，实时调节网络参数。</p>
-                  <div class="nn-visualization" style="margin-bottom:16px;">
-                    <div class="nn-layers">
-                      <div class="nn-layer">
-                        <div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron" style="visibility:hidden;"></div>
-                        <div class="nn-label">输入层</div>
-                      </div>
-                      <div class="nn-layer">
-                        <div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron" style="visibility:hidden;"></div>
-                        <div class="nn-label">隐藏层1</div>
-                      </div>
-                      <div class="nn-layer">
-                        <div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron" style="visibility:hidden;"></div>
-                        <div class="nn-label">隐藏层2</div>
-                      </div>
-                      <div class="nn-layer">
-                        <div class="nn-neuron"></div><div class="nn-neuron"></div><div class="nn-neuron" style="visibility:hidden;"></div><div class="nn-neuron" style="visibility:hidden;"></div><div class="nn-neuron" style="visibility:hidden;"></div>
-                        <div class="nn-label">输出层</div>
-                      </div>
-                    </div>
+                  <div class="tool-submodule-detail-actions">
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-nn','effect')">功能成效</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-nn','operation')">操作方式</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-nn','notice')">注意事宜</button>
                   </div>
-                  <div class="control-panel" style="margin-bottom:16px;">
-                    <div class="control-row">
-                      <span class="control-label">隐藏层数量</span>
-                      <div class="slider-container">
-                        <input type="range" class="slider" min="1" max="5" value="2" onchange="document.getElementById('tdNnLayersVal').textContent=this.value">
-                        <span class="slider-value" id="tdNnLayersVal">2</span>
-                      </div>
-                    </div>
-                    <div class="control-row">
-                      <span class="control-label">神经元数量</span>
-                      <div class="slider-container">
-                        <input type="range" class="slider" min="4" max="128" value="64" step="4" onchange="document.getElementById('tdNnNeuronsVal').textContent=this.value">
-                        <span class="slider-value" id="tdNnNeuronsVal">64</span>
-                      </div>
-                    </div>
-                    <div class="control-row">
-                      <span class="control-label">激活函数</span>
-                      <select style="width:140px;">
-                        <option value="relu">ReLU</option>
-                        <option value="sigmoid">Sigmoid</option>
-                        <option value="tanh">Tanh</option>
-                        <option value="softplus">Shifted Softplus</option>
-                      </select>
-                    </div>
-                    <div class="control-row">
-                      <span class="control-label">池化方式</span>
-                      <select style="width:140px;">
-                        <option value="max">Max Pooling</option>
-                        <option value="avg">Average Pooling</option>
-                        <option value="sum">Sum Pooling</option>
-                      </select>
-                    </div>
+                </div>
+              </div>
+              <div class="tool-submodule-card">
+                <div class="tool-submodule-icon blue">&#9670;</div>
+                <div class="tool-submodule-info">
+                  <h4>经典图神经网络模型接口</h4>
+                  <p>适配 CGCNN、SchNet、DimeNet++ 等模型，自动完成数据格式转换，免去大量预处理与代码适配工作。</p>
+                  <div class="tool-submodule-actions">
+                    <button class="btn-primary" type="button" onclick="tdDownloadCode('model-gnn')">下载代码包</button>
+                    <button class="btn" type="button" onclick="tdOpenGuide('model-gnn')">查看指引</button>
                   </div>
-                  <div class="tooldev-actions">
-                    <button class="btn-primary" type="button" onclick="tdTrainNn()">开始训练</button>
+                  <div class="tool-submodule-detail-actions">
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-gnn','effect')">功能成效</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-gnn','operation')">操作方式</button>
+                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-gnn','notice')">注意事宜</button>
                   </div>
-                </section>
-                <section class="tooldev-card">
-                  <h4 class="tooldev-section-title"><span class="icon">◌</span><span>图神经网络</span></h4>
-                  <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">选择图神经网络模型，自动进行数据格式转换和训练。</p>
-                  <div class="tooldev-grid-3" id="tdGnnModels">
-                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'cgcnn')">
-                      <span class="tooldev-option-check"></span>
-                      <strong>CGCNN</strong>
-                      <p>晶体图卷积神经网络</p>
-                      <div class="rec" style="margin-top:6px; font-size:12px; color:#c38b00;">⭐⭐⭐⭐⭐ 推荐</div>
-                    </div>
-                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'schnet')">
-                      <span class="tooldev-option-check"></span>
-                      <strong>SchNet</strong>
-                      <p>连续卷积神经网络</p>
-                    </div>
-                    <div class="tooldev-option-card" onclick="tdSelectModel(this,'dimenet')">
-                      <span class="tooldev-option-check"></span>
-                      <strong>DimeNet++</strong>
-                      <p>方向消息传递网络</p>
-                    </div>
-                  </div>
-                  <div id="tdGnnParams" style="margin-top:16px; display:none;">
-                    <div class="field">
-                      <label>上传晶体结构数据</label>
-                      <input type="file" accept=".cif,.json" onchange="if(this.files[0]) tdToast('ok','已上传: '+this.files[0].name)">
-                    </div>
-                    <div class="progress-bar" style="margin-top:10px;">
-                      <div class="progress-fill" id="tdGnnProgress" style="width:0%"></div>
-                    </div>
-                    <p style="font-size:12px; color:var(--muted); margin-top:6px;">数据格式将自动转换为模型所需格式</p>
-                  </div>
-                  <div class="tooldev-actions" style="margin-top:16px;">
-                    <button class="btn-primary" type="button" onclick="tdTrainGnn()">开始训练</button>
-                  </div>
-                </section>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div id="tooldevToast" class="tooldev-toast"><span class="t-icon"></span><span class="t-msg"></span></div>
       </section>
       <section class="page" id="page-catalyst-site"></section>
       <section class="page" id="page-catalyst-compare"></section>
@@ -12209,6 +11904,222 @@
       <div class="modal-footer">
         <button class="btn" type="button" data-close-modal="algorithmRequestModal">关闭</button>
         <button class="btn-primary" type="button" id="algorithmRequestCopyBtn">复制请求示例</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 数据工具开发 - 功能详情弹窗 -->
+  <div class="overlay" id="toolDetailModal">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <h3 id="toolDetailTitle">工具名称</h3>
+          <p id="toolDetailSubtitle">功能成效</p>
+        </div>
+        <button class="modal-close" type="button" data-close-modal="toolDetailModal">×</button>
+      </div>
+      <div class="modal-body modal-scroll">
+        <ul class="tool-detail-list" id="toolDetailList"></ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" type="button" data-close-modal="toolDetailModal">关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 数据工具开发 - 代码包下载弹窗 -->
+  <div class="overlay" id="toolDownloadModal">
+    <div class="modal modal-md">
+      <div class="modal-header">
+        <div>
+          <h3 id="toolDownloadTitle">下载工具代码包</h3>
+          <p id="toolDownloadSubtitle">按步骤完成环境检测与文件下载</p>
+        </div>
+        <button class="modal-close" type="button" data-close-modal="toolDownloadModal">×</button>
+      </div>
+      <div class="modal-body modal-scroll">
+        <div class="tool-download-stepper" id="toolDownloadStepper">
+          <div class="tool-download-step active" data-step="1">
+            <span class="tool-download-step-num">1</span>
+            <span>选择版本</span>
+          </div>
+          <span class="tool-download-step-line"></span>
+          <div class="tool-download-step" data-step="2">
+            <span class="tool-download-step-num">2</span>
+            <span>环境检测</span>
+          </div>
+          <span class="tool-download-step-line"></span>
+          <div class="tool-download-step" data-step="3">
+            <span class="tool-download-step-num">3</span>
+            <span>下载文件</span>
+          </div>
+          <span class="tool-download-step-line"></span>
+          <div class="tool-download-step" data-step="4">
+            <span class="tool-download-step-num">4</span>
+            <span>下载完成</span>
+          </div>
+        </div>
+
+        <div class="tool-download-panel active" id="toolDownloadPanel1">
+          <h4 class="section-title" style="margin-bottom:12px;">选择版本与运行环境</h4>
+          <div class="field" style="margin-bottom:16px;">
+            <label>工具版本</label>
+            <select id="toolDownloadVersion" class="page-select">
+              <option value="latest">最新稳定版 (推荐)</option>
+              <option value="prev">上一稳定版</option>
+            </select>
+          </div>
+          <div class="field" style="margin-bottom:16px;">
+            <label>操作系统</label>
+            <select id="toolDownloadOS" class="page-select">
+              <option value="linux">Linux (x86_64)</option>
+              <option value="macos">macOS (Intel/Apple Silicon)</option>
+              <option value="windows">Windows (WSL2 推荐)</option>
+            </select>
+          </div>
+          <div class="field" style="margin-bottom:16px;">
+            <label>Python 版本</label>
+            <select id="toolDownloadPython" class="page-select">
+              <option value="py311">Python 3.11</option>
+              <option value="py310">Python 3.10</option>
+              <option value="py39">Python 3.9</option>
+            </select>
+          </div>
+          <div class="doc-box" style="margin-top:12px;">
+            <h4>文件说明</h4>
+            <p id="toolDownloadFileDesc">代码包包含完整源码、依赖配置 (requirements.txt / environment.yml)、示例数据与 README 文档。</p>
+          </div>
+        </div>
+
+        <div class="tool-download-panel" id="toolDownloadPanel2">
+          <h4 class="section-title" style="margin-bottom:12px;">环境依赖检测</h4>
+          <div id="toolDownloadEnvCheck" style="margin-bottom:16px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border:1px solid #e5e7eb;border-radius:10px;margin-bottom:8px;">
+              <span>Python 环境</span>
+              <span style="color:#15803d;font-weight:600;">已就绪</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border:1px solid #e5e7eb;border-radius:10px;margin-bottom:8px;">
+              <span>pip / conda 包管理器</span>
+              <span style="color:#15803d;font-weight:600;">已就绪</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border:1px solid #e5e7eb;border-radius:10px;margin-bottom:8px;">
+              <span>Git 版本控制</span>
+              <span style="color:#15803d;font-weight:600;">已就绪</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border:1px solid #e5e7eb;border-radius:10px;">
+              <span>磁盘可用空间</span>
+              <span style="color:#15803d;font-weight:600;">≥ 2 GB</span>
+            </div>
+          </div>
+          <div class="doc-box">
+            <h4>提示</h4>
+            <p>环境检测为本地模拟展示。实际使用时请确保本地已安装对应版本的 Python 与包管理器。</p>
+          </div>
+        </div>
+
+        <div class="tool-download-panel" id="toolDownloadPanel3">
+          <h4 class="section-title" style="margin-bottom:12px;">正在下载</h4>
+          <p id="toolDownloadFileName" style="margin-bottom:8px;font-size:14px;color:#374151;">正在准备下载文件...</p>
+          <div class="tool-progress-bar"><div class="tool-progress-fill" id="toolDownloadProgress"></div></div>
+          <p id="toolDownloadStatus" style="font-size:13px;color:#6b7280;">连接下载服务器...</p>
+        </div>
+
+        <div class="tool-download-panel" id="toolDownloadPanel4">
+          <h4 class="section-title" style="margin-bottom:12px;">下载完成</h4>
+          <div style="text-align:center;padding:24px 0;">
+            <div style="width:56px;height:56px;border-radius:50%;background:#f0fdf4;color:#15803d;display:grid;place-items:center;font-size:26px;margin:0 auto 16px;">&#10003;</div>
+            <p style="font-size:16px;font-weight:700;color:#111827;margin-bottom:6px;">代码包下载成功</p>
+            <p id="toolDownloadResult" style="font-size:13px;color:#6b7280;margin-bottom:20px;">文件已保存至本地下载目录</p>
+            <div style="display:flex;gap:12px;justify-content:center;">
+              <button class="btn" type="button" onclick="showToast('打开文件夹','模拟打开下载目录')">打开下载目录</button>
+              <button class="btn-primary" type="button" onclick="tdOpenGuideFromDownload()">查看部署指引</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" id="toolDownloadFooter">
+        <button class="btn" type="button" data-close-modal="toolDownloadModal">取消</button>
+        <button class="btn-primary" type="button" id="toolDownloadNextBtn">下一步</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 数据工具开发 - 平台指引弹窗 -->
+  <div class="overlay" id="toolGuideModal">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <h3 id="toolGuideTitle">平台部署与使用指引</h3>
+          <p id="toolGuideSubtitle">环境要求 · 安装步骤 · 配置说明 · 使用示例</p>
+        </div>
+        <button class="modal-close" type="button" data-close-modal="toolGuideModal">×</button>
+      </div>
+      <div class="modal-body modal-scroll" style="padding:0;">
+        <div class="tool-guide-layout">
+          <nav class="tool-guide-nav" id="toolGuideNav">
+            <button class="active" type="button" data-guide-section="env">环境要求</button>
+            <button type="button" data-guide-section="install">安装步骤</button>
+            <button type="button" data-guide-section="config">配置说明</button>
+            <button type="button" data-guide-section="usage">使用示例</button>
+            <button type="button" data-guide-section="faq">常见问题</button>
+          </nav>
+          <div class="tool-guide-body" id="toolGuideBody">
+            <div class="tool-guide-section active" data-guide-page="env">
+              <h4>环境要求</h4>
+              <ol>
+                <li><strong>操作系统：</strong>Linux (Ubuntu 20.04+ / CentOS 8+)、macOS 12+、Windows 11 (WSL2)</li>
+                <li><strong>Python：</strong>3.9 / 3.10 / 3.11，推荐使用 Anaconda 或 Miniconda 管理环境</li>
+                <li><strong>依赖包：</strong>numpy、pandas、scipy、matplotlib、ase、pymatgen（具体以 requirements.txt 为准）</li>
+                <li><strong>硬件建议：</strong>CPU 4 核以上，内存 8 GB 以上；若涉及神经网络训练，建议配备 NVIDIA GPU (CUDA 11.8+)</li>
+              </ol>
+              <div class="doc-box">
+                <h4>前置检查</h4>
+                <p>在终端执行 <code>python --version</code> 与 <code>pip --version</code> 确认环境已就绪。建议使用虚拟环境隔离各工具依赖。</p>
+              </div>
+            </div>
+            <div class="tool-guide-section" data-guide-page="install">
+              <h4>安装步骤</h4>
+              <ol>
+                <li><strong>解压代码包：</strong>将下载的 ZIP 文件解压至目标工作目录，建议路径不含中文与空格。</li>
+                <li><strong>创建虚拟环境：</strong><code>conda create -n tool-env python=3.11</code>，然后激活 <code>conda activate tool-env</code>。</li>
+                <li><strong>安装依赖：</strong>在项目根目录执行 <code>pip install -r requirements.txt</code>，等待所有依赖安装完成。</li>
+                <li><strong>验证安装：</strong>执行 <code>python -c "import main; print('OK')"</code> 确认无报错。</li>
+                <li><strong>启动工具：</strong>根据 README 指引运行入口脚本，如 <code>python main.py</code> 或 <code>python -m src.cli</code>。</li>
+              </ol>
+            </div>
+            <div class="tool-guide-section" data-guide-page="config">
+              <h4>配置说明</h4>
+              <ol>
+                <li><strong>配置文件位置：</strong>项目根目录下的 <code>config.yaml</code> 或 <code>.env</code> 文件。</li>
+                <li><strong>数据路径：</strong>修改 <code>DATA_PATH</code> 指向本地数据集存放目录，建议使用绝对路径。</li>
+                <li><strong>计算参数：</strong>VASP/QE 接口需配置赝势路径、截断能、K 点网格等参数，详见 <code>config/calc.yaml</code>。</li>
+                <li><strong>日志级别：</strong>默认 INFO，调试时可修改为 DEBUG，日志输出至 <code>logs/</code> 目录。</li>
+              </ol>
+            </div>
+            <div class="tool-guide-section" data-guide-page="usage">
+              <h4>使用示例</h4>
+              <ol>
+                <li><strong>导入数据：</strong>将材料结构文件 (POSCAR / CIF) 放入指定输入目录，或通过 CLI 参数传入文件路径。</li>
+                <li><strong>执行功能：</strong>根据需求选择子模块，如逆向筛选执行 <code>python scripts/inverse_design.py --input data.csv</code>。</li>
+                <li><strong>查看结果：</strong>结果默认输出至 <code>outputs/</code> 目录，包含结构文件、计算输入文件与可视化图表。</li>
+                <li><strong>对接平台：</strong>通过平台 API 接口回传计算结果，实现数据闭环管理与版本追踪。</li>
+              </ol>
+            </div>
+            <div class="tool-guide-section" data-guide-page="faq">
+              <h4>常见问题</h4>
+              <ol>
+                <li><strong>依赖冲突：</strong>如遇版本冲突，建议使用 conda 新建独立环境，避免与系统 Python 混用。</li>
+                <li><strong>格式报错：</strong>确保输入文件为标准 CIF / POSCAR 格式，非标准格式需先用 pymatgen 转换。</li>
+                <li><strong>计算资源不足：</strong>大体系计算建议降低 K 点密度或使用更小超胞测试，确认无误后再放大规模。</li>
+                <li><strong>结果不一致：</strong>检查赝势版本、交换关联泛函及收敛阈值是否与平台数据库保持一致。</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" type="button" data-close-modal="toolGuideModal">关闭</button>
+        <button class="btn-primary" type="button" onclick="showToast('指引文档','已模拟导出 PDF 指引文档')">导出 PDF 指引</button>
       </div>
     </div>
   </div>
@@ -14361,15 +14272,13 @@
     const catalystToolConfigs = {
       site: {
         title: "活性位点分析",
-        subtitle: "识别和分析催化活性位点",
+        subtitle: "基于吸附构型计算吸附能与活性位点判定",
         fields: [
-          { id: "catalystToolSurface", label: "晶面选择", type: "select", options: ["(111)面", "(100)面", "(311)面", "边缘位"] },
-          { id: "catalystToolSite", label: "位点类型", type: "select", options: ["顶位 (Top)", "桥位 (Bridge)", "空穴位 (Hollow)", "边缘位"] },
-          { id: "catalystToolCoordination", label: "配位数阈值", type: "number", value: "8" },
-          { id: "catalystToolRadius", label: "分析半径 (Å)", type: "number", value: "5.0" }
-        ],
-        checksA: ["d带中心计算", "电荷分布分析", "Bader电荷分析"],
-        checksB: ["键长键角分析", "配位环境分析", "表面弛豫分析"]
+          { id: "catalystToolSubstrate", label: "金属衬底类型", type: "select", options: ["Pt (铂)", "Pd (钯)", "Au (金)", "Cu (铜)", "Ag (银)", "Ni (镍)", "Ir (铱)", "Ru (钌)", "Rh (铑)", "Co (钴)", "Fe (铁)"] },
+          { id: "catalystToolMiller", label: "晶面指数", type: "select", options: ["(111)", "(100)", "(110)", "(211)", "(311)", "(0001)"] },
+          { id: "catalystToolAdsorbate", label: "吸附物种", type: "select", options: ["*O", "*OH", "*OOH", "*H", "*CO", "*N", "*N2", "*NO", "*NH"] },
+          { id: "catalystToolAdsSite", label: "吸附位点", type: "select", options: ["顶位 (Top)", "桥位 (Bridge)", "空穴位 (Hollow)", "台阶位 (Step)", "扭结位 (Kink)"] }
+        ]
       },
       bulk: {
         title: "体相晶格生成",
@@ -27398,9 +27307,155 @@
           .catalyst-detail-info-grid,
           .catalyst-build-layout,
           .catalyst-build-meta-grid,
-          .catalyst-build-stepbar {
+          .catalyst-build-stepbar,
+          .catalyst-site-result-meta {
             grid-template-columns: 1fr;
           }
+        }
+        .catalyst-site-preview-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 12px;
+          margin-bottom: 10px;
+        }
+        .catalyst-site-preview-header h4 {
+          margin: 0;
+        }
+        .catalyst-site-tag {
+          display: inline-flex;
+          align-items: center;
+          min-height: 28px;
+          padding: 0 12px;
+          border-radius: 999px;
+          background: rgba(36, 83, 212, 0.10);
+          color: #2453d4;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 0.02em;
+        }
+        .catalyst-site-preview-desc {
+          margin: 0 0 14px;
+          color: #607492;
+          font-size: 14px;
+          line-height: 1.6;
+        }
+        .catalyst-site-param-tip {
+          margin: 0 0 10px;
+          color: #607492;
+          font-size: 13px;
+          line-height: 1.6;
+        }
+        .catalyst-site-form .field label {
+          font-weight: 700;
+          color: #16294d;
+          font-size: 13px;
+          letter-spacing: 0.02em;
+        }
+        .catalyst-site-actions {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+        .catalyst-site-result-card {
+          margin-top: 18px;
+          border: 1px solid #dbe6f7;
+          border-radius: 20px;
+          background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+          padding: 18px;
+        }
+        .catalyst-site-result-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 12px;
+          margin-bottom: 14px;
+        }
+        .catalyst-site-result-header strong {
+          color: #16294d;
+          font-size: 16px;
+        }
+        .catalyst-site-result-badge {
+          display: inline-flex;
+          align-items: center;
+          min-height: 26px;
+          padding: 0 12px;
+          border-radius: 999px;
+          background: rgba(46, 204, 113, 0.10);
+          color: #1a7a3e;
+          font-size: 12px;
+          font-weight: 700;
+        }
+        .catalyst-site-result-body {
+          text-align: center;
+          padding: 16px 0;
+          border-top: 1px solid #e8f0fb;
+          border-bottom: 1px solid #e8f0fb;
+        }
+        .catalyst-site-result-value {
+          font-size: 40px;
+          line-height: 48px;
+          font-weight: 800;
+          color: #2453d4;
+          letter-spacing: -0.02em;
+        }
+        .catalyst-site-result-label {
+          margin-top: 6px;
+          color: #607492;
+          font-size: 13px;
+          font-weight: 600;
+        }
+        .catalyst-site-result-meta {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
+          margin-top: 14px;
+        }
+        .catalyst-site-result-meta-item {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 8px;
+          padding: 10px 12px;
+          border-radius: 12px;
+          background: #f7faff;
+          border: 1px solid #e8f0fb;
+        }
+        .catalyst-site-result-meta-item span {
+          color: #607492;
+          font-size: 12px;
+        }
+        .catalyst-site-result-meta-item strong {
+          color: #16294d;
+          font-size: 13px;
+          font-weight: 700;
+        }
+        .catalyst-site-download-row {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          flex-wrap: wrap;
+          margin-top: 14px;
+        }
+        .catalyst-site-download-row > span {
+          color: #607492;
+          font-size: 13px;
+          font-weight: 600;
+        }
+        .catalyst-site-download-row .btn-outline {
+          min-height: 32px;
+          padding: 0 14px;
+          border-radius: 10px;
+          border: 1px solid #cfddf2;
+          background: #fff;
+          color: #2453d4;
+          font-size: 13px;
+          font-weight: 700;
+          cursor: pointer;
+        }
+        .catalyst-site-download-row .btn-outline:hover {
+          background: #f4f8ff;
+          border-color: #2453d4;
         }
       `;
       document.head.appendChild(style);
@@ -27715,7 +27770,7 @@
             <div class="catalyst-workbench-head">
               <div>
                 <h3>活性位点分析</h3>
-                <p>基于当前选中的催化材料查看活性位点、表面结构、体系特征和关键催化参数。</p>
+                <p>基于选中的催化材料，输入金属衬底、晶面、吸附物种与吸附位点参数，计算吸附能并判定活性位点位置。</p>
               </div>
               <span class="catalyst-batch-note">当前分析对象：${material.name}</span>
             </div>
@@ -27723,30 +27778,45 @@
           <div style="padding:24px;">
             <div class="catalyst-workbench-grid">
               <article class="catalyst-workbench-card">
-                <h4>${material.name} 活性位点预览</h4>
-                <p>${material.reactionType} / ${material.surface} / ${material.site}</p>
+                <div class="catalyst-site-preview-header">
+                  <h4>${material.name} 晶体结构预览</h4>
+                  <span class="catalyst-site-tag">3D 结构</span>
+                </div>
+                <p class="catalyst-site-preview-desc">${material.reactionType} / ${material.surface} / ${material.site}</p>
                 <div class="catalyst-workbench-preview" id="catalystWorkbenchSiteCanvas"></div>
                 <div class="catalyst-selection-pills">
+                  <span>化学式：${material.formula}</span>
                   <span>元素组成：${material.elements.join(", ")}</span>
+                  <span>晶格常数：a=${material.latticeA.toFixed(2)} Å</span>
                   <span>结构特征：${material.structureFeature}</span>
-                  <span>体系特征：${material.systemFeature}</span>
                 </div>
               </article>
               <article class="catalyst-workbench-card">
-                <h4>分析摘要</h4>
-                <p>支持围绕表面位点、电子结构和几何构型开展活性位点分析。</p>
-                <div class="catalyst-workbench-facts">
-                  <div class="material-info-item"><span>中间产物</span><strong>${material.intermediate}</strong></div>
-                  <div class="material-info-item"><span>催化性能</span><strong>${getCatalystPerformanceSummary(material)}</strong></div>
-                  <div class="material-info-item"><span>d 带中心</span><strong>${material.dBandCenter.toFixed(2)} eV</strong></div>
-                  <div class="material-info-item"><span>电荷转移</span><strong>${material.chargeTransfer > 0 ? "+" : ""}${material.chargeTransfer.toFixed(2)} e</strong></div>
-                </div>
-                <div class="catalyst-form-grid" style="margin-top:18px;">
+                <h4>分子摘要与参数设置</h4>
+                <p class="catalyst-site-param-tip">请依次设置以下四个关键参数，预览确认构型后执行计算。</p>
+                <div class="catalyst-form-grid catalyst-site-form" style="margin-top:18px;">
                   ${renderCatalystToolFields(catalystToolConfigs.site)}
                 </div>
-                <div class="twod-detail-actions" style="margin-top:18px;">
+                <div class="catalyst-site-actions" style="margin-top:18px;">
                   <button class="btn" type="button" data-catalyst-tool-preview>预览</button>
-                  <button class="btn-primary" type="button" data-catalyst-tool-generate>生成位点分析</button>
+                  <button class="btn-primary" type="button" data-catalyst-site-calc>计算</button>
+                </div>
+                <div id="catalystSiteResult" class="catalyst-site-result-card" style="display:none;">
+                  <div class="catalyst-site-result-header">
+                    <strong>计算结果</strong>
+                    <span class="catalyst-site-result-badge" id="catalystSiteResultBadge">已完成</span>
+                  </div>
+                  <div class="catalyst-site-result-body">
+                    <div class="catalyst-site-result-value" id="catalystSiteAdsorptionEnergy">—</div>
+                    <div class="catalyst-site-result-label">吸附能 (eV)</div>
+                    <div class="catalyst-site-result-meta" id="catalystSiteResultMeta"></div>
+                  </div>
+                  <div class="catalyst-site-download-row">
+                    <span>输出格式：</span>
+                    <button class="btn-outline" type="button" data-catalyst-site-download="POSCAR">POSCAR</button>
+                    <button class="btn-outline" type="button" data-catalyst-site-download="CIF">CIF</button>
+                    <button class="btn-outline" type="button" data-catalyst-site-download="XYZ">XYZ</button>
+                  </div>
                 </div>
               </article>
             </div>
@@ -27947,6 +28017,9 @@
       if (state.catalystWorkbenchMode === "build") {
         return getCatalystBuildCurrentConfig();
       }
+      if (state.catalystWorkbenchMode === "site") {
+        return catalystToolConfigs.site;
+      }
       return catalystToolConfigs[state.selectedCatalystTool];
     }
 
@@ -27959,14 +28032,60 @@
       }));
     }
 
+    function runCatalystSiteCalculation() {
+      const material = getCatalystWorkbenchMaterial(null);
+      const values = readCatalystToolValues();
+      const substrate = values.find((v) => v.label === "金属衬底类型")?.value || "Pt (铂)";
+      const miller = values.find((v) => v.label === "晶面指数")?.value || "(111)";
+      const adsorbate = values.find((v) => v.label === "吸附物种")?.value || "*O";
+      const adsSite = values.find((v) => v.label === "吸附位点")?.value || "顶位 (Top)";
+
+      const substrateFactors = { "Pt (铂)": 0, "Pd (钯)": 0.15, "Au (金)": 0.35, "Cu (铜)": 0.22, "Ag (银)": 0.40, "Ni (镍)": 0.18, "Ir (铱)": -0.05, "Ru (钌)": 0.10, "Rh (铑)": 0.08, "Co (钴)": 0.25, "Fe (铁)": 0.28 };
+      const millerFactors = { "(111)": 0, "(100)": 0.12, "(110)": 0.18, "(211)": 0.25, "(311)": 0.20, "(0001)": 0.10 };
+      const adsFactors = { "*O": -1.2, "*OH": -0.8, "*OOH": -0.6, "*H": -0.4, "*CO": -0.7, "*N": -1.5, "*N2": -0.3, "*NO": -0.9, "*NH": -0.5 };
+      const siteFactors = { "顶位 (Top)": 0, "桥位 (Bridge)": 0.08, "空穴位 (Hollow)": 0.15, "台阶位 (Step)": 0.22, "扭结位 (Kink)": 0.28 };
+
+      const baseEnergy = material.adsorptionEnergy || -1.05;
+      const computed = baseEnergy
+        + (substrateFactors[substrate] || 0)
+        + (millerFactors[miller] || 0)
+        + (adsFactors[adsorbate] || 0)
+        + (siteFactors[adsSite] || 0)
+        + (Math.random() * 0.08 - 0.04);
+
+      const resultCard = document.getElementById("catalystSiteResult");
+      const energyEl = document.getElementById("catalystSiteAdsorptionEnergy");
+      const metaEl = document.getElementById("catalystSiteResultMeta");
+      const badgeEl = document.getElementById("catalystSiteResultBadge");
+
+      if (resultCard) resultCard.style.display = "";
+      if (energyEl) energyEl.textContent = `${computed.toFixed(3)} eV`;
+      if (badgeEl) badgeEl.textContent = computed < -0.5 ? "强吸附 — 活性位点" : computed < 0 ? "中等吸附 — 潜在活性位点" : "弱吸附 — 非活性位点";
+      if (metaEl) {
+        metaEl.innerHTML = `
+          <div class="catalyst-site-result-meta-item"><span>衬底</span><strong>${substrate}</strong></div>
+          <div class="catalyst-site-result-meta-item"><span>晶面</span><strong>${miller}</strong></div>
+          <div class="catalyst-site-result-meta-item"><span>吸附物种</span><strong>${adsorbate}</strong></div>
+          <div class="catalyst-site-result-meta-item"><span>吸附位点</span><strong>${adsSite}</strong></div>
+          <div class="catalyst-site-result-meta-item"><span>参考材料</span><strong>${material.name}</strong></div>
+        `;
+      }
+      showToast("计算完成", `吸附能计算已完成，结果为 ${computed.toFixed(3)} eV。`);
+    }
+
     function renderCatalystModelPreview() {
       const isWorkbench = !!document.getElementById("catalystWorkbenchSection");
       const material = isWorkbench ? getCatalystWorkbenchMaterial(null) : getCatalystCurrentMaterial();
       const tool = getCatalystActiveToolConfig();
       const values = readCatalystToolValues();
       if (!tool) return;
+      const isSite = state.catalystWorkbenchMode === "site";
       document.getElementById("catalystPreviewTitle").textContent = `${tool.title}预览`;
-      document.getElementById("catalystPreviewSubtitle").textContent = `基于 ${material.name} 当前参数生成的 API 预览结果`;
+      document.getElementById("catalystPreviewSubtitle").textContent = isSite
+        ? `基于 ${material.name} 当前参数生成的吸附构型预览`
+        : `基于 ${material.name} 当前参数生成的 API 预览结果`;
+      const generateBtn = document.getElementById("catalystModelGenerateBtn");
+      if (generateBtn) generateBtn.style.display = isSite ? "none" : "";
       if (state.catalystWorkbenchMode === "build" && state.selectedCatalystTool !== "bulk") {
         renderCatalystSurfaceCanvas("catalystModelPreviewCanvas", material);
       } else {
@@ -28082,7 +28201,7 @@
     function syncCatalystWorkbenchCanvases(list) {
       const material = getCatalystWorkbenchMaterial(list);
       if (state.catalystWorkbenchMode === "site") {
-        renderCatalystSurfaceCanvas("catalystWorkbenchSiteCanvas", material);
+        renderCatalystCrystalCanvas("catalystWorkbenchSiteCanvas", material);
         return;
       }
       if (state.catalystWorkbenchMode === "build") {
@@ -28193,7 +28312,7 @@
     function syncCatalystWorkbenchCanvases(list) {
       const material = getCatalystWorkbenchMaterial(list);
       if (state.catalystWorkbenchMode === "site") {
-        renderCatalystSurfaceCanvas("catalystWorkbenchSiteCanvas", material);
+        renderCatalystCrystalCanvas("catalystWorkbenchSiteCanvas", material);
         return;
       }
       if (state.catalystWorkbenchMode === "build") {
@@ -28627,7 +28746,12 @@
             return;
           }
           if (toolGenerate) {
-            renderCatalystModelPreview();
+            if (state.catalystWorkbenchMode === "site") {
+              runCatalystSiteCalculation();
+            } else {
+              renderCatalystModelPreview();
+            }
+            return;
           }
         });
       }
@@ -28702,6 +28826,8 @@
           const toolSelect = event.target.closest("[data-catalyst-tool-select]");
           const toolPreview = event.target.closest("[data-catalyst-tool-preview]");
           const toolGenerate = event.target.closest("[data-catalyst-tool-generate]");
+          const siteCalc = event.target.closest("[data-catalyst-site-calc]");
+          const siteDownload = event.target.closest("[data-catalyst-site-download]");
 
           if (backButton) {
             renderCatalystModule();
@@ -28715,6 +28841,16 @@
           }
           if (toolPreview) {
             renderCatalystModelPreview();
+            return;
+          }
+          if (siteCalc) {
+            runCatalystSiteCalculation();
+            return;
+          }
+          if (siteDownload) {
+            const format = siteDownload.dataset.catalystSiteDownload;
+            const material = getCatalystWorkbenchMaterial(null);
+            showToast("下载文件", `${material.name} 的吸附构型 ${format} 文件已准备下载。`);
             return;
           }
           if (toolGenerate) {
@@ -29772,89 +29908,616 @@
       resetTwodConvertModal();
     }
 
-    /* ===== 数据工具开发模块交互函数 ===== */
-    let tdSelectedSoftware = 'vasp';
-    let tdSelectedModel = null;
+    /* ===== 数据工具开发模块静态交互函数 ===== */
+    const toolSubmoduleData = {
+      'inverse-visualizer': {
+        name: '材料结构文件可视化生成器',
+        effect: [
+          '支持导入 CIF/POSCAR 等标准晶体结构文件并在本地进行三维可视化渲染；',
+          '提供原子增删改、替换功能，支持双击原子调节大小与颜色；',
+          '支持键长测量与键角测量，鼠标悬停键上可显示成键元素及键长信息；',
+          '支持超胞显示、视角切换、坐标轴显示等辅助功能；',
+          '可导出 PNG 格式图片、DAE/GLTF 三维模型文件及 AR 功能文件；',
+          '支持声子振动模式可视化，可调频率与振幅直观展示原子振动。'
+        ],
+        operation: [
+          '本地部署后，将结构文件放入 input 目录；',
+          '运行可视化脚本启动本地服务；',
+          '通过浏览器或本地窗口查看晶体结构；',
+          '使用鼠标拖拽旋转视角，滚轮缩放；',
+          '双击原子或悬停键进行编辑与测量；',
+          '确认视图后导出所需格式的结构文件或图片。'
+        ],
+        notice: [
+          '三维渲染依赖本地显卡性能，建议配备独立显卡；',
+          '声子振动模式需提前准备声子谱计算数据；',
+          '大体系结构文件可能导致渲染卡顿，建议控制原子数规模；',
+          '导出文件路径避免中文与特殊字符，防止编码异常。'
+        ]
+      },
+      'inverse-dft': {
+        name: '第一性原理计算软件接口',
+        effect: [
+          '提供 VASP 和 QE 两种主流第一性原理计算软件输入文件自动生成；',
+          '支持晶体结构参数、电子能带、态密度、声子谱、形成能等性质计算；',
+          '用户可直接导入计算结果文件并与数据库结果对标校验；',
+          '自动匹配推荐赝势与 KPOINTS 设置，降低参数配置门槛；',
+          '统一输出 POSCAR、CIF 等标准结构文件，确保数据互通。'
+        ],
+        operation: [
+          '本地部署后选择目标计算软件（VASP 或 QE）；',
+          '导入材料结构文件，系统自动生成对应输入文件；',
+          '参考平台展示的计算细节补充 INCAR/KPOINTS/POTCAR 或 QE 输入参数；',
+          '本地运行第一性原理计算；',
+          '计算完成后导入结果文件，与数据库数据对比验证。'
+        ],
+        notice: [
+          '计算文件生成后需在本地 HPC 或工作站上执行，平台不提供算力；',
+          '赝势版本、交换关联泛函选择需与数据库保持一致方可对标；',
+          '大规模体系计算前建议先在小超胞测试收敛性；',
+          '计算结果文件格式需严格遵循对应软件版本规范。'
+        ]
+      },
+      'clean-engine': {
+        name: '分子数据集智能清洗引擎',
+        effect: [
+          '适配单条分子数据存入与批量提取两大场景，自动触发清洗流程；',
+          '多维度筛查格式违规、逻辑矛盾、数值越界等异常条目；',
+          '精准定位并标识问题数据位置及类型，生成清洗质检报告；',
+          '支持自定义清洗规则与阈值，满足不同数据集质量管控需求；',
+          '清洗后自动输出合规数据集与异常数据清单，便于人工复核。'
+        ],
+        operation: [
+          '本地部署后，导入单条或批量分子数据集；',
+          '启动清洗引擎，系统自动完成多维度筛查；',
+          '查看生成的质检报告，定位异常条目；',
+          '按规则人工复核保留疑似有效数据；',
+          '导出清洗后的合规数据集与异常清单。'
+        ],
+        notice: [
+          '清洗运算在本地执行，平台仅提供代码包与规则模板；',
+          '原始数据集建议提前备份，防止误删；',
+          '非标格式数据需先进行预处理转换；',
+          '自定义规则需经小批量验证后再应用于全量数据。'
+        ]
+      },
+      'clean-structure': {
+        name: '分子结构合理性判别模块',
+        effect: [
+          '从分子基本构成、原子排列方式、连接拓扑关系多维度研判结构合理性；',
+          '自动识别不符合化学原理的异常键长、键角及配位数；',
+          '对新型或特殊分子结构给出风险提示，辅助科研人员决策；',
+          '支持批量结构文件自动化判别，提升数据集入库效率；',
+          '判别结果与清洗引擎联动，自动拦截低质量结构数据。'
+        ],
+        operation: [
+          '本地部署后，导入待判别的分子结构文件；',
+          '启动结构合理性判别流程；',
+          '查看系统输出的结构评分与异常项明细；',
+          '对异常结构进行人工复核或修正；',
+          '确认通过后纳入合规数据集。'
+        ],
+        notice: [
+          '判别规则基于通用化学原理，极端特殊分子需人工专业校验；',
+          '三维结构可视化需本地环境支持，平台不在线渲染；',
+          '批量判别时建议分批次处理，便于问题定位；',
+          '判别结果仅供参考，关键科研数据应经专家审核。'
+        ]
+      },
+      'clean-convergence': {
+        name: '计算收敛性监测模块',
+        effect: [
+          '动态监测分子性质计算过程中的 SCF/几何优化收敛状态；',
+          '自动识别未收敛计算并标记，防止偏差数据入库；',
+          '结合行业合理范围与校验规则，判定最终计算结果可信度；',
+          '生成收敛性监测报告，包含收敛曲线与关键指标摘要；',
+          '支持对接 VASP、Gaussian 等主流计算软件的输出日志解析。'
+        ],
+        operation: [
+          '本地部署后，导入计算输出日志文件；',
+          '启动收敛性监测，系统自动解析收敛指标；',
+          '查看未收敛任务列表与收敛曲线；',
+          '对未收敛任务调整参数后重新计算；',
+          '确认收敛后更新数据集质量标签。'
+        ],
+        notice: [
+          '监测模块依赖本地计算环境，需确保日志文件完整可读；',
+          '不同软件的收敛判定标准存在差异，需按对应规范配置；',
+          '未收敛数据应排查参数设置与初始结构问题；',
+          '监测报告建议随数据集一同归档，便于溯源。'
+        ]
+      },
+      'assistant-build': {
+        name: '分子结构搭建与力场匹配模块',
+        effect: [
+          '根据分子体系类型灵活适配多样化建模场景；',
+          '辅助完成从初步结构搭建到力场参数精准匹配的全流程；',
+          '内置主流力场数据库（UFF、GAFF、OPLS 等），自动推荐最优力场；',
+          '支持自定义力场参数导入与编辑，满足特殊体系需求；',
+          '输出力场参数文件与初始结构文件，直接用于后续模拟。'
+        ],
+        operation: [
+          '本地部署后，输入分子化学式或导入初始构型；',
+          '选择体系类型与模拟目标，系统自动推荐力场；',
+          '审核并调整力场参数，确认原子类型与电荷分配；',
+          '导出力场参数文件与结构文件；',
+          '将输出文件导入目标模拟软件进行验证。'
+        ],
+        notice: [
+          '力场推荐为算法默认值，特殊体系需科研人员人工校验；',
+          '结构搭建结果建议先在短程模拟中验证稳定性；',
+          '力场参数修改后需重新生成全部相关文件；',
+          '不同模拟软件力场格式存在差异，导出时请选对目标格式。'
+        ]
+      },
+      'assistant-convert': {
+        name: '跨模拟软件格式转换模块',
+        effect: [
+          '自动导出符合 LAMMPS、GROMACS、Amber 等主流软件标准的输入文件；',
+          '避免手动转换造成的原子信息丢失、格式错误与参数遗漏；',
+          '支持拓扑文件、坐标文件、力场参数文件的批量转换；',
+          '转换过程自动校验文件完整性，输出转换报告；',
+          '大幅降低了跨软件操作的复杂度，提升科研效率。'
+        ],
+        operation: [
+          '本地部署后，导入源软件的结构与参数文件；',
+          '选择目标模拟软件及所需文件类型；',
+          '系统自动完成格式映射与参数转换；',
+          '查看转换报告，核对关键参数映射关系；',
+          '导出转换后的全套输入文件并导入目标软件。'
+        ],
+        notice: [
+          '格式转换在本地运行，平台不执行实际转换运算；',
+          '源文件需为标准格式，非标格式可能转换失败；',
+          '转换后建议先用小规模体系测试目标软件兼容性；',
+          '不同软件版本对输入文件要求不同，需按版本适配。'
+        ]
+      },
+      'assistant-parse': {
+        name: '模拟输入文件解析管理模块',
+        effect: [
+          '系统化解析已有模拟输入文件中的模型结构与全部参数；',
+          '提供友好的结构化存储、专业分析及便捷编辑工具；',
+          '支持跨软件参数统一校验，消除不同软件操作习惯差异；',
+          '建立统一参数标准，保障多软件仿真结果一致性与可靠性；',
+          '可视化展示模拟输入参数树，支持一键导出修改后文件。'
+        ],
+        operation: [
+          '本地部署后，导入待解析的模拟输入文件；',
+          '系统自动提取结构信息、力场参数、模拟设置；',
+          '在可视化界面查看参数树与结构预览；',
+          '按需编辑参数并实时校验冲突；',
+          '导出修改后的输入文件，用于新一轮模拟。'
+        ],
+        notice: [
+          '解析功能依赖本地环境，需预装对应软件依赖库；',
+          '参数编辑后需重新校验，避免与软件内置约束冲突；',
+          '复杂体系参数树层级较深，建议分批查看与修改；',
+          '导出文件前请确认目标软件版本兼容性。'
+        ]
+      },
+      'catalyst-visualizer': {
+        name: '催化材料结构可视化生成器',
+        effect: [
+          '支持催化材料晶面选取、吸附分子添加与构型位置调控；',
+          '可移动吸附分子位置并调整其与界面的接触构型；',
+          '可视化操作完成后直接生成并下载对应 POSCAR 结构文件；',
+          '支持调整视图视角、显示超胞、坐标轴等辅助功能；',
+          '为后续第一性原理计算与机器学习特征工程提供标准结构输入。'
+        ],
+        operation: [
+          '本地部署后，导入催化材料结构文件；',
+          '在可视化界面选取目标晶面；',
+          '添加吸附分子并拖拽调整空间位置与接触方式；',
+          '确认构型后生成并导出 POSCAR 文件；',
+          '将结构文件用于后续计算或特征生成。'
+        ],
+        notice: [
+          '结构建模在本地运行，平台不展示 3D 结构；',
+          '吸附分子构型需结合物理化学常识人工校验；',
+          '大体系结构渲染依赖本地硬件性能；',
+          '导出文件请使用英文路径，避免编码问题。'
+        ]
+      },
+      'catalyst-gcn': {
+        name: '吸附分子广义配位数生成器',
+        effect: [
+          '自动计算吸附分子广义配位数 GCN，准确描述局部吸附环境；',
+          '支持多种维度填充策略（最大维度向量、空值补零等）；',
+          '输出标准化特征向量，直接用于电催化机器学习模型输入；',
+          '计算过程透明，支持导出中间过程数据与计算报告；',
+          '已成功应用于多种金属表面电催化反应的局部环境表征。'
+        ],
+        operation: [
+          '本地部署后，导入催化材料结构文件；',
+          '选择吸附位点与维度填充方法；',
+          '系统自动计算 GCN 并输出特征向量；',
+          '查看计算报告，核对局部环境与配位信息；',
+          '导出 GCN 特征文件用于模型训练。'
+        ],
+        notice: [
+          'GCN 计算在本地执行，平台不提供在线算力；',
+          '计算结果仅为特征基础数据，需结合模型验证；',
+          '维度填充方式需与机器学习模型输入维度保持一致；',
+          '特殊晶体结构（如低对称性表面）需人工校验计算结果。'
+        ]
+      },
+      'catalyst-symmetry': {
+        name: '材料结构对称性函数生成器',
+        effect: [
+          '快速生成高斯核函数、球谐函数等材料结构对称性函数；',
+          '将原子间距离、键角等结构信息向量化，适配机器学习输入；',
+          '减少用户在多尺度模拟与材料性质预测中的代码编写量；',
+          '支持多种对称性函数组合测试，一键切换对比效果；',
+          '输出标准化结构特征矩阵，兼容主流机器学习框架。'
+        ],
+        operation: [
+          '本地部署后，导入材料结构文件；',
+          '选择所需对称性函数类型与高斯参数；',
+          '系统自动计算并输出结构向量化特征；',
+          '查看特征矩阵维度与分布摘要；',
+          '导出特征文件并接入机器学习模型。'
+        ],
+        notice: [
+          '对称性函数计算在本地运行，平台不执行运算；',
+          '函数类型与参数需根据目标模型需求合理选择；',
+          '大体系计算可能耗时较长，建议分批次处理；',
+          '输出文件路径避免中文，防止下游读取异常。'
+        ]
+      },
+      'catalyst-element': {
+        name: '催化材料元素特征生成器',
+        effect: [
+          '提供 One-hot 编码与元素周期表 11 维属性编码两种方式；',
+          'One-hot 编码适用于离散型元素分类任务，简单高效；',
+          '周期表属性编码包含族数、电荷、原子半径、电负性等 11 维物性；',
+          '自动生成标准化元素特征向量，直接接入机器学习模型；',
+          '支持批量元素编码与自定义属性扩展。'
+        ],
+        operation: [
+          '本地部署后，导入元素列表或结构文件；',
+          '选择编码方式（One-hot 或周期表属性编码）；',
+          '系统自动生成对应维度的元素特征向量；',
+          '查看编码结果与维度说明；',
+          '导出特征文件用于催化材料性能预测模型。'
+        ],
+        notice: [
+          '元素编码在本地执行，平台不提供运算服务；',
+          '周期表属性基于标准物性数据库，特殊同位素需自行修正；',
+          '编码维度需与模型输入层维度严格匹配；',
+          '建议对编码结果做归一化处理后再输入模型。'
+        ]
+      },
+      'model-traditional': {
+        name: '传统机器学习模型接口',
+        effect: [
+          '内置 GBDT（梯度提升树）、岭回归、随机森林等经典算法；',
+          '支持 PCA 线性降维与 t-SNE 非线性降维可视化；',
+          '适用于高维材料特征的回归预测与分类任务；',
+          '提供超参数配置面板，支持网格搜索与交叉验证；',
+          '输出模型训练报告、特征重要性排序与预测结果。'
+        ],
+        operation: [
+          '本地部署后，上传材料特征数据集；',
+          '选择目标机器学习模型并配置超参数；',
+          '可选 PCA 或 t-SNE 进行降维可视化；',
+          '启动本地训练并查看训练报告；',
+          '导出模型文件与预测结果。'
+        ],
+        notice: [
+          '模型训练在本地算力环境运行，平台不承载算力；',
+          '数据集需自行完成预处理与归一化；',
+          '超参数无通用最优值，需结合场景调参验证；',
+          '特征维度较高时建议先做降维处理，避免维度灾难。'
+        ]
+      },
+      'model-nn': {
+        name: '全连接神经网络模型接口',
+        effect: [
+          '可视化搭建全连接神经网络结构，支持自由增删隐藏层；',
+          '每层可独立配置神经元数、激活函数（ReLU / Sigmoid / tanh / Shifted Softplus）；',
+          '支持多种池化方式（最大池化、求和池化、平均池化）；',
+          '自动编译模型并输出网络结构图与参数量统计；',
+          '省去手动编写神经网络代码的工作量，降低深度学习门槛。'
+        ],
+        operation: [
+          '本地部署后，上传训练数据集；',
+          '在可视化界面搭建网络结构，逐层配置参数；',
+          '设置损失函数、优化器与学习率；',
+          '启动本地训练，查看损失曲线与验证指标；',
+          '导出模型权重与训练日志。'
+        ],
+        notice: [
+          '神经网络训练依赖本地 GPU 资源，建议使用 CUDA 环境；',
+          '网络深度与宽度需根据数据规模合理设计，避免过拟合；',
+          '激活函数选择影响梯度传播，深层网络建议使用 ReLU 族；',
+          '训练前请确认数据集已做标准化或归一化处理。'
+        ]
+      },
+      'model-gnn': {
+        name: '经典图神经网络模型接口',
+        effect: [
+          '原生适配 CGCNN、SchNet、DimeNet++ 等经典图神经网络；',
+          '自动将用户上传的材料数据转换为对应模型所需图格式；',
+          '免去用户自行下载模型与大量数据预处理工作；',
+          '支持自定义超参数配置与训练过程监控；',
+          '输出训练好的模型权重、验证指标与预测结果。'
+        ],
+        operation: [
+          '本地部署后，按规范上传材料结构数据集；',
+          '选择目标图神经网络模型；',
+          '系统自动完成数据格式转换与图构建；',
+          '配置超参数并启动本地训练；',
+          '导出模型权重与训练报告。'
+        ],
+        notice: [
+          '图神经网络训练在本地运行，平台不承载算力；',
+          '输入数据格式要求严格，需严格遵循平台数据规范；',
+          '不同 GNN 模型对图特征定义不同，转换前请确认模型要求；',
+          '图网络对内存需求较高，大体系建议分批处理或降低批量大小。'
+        ]
+      }
+    };
 
-    function tdToast(type, message) {
-      const toast = document.getElementById('tooldevToast');
-      if (!toast) return;
-      toast.className = 'tooldev-toast ' + (type === 'ok' ? 'ok' : 'err');
-      toast.querySelector('.t-icon').textContent = type === 'ok' ? '✓' : '✗';
-      toast.querySelector('.t-msg').textContent = message;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3000);
+    const toolDetailData = {
+      inverse: {
+        name: '二维材料多目标逆向设计工具',
+        effect: [
+          '可自动比对上传数据与平台存量数据差异度，智能判定新增数据准确度与合理性；',
+          '自动对数据标注高 / 中 / 低质量等级，定期自动清理低质量数据、重复冗余数据，保障数据库整体数据可靠度；',
+          '支持按应用场景、多目标性能需求，在材料库中快速精准筛选符合条件的二维材料；',
+          '可配套导出材料结构文件、第一性原理计算输入文件，直接支撑科研分析、结构优化与仿真计算；',
+          '内置晶体可视化全套能力，支持原子编辑、键长键角测量、声子振动模式可视化预览；',
+          '适配 VASP、QE 主流计算软件输入输出格式，实现计算文件通用适配与结果对标校验。'
+        ],
+        operation: [
+          '用户本地部署工具代码包后，批量或单条上传二维材料数据文件；',
+          '启动数据差异比对与质量评级功能，系统自动完成等级标签划分；',
+          '配置定时任务，一键触发低质、重复数据批量清理流程；',
+          '录入应用场景与多目标性能约束条件，执行材料逆向筛选；',
+          '筛选结果可本地导出结构文件、计算输入文件；',
+          '调用可视化模块，可本地进行原子增删改、键参数测量、声子振动调试；',
+          '选择 VASP/QE 软件接口，配置计算参数，本地生成对应输入文件并可导入结果做对标分析。'
+        ],
+        notice: [
+          '所有数据比对、清洗、筛选、可视化、计算接口运算均需本地部署代码包运行，平台不提供在线算力；',
+          '上传数据需遵循 CIF、POSCAR 等标准格式，格式错误将导致比对与评级失效；',
+          '数据质量标签仅为算法参考，关键科研数据建议人工复核确认；',
+          '定时清理任务需自行配置周期与过滤规则，避免误删有效科研数据；',
+          '第一性原理计算参数、赝势选择需结合研究场景自行适配，平台仅提供标准模板；',
+          '晶体可视化 3D 渲染、声子振动展示依赖本地硬件图形性能，与平台无关。'
+        ]
+      },
+      clean: {
+        name: '分子数据集智能清洗和质量控制工具',
+        effect: [
+          '适配分子数据单条存入、批量提取两大常用业务场景，全流程自动化清洗校验；',
+          '自动筛查违规格式、逻辑矛盾、数值越界等异常数据，精准定位并标识问题条目；',
+          '从分子构成、原子排列、拓扑连接多维度智能判别结构化学合理性；',
+          '动态监测分子性质计算收敛性，规避未收敛数据带来的结果偏差；',
+          '按行业校验规则自动判定分子原子性质计算结果，整体提升数据集精准度与规范性；',
+          '自动生成异常数据报告，便于快速整改与数据集长期质量管控。'
+        ],
+        operation: [
+          '本地部署代码包后，导入单条或批量分子数据集文件；',
+          '启动智能清洗流程，工具自动完成多维度筛查、结构研判、收敛性校验；',
+          '系统自动剔除违规异常条目，并输出异常位置、问题类型明细；',
+          '可按报告人工复核保留疑似有效数据，批量规整合规数据集；',
+          '后续新增分子数据可接入工具预设流程，实现入库自动质控。'
+        ],
+        notice: [
+          '平台仅提供代码包与指引，不在线执行清洗、校验与结构判别运算；',
+          '分子数据需遵循通用化学数据格式规范，非标格式需提前预处理；',
+          '结构合理性判别基于通用化学规则，特殊新型分子需人工专业校验；',
+          '计算收敛性判定依赖本地计算环境精度配置，需与科研仿真环境保持一致；',
+          '批量清洗建议提前备份原始数据集，防止操作失误造成数据丢失。'
+        ]
+      },
+      assistant: {
+        name: '复杂系统模拟智能助手工具',
+        effect: [
+          '适配不同复杂度分子体系，辅助完成结构搭建、力场参数智能匹配全流程；',
+          '自动适配主流分子模拟软件格式，一键生成标准输入文件，避免手动转换造成信息丢失、格式错误；',
+          '可解析已有模拟文件的结构信息与全量参数，支持结构化存储、在线编辑与参数优化；',
+          '建立统一参数校验标准，消除不同软件操作习惯差异，保障多软件仿真结果可比、可靠；',
+          '减少人工代码编写与格式调试工作量，提升分子模拟整体科研效率。'
+        ],
+        operation: [
+          '本地部署工具后，导入初始分子结构数据；',
+          '按研究场景选择体系类型，由工具辅助完成结构搭建与力场参数匹配；',
+          '选定目标模拟软件，自动导出对应标准输入文件；',
+          '导入已有复杂系统模拟文件，工具自动解析结构与参数；',
+          '可视化查看、编辑、优化模拟参数，完成跨软件参数统一校验。'
+        ],
+        notice: [
+          '结构建模、力场匹配、格式转换均在本地运行，平台不提供仿真与解析算力；',
+          '需本地预装对应主流分子模拟软件依赖环境，方可正常适配格式导出；',
+          '力场参数匹配为算法推荐值，特殊复杂体系需科研人员人工微调；',
+          '模拟参数修改后需重新本地校验，避免参数冲突导致仿真失败；',
+          '不同软件版本存在格式细微差异，需按指引适配对应版本规范。'
+        ]
+      },
+      catalyst: {
+        name: '高效催化剂设计优化工具',
+        effect: [
+          '支持催化材料晶面选取、吸附分子添加与构型位置调控，可快速生成定制化 POSCAR 结构文件；',
+          '自动计算生成吸附分子广义配位数 GCN，适配电催化局部环境表征研究；',
+          '快速生成材料结构对称性函数，满足多尺度模拟与机器学习结构向量化需求；',
+          '提供 One-hot 编码、元素周期表多维属性编码两种主流元素特征生成方式；',
+          '无需手动编写特征工程代码，大幅降低催化材料机器学习建模门槛。'
+        ],
+        operation: [
+          '本地部署工具后，导入催化材料结构文件；',
+          '选取目标晶面，添加并拖拽调整吸附分子空间构型与接触方式；',
+          '确认结构后本地导出可用的 POSCAR 文件；',
+          '上传结构文件，选择维度填充规则，自动生成 GCN 特征；',
+          '选择对称性函数类型，一键完成结构向量化特征输出；',
+          '按需选用 One-hot 或周期表 11 维属性编码，自动生成元素特征向量。'
+        ],
+        notice: [
+          '结构建模、分子构型调整、各类特征计算均本地运行，平台无在线运算能力；',
+          'GCN、对称性函数、元素特征的计算结果仅为科研基础数据，需结合模型再训练验证；',
+          '吸附分子构型依赖本地结构可视化环境，平台不在线展示 3D 结构；',
+          '维度填充方式、函数类型需根据机器学习模型需求合理选择；',
+          '元素周期表编码参数基于标准物性数据库，特殊同位素需自行修正。'
+        ]
+      },
+      model: {
+        name: '机器学习模型接口',
+        effect: [
+          '内置 GBDT、岭回归、随机森林等传统模型，支持 PCA、t-SNE 高维数据降维与可视化；',
+          '提供可视化全连接神经网络搭建能力，支持层数、神经元、激活函数、池化方式自定义配置；',
+          '原生适配 CGCNN、SchNet、DimeNet++ 等经典图神经网络，自动完成数据格式转换；',
+          '支持自定义超参数配置、模型训练、结果输出与性能评估；',
+          '省去用户自行下载模型、编写数据预处理代码的工作量，快速落地材料机器学习预测。'
+        ],
+        operation: [
+          '本地部署模型接口代码包，上传材料特征数据集；',
+          '选用传统机器学习模型，配置超参数，可选 PCA/t-SNE 做降维可视化；',
+          '自定义搭建全连接神经网络结构，设置各层参数后启动本地训练；',
+          '选择对应图神经网络模型，按规范上传数据，工具自动转换格式并本地完成训练；',
+          '导出模型权重、训练报告与预测结果用于科研分析。'
+        ],
+        notice: [
+          '所有模型训练、推理、降维可视化均在本地算力环境运行，平台不承载任何模型训练算力；',
+          '数据集需自行做预处理、归一化，平台仅提供模型调用接口框架；',
+          '神经网络结构、超参数无通用最优值，需结合业务场景调参验证；',
+          '图神经网络对输入数据格式要求严格，需严格遵循平台指引规范整理数据；',
+          '模型迭代更新需自行同步代码包版本，及时适配新增网络模型。'
+        ]
+      }
+    };
+
+    const toolDownloadState = { toolId: '', step: 1, timer: null };
+
+    function tdDownloadCode(toolId) {
+      const info = toolSubmoduleData[toolId] || toolDetailData[toolId];
+      if (!info) return;
+      toolDownloadState.toolId = toolId;
+      toolDownloadState.step = 1;
+      document.getElementById('toolDownloadTitle').textContent = '下载 ' + info.name + ' 代码包';
+      document.getElementById('toolDownloadSubtitle').textContent = '按步骤完成环境检测与文件下载';
+      document.getElementById('toolDownloadFileDesc').textContent = '代码包包含完整源码、依赖配置 (requirements.txt / environment.yml)、示例数据与 README 文档。';
+      renderToolDownloadStep(1);
+      openModal('toolDownloadModal');
     }
 
-    function tdSelectOption(el, groupId) {
-      const parent = document.getElementById(groupId);
-      if (!parent) return;
-      parent.querySelectorAll('.option-card, .tooldev-option-card').forEach(c => c.classList.remove('active'));
-      el.classList.add('active');
+    function tdOpenGuide(toolId) {
+      const info = toolSubmoduleData[toolId] || toolDetailData[toolId];
+      if (!info) return;
+      document.getElementById('toolGuideTitle').textContent = info.name + ' - 平台部署与使用指引';
+      document.getElementById('toolGuideSubtitle').textContent = '环境要求 · 安装步骤 · 配置说明 · 使用示例 · 常见问题';
+      openModal('toolGuideModal');
     }
 
-    function tdSelectModel(el, model) {
-      const parent = el.closest('[id]');
-      if (parent) tdSelectOption(el, parent.id);
-      tdSelectedModel = model;
-      const mlParams = document.getElementById('tdMlParams');
-      const gnnParams = document.getElementById('tdGnnParams');
-      if (mlParams && el.closest('#tdMlModels')) mlParams.style.display = 'block';
-      if (gnnParams && el.closest('#tdGnnModels')) gnnParams.style.display = 'block';
-      tdToast('ok', '已选择模型: ' + model.toUpperCase());
+    function tdOpenGuideFromDownload() {
+      closeModal('toolDownloadModal');
+      const info = toolDetailData[toolDownloadState.toolId];
+      if (info) tdOpenGuide(toolDownloadState.toolId);
     }
 
-    function tdGenerateInput() {
-      const prop = document.getElementById('tdCalcProperty')?.value;
-      if (!prop) { tdToast('err', '请选择计算性质'); return; }
-      if (!tdSelectedSoftware) { tdToast('err', '请选择计算软件'); return; }
-      tdToast('ok', tdSelectedSoftware.toUpperCase() + ' 输入文件生成中...');
-      setTimeout(() => tdToast('ok', '输入文件已生成，可下载使用'), 1500);
+    function tdOpenDetail(toolId, type) {
+      const data = toolSubmoduleData[toolId] || toolDetailData[toolId];
+      if (!data) return;
+      const typeNames = { effect: '功能成效', operation: '操作方式', notice: '注意事宜' };
+      document.getElementById('toolDetailTitle').textContent = data.name;
+      document.getElementById('toolDetailSubtitle').textContent = typeNames[type];
+      const listEl = document.getElementById('toolDetailList');
+      listEl.innerHTML = data[type].map((item, i) => '<li data-index="' + (i + 1) + '">' + item + '</li>').join('');
+      openModal('toolDetailModal');
     }
 
-    function tdStartCleaning() {
-      const file = document.getElementById('tdDataFile')?.files[0];
-      if (!file) { tdToast('err', '请先上传数据文件'); return; }
-      tdToast('ok', '数据清洗进行中...');
-      setTimeout(() => tdToast('ok', '清洗完成！已处理 234 条数据，发现 12 条异常'), 2000);
-    }
+    function renderToolDownloadStep(step) {
+      toolDownloadState.step = step;
+      document.querySelectorAll('.tool-download-step').forEach(el => {
+        const s = parseInt(el.dataset.step, 10);
+        el.classList.remove('active', 'done');
+        if (s === step) el.classList.add('active');
+        else if (s < step) el.classList.add('done');
+      });
+      document.querySelectorAll('.tool-download-step-line').forEach((el, i) => {
+        el.classList.toggle('done', i < step - 1);
+      });
+      document.querySelectorAll('.tool-download-panel').forEach(el => {
+        el.classList.toggle('active', parseInt(el.id.replace('toolDownloadPanel', ''), 10) === step);
+      });
 
-    function tdExportSim() {
-      const sw = document.getElementById('tdTargetSoftware')?.value;
-      if (!sw) { tdToast('err', '请选择目标软件格式'); return; }
-      tdToast('ok', '输入文件导出中...');
-    }
-
-    function tdUpdateFeatureFormula() {
-      const val = document.getElementById('tdFeatureType')?.value;
-      const box = document.getElementById('tdFeatureFormula');
-      if (!box) return;
-      if (val === 'gcn') {
-        box.innerHTML = '<strong>GCN<sub>x</sub></strong> = Σ<sub>y</sub> CN(y) × (n<sub>y</sub> / CN<sub>max</sub>)';
-      } else if (val === 'symmetry') {
-        box.innerHTML = '<strong>G(r)</strong> = exp(-(r - r<sub>ij</sub>)² / 2σ²)';
-      } else {
-        box.innerHTML = '<em>选择特征类型以显示公式</em>';
+      const footer = document.getElementById('toolDownloadFooter');
+      const nextBtn = document.getElementById('toolDownloadNextBtn');
+      if (step === 1) {
+        footer.style.display = 'flex';
+        nextBtn.textContent = '下一步：环境检测';
+      } else if (step === 2) {
+        footer.style.display = 'flex';
+        nextBtn.textContent = '下一步：开始下载';
+      } else if (step === 3) {
+        footer.style.display = 'none';
+        simulateToolDownload();
+      } else if (step === 4) {
+        footer.style.display = 'none';
       }
     }
 
-    function tdTrainMl() {
-      if (!tdSelectedModel) { tdToast('err', '请先选择模型'); return; }
-      tdToast('ok', '模型训练启动中...');
-      setTimeout(() => tdToast('ok', '训练完成！模型准确率: 94.3%'), 3000);
+    function simulateToolDownload() {
+      const progressEl = document.getElementById('toolDownloadProgress');
+      const statusEl = document.getElementById('toolDownloadStatus');
+      const fileNameEl = document.getElementById('toolDownloadFileName');
+      const info = toolDetailData[toolDownloadState.toolId];
+      const name = info ? info.name.replace(/\s+/g, '_') : 'tool';
+      const version = document.getElementById('toolDownloadVersion')?.value || 'latest';
+      const verLabel = version === 'latest' ? 'v1.2.0' : 'v1.1.0';
+      fileNameEl.textContent = name + '_' + verLabel + '.zip';
+      progressEl.style.width = '0%';
+      let p = 0;
+      const steps = [
+        { t: 300,  m: '正在校验文件完整性...', w: 25 },
+        { t: 600,  m: '正在打包依赖与示例数据...', w: 55 },
+        { t: 900,  m: '正在生成配置文件...', w: 80 },
+        { t: 1200, m: '正在写入 README 与文档...', w: 95 },
+        { t: 1500, m: '下载完成，正在保存...', w: 100 }
+      ];
+      if (toolDownloadState.timer) clearInterval(toolDownloadState.timer);
+      toolDownloadState.timer = setInterval(() => {
+        p += 2;
+        progressEl.style.width = p + '%';
+        for (const s of steps) { if (p >= s.w) statusEl.textContent = s.m; }
+        if (p >= 100) {
+          clearInterval(toolDownloadState.timer);
+          toolDownloadState.timer = null;
+          setTimeout(() => renderToolDownloadStep(4), 400);
+        }
+      }, 30);
     }
 
-    function tdTrainNn() {
-      tdToast('ok', '神经网络训练启动中...');
-      setTimeout(() => tdToast('ok', '训练完成！验证集 Loss: 0.032'), 3000);
+    function bindToolDownloadInteractions() {
+      const nextBtn = document.getElementById('toolDownloadNextBtn');
+      if (!nextBtn || nextBtn.dataset.toolDownloadBound === 'true') return;
+      nextBtn.dataset.toolDownloadBound = 'true';
+      nextBtn.addEventListener('click', () => {
+        if (toolDownloadState.step < 3) renderToolDownloadStep(toolDownloadState.step + 1);
+        else if (toolDownloadState.step === 3) renderToolDownloadStep(4);
+      });
+      document.getElementById('toolDownloadModal')?.addEventListener('click', (e) => {
+        if (e.target.closest('[data-close-modal="toolDownloadModal"]')) {
+          if (toolDownloadState.timer) { clearInterval(toolDownloadState.timer); toolDownloadState.timer = null; }
+        }
+      });
     }
 
-    function tdTrainGnn() {
-      if (!tdSelectedModel) { tdToast('err', '请先选择模型'); return; }
-      const bar = document.getElementById('tdGnnProgress');
-      if (bar) { bar.style.width = '0%'; setTimeout(() => bar.style.width = '100%', 100); }
-      tdToast('ok', 'GNN 模型训练启动中...');
-      setTimeout(() => tdToast('ok', '训练完成！MAE: 0.18 eV'), 3000);
+    function bindToolGuideInteractions() {
+      const nav = document.getElementById('toolGuideNav');
+      if (!nav || nav.dataset.toolGuideBound === 'true') return;
+      nav.dataset.toolGuideBound = 'true';
+      nav.addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-guide-section]');
+        if (!btn) return;
+        const section = btn.dataset.guideSection;
+        nav.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.tool-guide-section').forEach(s => {
+          s.classList.toggle('active', s.dataset.guidePage === section);
+        });
+      });
     }
 
     function init() {
@@ -29882,6 +30545,8 @@
       bindAlgorithmInteractions();
       bindGlobalSearch();
       bindStaticActions();
+      bindToolDownloadInteractions();
+      bindToolGuideInteractions();
       overrideTwodConvertFlow();
       syncAuthView();
     }
