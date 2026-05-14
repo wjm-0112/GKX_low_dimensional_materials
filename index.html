@@ -11262,50 +11262,8 @@
       <div class="modal-body modal-scroll">
         <div class="twod-convert-layout">
           <div class="twod-convert-card" id="mlffConvertStepLocal">
-            <div class="workflow-stepper">
-              <span class="workflow-step active"><i>1</i>选择路径</span>
-              <span class="workflow-step"><i>2</i>执行转换</span>
-              <span class="workflow-step"><i>3</i>返回系统</span>
-            </div>
-            <h4>转换路径选择</h4>
-            <div class="twod-convert-route-grid">
-              <button class="twod-convert-route active" type="button" data-mlff-convert-path="local">
-                <strong>本地环境上传</strong>
-                <span>上传力场相关数据文件，系统自动识别类别并完成格式转换。</span>
-              </button>
-              <button class="twod-convert-route" type="button" data-mlff-convert-path="thirdParty">
-                <strong>第三方工具转换</strong>
-                <span>从系统记录带入源文件，模拟跳转至第三方工具完成转换并回传结果。</span>
-              </button>
-            </div>
-
-            <div id="mlffConvertLocalPanel">
-              <p class="twod-convert-note">请上传力场相关的数据文件，系统会自动识别为结构文件、力场参数或拓扑文件，并按类别提供可选目标格式。</p>
-              <div class="twod-convert-grid">
-                <div class="twod-upload-slot">
-                  <strong>本地文件上传</strong>
-                  <p>支持自动识别常见力场结构文件、参数文件与拓扑文件。</p>
-                  <div class="upload-action-bar">
-                    <button class="btn-primary" type="button" id="mlffConvertLocalTrigger">点击上传文件</button>
-                  </div>
-                  <input id="mlffConvertLocalFileInput" type="file" hidden>
-                  <div class="twod-convert-file-pill" id="mlffConvertLocalFileName">未选择文件</div>
-                </div>
-                <div class="twod-convert-summary" id="mlffConvertLocalSummary">
-                  <div class="twod-convert-summary-item"><strong>识别类别</strong><span id="mlffConvertLocalDetectedType">待识别</span></div>
-                  <div class="twod-convert-summary-item"><strong>源格式</strong><span id="mlffConvertLocalSourceFormat">-</span></div>
-                  <div class="twod-convert-summary-item"><strong>文件大小</strong><span id="mlffConvertLocalFileSize">-</span></div>
-                </div>
-              </div>
-              <div class="field">
-                <label for="mlffConvertLocalTargetFormat">目标格式</label>
-                <select id="mlffConvertLocalTargetFormat" disabled>
-                  <option value="">请先上传文件</option>
-                </select>
-              </div>
-            </div>
-
-            <div id="mlffConvertThirdPartyPanel" hidden>
+            <h4>第三方工具转换</h4>
+            <div id="mlffConvertThirdPartyPanel">
               <p class="twod-convert-note">从当前系统记录中选择源文件，模拟跳转至第三方工具进行同类格式转换，并在完成后将结果回传到当前系统。</p>
               <div class="twod-convert-grid">
                 <div class="field">
@@ -11599,50 +11557,8 @@
       <div class="modal-body modal-scroll">
         <div class="twod-convert-layout">
           <div class="twod-convert-card" id="twodConvertStepLocal">
-            <div class="workflow-stepper">
-              <span class="workflow-step active"><i>1</i>选择路径</span>
-              <span class="workflow-step"><i>2</i>执行转换</span>
-              <span class="workflow-step"><i>3</i>返回系统</span>
-            </div>
-            <h4>转换路径选择</h4>
-            <div class="twod-convert-route-grid">
-              <button class="twod-convert-route active" type="button" data-twod-convert-path="local">
-                <strong>本地环境上传</strong>
-                <span>上传当前数据库已收录的数据文件，系统自动识别类别并完成格式转换。</span>
-              </button>
-              <button class="twod-convert-route" type="button" data-twod-convert-path="thirdParty">
-                <strong>第三方工具转换</strong>
-                <span>从系统记录带入源文件，模拟跳转至第三方工具完成转换并回传结果。</span>
-              </button>
-            </div>
-
-            <div id="twodConvertLocalPanel">
-              <p class="twod-convert-note">请上传当前数据库已收录的数据文件，系统会自动识别为结构文件、计算数据或可视化文件，并按类别提供可选目标格式。</p>
-              <div class="twod-convert-grid">
-                <div class="twod-upload-slot">
-                  <strong>本地文件上传</strong>
-                  <p>支持自动识别常见二维材料结构文件、计算结果文件与图谱文件。</p>
-                  <div class="upload-action-bar">
-                    <button class="btn-primary" type="button" id="twodConvertLocalTrigger">点击上传文件</button>
-                  </div>
-                  <input id="twodConvertLocalFileInput" type="file" hidden>
-                  <div class="twod-convert-file-pill" id="twodConvertLocalFileName">未选择文件</div>
-                </div>
-                <div class="twod-convert-summary" id="twodConvertLocalSummary">
-                  <div class="twod-convert-summary-item"><strong>识别类别</strong><span id="twodConvertLocalDetectedType">待识别</span></div>
-                  <div class="twod-convert-summary-item"><strong>源格式</strong><span id="twodConvertLocalSourceFormat">-</span></div>
-                  <div class="twod-convert-summary-item"><strong>文件大小</strong><span id="twodConvertLocalFileSize">-</span></div>
-                </div>
-              </div>
-              <div class="field">
-                <label for="twodConvertLocalTargetFormat">目标格式</label>
-                <select id="twodConvertLocalTargetFormat" disabled>
-                  <option value="">请先上传文件</option>
-                </select>
-              </div>
-            </div>
-
-            <div id="twodConvertThirdPartyPanel" hidden>
+            <h4>第三方工具转换</h4>
+            <div id="twodConvertThirdPartyPanel">
               <p class="twod-convert-note">从当前系统记录中选择源文件，模拟跳转至第三方工具进行同类格式转换，并在完成后将结果回传到当前系统。</p>
               <div class="twod-convert-grid">
                 <div class="field">
@@ -26109,24 +26025,17 @@
 
     function setMlffConvertPath(path) {
       state.mlffConvertPath = path;
-      document.querySelectorAll("[data-mlff-convert-path]").forEach((button) => {
-        button.classList.toggle("active", button.dataset.mlffConvertPath === path);
-      });
-      const localPanel = document.getElementById("mlffConvertLocalPanel");
-      const thirdPartyPanel = document.getElementById("mlffConvertThirdPartyPanel");
       const localStep = document.getElementById("mlffConvertStepLocal");
       const externalStep = document.getElementById("mlffConvertStepExternal");
       const returnStep = document.getElementById("mlffConvertStepReturn");
       const startBtn = document.getElementById("mlffStartConvertBtn");
       const finishBtn = document.getElementById("mlffFinishConvertBtn");
-      if (localPanel) localPanel.hidden = path !== "local";
-      if (thirdPartyPanel) thirdPartyPanel.hidden = path !== "thirdParty";
       if (localStep) localStep.hidden = false;
       if (externalStep) externalStep.hidden = true;
       if (returnStep) returnStep.hidden = true;
       if (startBtn) {
         startBtn.hidden = false;
-        startBtn.textContent = path === "local" ? "开始转换" : "跳转至第三方工具";
+        startBtn.textContent = "跳转至第三方工具";
       }
       if (finishBtn) finishBtn.hidden = true;
     }
@@ -26148,8 +26057,7 @@
           { label: "执行状态", value: "待发起" }
         ]);
       }
-      setMlffConvertPath("local");
-      renderMlffConvertLocalDraft();
+      setMlffConvertPath("thirdParty");
     }
 
     function openMlffConvertModal() {
@@ -26722,25 +26630,6 @@
           renderMlffUploadModal();
           return;
         }
-        if (event.target.id === "mlffConvertLocalFileInput") {
-          const file = event.target.files?.[0];
-          if (!file) {
-            state.mlffConvertLocalDraft = null;
-            renderMlffConvertLocalDraft();
-            return;
-          }
-          state.mlffConvertLocalDraft = {
-            fileName: file.name,
-            fileSizeText: formatFileSize(file.size),
-            fileType: inferMlffConvertFileType(file.name),
-            sourceFormat: detectFileFormat(file.name)
-          };
-          renderMlffConvertLocalDraft();
-          if (!state.mlffConvertLocalDraft.fileType) {
-            showToast("文件格式转换", "当前文件类别未识别，请上传力场相关的数据文件。");
-          }
-          return;
-        }
         if (event.target.id === "mlffConvertSourceRecord") {
           renderMlffConvertThirdPartyInfo();
         }
@@ -26799,82 +26688,24 @@
           return;
         }
 
-        if (event.target.closest("[data-mlff-convert-path]")) {
-          const path = event.target.closest("[data-mlff-convert-path]").dataset.mlffConvertPath;
-          setMlffConvertPath(path);
-          return;
-        }
-
-        if (event.target.closest("#mlffConvertLocalTrigger")) {
-          document.getElementById("mlffConvertLocalFileInput")?.click();
-          return;
-        }
-
         if (event.target.closest("#mlffStartConvertBtn")) {
-          if (state.mlffConvertPath === "local") {
-            const draft = state.mlffConvertLocalDraft;
-            if (!draft?.fileName) {
-              showToast("文件格式转换", "请先上传待转换的文件。");
-              return;
-            }
-            const targetFormat = document.getElementById("mlffConvertLocalTargetFormat")?.value;
-            if (!targetFormat) {
-              showToast("文件格式转换", "请先选择目标格式。");
-              return;
-            }
-            const convertedName = replaceFileExtension(draft.fileName, targetFormat);
-            mlffUpdateRecords.unshift({
-              id: `mlff-convert-${Date.now()}`,
-              uploadedAt: getMlffNowText(),
-              fileName: convertedName,
-              fileType: draft.fileType || "文件格式转换",
-              sourceFormat: `${draft.sourceFormat} → ${targetFormat}`,
-              category: "文件格式转换",
-              status: "approved",
-              source: "本地转换"
-            });
-            document.getElementById("mlffConvertStepLocal").hidden = true;
-            document.getElementById("mlffConvertStepExternal").hidden = false;
-            document.getElementById("mlffConvertStepReturn").hidden = false;
-            document.getElementById("mlffStartConvertBtn").hidden = true;
-            document.getElementById("mlffFinishConvertBtn").hidden = true;
-            document.getElementById("mlffConvertExternalText").textContent = `本地转换已完成：${draft.fileName} 已转换为 ${convertedName}。`;
-            document.getElementById("mlffConvertExternalMeta").innerHTML = buildTwodConvertSummary([
-              { label: "源文件", value: draft.fileName },
-              { label: "目标格式", value: targetFormat },
-              { label: "执行状态", value: "转换成功" }
-            ]);
-            document.getElementById("mlffConvertReturnInfo").innerHTML = `
-              <div class="twod-record-detail-card">
-                <h4>转换完成</h4>
-                <div class="detail-grid">
-                  <strong>源文件</strong><div>${draft.fileName}</div>
-                  <strong>目标格式</strong><div>${targetFormat}</div>
-                  <strong>新文件名</strong><div>${convertedName}</div>
-                  <strong>文件类别</strong><div>${draft.fileType || "-"}</div>
-                </div>
-              </div>
-            `;
-            showToast("文件格式转换", `${draft.fileName} 已转换完成。`);
-          } else {
-            const record = findMlffRecord(document.getElementById("mlffConvertSourceRecord").value);
-            const targetFormat = document.getElementById("mlffConvertTargetFormat").value;
-            if (!record) {
-              showToast("文件格式转换", "请先选择待转换文件。");
-              return;
-            }
-            state.mlffConvertDraft = { recordId: record.id, targetFormat };
-            document.getElementById("mlffConvertStepLocal").hidden = true;
-            document.getElementById("mlffConvertStepExternal").hidden = false;
-            document.getElementById("mlffFinishConvertBtn").hidden = false;
-            document.getElementById("mlffStartConvertBtn").hidden = true;
-            document.getElementById("mlffConvertExternalText").textContent = `第三方工具正在将 ${record.fileName} 转换为 ${targetFormat} 格式。转换成功后可回传到当前系统。`;
-            document.getElementById("mlffConvertExternalMeta").innerHTML = buildTwodConvertSummary([
-              { label: "源文件", value: record.fileName },
-              { label: "目标格式", value: targetFormat },
-              { label: "执行状态", value: "转换中" }
-            ]);
+          const record = findMlffRecord(document.getElementById("mlffConvertSourceRecord").value);
+          const targetFormat = document.getElementById("mlffConvertTargetFormat").value;
+          if (!record) {
+            showToast("文件格式转换", "请先选择待转换文件。");
+            return;
           }
+          state.mlffConvertDraft = { recordId: record.id, targetFormat };
+          document.getElementById("mlffConvertStepLocal").hidden = true;
+          document.getElementById("mlffConvertStepExternal").hidden = false;
+          document.getElementById("mlffFinishConvertBtn").hidden = false;
+          document.getElementById("mlffStartConvertBtn").hidden = true;
+          document.getElementById("mlffConvertExternalText").textContent = `第三方工具正在将 ${record.fileName} 转换为 ${targetFormat} 格式。转换成功后可回传到当前系统。`;
+          document.getElementById("mlffConvertExternalMeta").innerHTML = buildTwodConvertSummary([
+            { label: "源文件", value: record.fileName },
+            { label: "目标格式", value: targetFormat },
+            { label: "执行状态", value: "转换中" }
+          ]);
           return;
         }
 
@@ -29674,24 +29505,17 @@
 
     function setTwodConvertPath(path) {
       state.twodConvertPath = path;
-      document.querySelectorAll("[data-twod-convert-path]").forEach((button) => {
-        button.classList.toggle("active", button.dataset.twodConvertPath === path);
-      });
-      const localPanel = document.getElementById("twodConvertLocalPanel");
-      const thirdPartyPanel = document.getElementById("twodConvertThirdPartyPanel");
       const localStep = document.getElementById("twodConvertStepLocal");
       const externalStep = document.getElementById("twodConvertStepExternal");
       const returnStep = document.getElementById("twodConvertStepReturn");
       const startBtn = document.getElementById("startConvertBtn");
       const finishBtn = document.getElementById("finishConvertBtn");
-      if (localPanel) localPanel.hidden = path !== "local";
-      if (thirdPartyPanel) thirdPartyPanel.hidden = path !== "thirdParty";
       if (localStep) localStep.hidden = false;
       if (externalStep) externalStep.hidden = true;
       if (returnStep) returnStep.hidden = true;
       if (startBtn) {
         startBtn.hidden = false;
-        startBtn.textContent = path === "local" ? "开始转换" : "跳转至第三方工具";
+        startBtn.textContent = "跳转至第三方工具";
       }
       if (finishBtn) finishBtn.hidden = true;
     }
@@ -29713,8 +29537,7 @@
           { label: "执行状态", value: "待发起" }
         ]);
       }
-      setTwodConvertPath("local");
-      renderTwodConvertLocalDraft();
+      setTwodConvertPath("thirdParty");
       refreshConvertSourceOptions();
     }
 
@@ -29765,35 +29588,6 @@
     }
 
     function handleTwodConvertStart() {
-      if (state.twodConvertPath === "local") {
-        const draft = state.twodConvertLocalDraft;
-        const targetFormat = document.getElementById("twodConvertLocalTargetFormat")?.value || "";
-        if (!draft?.fileName) {
-          showToast("文件格式转换", "请先上传待转换文件。");
-          return;
-        }
-        if (!draft.fileType) {
-          showToast("文件格式转换", "当前文件类别未识别，请上传当前数据库已收录的数据文件。");
-          return;
-        }
-        if (!targetFormat) {
-          showToast("文件格式转换", "请先选择目标格式。");
-          return;
-        }
-        const convertedName = appendTwodConvertedRecord(draft.fileName, draft.fileType, targetFormat, "本地环境上传");
-        showTwodConvertReturn({
-          route: "本地环境上传",
-          sourceName: draft.fileName,
-          fileType: draft.fileType,
-          sourceFormat: draft.sourceFormat,
-          targetFormat,
-          resultName: convertedName,
-          statusText: "系统已完成本地文件识别、格式转换并写入记录。"
-        });
-        showToast("文件格式转换", "本地文件已完成格式转换并写入记录。");
-        return;
-      }
-
       const record = findRecord(document.getElementById("convertSourceRecord")?.value || "");
       const targetFormat = document.getElementById("convertTargetFormat")?.value || "";
       if (!record) {
@@ -29873,35 +29667,6 @@
 
       replaceTwodConvertTrigger(document.getElementById("startConvertBtn"), handleTwodConvertStart);
       replaceTwodConvertTrigger(document.getElementById("finishConvertBtn"), handleTwodConvertFinish);
-
-      document.querySelectorAll("[data-twod-convert-path]").forEach((button) => {
-        button.addEventListener("click", () => {
-          setTwodConvertPath(button.dataset.twodConvertPath);
-        });
-      });
-
-      document.getElementById("twodConvertLocalTrigger")?.addEventListener("click", () => {
-        document.getElementById("twodConvertLocalFileInput")?.click();
-      });
-
-      document.getElementById("twodConvertLocalFileInput")?.addEventListener("change", (event) => {
-        const file = event.target.files?.[0];
-        if (!file) {
-          state.twodConvertLocalDraft = null;
-          renderTwodConvertLocalDraft();
-          return;
-        }
-        state.twodConvertLocalDraft = {
-          fileName: file.name,
-          fileSizeText: formatFileSize(file.size),
-          fileType: inferTwodConvertFileType(file.name),
-          sourceFormat: detectFileFormat(file.name)
-        };
-        renderTwodConvertLocalDraft();
-        if (!state.twodConvertLocalDraft.fileType) {
-          showToast("文件格式转换", "当前文件类别未识别，请上传当前数据库已收录的数据文件。");
-        }
-      });
 
       document.getElementById("convertSourceRecord")?.addEventListener("change", renderTwodConvertThirdPartyInfo);
 
