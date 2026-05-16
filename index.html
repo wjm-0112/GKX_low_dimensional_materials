@@ -9553,6 +9553,160 @@
       font-size: 13px;
       color: #7c2d12;
     }
+
+    /* ===== 工作台数据统计新版样式 ===== */
+    .dashboard-stats-card {
+      grid-column: span 2;
+    }
+    .stats-dashboard {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .stat-block {
+      background: var(--panel-soft);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 18px;
+    }
+    .stat-block h4 {
+      margin: 0 0 14px;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .pie-chart-wrap {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .pie-chart-wrap svg {
+      width: 150px;
+      height: 150px;
+      flex-shrink: 0;
+    }
+    .pie-legend {
+      display: grid;
+      gap: 8px;
+      flex: 1;
+      min-width: 130px;
+    }
+    .pie-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      line-height: 18px;
+      color: var(--muted);
+    }
+    .pie-legend-color {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .pie-legend-item strong {
+      color: var(--text);
+      font-weight: 700;
+      margin-left: auto;
+    }
+    .chart-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .chart-tab {
+      padding: 5px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+    .chart-tab:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .chart-tab.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+    .trend-chart-wrap svg {
+      width: 100%;
+      height: 200px;
+    }
+    .resource-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .resource-metric {
+      text-align: center;
+      padding: 12px 6px;
+      background: var(--panel);
+      border-radius: 10px;
+      border: 1px solid var(--line);
+    }
+    .resource-metric strong {
+      display: block;
+      font-size: 20px;
+      line-height: 28px;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+    .resource-metric span {
+      font-size: 11px;
+      line-height: 16px;
+      color: var(--muted);
+    }
+    .category-bars {
+      display: grid;
+      gap: 8px;
+    }
+    .category-bar-item {
+      display: grid;
+      gap: 4px;
+    }
+    .category-bar-item header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      line-height: 18px;
+    }
+    .category-bar-item header span {
+      color: var(--muted);
+    }
+    .category-bar-track {
+      height: 7px;
+      background: var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .category-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width .6s ease;
+    }
+    @media (min-width: 1200px) and (max-width: 1599px) {
+      .dashboard-stats-card {
+        grid-column: auto;
+      }
+    }
+    @media (max-width: 1199px) {
+      .stats-dashboard {
+        grid-template-columns: 1fr;
+      }
+      .dashboard-stats-card {
+        grid-column: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -9727,21 +9881,46 @@
         </div>
 
         <div class="panel-grid">
-          <article class="card pad">
-            <h3 class="section-title">最近访问</h3>
-            <div class="visit-list">
-              <div class="visit-item"><strong>二维材料性质检索</strong><div class="meta">二维材料数据应用 · 2 小时前</div></div>
-              <div class="visit-item"><strong>固态无机电解质外部数据关联</strong><div class="meta">电解质材料数据应用 · 昨天</div></div>
-              <div class="visit-item"><strong>机器学习力场术语表</strong><div class="meta">机器学习力场应用 · 3 天前</div></div>
-            </div>
-          </article>
-
-          <article class="card pad">
+          <article class="card pad dashboard-stats-card">
             <h3 class="section-title">数据统计</h3>
-            <div class="metric-line"><header><span>总数据量</span><strong>12,456</strong></header><div class="bar"><span class="fill-blue" style="width:86%;"></span></div></div>
-            <div class="metric-line"><header><span>本月新增</span><strong style="color:var(--green);">+892</strong></header><div class="bar"><span class="fill-green" style="width:48%;"></span></div></div>
-            <div class="metric-line"><header><span>API 调用记录</span><strong style="color:var(--purple);">8,921</strong></header><div class="bar"><span class="fill-purple" style="width:72%;"></span></div></div>
-            <div class="metric-line"><header><span>共享数据包</span><strong style="color:var(--orange);">156</strong></header><div class="bar"><span class="fill-yellow" style="width:34%;"></span></div></div>
+            <div class="stats-dashboard">
+              <div class="stat-block">
+                <h4>主题库数据分布</h4>
+                <div class="pie-chart-wrap">
+                  <svg id="dataPieChart" viewBox="0 0 200 200"></svg>
+                  <div class="pie-legend" id="pieLegend"></div>
+                </div>
+              </div>
+              <div class="stat-block">
+                <h4>主题库数据增长趋势</h4>
+                <div class="chart-tabs" id="trendTabs">
+                  <button class="chart-tab active" type="button" data-trend="year">按年</button>
+                  <button class="chart-tab" type="button" data-trend="month">按月</button>
+                  <button class="chart-tab" type="button" data-trend="day">按日</button>
+                </div>
+                <div class="trend-chart-wrap">
+                  <svg id="dataTrendChart" viewBox="0 0 420 220" preserveAspectRatio="none"></svg>
+                </div>
+              </div>
+              <div class="stat-block">
+                <h4>算法收录情况</h4>
+                <div class="resource-stat-grid">
+                  <div class="resource-metric"><strong>24</strong><span>收录算法</span></div>
+                  <div class="resource-metric"><strong>1,856</strong><span>手册下载</span></div>
+                  <div class="resource-metric"><strong>2,341</strong><span>代码包下载</span></div>
+                </div>
+                <div class="category-bars" id="algoCategoryBars"></div>
+              </div>
+              <div class="stat-block">
+                <h4>工具收录情况</h4>
+                <div class="resource-stat-grid">
+                  <div class="resource-metric"><strong>18</strong><span>收录工具</span></div>
+                  <div class="resource-metric"><strong>1,234</strong><span>手册下载</span></div>
+                  <div class="resource-metric"><strong>1,567</strong><span>代码包下载</span></div>
+                </div>
+                <div class="category-bars" id="toolCategoryBars"></div>
+              </div>
+            </div>
           </article>
 
           <article class="card pad">
@@ -10390,12 +10569,6 @@
         </div>
 
 
-        <div class="stats-grid" style="margin-top:20px;">
-          <div class="stats-box stats-blue"><strong>算法总数</strong><span>22</span></div>
-          <div class="stats-box stats-green"><strong>文档资源</strong><span>66</span></div>
-          <div class="stats-box stats-purple"><strong>本月下载</strong><span>2,847</span></div>
-          <div class="stats-box stats-orange"><strong>可用率</strong><span>98.5%</span></div>
-        </div>
       </section>
 
       <section class="page" id="page-algorithms-legacy">
@@ -10412,13 +10585,6 @@
         <div class="card pad">
           <h3 class="section-title">第一步：选择算法大类</h3>
           <div class="feature-grid" id="algoCards"></div>
-        </div>
-
-        <div class="stats-grid" style="margin-top:20px;">
-          <div class="stats-box stats-blue"><strong>算法总数</strong><span>22</span></div>
-          <div class="stats-box stats-green"><strong>文档资源</strong><span>66</span></div>
-          <div class="stats-box stats-purple"><strong>本月下载</strong><span>2,847</span></div>
-          <div class="stats-box stats-orange"><strong>可用率</strong><span>98.5%</span></div>
         </div>
 
         <div class="tool-grid" style="margin-top:20px;">
@@ -30285,6 +30451,156 @@
       });
     }
 
+    // ===== 工作台数据统计图表 =====
+    const DASHBOARD_DATA = {
+      pie: [
+        { name: "二维材料", value: 856, color: "#3b82f6" },
+        { name: "电解质材料", value: 1234, color: "#10b981" },
+        { name: "有机光电材料", value: 623, color: "#f59e0b" },
+        { name: "机器学习力场", value: 2847, color: "#8b5cf6" },
+        { name: "催化材料", value: 567, color: "#f97316" }
+      ],
+      trend: {
+        year: [
+          { label: "2021", value: 1200 },
+          { label: "2022", value: 2100 },
+          { label: "2023", value: 3500 },
+          { label: "2024", value: 4800 },
+          { label: "2025", value: 6127 }
+        ],
+        month: [
+          { label: "1月", value: 320 },
+          { label: "2月", value: 280 },
+          { label: "3月", value: 410 },
+          { label: "4月", value: 380 },
+          { label: "5月", value: 520 },
+          { label: "6月", value: 490 },
+          { label: "7月", value: 610 },
+          { label: "8月", value: 580 },
+          { label: "9月", value: 720 },
+          { label: "10月", value: 690 },
+          { label: "11月", value: 850 },
+          { label: "12月", value: 276 }
+        ],
+        day: [
+          { label: "1日", value: 12 },
+          { label: "5日", value: 18 },
+          { label: "10日", value: 25 },
+          { label: "15日", value: 22 },
+          { label: "20日", value: 30 },
+          { label: "25日", value: 28 },
+          { label: "30日", value: 35 }
+        ]
+      },
+      algoCategories: [
+        { name: "结构预测", value: 6, color: "#3b82f6" },
+        { name: "性质计算", value: 8, color: "#10b981" },
+        { name: "分子动力学", value: 5, color: "#f59e0b" },
+        { name: "数据挖掘", value: 5, color: "#8b5cf6" }
+      ],
+      toolCategories: [
+        { name: "可视化工具", value: 5, color: "#3b82f6" },
+        { name: "格式转换", value: 4, color: "#10b981" },
+        { name: "数据预处理", value: 5, color: "#f59e0b" },
+        { name: "结果后处理", value: 4, color: "#f97316" }
+      ]
+    };
+
+    function drawPieChart() {
+      const svg = document.getElementById("dataPieChart");
+      const legend = document.getElementById("pieLegend");
+      if (!svg || !legend) return;
+      const data = DASHBOARD_DATA.pie;
+      const total = data.reduce((sum, d) => sum + d.value, 0);
+      let startAngle = -Math.PI / 2;
+      let svgHtml = "";
+      data.forEach((item) => {
+        const angle = (item.value / total) * 2 * Math.PI;
+        const endAngle = startAngle + angle;
+        const x1 = 100 + 80 * Math.cos(startAngle);
+        const y1 = 100 + 80 * Math.sin(startAngle);
+        const x2 = 100 + 80 * Math.cos(endAngle);
+        const y2 = 100 + 80 * Math.sin(endAngle);
+        const largeArc = angle > Math.PI ? 1 : 0;
+        svgHtml += `<path d="M 100 100 L ${x1} ${y1} A 80 80 0 ${largeArc} 1 ${x2} ${y2} Z" fill="${item.color}" stroke="#fff" stroke-width="2" />`;
+        startAngle = endAngle;
+      });
+      svgHtml += `<circle cx="100" cy="100" r="45" fill="#fff" />`;
+      svgHtml += `<text x="100" y="96" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2d3d">${total.toLocaleString()}</text>`;
+      svgHtml += `<text x="100" y="112" text-anchor="middle" font-size="10" fill="#6f8298">总数据量</text>`;
+      svg.innerHTML = svgHtml;
+
+      legend.innerHTML = data.map((item) => {
+        const pct = ((item.value / total) * 100).toFixed(1);
+        return `<div class="pie-legend-item"><span class="pie-legend-color" style="background:${item.color}"></span><span>${item.name}</span><strong>${item.value} (${pct}%)</strong></div>`;
+      }).join("");
+    }
+
+    function drawTrendChart(dimension) {
+      const svg = document.getElementById("dataTrendChart");
+      if (!svg) return;
+      const data = DASHBOARD_DATA.trend[dimension] || DASHBOARD_DATA.trend.year;
+      const width = 420;
+      const height = 220;
+      const padding = { top: 16, right: 16, bottom: 36, left: 46 };
+      const chartW = width - padding.left - padding.right;
+      const chartH = height - padding.top - padding.bottom;
+      const maxVal = Math.max(...data.map((d) => d.value)) * 1.15;
+      const minVal = 0;
+      const getX = (i) => padding.left + (i / (data.length - 1)) * chartW;
+      const getY = (v) => padding.top + chartH - ((v - minVal) / (maxVal - minVal)) * chartH;
+
+      let html = "";
+      for (let i = 0; i <= 4; i++) {
+        const y = padding.top + (chartH * i) / 4;
+        const val = Math.round(maxVal - (maxVal * i) / 4);
+        html += `<line x1="${padding.left}" y1="${y}" x2="${width - padding.right}" y2="${y}" stroke="#e5e7eb" stroke-width="1" />`;
+        html += `<text x="${padding.left - 8}" y="${y + 4}" text-anchor="end" font-size="10" fill="#9ca3af">${val}</text>`;
+      }
+      let areaPath = `M ${getX(0)} ${getY(data[0].value)}`;
+      data.forEach((d, i) => { areaPath += ` L ${getX(i)} ${getY(d.value)}`; });
+      areaPath += ` L ${getX(data.length - 1)} ${padding.top + chartH} L ${getX(0)} ${padding.top + chartH} Z`;
+      html += `<path d="${areaPath}" fill="rgba(31,94,255,0.08)" />`;
+      let linePath = `M ${getX(0)} ${getY(data[0].value)}`;
+      data.forEach((d, i) => { if (i > 0) linePath += ` L ${getX(i)} ${getY(d.value)}`; });
+      html += `<path d="${linePath}" fill="none" stroke="#1f5eff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />`;
+      data.forEach((d, i) => {
+        html += `<circle cx="${getX(i)}" cy="${getY(d.value)}" r="4" fill="#fff" stroke="#1f5eff" stroke-width="2" />`;
+      });
+      data.forEach((d, i) => {
+        html += `<text x="${getX(i)}" y="${height - 10}" text-anchor="middle" font-size="10" fill="#6b7280">${d.label}</text>`;
+      });
+      svg.innerHTML = html;
+    }
+
+    function renderCategoryBars(containerId, categories) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      const total = categories.reduce((s, c) => s + c.value, 0);
+      container.innerHTML = categories.map((cat) => {
+        const pct = (cat.value / total) * 100;
+        return `<div class="category-bar-item">
+          <header><span>${cat.name}</span><strong>${cat.value}个</strong></header>
+          <div class="category-bar-track"><div class="category-bar-fill" style="width:${pct}%;background:${cat.color}"></div></div>
+        </div>`;
+      }).join("");
+    }
+
+    function renderDashboardStats() {
+      drawPieChart();
+      drawTrendChart("year");
+      renderCategoryBars("algoCategoryBars", DASHBOARD_DATA.algoCategories);
+      renderCategoryBars("toolCategoryBars", DASHBOARD_DATA.toolCategories);
+
+      document.getElementById("trendTabs")?.addEventListener("click", (e) => {
+        const btn = e.target.closest(".chart-tab");
+        if (!btn) return;
+        document.querySelectorAll("#trendTabs .chart-tab").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        drawTrendChart(btn.dataset.trend);
+      });
+    }
+
     function init() {
       bindSidebar();
       bindPageSwitching();
@@ -30313,6 +30629,7 @@
       bindToolDownloadInteractions();
       bindToolGuideInteractions();
       overrideTwodConvertFlow();
+      renderDashboardStats();
       syncAuthView();
     }
 
