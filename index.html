@@ -9723,15 +9723,15 @@
           </article>
           <article class="login-panel-card">
             <strong>统一身份入口</strong>
-            <span>登录成功后方可进入系统，默认进入工作台，避免未授权直接访问业务模块。</span>
+            <span>登录成功后方可进入系统，默认进入二维材料数据应用，避免未授权直接访问业务模块。</span>
           </article>
           <article class="login-panel-card">
             <strong>验证码校验</strong>
             <span>账号、密码与验证码同时校验通过后，系统才开放页面导航和模块访问。</span>
           </article>
           <article class="login-panel-card">
-            <strong>主题库工作台</strong>
-            <span>登录后默认进入工作台，可继续进入主题应用、数据算法和开发工具模块。</span>
+            <strong>主题应用</strong>
+            <span>登录后默认进入二维材料数据应用，可继续进入电解质、有机光电、催化材料、机器学习力场等模块。</span>
           </article>
         </div>
       </div>
@@ -9781,8 +9781,7 @@
       </div>
 
       <nav class="portal-nav" id="portalNav" aria-label="顶部菜单导航">
-        <button class="portal-link active" type="button" data-portal="overview" data-page="dashboard">门户总览</button>
-        <button class="portal-link" type="button" data-portal="applications" data-page="twod">主题应用</button>
+        <button class="portal-link active" type="button" data-portal="applications" data-page="twod">主题应用</button>
         <button class="portal-link" type="button" data-portal="algorithms" data-page="algorithms">数据算法</button>
         <button class="portal-link" type="button" data-portal="tools" data-page="tools">开发工具</button>
       </nav>
@@ -9807,19 +9806,6 @@
       <div class="sidebar-toolbar">
         <span class="sidebar-label">系统导航</span>
         <button class="sidebar-collapse" id="sidebarCollapseBtnInner" type="button" aria-label="收起侧栏">收</button>
-      </div>
-
-      <div class="sidebar-group is-open" data-group="overview">
-        <button class="sidebar-group-toggle" type="button" data-group-toggle>
-          <span class="sidebar-group-title">数据总览</span>
-          <span class="sidebar-group-arrow">⌄</span>
-        </button>
-        <div class="nav">
-          <button class="nav-btn active" data-group="overview" data-page="dashboard" data-label="工作台">
-            <span class="nav-icon">总览</span>
-            <span>工作台</span>
-          </button>
-        </div>
       </div>
 
       <div class="sidebar-group" data-group="applications">
@@ -9852,89 +9838,14 @@
       <div class="main-shell">
         <div class="page-meta">
           <div class="breadcrumb" id="breadcrumb">
-            <span>门户总览</span>
+            <span>主题应用</span>
             <span>/</span>
-            <strong>工作台</strong>
+            <strong>二维材料数据应用</strong>
           </div>
           <!-- <div class="page-meta-note">标准画板 1440px · 12 列栅格 · 响应断点 ≥1600 / ≥1200 / &lt;1200</div> -->
         </div>
 
-      <section class="page active" id="page-dashboard">
-        <div class="page-head">
-          <div>
-            <h2>工作台</h2>
-            <!-- <p>快速访问主题应用和数据概览，整体采用蓝白后台风格，所有复杂能力统一通过 API 接口调用相关数据实现。</p> -->
-          </div>
-        </div>
-
-        <div class="info-banner">
-          一切涉及复杂处理、结果整理和数据生成的能力，均已在本原型中统一改写为“通过 API 接口调用相关数据或服务”。
-          系统仅负责检索、参数组织、结果展示、共享和文件流转，不在平台内部描述执行过程。
-        </div>
-
-        <div class="hero-grid">
-          <article class="app-card" data-jump="twod"><div class="app-icon icon-blue">2D</div><div><h3>二维材料</h3><p>856 条数据</p></div></article>
-          <article class="app-card" data-jump="electrolyte"><div class="app-icon icon-green">EL</div><div><h3>电解质材料</h3><p>1,234 条数据</p></div></article>
-          <article class="app-card" data-jump="opto"><div class="app-icon icon-yellow">OP</div><div><h3>有机光电材料</h3><p>623 条数据</p></div></article>
-          <article class="app-card" data-jump="mlff"><div class="app-icon icon-purple">ML</div><div><h3>机器学习力场</h3><p>2,847 条数据</p></div></article>
-          <article class="app-card" data-jump="catalyst"><div class="app-icon icon-orange">CT</div><div><h3>催化材料</h3><p>567 条数据</p></div></article>
-        </div>
-
-        <div class="panel-grid">
-          <article class="card pad dashboard-stats-card">
-            <h3 class="section-title">数据统计</h3>
-            <div class="stats-dashboard">
-              <div class="stat-block">
-                <h4>主题库数据分布</h4>
-                <div class="pie-chart-wrap">
-                  <svg id="dataPieChart" viewBox="0 0 200 200"></svg>
-                  <div class="pie-legend" id="pieLegend"></div>
-                </div>
-              </div>
-              <div class="stat-block">
-                <h4>主题库数据增长趋势</h4>
-                <div class="chart-tabs" id="trendTabs">
-                  <button class="chart-tab active" type="button" data-trend="year">按年</button>
-                  <button class="chart-tab" type="button" data-trend="month">按月</button>
-                  <button class="chart-tab" type="button" data-trend="day">按日</button>
-                </div>
-                <div class="trend-chart-wrap">
-                  <svg id="dataTrendChart" viewBox="0 0 420 220" preserveAspectRatio="none"></svg>
-                </div>
-              </div>
-              <div class="stat-block">
-                <h4>算法收录情况</h4>
-                <div class="resource-stat-grid">
-                  <div class="resource-metric"><strong>24</strong><span>收录算法</span></div>
-                  <div class="resource-metric"><strong>1,856</strong><span>手册下载</span></div>
-                  <div class="resource-metric"><strong>2,341</strong><span>代码包下载</span></div>
-                </div>
-                <div class="category-bars" id="algoCategoryBars"></div>
-              </div>
-              <div class="stat-block">
-                <h4>工具收录情况</h4>
-                <div class="resource-stat-grid">
-                  <div class="resource-metric"><strong>18</strong><span>收录工具</span></div>
-                  <div class="resource-metric"><strong>1,234</strong><span>手册下载</span></div>
-                  <div class="resource-metric"><strong>1,567</strong><span>代码包下载</span></div>
-                </div>
-                <div class="category-bars" id="toolCategoryBars"></div>
-              </div>
-            </div>
-          </article>
-
-          <article class="card pad">
-            <h3 class="section-title">系统公告</h3>
-            <div class="notice-list">
-              <div class="notice-item"><strong>蓝白版原型更新</strong><div class="meta">侧栏结构、模块页签和表格交互已按参考样式统一。</div></div>
-              <div class="notice-item"><strong>API 调用口径统一</strong><div class="meta">所有复杂能力均展示为 API 接口调用，不在系统中描述平台内部执行过程。</div></div>
-              <div class="notice-item"><strong>数据共享入口更新</strong><div class="meta">二维材料、电解质和机器学习力场模块都增加了共享数据入口。</div></div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="page" id="page-twod">
+      <section class="page active" id="page-twod">
         <div class="page-head">
           <div>
             <h2>二维材料数据应用</h2>
@@ -10629,13 +10540,6 @@
                   <p>本工具面向二维材料研发，具备数据智能质控清洗、多目标材料逆向筛选、晶体结构可视化适配、主流第一性原理计算软件接口适配能力，支撑材料数据标准化管理与科研批量筛选、文件生成需求。</p>
                 </div>
               </div>
-              <div class="tool-static-body">
-                <div class="tool-static-meta">
-                  <span class="tag-blue">代码包</span>
-                  <span class="tag-green">V1.2.0</span>
-                  <span class="tag-orange">Python</span>
-                </div>
-              </div>
             </div>
             <div class="tool-submodule-grid">
               <div class="tool-submodule-card">
@@ -10647,11 +10551,6 @@
                     <button class="btn-primary" type="button" onclick="tdDownloadCode('inverse-visualizer')">下载代码包</button>
                     <button class="btn" type="button" onclick="tdOpenGuide('inverse-visualizer')">查看指引</button>
                   </div>
-                  <div class="tool-submodule-detail-actions">
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('inverse-visualizer','effect')">功能成效</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('inverse-visualizer','operation')">操作方式</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('inverse-visualizer','notice')">注意事宜</button>
-                  </div>
                 </div>
               </div>
               <div class="tool-submodule-card">
@@ -10662,11 +10561,6 @@
                   <div class="tool-submodule-actions">
                     <button class="btn-primary" type="button" onclick="tdDownloadCode('inverse-dft')">下载代码包</button>
                     <button class="btn" type="button" onclick="tdOpenGuide('inverse-dft')">查看指引</button>
-                  </div>
-                  <div class="tool-submodule-detail-actions">
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('inverse-dft','effect')">功能成效</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('inverse-dft','operation')">操作方式</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('inverse-dft','notice')">注意事宜</button>
                   </div>
                 </div>
               </div>
@@ -10682,13 +10576,6 @@
                   <p>面向分子科学研究与产业应用，提供分子数据集批量智能清洗、多维度质量校验、分子结构合理性判别、计算收敛性检测能力，保障分子数据准确、完整、规范，支撑模型构建与科研成果转化。</p>
                 </div>
               </div>
-              <div class="tool-static-body">
-                <div class="tool-static-meta">
-                  <span class="tag-blue">代码包</span>
-                  <span class="tag-green">V2.0.1</span>
-                  <span class="tag-orange">Python</span>
-                </div>
-              </div>
             </div>
             <div class="tool-submodule-grid">
               <div class="tool-submodule-card">
@@ -10699,11 +10586,6 @@
                   <div class="tool-submodule-actions">
                     <button class="btn-primary" type="button" onclick="tdDownloadCode('clean-engine')">下载代码包</button>
                     <button class="btn" type="button" onclick="tdOpenGuide('clean-engine')">查看指引</button>
-                  </div>
-                  <div class="tool-submodule-detail-actions">
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-engine','effect')">功能成效</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-engine','operation')">操作方式</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-engine','notice')">注意事宜</button>
                   </div>
                 </div>
               </div>
@@ -10716,11 +10598,6 @@
                     <button class="btn-primary" type="button" onclick="tdDownloadCode('clean-structure')">下载代码包</button>
                     <button class="btn" type="button" onclick="tdOpenGuide('clean-structure')">查看指引</button>
                   </div>
-                  <div class="tool-submodule-detail-actions">
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-structure','effect')">功能成效</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-structure','operation')">操作方式</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-structure','notice')">注意事宜</button>
-                  </div>
                 </div>
               </div>
               <div class="tool-submodule-card">
@@ -10731,11 +10608,6 @@
                   <div class="tool-submodule-actions">
                     <button class="btn-primary" type="button" onclick="tdDownloadCode('clean-convergence')">下载代码包</button>
                     <button class="btn" type="button" onclick="tdOpenGuide('clean-convergence')">查看指引</button>
-                  </div>
-                  <div class="tool-submodule-detail-actions">
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-convergence','effect')">功能成效</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-convergence','operation')">操作方式</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('clean-convergence','notice')">注意事宜</button>
                   </div>
                 </div>
               </div>
@@ -10751,13 +10623,6 @@
                   <p>针对复杂分子体系，提供智能化结构搭建、力场参数匹配、跨模拟软件格式转换、模拟输入文件解析与参数管理能力，降低多软件协同模拟门槛，保障仿真结果一致性与可靠性。</p>
                 </div>
               </div>
-              <div class="tool-static-body">
-                <div class="tool-static-meta">
-                  <span class="tag-blue">代码包</span>
-                  <span class="tag-green">V1.5.2</span>
-                  <span class="tag-orange">Python</span>
-                </div>
-              </div>
             </div>
             <div class="tool-submodule-grid">
               <div class="tool-submodule-card">
@@ -10768,11 +10633,6 @@
                   <div class="tool-submodule-actions">
                     <button class="btn-primary" type="button" onclick="tdDownloadCode('assistant-build')">下载代码包</button>
                     <button class="btn" type="button" onclick="tdOpenGuide('assistant-build')">查看指引</button>
-                  </div>
-                  <div class="tool-submodule-detail-actions">
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-build','effect')">功能成效</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-build','operation')">操作方式</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-build','notice')">注意事宜</button>
                   </div>
                 </div>
               </div>
@@ -10785,11 +10645,6 @@
                     <button class="btn-primary" type="button" onclick="tdDownloadCode('assistant-convert')">下载代码包</button>
                     <button class="btn" type="button" onclick="tdOpenGuide('assistant-convert')">查看指引</button>
                   </div>
-                  <div class="tool-submodule-detail-actions">
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-convert','effect')">功能成效</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-convert','operation')">操作方式</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-convert','notice')">注意事宜</button>
-                  </div>
                 </div>
               </div>
               <div class="tool-submodule-card">
@@ -10800,11 +10655,6 @@
                   <div class="tool-submodule-actions">
                     <button class="btn-primary" type="button" onclick="tdDownloadCode('assistant-parse')">下载代码包</button>
                     <button class="btn" type="button" onclick="tdOpenGuide('assistant-parse')">查看指引</button>
-                  </div>
-                  <div class="tool-submodule-detail-actions">
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-parse','effect')">功能成效</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-parse','operation')">操作方式</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('assistant-parse','notice')">注意事宜</button>
                   </div>
                 </div>
               </div>
@@ -10820,13 +10670,6 @@
                   <p>聚焦催化材料研发，集成催化材料结构可视化建模、吸附分子构型调控、广义配位数、结构对称性函数、元素特征编码等专用生成工具，支撑催化剂结构设计与机器学习特征工程构建。</p>
                 </div>
               </div>
-              <div class="tool-static-body">
-                <div class="tool-static-meta">
-                  <span class="tag-blue">代码包</span>
-                  <span class="tag-green">V1.3.0</span>
-                  <span class="tag-orange">Python</span>
-                </div>
-              </div>
             </div>
             <div class="tool-submodule-grid">
               <div class="tool-submodule-card">
@@ -10837,11 +10680,6 @@
                   <div class="tool-submodule-actions">
                     <button class="btn-primary" type="button" onclick="tdDownloadCode('catalyst-visualizer')">下载代码包</button>
                     <button class="btn" type="button" onclick="tdOpenGuide('catalyst-visualizer')">查看指引</button>
-                  </div>
-                  <div class="tool-submodule-detail-actions">
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-visualizer','effect')">功能成效</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-visualizer','operation')">操作方式</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-visualizer','notice')">注意事宜</button>
                   </div>
                 </div>
               </div>
@@ -10854,11 +10692,6 @@
                     <button class="btn-primary" type="button" onclick="tdDownloadCode('catalyst-gcn')">下载代码包</button>
                     <button class="btn" type="button" onclick="tdOpenGuide('catalyst-gcn')">查看指引</button>
                   </div>
-                  <div class="tool-submodule-detail-actions">
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-gcn','effect')">功能成效</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-gcn','operation')">操作方式</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-gcn','notice')">注意事宜</button>
-                  </div>
                 </div>
               </div>
               <div class="tool-submodule-card">
@@ -10870,11 +10703,6 @@
                     <button class="btn-primary" type="button" onclick="tdDownloadCode('catalyst-symmetry')">下载代码包</button>
                     <button class="btn" type="button" onclick="tdOpenGuide('catalyst-symmetry')">查看指引</button>
                   </div>
-                  <div class="tool-submodule-detail-actions">
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-symmetry','effect')">功能成效</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-symmetry','operation')">操作方式</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-symmetry','notice')">注意事宜</button>
-                  </div>
                 </div>
               </div>
               <div class="tool-submodule-card">
@@ -10885,11 +10713,6 @@
                   <div class="tool-submodule-actions">
                     <button class="btn-primary" type="button" onclick="tdDownloadCode('catalyst-element')">下载代码包</button>
                     <button class="btn" type="button" onclick="tdOpenGuide('catalyst-element')">查看指引</button>
-                  </div>
-                  <div class="tool-submodule-detail-actions">
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-element','effect')">功能成效</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-element','operation')">操作方式</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('catalyst-element','notice')">注意事宜</button>
                   </div>
                 </div>
               </div>
@@ -10905,13 +10728,6 @@
                   <p>集成传统机器学习、全连接神经网络、图神经网络三大类模型接口，提供数据降维、可视化、模型训练、超参数配置、自动格式适配能力，适配催化与材料性能预测建模场景。</p>
                 </div>
               </div>
-              <div class="tool-static-body">
-                <div class="tool-static-meta">
-                  <span class="tag-blue">代码包</span>
-                  <span class="tag-green">V2.1.0</span>
-                  <span class="tag-orange">Python / PyTorch</span>
-                </div>
-              </div>
             </div>
             <div class="tool-submodule-grid">
               <div class="tool-submodule-card">
@@ -10922,11 +10738,6 @@
                   <div class="tool-submodule-actions">
                     <button class="btn-primary" type="button" onclick="tdDownloadCode('model-traditional')">下载代码包</button>
                     <button class="btn" type="button" onclick="tdOpenGuide('model-traditional')">查看指引</button>
-                  </div>
-                  <div class="tool-submodule-detail-actions">
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-traditional','effect')">功能成效</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-traditional','operation')">操作方式</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-traditional','notice')">注意事宜</button>
                   </div>
                 </div>
               </div>
@@ -10939,11 +10750,6 @@
                     <button class="btn-primary" type="button" onclick="tdDownloadCode('model-nn')">下载代码包</button>
                     <button class="btn" type="button" onclick="tdOpenGuide('model-nn')">查看指引</button>
                   </div>
-                  <div class="tool-submodule-detail-actions">
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-nn','effect')">功能成效</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-nn','operation')">操作方式</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-nn','notice')">注意事宜</button>
-                  </div>
                 </div>
               </div>
               <div class="tool-submodule-card">
@@ -10954,11 +10760,6 @@
                   <div class="tool-submodule-actions">
                     <button class="btn-primary" type="button" onclick="tdDownloadCode('model-gnn')">下载代码包</button>
                     <button class="btn" type="button" onclick="tdOpenGuide('model-gnn')">查看指引</button>
-                  </div>
-                  <div class="tool-submodule-detail-actions">
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-gnn','effect')">功能成效</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-gnn','operation')">操作方式</button>
-                    <button class="btn-outline" type="button" onclick="tdOpenDetail('model-gnn','notice')">注意事宜</button>
                   </div>
                 </div>
               </div>
@@ -12250,7 +12051,7 @@
     };
 
     const state = {
-      page: "dashboard",
+      page: "twod",
       isAuthenticated: false,
       loginUser: "",
       loginCaptchaCode: "",
@@ -12414,7 +12215,6 @@
     const electrolyteUIDefaults = JSON.parse(JSON.stringify(electrolyteUIState));
 
     const PAGE_LAYOUT = {
-      dashboard: { group: "overview", portal: "overview" },
       twod: { group: "applications", portal: "applications" },
       electrolyte: { group: "applications", portal: "applications" },
       opto: { group: "applications", portal: "applications" },
@@ -14870,7 +14670,7 @@
     }
 
     function updatePortalState(page) {
-      const meta = PAGE_LAYOUT[page] || PAGE_LAYOUT.dashboard;
+      const meta = PAGE_LAYOUT[page] || PAGE_LAYOUT.twod;
       document.querySelectorAll(".portal-link").forEach((node) => {
         node.classList.toggle("active", node.dataset.portal === meta.portal);
       });
@@ -14972,7 +14772,7 @@
     }
 
     function syncPageMeta(page) {
-      const meta = PAGE_LAYOUT[page] || PAGE_LAYOUT.dashboard;
+      const meta = PAGE_LAYOUT[page] || PAGE_LAYOUT.twod;
       setOpenSidebarGroup(meta.group);
       updatePortalState(page);
       updateBreadcrumb(page);
@@ -20484,7 +20284,6 @@
 
     function bindGlobalSearch() {
       const jumpMap = [
-        { key: "\u5de5\u4f5c\u53f0", page: "dashboard" },
         { key: "\u4e8c\u7ef4", page: "twod" },
         { key: "\u7535\u89e3\u8d28", page: "electrolyte" },
         { key: "\u6709\u673a\u5149\u7535", page: "opto" },
@@ -28363,7 +28162,7 @@
 
     function updateBreadcrumb(page) {
       const breadcrumb = document.getElementById("breadcrumb");
-      const meta = PAGE_LAYOUT[page] || PAGE_LAYOUT.dashboard;
+      const meta = PAGE_LAYOUT[page] || PAGE_LAYOUT.twod;
       const portalTitle = document.querySelector(".portal-link.active")?.textContent || "门户总览";
       const pageTitle = document.querySelector(`#page-${page} .page-head h2`)?.textContent || "";
       const parts = [`<span>${portalTitle}</span>`];
@@ -28378,7 +28177,7 @@
 
     function switchPage(page) {
       state.page = page;
-      const meta = PAGE_LAYOUT[page] || PAGE_LAYOUT.dashboard;
+      const meta = PAGE_LAYOUT[page] || PAGE_LAYOUT.twod;
       const activeNavPage = meta.navPage || page;
       document.querySelectorAll(".page").forEach((node) => {
         node.classList.toggle("active", node.id === `page-${page}`);
@@ -29468,7 +29267,7 @@
     const originalSwitchPage = switchPage;
     switchPage = function (page) {
       if (!state.isAuthenticated) {
-        state.page = "dashboard";
+        state.page = "twod";
         syncAuthView();
         return;
       }
@@ -29554,13 +29353,13 @@
       state.page = "dashboard";
       syncAuthView();
       originalSwitchPage("dashboard");
-      showToast("登录成功", "已进入低维材料主题库工作台。");
+      showToast("登录成功", "已进入二维材料数据应用。");
     }
 
     function handleLogout() {
       state.isAuthenticated = false;
       state.loginUser = "";
-      state.page = "dashboard";
+      state.page = "twod";
       syncAuthView();
       setLoginError("");
     }
