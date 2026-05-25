@@ -3654,6 +3654,163 @@
       padding: 0;
     }
 
+    .sys-table-card .table-action-link + .table-action-link {
+      margin-left: 12px;
+    }
+
+    .sys-page-shell {
+      display: grid;
+      gap: 16px;
+    }
+
+    .sys-search-card,
+    .sys-table-card,
+    .sys-summary-card {
+      border: 1px solid #dbe4f3;
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 10px 24px rgba(31, 45, 61, 0.06);
+    }
+
+    .sys-search-card {
+      padding: 20px 22px 18px;
+    }
+
+    .sys-search-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .sys-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px 22px;
+      border-bottom: 1px solid #e7eef8;
+    }
+
+    .sys-toolbar h3 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 28px;
+      color: #183157;
+    }
+
+    .sys-toolbar p {
+      margin: 4px 0 0;
+      color: #6d819b;
+      font-size: 13px;
+      line-height: 22px;
+    }
+
+    .sys-toolbar-actions,
+    .sys-action-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .sys-toolbar-actions {
+      gap: 12px;
+    }
+
+    .sys-count {
+      color: #6d819b;
+      font-size: 13px;
+      line-height: 22px;
+    }
+
+    .sys-status {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .sys-status.is-success {
+      color: #157347;
+      background: #e7f8ee;
+    }
+
+    .sys-status.is-danger {
+      color: #b42318;
+      background: #fee8e7;
+    }
+
+    .sys-status.is-warning {
+      color: #b54708;
+      background: #fff4d6;
+    }
+
+    .sys-role-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: #edf3ff;
+      color: #2f61d6;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .sys-empty {
+      padding: 26px 22px;
+      color: #6d819b;
+      font-size: 13px;
+      line-height: 22px;
+    }
+
+    .sys-menu-tree {
+      display: grid;
+      gap: 8px;
+    }
+
+    .sys-menu-item {
+      display: grid;
+      grid-template-columns: 1fr auto auto auto;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 12px;
+      border: 1px solid #edf2fa;
+      border-radius: 12px;
+      background: #fbfdff;
+      font-size: 13px;
+      line-height: 20px;
+    }
+
+    .sys-menu-item[data-level="1"] { margin-left: 16px; }
+    .sys-menu-item[data-level="2"] { margin-left: 32px; }
+    .sys-menu-item[data-level="3"] { margin-left: 48px; }
+
+    .sys-modal-form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .sys-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .sys-form-grid .field textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    .sys-form-tip {
+      color: #6d819b;
+      font-size: 12px;
+      line-height: 20px;
+    }
+
     .overlay {
       position: fixed;
       inset: 0;
@@ -4131,6 +4288,11 @@
       fill: #6f8298;
       font-size: 12px;
       font-family: "Microsoft YaHei", "PingFang SC", "DengXian", sans-serif;
+    }
+
+    .chart-axis-y-title {
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
 
     .chart-title-note {
@@ -8717,16 +8879,6 @@
       min-height: 320px;
     }
 
-    .twod-chart-axis-note {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      color: #6b819e;
-      font-size: 12px;
-      line-height: 18px;
-      margin-top: -4px;
-    }
-
     .twod-structure-meta {
       display: grid;
       gap: 10px;
@@ -10963,6 +11115,7 @@
         <button class="portal-link active" type="button" data-portal="applications" data-page="twod">主题应用</button>
         <button class="portal-link" type="button" data-portal="algorithms" data-page="algorithms">数据算法</button>
         <button class="portal-link" type="button" data-portal="tools" data-page="tools">开发工具</button>
+        <button class="portal-link" type="button" data-portal="system" data-page="sys-user">系统管理</button>
       </nav>
 
       <label class="topbar-search">
@@ -11011,6 +11164,19 @@
         <div class="nav">
           <button class="nav-btn" data-group="analysis" data-page="algorithms" data-label="数据应用算法"><span class="nav-icon">AL</span><span>数据应用算法</span></button>
           <button class="nav-btn" data-group="analysis" data-page="tools" data-label="数据工具开发"><span class="nav-icon">TL</span><span>数据工具开发</span></button>
+        </div>
+      </div>
+      <div class="sidebar-group" data-group="system">
+        <button class="sidebar-group-toggle" type="button" data-group-toggle>
+          <span class="sidebar-group-title">系统管理</span>
+          <span class="sidebar-group-arrow">⌄</span>
+        </button>
+        <div class="nav">
+          <button class="nav-btn" data-group="system" data-page="sys-user" data-label="用户管理"><span class="nav-icon">UM</span><span>用户管理</span></button>
+          <button class="nav-btn" data-group="system" data-page="sys-role" data-label="角色管理"><span class="nav-icon">RM</span><span>角色管理</span></button>
+          <button class="nav-btn" data-group="system" data-page="sys-menu" data-label="菜单管理"><span class="nav-icon">MM</span><span>菜单管理</span></button>
+          <button class="nav-btn" data-group="system" data-page="sys-dict" data-label="字典管理"><span class="nav-icon">DM</span><span>字典管理</span></button>
+          <button class="nav-btn" data-group="system" data-page="sys-log" data-label="操作日志"><span class="nav-icon">LG</span><span>操作日志</span></button>
         </div>
       </div>
     </aside>
@@ -12039,11 +12205,30 @@
           </div>
         </div>
       </section>
+      <section class="page" id="page-sys-user"></section>
+      <section class="page" id="page-sys-role"></section>
+      <section class="page" id="page-sys-menu"></section>
+      <section class="page" id="page-sys-dict"></section>
+      <section class="page" id="page-sys-log"></section>
       <section class="page" id="page-catalyst-site"></section>
       <section class="page" id="page-catalyst-compare"></section>
       <section class="page" id="page-catalyst-build"></section>
       </div>
     </main>
+  </div>
+
+  <div class="overlay" id="systemCrudModal">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <h3 id="systemCrudModalTitle">系统管理</h3>
+          <p id="systemCrudModalSubtitle">新增或编辑管理信息</p>
+        </div>
+        <button class="modal-close" type="button" data-close-modal="systemCrudModal">×</button>
+      </div>
+      <div class="modal-body modal-scroll" id="systemCrudModalBody"></div>
+      <div class="modal-footer" id="systemCrudModalFooter"></div>
+    </div>
   </div>
 
   <div class="overlay" id="materialModal">
@@ -13383,6 +13568,9 @@
       },
       catalystCompareSelected: ["CAT-PT-111-001", "CAT-FENC-002", "CAT-CO3O4-003"],
       catalystCompareMetrics: ["ea", "selectivity", "tof"],
+      catalystCompareSearch: "",
+      catalystCompareRoute: "all",
+      catalystCompareMetricFilter: "",
       selectedAlgorithmCategory: "twod",
       selectedAlgorithmSubcategory: "twod-relaxation",
       selectedAlgorithmItem: "twod-relax-nonmagnetic",
@@ -13457,7 +13645,79 @@
       "catalyst-compare": { group: "applications", portal: "applications", navPage: "catalyst", title: "材料对比分析", breadcrumbParent: "催化材料应用" },
       "catalyst-build": { group: "applications", portal: "applications", navPage: "catalyst", title: "催化构建", breadcrumbParent: "催化材料应用" },
       algorithms: { group: "analysis", portal: "algorithms", title: "数据应用算法", breadcrumbParent: "分析预测" },
-      tools: { group: "analysis", portal: "tools", title: "数据工具开发", breadcrumbParent: "分析预测" }
+      tools: { group: "analysis", portal: "tools", title: "数据工具开发", breadcrumbParent: "分析预测" },
+      "sys-user": { group: "system", portal: "system", title: "用户管理", breadcrumbParent: "系统管理" },
+      "sys-role": { group: "system", portal: "system", title: "角色管理", breadcrumbParent: "系统管理" },
+      "sys-menu": { group: "system", portal: "system", title: "菜单管理", breadcrumbParent: "系统管理" },
+      "sys-dict": { group: "system", portal: "system", title: "字典管理", breadcrumbParent: "系统管理" },
+      "sys-log": { group: "system", portal: "system", title: "操作日志", breadcrumbParent: "系统管理" }
+    };
+
+    const SYSTEM_PAGE_META = {
+      "sys-user": { group: "system", portal: "system", title: "用户管理", breadcrumbParent: "系统管理" },
+      "sys-role": { group: "system", portal: "system", title: "角色管理", breadcrumbParent: "系统管理" },
+      "sys-menu": { group: "system", portal: "system", title: "菜单管理", breadcrumbParent: "系统管理" },
+      "sys-dict": { group: "system", portal: "system", title: "字典管理", breadcrumbParent: "系统管理" },
+      "sys-log": { group: "system", portal: "system", title: "操作日志", breadcrumbParent: "系统管理" }
+    };
+
+    const systemStore = {
+      users: [
+        { id: 1, username: "researcher", nickName: "researcher", roleName: "系统管理员", dept: "平台管理中心", phone: "13800000000", email: "researcher@demo.cn", status: "启用", createTime: "2026-04-01 09:00", remark: "当前登录用户" },
+        { id: 2, username: "guest001", nickName: "公众用户A", roleName: "公众用户", dept: "公众访问", phone: "13900000001", email: "guest001@demo.cn", status: "启用", createTime: "2026-04-02 10:30", remark: "公开检索账号" },
+        { id: 3, username: "academy01", nickName: "科研院所用户", roleName: "科研院所用户", dept: "材料研究所", phone: "13900000002", email: "academy01@demo.cn", status: "启用", createTime: "2026-04-03 11:20", remark: "科研协同账号" },
+        { id: 4, username: "enterprise01", nickName: "企业用户", roleName: "企业用户", dept: "新能源事业部", phone: "13900000003", email: "enterprise01@demo.cn", status: "停用", createTime: "2026-04-04 15:45", remark: "企业试用账号" }
+      ],
+      roles: [
+        { id: 1, roleName: "公众用户", roleKey: "public", sort: 1, dataScope: "仅公开数据", status: "启用", createTime: "2026-04-01 09:00", remark: "面向外部访问" },
+        { id: 2, roleName: "科研院所用户", roleKey: "research", sort: 2, dataScope: "项目数据", status: "启用", createTime: "2026-04-01 09:30", remark: "科研协作角色" },
+        { id: 3, roleName: "企业用户", roleKey: "enterprise", sort: 3, dataScope: "授权数据", status: "启用", createTime: "2026-04-01 10:00", remark: "企业协同角色" },
+        { id: 4, roleName: "系统管理员", roleKey: "admin", sort: 0, dataScope: "全部数据", status: "启用", createTime: "2026-04-01 08:00", remark: "系统最高权限" }
+      ],
+      menus: [
+        { id: 1, menuName: "系统管理", level: 0, type: "目录", parent: "-", path: "/system", perms: "", icon: "system", orderNum: 1, status: "启用" },
+        { id: 2, menuName: "用户管理", level: 1, type: "菜单", parent: "系统管理", path: "/system/user", perms: "system:user:list", icon: "user", orderNum: 1, status: "启用" },
+        { id: 3, menuName: "角色管理", level: 1, type: "菜单", parent: "系统管理", path: "/system/role", perms: "system:role:list", icon: "peoples", orderNum: 2, status: "启用" },
+        { id: 4, menuName: "菜单管理", level: 1, type: "菜单", parent: "系统管理", path: "/system/menu", perms: "system:menu:list", icon: "tree-table", orderNum: 3, status: "启用" },
+        { id: 5, menuName: "字典管理", level: 1, type: "菜单", parent: "系统管理", path: "/system/dict", perms: "system:dict:list", icon: "dict", orderNum: 4, status: "启用" },
+        { id: 6, menuName: "操作日志", level: 1, type: "菜单", parent: "系统管理", path: "/system/operlog", perms: "system:operlog:list", icon: "log", orderNum: 5, status: "启用" },
+        { id: 7, menuName: "主题应用", level: 0, type: "目录", parent: "-", path: "/applications", perms: "", icon: "dashboard", orderNum: 2, status: "启用" },
+        { id: 8, menuName: "二维材料数据应用", level: 1, type: "菜单", parent: "主题应用", path: "/applications/twod", perms: "applications:twod:list", icon: "2d", orderNum: 1, status: "启用" },
+        { id: 9, menuName: "电解质材料数据应用", level: 1, type: "菜单", parent: "主题应用", path: "/applications/electrolyte", perms: "applications:electrolyte:list", icon: "electrolyte", orderNum: 2, status: "启用" },
+        { id: 10, menuName: "有机光电材料应用", level: 1, type: "菜单", parent: "主题应用", path: "/applications/opto", perms: "applications:opto:list", icon: "opto", orderNum: 3, status: "启用" },
+        { id: 11, menuName: "机器学习力场应用", level: 1, type: "菜单", parent: "主题应用", path: "/applications/mlff", perms: "applications:mlff:list", icon: "mlff", orderNum: 4, status: "启用" },
+        { id: 12, menuName: "催化材料应用", level: 1, type: "菜单", parent: "主题应用", path: "/applications/catalyst", perms: "applications:catalyst:list", icon: "catalyst", orderNum: 5, status: "启用" },
+        { id: 13, menuName: "分析预测", level: 0, type: "目录", parent: "-", path: "/analysis", perms: "", icon: "analysis", orderNum: 3, status: "启用" },
+        { id: 14, menuName: "数据应用算法", level: 1, type: "菜单", parent: "分析预测", path: "/analysis/algorithms", perms: "analysis:algorithms:list", icon: "algorithm", orderNum: 1, status: "启用" },
+        { id: 15, menuName: "数据工具开发", level: 1, type: "菜单", parent: "分析预测", path: "/analysis/tools", perms: "analysis:tools:list", icon: "tool", orderNum: 2, status: "启用" }
+      ],
+      dicts: [
+        { id: 1, dictName: "用户状态", dictType: "sys_user_status", status: "启用", remark: "启用/停用", updatedAt: "2026-04-12 10:00" },
+        { id: 2, dictName: "角色类型", dictType: "sys_role_type", status: "启用", remark: "系统/业务/接口", updatedAt: "2026-04-12 10:10" },
+        { id: 3, dictName: "菜单状态", dictType: "sys_menu_status", status: "启用", remark: "正常/隐藏", updatedAt: "2026-04-12 10:20" },
+        { id: 4, dictName: "日志状态", dictType: "sys_oper_status", status: "启用", remark: "成功/失败", updatedAt: "2026-04-12 10:30" }
+      ],
+      logs: [
+        { id: 1, module: "用户管理", businessType: "新增", operator: "researcher", operatorType: "管理员", status: "成功", ip: "192.168.1.8", time: "2026-05-20 09:10", detail: "新增企业用户账号" },
+        { id: 2, module: "角色管理", businessType: "编辑", operator: "researcher", operatorType: "管理员", status: "成功", ip: "192.168.1.8", time: "2026-05-20 09:25", detail: "调整系统管理员权限" },
+        { id: 3, module: "菜单管理", businessType: "删除", operator: "researcher", operatorType: "管理员", status: "失败", ip: "192.168.1.8", time: "2026-05-20 09:40", detail: "尝试删除系统菜单，已拒绝" }
+      ]
+    };
+
+    const systemState = {
+      activePage: "sys-user",
+      selectedIds: { "sys-user": new Set(), "sys-role": new Set(), "sys-menu": new Set(), "sys-dict": new Set(), "sys-log": new Set() },
+      pagination: {
+        "sys-menu": { page: 1, pageSize: 5 }
+      },
+      search: {
+        "sys-user": { username: "", roleName: "", status: "" },
+        "sys-role": { roleName: "", status: "" },
+        "sys-menu": { menuName: "", status: "" },
+        "sys-dict": { dictName: "", dictType: "" },
+        "sys-log": { module: "", operator: "", status: "" }
+      },
+      modal: { page: "", mode: "add", id: null }
     };
 
     const twodMaterials = [
@@ -16009,8 +16269,8 @@
 
     function updateBreadcrumb(page) {
       const breadcrumb = document.getElementById("breadcrumb");
-      const meta = PAGE_LAYOUT[page] || PAGE_LAYOUT.twod;
-      const rootTitle = meta.group === "applications" ? "主题应用" : "分析预测";
+      const meta = PAGE_LAYOUT[page] || SYSTEM_PAGE_META[page] || PAGE_LAYOUT.twod;
+      const rootTitle = meta.group === "applications" ? "主题应用" : meta.group === "analysis" ? "分析预测" : "系统管理";
       const pageTitle = meta.title || document.querySelector(`#page-${page} .page-head h2`)?.textContent || "";
       const parts = [`<span>${rootTitle}</span>`];
       if (meta.breadcrumbParent && meta.breadcrumbParent !== rootTitle) {
@@ -16023,7 +16283,7 @@
     }
 
     function syncPageMeta(page) {
-      const meta = PAGE_LAYOUT[page] || PAGE_LAYOUT.twod;
+      const meta = PAGE_LAYOUT[page] || SYSTEM_PAGE_META[page] || PAGE_LAYOUT.twod;
       setOpenSidebarGroup(meta.group);
       updatePortalState(page);
       updateBreadcrumb(page);
@@ -17062,13 +17322,7 @@
           </div>
         </div>
         <section class="twod-detail-chart-card">
-          <h5>${material.name} · ${currentLabel}</h5>
           <div class="line-chart">${buildChartSvg(current)}</div>
-          <div class="twod-chart-axis-note">
-            <span>X 轴：${current?.axisX || "横坐标"}</span>
-            <span>Y 轴：${current?.axisY || "纵坐标"}</span>
-          </div>
-          <div class="chart-caption">${current?.caption || "当前页面无可展示内容。"}</div>
         </section>
       `;
     }
@@ -17265,8 +17519,8 @@
       const axis = `
         <line class="chart-axis-line" x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${height - margin.bottom}"></line>
         <line class="chart-axis-line" x1="${margin.left}" y1="${height - margin.bottom}" x2="${width - margin.right}" y2="${height - margin.bottom}"></line>
-        <text class="chart-label" x="${width / 2}" y="${height - 10}" text-anchor="middle">${config.axisX || "横坐标"}</text>
-        <text class="chart-label" transform="translate(18 ${height / 2}) rotate(-90)" text-anchor="middle">${config.axisY || "纵坐标"}</text>
+        <text class="chart-label" x="${margin.left + innerWidth / 2}" y="${height - 14}" text-anchor="middle">${config.axisX || "横坐标"}</text>
+        <text class="chart-label chart-axis-y-title" x="18" y="${margin.top + innerHeight / 2}" text-anchor="middle" dominant-baseline="middle" transform="rotate(-90 18 ${margin.top + innerHeight / 2})">${config.axisY || "纵坐标"}</text>
       `;
 
       const xLabels = config.labels.map((label, index) => {
@@ -20166,6 +20420,72 @@
       return materials.length ? materials : catalystMaterials.slice(0, 3);
     }
 
+    function getCatalystCompareMetricCatalog() {
+      return {
+        ea: { title: "活化能", key: "activationEnergy", unit: "eV", precision: 2, note: "越低越好" },
+        selectivity: { title: "选择性", key: "selectivity", unit: "%", precision: 0, note: "越高越好" },
+        tof: { title: "TOF", key: "tof", unit: "s⁻¹", precision: 1, note: "越高越好" }
+      };
+    }
+
+    function formatCatalystCompareMetricValue(metricKey, material) {
+      const catalog = getCatalystCompareMetricCatalog();
+      const metric = catalog[metricKey];
+      if (!metric || !material) return "-";
+      const rawValue = Number(material[metric.key]);
+      if (!Number.isFinite(rawValue)) return "-";
+      const valueText = metric.precision === 0 ? String(Math.round(rawValue)) : rawValue.toFixed(metric.precision);
+      return metric.unit === "%" ? `${valueText}%` : `${valueText} ${metric.unit}`;
+    }
+
+    function getCatalystCompareRouteOptions() {
+      const seen = new Set();
+      return catalystMaterials.filter((item) => {
+        if (seen.has(item.route)) return false;
+        seen.add(item.route);
+        return true;
+      }).map((item) => ({
+        value: item.route,
+        label: item.routeLabel || item.route.toUpperCase()
+      }));
+    }
+
+    function getCatalystComparePickerMaterials() {
+      const keyword = String(state.catalystCompareSearch || "").trim().toLowerCase();
+      const route = state.catalystCompareRoute || "all";
+      const selected = new Set(state.catalystCompareSelected);
+      return [...catalystMaterials]
+        .filter((item) => {
+          const routeMatch = route === "all" || item.route === route;
+          const searchText = [
+            item.name,
+            item.formula,
+            item.reactionType,
+            item.routeLabel,
+            item.site,
+            item.composition,
+            item.elements.join(" ")
+          ].join(" ").toLowerCase();
+          const keywordMatch = !keyword || searchText.includes(keyword);
+          return routeMatch && keywordMatch;
+        })
+        .sort((a, b) => {
+          const selectedDelta = Number(selected.has(b.id)) - Number(selected.has(a.id));
+          if (selectedDelta !== 0) return selectedDelta;
+          return String(a.name).localeCompare(String(b.name));
+        });
+    }
+
+    function getCatalystVisibleCompareMetrics() {
+      const keyword = String(state.catalystCompareMetricFilter || "").trim().toLowerCase();
+      const catalog = getCatalystCompareMetricCatalog();
+      return Object.keys(catalog).filter((key) => {
+        if (!keyword) return true;
+        const metric = catalog[key];
+        return `${metric.title} ${metric.unit} ${metric.note}`.toLowerCase().includes(keyword);
+      });
+    }
+
     function renderCatalystCrystalCanvas(targetId, material) {
       const target = document.getElementById(targetId);
       if (!target) return;
@@ -20436,59 +20756,79 @@
       `;
     }
 
+    function buildCatalystCompareBarChartSvg(materials, metricKey) {
+      const metric = getCatalystCompareMetricCatalog()[metricKey];
+      if (!metric || !materials.length) {
+        return `<div class="catalyst-compare-empty">当前暂无可展示的对比数据。</div>`;
+      }
+      const width = Math.max(960, materials.length * 116);
+      const height = 420;
+      const margin = { top: 44, right: 24, bottom: 94, left: 76 };
+      const innerWidth = width - margin.left - margin.right;
+      const innerHeight = height - margin.top - margin.bottom;
+      const maxValue = Math.max(...materials.map((item) => Number(item[metric.key]) || 0), 1);
+      const groupWidth = innerWidth / Math.max(materials.length, 1);
+      const barWidth = Math.min(54, groupWidth * 0.58);
+      const steps = 4;
+      const formatValue = (value) => {
+        if (!Number.isFinite(value)) return "-";
+        const text = metric.precision === 0 ? String(Math.round(value)) : value.toFixed(metric.precision);
+        return metric.unit === "%" ? `${text}%` : `${text} ${metric.unit}`;
+      };
+      const gridLines = Array.from({ length: steps + 1 }).map((_, index) => {
+        const y = margin.top + (innerHeight / steps) * index;
+        return `<line class="chart-gridline" x1="${margin.left}" y1="${y}" x2="${width - margin.right}" y2="${y}"></line>`;
+      }).join("");
+      const yLabels = Array.from({ length: steps + 1 }).map((_, index) => {
+        const value = maxValue * (1 - index / steps);
+        const y = margin.top + (innerHeight / steps) * index + 4;
+        const label = metric.precision === 0 ? String(Math.round(value)) : value.toFixed(metric.precision);
+        return `<text class="chart-label" x="${margin.left - 12}" y="${y}" text-anchor="end">${label}</text>`;
+      }).join("");
+      const bars = materials.map((item, index) => {
+        const rawValue = Number(item[metric.key]) || 0;
+        const barHeight = (rawValue / maxValue) * innerHeight;
+        const x = margin.left + groupWidth * index + (groupWidth - barWidth) / 2;
+        const y = height - margin.bottom - barHeight;
+        const fill = getCatalystThemeColor(item);
+        const labelX = x + barWidth / 2;
+        const labelY = Math.max(margin.top + 14, y - 10);
+        const text = formatValue(rawValue);
+        return `
+          <g>
+            <rect class="chart-bar" x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" fill="${fill}" rx="10" ry="10"></rect>
+            <text class="chart-label" x="${labelX}" y="${labelY}" text-anchor="middle" style="font-weight:700;fill:${fill};">${text}</text>
+            <text class="chart-label" x="${labelX}" y="${height - 52}" text-anchor="end" transform="rotate(-28 ${labelX} ${height - 52})">${item.name}</text>
+          </g>
+        `;
+      }).join("");
+      return `
+        <svg viewBox="0 0 ${width} ${height}" class="material-line-chart-svg" style="width:${width}px;height:${height}px;max-width:none;display:block;">
+          ${gridLines}
+          <line class="chart-axis-line" x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${height - margin.bottom}"></line>
+          <line class="chart-axis-line" x1="${margin.left}" y1="${height - margin.bottom}" x2="${width - margin.right}" y2="${height - margin.bottom}"></line>
+          <text class="chart-label" x="${margin.left + innerWidth / 2}" y="${height - 14}" text-anchor="middle">催化材料</text>
+          <text class="chart-label" x="22" y="${margin.top + innerHeight / 2}" text-anchor="middle" dominant-baseline="middle" transform="rotate(-90 22 ${margin.top + innerHeight / 2})">${metric.title} (${metric.unit})</text>
+          ${yLabels}
+          ${bars}
+        </svg>
+      `;
+    }
+
     function renderCatalystCompareVisualization() {
       const materials = getCatalystCompareMaterials();
       const metrics = state.catalystCompareMetrics.length ? state.catalystCompareMetrics : ["ea"];
-      const chartType = state.catalystCompareChart;
-
-      if (chartType === "horizontal") {
-        return `<section class="catalyst-main-card"><h4>催化性能对比分析</h4>${renderCatalystCompareBars(materials, metrics)}</section>`;
-      }
-
-      const labelMap = {
-        ea: { title: "活化能", key: "activationEnergy", unit: "eV" },
-        selectivity: { title: "选择性", key: "selectivity", unit: "%" },
-        tof: { title: "TOF", key: "tof", unit: "s⁻¹" }
-      };
-
-      if (chartType === "donut") {
-        return `<section class="catalyst-main-card"><h4>催化性能占比分析</h4>${renderCatalystCompareDonut(materials, metrics)}</section>`;
-      }
-
-      const buildChart = (type) => metrics.map((metric) => {
-        const target = labelMap[metric];
-        return `
-          <section class="catalyst-main-card">
-            <h4>${target.title}${type === "curve" ? "曲线分析" : "对比"}</h4>
-            <div class="line-chart">${buildOptoChartSvg({
-              type,
-              labels: materials.map((item) => item.name),
-              axisX: "催化材料",
-              axisY: `${target.title} (${target.unit})`,
-              series: [{
-                name: target.title,
-                color: "#2453d4",
-                values: materials.map((item) => item[target.key])
-              }],
-              highlight: {
-                index: 0,
-                label: materials[0].name,
-                color: "#2453d4"
-              }
-            })}</div>
-          </section>
-        `;
-      }).join("");
-
-      if (chartType === "bar") {
-        return buildChart("bar");
-      }
-
-      if (chartType === "curve") {
-        return buildChart("curve");
-      }
-
-      return `<section class="catalyst-main-card"><h4>催化性能对比分析</h4>${renderCatalystCompareBars(materials, metrics)}</section>`;
+      const catalog = getCatalystCompareMetricCatalog();
+      return `
+        <div class="catalyst-compare-chart-grid">
+          ${metrics.map((metricKey) => `
+            <section class="catalyst-main-card catalyst-compare-chart-card">
+              <h4>${catalog[metricKey]?.title || metricKey}对比</h4>
+              <div class="line-chart">${buildCatalystCompareBarChartSvg(materials, metricKey)}</div>
+            </section>
+          `).join("")}
+        </div>
+      `;
     }
 
     function renderCatalystResults() {
@@ -29816,6 +30156,33 @@
           gap: 16px;
           flex-wrap: wrap;
         }
+        .catalyst-workbench-head.is-site {
+          align-items: stretch;
+        }
+        .catalyst-workbench-context {
+          margin-left: auto;
+          min-width: 240px;
+          padding: 12px 16px;
+          border-radius: 16px;
+          border: 1px solid #cfe0fb;
+          background: linear-gradient(180deg, #f8fbff 0%, #edf4ff 100%);
+          box-shadow: 0 8px 20px rgba(36, 83, 212, 0.06);
+          text-align: right;
+        }
+        .catalyst-workbench-context span {
+          display: block;
+          color: #6a7f9f;
+          font-size: 12px;
+          line-height: 18px;
+        }
+        .catalyst-workbench-context strong {
+          display: block;
+          margin-top: 6px;
+          color: #2453d4;
+          font-size: 18px;
+          line-height: 24px;
+          font-weight: 800;
+        }
         .catalyst-workbench-head h3 {
           margin: 0;
           color: #16294d;
@@ -29829,6 +30196,37 @@
         .catalyst-batch-note {
           color: #607492;
           font-size: 14px;
+        }
+        .catalyst-compare-summary {
+          margin-left: auto;
+          display: inline-grid;
+          justify-items: end;
+          gap: 4px;
+          min-width: 180px;
+          padding: 12px 16px;
+          border-radius: 16px;
+          border: 1px solid #cfe0fb;
+          background: linear-gradient(180deg, #f8fbff 0%, #edf4ff 100%);
+          box-shadow: 0 8px 20px rgba(36, 83, 212, 0.06);
+          text-align: right;
+        }
+        .catalyst-compare-summary span {
+          color: #6a7f9f;
+          font-size: 12px;
+          line-height: 18px;
+        }
+        .catalyst-compare-summary strong {
+          color: #2453d4;
+          font-size: 30px;
+          line-height: 34px;
+          font-weight: 800;
+        }
+        .catalyst-compare-summary em {
+          color: #536985;
+          font-size: 13px;
+          line-height: 20px;
+          font-style: normal;
+          font-weight: 700;
         }
         .catalyst-workbench-grid {
           display: grid;
@@ -29906,29 +30304,150 @@
         }
         .catalyst-compare-picker-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
           gap: 12px;
-          margin-top: 18px;
+          max-height: 352px;
+          overflow: auto;
+          padding-right: 4px;
+          align-content: start;
         }
         .catalyst-compare-picker-item {
           display: flex;
-          align-items: flex-start;
+          align-items: center;
           gap: 10px;
           border: 1px solid #dbe6f7;
           border-radius: 16px;
           background: #fff;
-          padding: 14px 16px;
+          padding: 12px 14px;
+          min-height: 82px;
+          cursor: pointer;
+          transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+        }
+        .catalyst-compare-picker-item:hover {
+          border-color: #b8cbef;
+          box-shadow: 0 10px 18px rgba(36, 83, 212, 0.08);
+        }
+        .catalyst-compare-picker-item.is-active {
+          border-color: #2453d4;
+          background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+          box-shadow: 0 12px 20px rgba(36, 83, 212, 0.10);
+        }
+        .catalyst-compare-picker-item input {
+          margin: 0;
+          flex: none;
+        }
+        .catalyst-compare-picker-body {
+          display: grid;
+          gap: 6px;
+          min-width: 0;
+          flex: 1;
+        }
+        .catalyst-compare-picker-top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
         }
         .catalyst-compare-picker-item strong {
           display: block;
           color: #16294d;
+          font-size: 16px;
+          line-height: 24px;
         }
         .catalyst-compare-picker-item span {
           display: block;
-          margin-top: 4px;
           color: #607492;
           font-size: 13px;
           line-height: 1.6;
+        }
+        .catalyst-compare-picker-chip {
+          display: inline-flex;
+          align-items: center;
+          min-height: 24px;
+          padding: 0 10px;
+          border-radius: 999px;
+          background: rgba(36, 83, 212, 0.10);
+          color: #2453d4;
+          font-size: 12px;
+          line-height: 18px;
+          font-weight: 700;
+          white-space: nowrap;
+          flex: none;
+        }
+        .catalyst-compare-filter-panel {
+          display: grid;
+          gap: 14px;
+        }
+        .catalyst-compare-filter-row {
+          display: grid;
+          grid-template-columns: minmax(0, 1.3fr) 220px auto;
+          gap: 14px;
+          align-items: end;
+        }
+        .catalyst-compare-filter-hint {
+          justify-self: end;
+          color: #607492;
+          font-size: 13px;
+          line-height: 20px;
+          font-weight: 600;
+          white-space: nowrap;
+        }
+        .catalyst-compare-results-head {
+          align-items: flex-end;
+          gap: 18px;
+        }
+        .catalyst-compare-actions {
+          margin-left: auto;
+          display: grid;
+          justify-items: end;
+          gap: 12px;
+          min-width: min(100%, 520px);
+        }
+        .catalyst-compare-metric-search {
+          width: min(320px, 100%);
+        }
+        .catalyst-compare-metric-row {
+          display: flex;
+          justify-content: flex-end;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+        .catalyst-compare-selected-tags {
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+          margin-top: 12px;
+        }
+        .catalyst-compare-selected-tags span {
+          display: inline-flex;
+          align-items: center;
+          min-height: 28px;
+          padding: 0 12px;
+          border-radius: 999px;
+          background: #eef4ff;
+          color: #2d4abf;
+          font-size: 12px;
+          line-height: 18px;
+          font-weight: 700;
+        }
+        .catalyst-compare-empty {
+          padding: 28px 18px;
+          border: 1px dashed #d7e4ff;
+          border-radius: 16px;
+          background: #fbfdff;
+          text-align: center;
+          color: #6d819b;
+          font-size: 14px;
+          line-height: 22px;
+        }
+        .catalyst-compare-chart-grid {
+          display: grid;
+          gap: 18px;
+        }
+        .catalyst-compare-chart-card .line-chart {
+          overflow-x: auto;
+          overflow-y: hidden;
+          padding-bottom: 6px;
         }
         .catalyst-builder-tool-row {
           display: flex;
@@ -30170,6 +30689,19 @@
           .catalyst-site-result-meta {
             grid-template-columns: 1fr;
           }
+          .catalyst-compare-filter-row {
+            grid-template-columns: 1fr;
+          }
+          .catalyst-compare-filter-hint,
+          .catalyst-compare-actions {
+            justify-self: stretch;
+            margin-left: 0;
+          }
+          .catalyst-compare-actions,
+          .catalyst-compare-metric-row {
+            justify-items: stretch;
+            justify-content: flex-start;
+          }
         }
         .catalyst-site-preview-header {
           display: flex;
@@ -30350,7 +30882,10 @@
       if (typeof state.catalystDetailRotation !== "number") state.catalystDetailRotation = 0;
       if (!state.selectedCatalystTool) state.selectedCatalystTool = "site";
       if (!state.catalystCompareMetrics?.length) state.catalystCompareMetrics = ["ea", "selectivity", "tof"];
-      if (!state.catalystCompareChart || state.catalystCompareChart === "line") state.catalystCompareChart = "bar";
+      if (typeof state.catalystCompareSearch !== "string") state.catalystCompareSearch = "";
+      if (!state.catalystCompareRoute) state.catalystCompareRoute = "all";
+      if (typeof state.catalystCompareMetricFilter !== "string") state.catalystCompareMetricFilter = "";
+      state.catalystCompareChart = "bar";
     }
 
     function getCatalystSearchLabel(mode) {
@@ -30626,12 +31161,14 @@
       return `
         <section class="card table-card catalyst-platform-workbench" id="catalystWorkbenchSection">
           <div class="table-head">
-            <div class="catalyst-workbench-head">
+            <div class="catalyst-workbench-head is-site" style="width:100%;">
               <div>
-                <h3>活性位点分析</h3>
                 <p>基于选中的催化材料，输入金属衬底、晶面、吸附物种与吸附位点参数，计算吸附能并判定活性位点位置。</p>
               </div>
-              <span class="catalyst-batch-note">当前分析对象：${material.name}</span>
+              <div class="catalyst-workbench-context">
+                <span>当前分析对象</span>
+                <strong>${material.name}</strong>
+              </div>
             </div>
           </div>
           <div style="padding:24px;">
@@ -30686,46 +31223,71 @@
 
     function renderCatalystCompareWorkbench(list) {
       const compareMaterials = getCatalystCompareMaterials();
+      const pickerMaterials = getCatalystComparePickerMaterials();
+      const visibleMetrics = getCatalystVisibleCompareMetrics();
+      const routeOptions = getCatalystCompareRouteOptions();
       return `
         <section class="card table-card catalyst-platform-workbench" id="catalystWorkbenchSection">
           <div class="table-head">
             <div class="catalyst-workbench-head">
               <div>
                 <h3>材料对比</h3>
-                <p>可基于结果勾选的催化材料进行性能对比；若未勾选，将默认对比当前结果前 3 条数据。</p>
               </div>
-              <span class="catalyst-batch-note">当前对比数量：${compareMaterials.length}</span>
+              <div class="catalyst-compare-summary">
+                <span>当前已选材料</span>
+                <strong>${compareMaterials.length}</strong>
+                <em>项对比对象</em>
+              </div>
             </div>
           </div>
           <div style="padding:24px;">
-            <div class="catalyst-compare-picker-grid">
-              ${catalystMaterials.map((item) => `
-                <label class="catalyst-compare-picker-item">
-                  <input type="checkbox" data-catalyst-compare-pick="${item.id}" ${state.catalystCompareSelected.includes(item.id) ? "checked" : ""}>
-                  <div>
-                    <strong>${item.name}</strong>
-                    <span>${item.reactionType} / ${item.site}</span>
-                  </div>
-                </label>
-              `).join("")}
-            </div>
-            <div class="twod-results-head" style="padding:20px 0 0;">
-              <div>
-                <div class="twod-result-count">当前对比 <strong>${compareMaterials.length}</strong> 个材料</div>
-              </div>
-              <div class="twod-result-actions">
-                <div class="twod-table-control">
-                  <label for="catalystCompareChartType">图表类型</label>
-                  <select id="catalystCompareChartType">
-                    <option value="bar"${state.catalystCompareChart === "bar" ? " selected" : ""}>柱状图</option>
-                    <option value="horizontal"${state.catalystCompareChart === "horizontal" ? " selected" : ""}>条状图</option>
-                    <option value="donut"${state.catalystCompareChart === "donut" ? " selected" : ""}>环形图</option>
-                    <option value="curve"${state.catalystCompareChart === "curve" ? " selected" : ""}>曲线图</option>
+            <section class="catalyst-compare-filter-panel">
+              <div class="catalyst-compare-filter-row">
+                <div class="field">
+                  <label for="catalystCompareSearch">筛选材料</label>
+                  <input id="catalystCompareSearch" type="text" placeholder="输入材料名称、反应类型、位点或元素" value="${escapeHtml(state.catalystCompareSearch || "")}">
+                </div>
+                <div class="field">
+                  <label for="catalystCompareRoute">反应类型</label>
+                  <select id="catalystCompareRoute">
+                    <option value="all"${state.catalystCompareRoute === "all" ? " selected" : ""}>全部</option>
+                    ${routeOptions.map((item) => `<option value="${item.value}"${state.catalystCompareRoute === item.value ? " selected" : ""}>${item.label}</option>`).join("")}
                   </select>
                 </div>
-                <label class="algorithm-radio"><input type="checkbox" data-catalyst-metric="ea" ${state.catalystCompareMetrics.includes("ea") ? "checked" : ""}>活化能</label>
-                <label class="algorithm-radio"><input type="checkbox" data-catalyst-metric="selectivity" ${state.catalystCompareMetrics.includes("selectivity") ? "checked" : ""}>选择性</label>
-                <label class="algorithm-radio"><input type="checkbox" data-catalyst-metric="tof" ${state.catalystCompareMetrics.includes("tof") ? "checked" : ""}>TOF</label>
+                <div class="catalyst-compare-filter-hint">候选材料 ${pickerMaterials.length} 项，已选 ${compareMaterials.length} 项</div>
+              </div>
+              <div class="catalyst-compare-picker-grid">
+                ${pickerMaterials.length ? pickerMaterials.map((item) => `
+                <label class="catalyst-compare-picker-item${state.catalystCompareSelected.includes(item.id) ? " is-active" : ""}">
+                  <input type="checkbox" data-catalyst-compare-pick="${item.id}" ${state.catalystCompareSelected.includes(item.id) ? "checked" : ""}>
+                  <div class="catalyst-compare-picker-body">
+                    <div class="catalyst-compare-picker-top">
+                      <strong>${item.name}</strong>
+                      <span class="catalyst-compare-picker-chip">${state.catalystCompareSelected.includes(item.id) ? `已选 ${state.catalystCompareSelected.indexOf(item.id) + 1}` : (item.routeLabel || item.route.toUpperCase())}</span>
+                    </div>
+                    <span>${item.routeLabel || item.route.toUpperCase()} / ${item.site} / ${item.formula}</span>
+                  </div>
+                </label>
+              `).join("") : `<div class="catalyst-compare-empty">当前筛选条件下暂无可选材料。</div>`}
+              </div>
+            </section>
+            <div class="twod-results-head catalyst-compare-results-head" style="padding:20px 0 0;">
+              <div>
+                <div class="twod-result-count">当前对比 <strong>${compareMaterials.length}</strong> 个材料</div>
+                <div class="catalyst-compare-selected-tags">
+                  ${compareMaterials.map((item) => `<span>${item.name}</span>`).join("")}
+                </div>
+              </div>
+              <div class="catalyst-compare-actions">
+                <div class="field catalyst-compare-metric-search">
+                  <label for="catalystCompareMetricFilter">筛选对比参数</label>
+                  <input id="catalystCompareMetricFilter" type="text" placeholder="输入参数名称" value="${escapeHtml(state.catalystCompareMetricFilter || "")}">
+                </div>
+                <div class="catalyst-compare-metric-row">
+                  ${visibleMetrics.length ? visibleMetrics.map((metricKey) => `
+                    <label class="algorithm-radio"><input type="checkbox" data-catalyst-metric="${metricKey}" ${state.catalystCompareMetrics.includes(metricKey) ? "checked" : ""}>${getCatalystCompareMetricCatalog()[metricKey].title}</label>
+                  `).join("") : `<span class="catalyst-batch-note">未匹配到对比参数</span>`}
+                </div>
               </div>
             </div>
             <div style="margin-top:18px;">${renderCatalystCompareVisualization()}</div>
@@ -31226,7 +31788,7 @@
     function updateBreadcrumb(page) {
       const breadcrumb = document.getElementById("breadcrumb");
       const meta = PAGE_LAYOUT[page] || PAGE_LAYOUT.twod;
-      const rootTitle = meta.group === "applications" ? "主题应用" : "分析预测";
+      const rootTitle = meta.group === "applications" ? "主题应用" : meta.group === "analysis" ? "分析预测" : "系统管理";
       const pageTitle = meta.title || document.querySelector(`#page-${page} .page-head h2`)?.textContent || "";
       const parts = [`<span>${rootTitle}</span>`];
       if (meta.breadcrumbParent && meta.breadcrumbParent !== rootTitle) {
@@ -31240,7 +31802,7 @@
 
     function switchPage(page) {
       state.page = page;
-      const meta = PAGE_LAYOUT[page] || PAGE_LAYOUT.twod;
+      const meta = PAGE_LAYOUT[page] || SYSTEM_PAGE_META[page] || PAGE_LAYOUT.twod;
       const activeNavPage = meta.navPage || page;
       document.querySelectorAll(".page").forEach((node) => {
         node.classList.toggle("active", node.id === `page-${page}`);
@@ -31248,6 +31810,9 @@
       document.querySelectorAll(".nav-btn").forEach((node) => {
         node.classList.toggle("active", node.dataset.page === activeNavPage);
       });
+      if (SYSTEM_PAGE_META[page]) {
+        renderSystemPage(page);
+      }
       syncPageMeta(page);
     }
 
@@ -31286,7 +31851,7 @@
                 <p class="twod-result-hint">${getCatalystPlatformHint(resultList)}</p>
               </div>
               <div class="twod-result-actions">
-                ${state.catalystBatchSelection.length ? `<button class="btn" type="button" data-catalyst-batch-download>批量下载POSCAR</button>` : ""}
+                ${state.catalystBatchSelection.length ? `<button class="btn" type="button" data-catalyst-batch-download>批量下载</button>` : ""}
                 <button class="btn-primary" type="button" data-catalyst-open-upload>数据上传</button>
                 <button class="btn" type="button" data-catalyst-workbench="site">活性位点分析</button>
                 <button class="btn" type="button" data-catalyst-workbench="compare">材料对比</button>
@@ -31439,8 +32004,6 @@
       const material = findCatalystMaterial(state.selectedCatalystId);
       if (!material) return;
       renderCatalystCrystalCanvas("catalystVisualMainCanvas", material);
-      renderCatalystSurfaceCanvas("catalystVisualSurfaceCanvas", material);
-      renderCatalystVolcanoCanvas("catalystVisualVolcanoCanvas", material);
       const mainCanvas = document.getElementById("catalystVisualMainCanvas");
       if (mainCanvas) {
         const planeMap = {
@@ -31657,9 +32220,26 @@
       if (document.body.dataset.catalystWorkbenchPageBound !== "true") {
         document.body.dataset.catalystWorkbenchPageBound = "true";
 
+        document.body.addEventListener("input", (event) => {
+          if (event.target.id === "catalystCompareSearch") {
+            state.catalystCompareSearch = event.target.value;
+            renderCatalystWorkbenchPage("compare");
+            return;
+          }
+          if (event.target.id === "catalystCompareMetricFilter") {
+            state.catalystCompareMetricFilter = event.target.value;
+            renderCatalystWorkbenchPage("compare");
+          }
+        });
+
         document.body.addEventListener("change", (event) => {
           if (event.target.id === "catalystCompareChartType") {
             state.catalystCompareChart = event.target.value;
+            renderCatalystWorkbenchPage("compare");
+            return;
+          }
+          if (event.target.id === "catalystCompareRoute") {
+            state.catalystCompareRoute = event.target.value;
             renderCatalystWorkbenchPage("compare");
             return;
           }
@@ -32240,6 +32820,11 @@
       if (moduleKey === "catalyst") {
         state.catalystPage = page;
         renderCatalystModule();
+        return;
+      }
+      if (moduleKey === "sys-menu") {
+        getSystemPaginationState("sys-menu").page = page;
+        renderSystemPage("sys-menu");
       }
     }
 
@@ -32265,6 +32850,13 @@
           renderToolListTable();
           return;
         }
+        if (event.target.id === "sysMenuPageSize") {
+          const pager = getSystemPaginationState("sys-menu");
+          pager.pageSize = Number(event.target.value) || 5;
+          pager.page = 1;
+          renderSystemPage("sys-menu");
+          return;
+        }
         const jumpInput = event.target.closest("[data-pagination-input]");
         if (!jumpInput) return;
         applySharedPaginationJump(jumpInput.dataset.paginationInput, jumpInput.value, jumpInput.max);
@@ -32281,6 +32873,12 @@
         if (toolPage?.dataset.toolPage) {
           state.toolListPage = Number(toolPage.dataset.toolPage) || 1;
           renderToolListTable();
+          return;
+        }
+        const systemMenuPage = event.target.closest("[data-sys-menu-page]");
+        if (systemMenuPage?.dataset.sysMenuPage) {
+          getSystemPaginationState("sys-menu").page = Number(systemMenuPage.dataset.sysMenuPage) || 1;
+          renderSystemPage("sys-menu");
         }
       });
 
@@ -32438,7 +33036,7 @@
 
     function ensureTopbarSessionActions() {
       const chipName = document.getElementById("userChipName") || document.querySelector(".user-chip span");
-      if (chipName) chipName.textContent = state.loginUser || "科研用户";
+      if (chipName) chipName.textContent = `${state.loginUser || "科研用户"}（系统管理员）`;
       const avatar = document.querySelector(".user-chip .avatar");
       if (avatar) {
         const user = String(state.loginUser || "").trim();
@@ -34508,11 +35106,7 @@
               })}
             </div>
           </section>
-          ` : `
-          <section class="mlff-empty-state">
-            ${getMlffDefaultHint()}
-          </section>
-          `}
+          ` : ``}
         </div>
       `;
     };
@@ -35311,6 +35905,7 @@
         </div>
       `;
       root.querySelectorAll(".twod-search-results .twod-result-actions [data-ely-open-upload]").forEach((node) => node.remove());
+      root.querySelectorAll(".electrolyte-result-empty").forEach((node) => node.remove());
       syncElectrolyteSidebarSubmenu();
     };
 
@@ -36521,7 +37116,7 @@
                   <p class="twod-result-hint">${getCatalystPlatformHint(resultList)}</p>
                 </div>
                 <div class="twod-result-actions">
-                  ${state.catalystBatchSelection.length ? `<button class="btn" type="button" data-catalyst-batch-download>批量下载POSCAR</button>` : ""}
+                  ${state.catalystBatchSelection.length ? `<button class="btn" type="button" data-catalyst-batch-download>批量下载</button>` : ""}
                 </div>
               </div>
               <div class="table-wrap twod-result-table-wrap">
@@ -36561,6 +37156,7 @@
           `}
         </div>
       `;
+      page.querySelectorAll(".catalyst-result-empty").forEach((node) => node.remove());
     };
 
     function buildCatalystBasicRows(material) {
@@ -36667,16 +37263,6 @@
           <article class="twod-basic-pill"><span>位点</span><strong>${material.site}</strong></article>
           <article class="twod-basic-pill"><span>中间产物</span><strong>${material.intermediate}</strong></article>
           <article class="twod-basic-pill"><span>POSCAR</span><strong><button class="twod-detail-link-btn" type="button" onclick="return triggerCatalystDetailDownload()">下载</button></strong></article>
-        </div>
-        <div class="catalyst-detail-subgrid">
-          <article class="twod-detail-visual-card">
-            <h5>表面结构视图</h5>
-            <div class="catalyst-detail-mini-stage" id="catalystVisualSurfaceCanvas"></div>
-          </article>
-          <article class="twod-detail-visual-card">
-            <h5>火山图位置</h5>
-            <div class="catalyst-detail-mini-stage" id="catalystVisualVolcanoCanvas"></div>
-          </article>
         </div>
       `;
     }
@@ -36942,10 +37528,430 @@
       `;
     };
 
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    const SYSTEM_PAGE_CONFIGS = {
+      "sys-user": {
+        dataKey: "users",
+        title: "用户管理",
+        desc: "维护系统用户、角色归属和基础状态信息。",
+        searchFields: [
+          { key: "username", label: "登录账号", type: "text", placeholder: "请输入账号" },
+          { key: "roleName", label: "角色", type: "text", placeholder: "请输入角色名称" },
+          { key: "status", label: "状态", type: "select", options: ["", "启用", "停用"] }
+        ],
+        headers: ["用户名称", "昵称", "角色", "部门", "手机号", "状态", "创建时间", "操作"],
+        formFields: [
+          { key: "username", label: "登录账号", type: "text" },
+          { key: "nickName", label: "用户昵称", type: "text" },
+          { key: "roleName", label: "角色", type: "select", options: ["公众用户", "科研院所用户", "企业用户", "系统管理员"] },
+          { key: "dept", label: "部门", type: "text" },
+          { key: "phone", label: "手机号", type: "text" },
+          { key: "email", label: "邮箱", type: "text" },
+          { key: "status", label: "状态", type: "select", options: ["启用", "停用"] },
+          { key: "remark", label: "备注", type: "textarea" }
+        ]
+      },
+      "sys-role": {
+        dataKey: "roles",
+        title: "角色管理",
+        desc: "管理公众用户、科研院所用户、企业用户和系统管理员四类角色。",
+        searchFields: [
+          { key: "roleName", label: "角色名称", type: "text", placeholder: "请输入角色名称" },
+          { key: "status", label: "状态", type: "select", options: ["", "启用", "停用"] }
+        ],
+        headers: ["角色名称", "权限标识", "数据权限", "排序", "状态", "备注", "操作"],
+        formFields: [
+          { key: "roleName", label: "角色名称", type: "text" },
+          { key: "roleKey", label: "权限标识", type: "text" },
+          { key: "dataScope", label: "数据权限", type: "text" },
+          { key: "sort", label: "排序", type: "number" },
+          { key: "status", label: "状态", type: "select", options: ["启用", "停用"] },
+          { key: "remark", label: "备注", type: "textarea" }
+        ]
+      },
+      "sys-menu": {
+        dataKey: "menus",
+        title: "菜单管理",
+        desc: "维护系统目录、菜单与按钮，支持按层级展示。",
+        searchFields: [
+          { key: "menuName", label: "菜单名称", type: "text", placeholder: "请输入菜单名称" },
+          { key: "status", label: "状态", type: "select", options: ["", "启用", "停用"] }
+        ],
+        headers: ["菜单名称", "类型", "路径", "权限标识", "排序", "状态", "操作"],
+        formFields: [
+          { key: "menuName", label: "菜单名称", type: "text" },
+          { key: "type", label: "菜单类型", type: "select", options: ["目录", "菜单", "按钮"] },
+          { key: "parent", label: "上级菜单", type: "text" },
+          { key: "path", label: "路由路径", type: "text" },
+          { key: "perms", label: "权限标识", type: "text" },
+          { key: "icon", label: "图标", type: "text" },
+          { key: "orderNum", label: "排序", type: "number" },
+          { key: "status", label: "状态", type: "select", options: ["启用", "停用"] }
+        ]
+      },
+      "sys-dict": {
+        dataKey: "dicts",
+        title: "字典管理",
+        desc: "维护系统字典名称、类型、状态及说明。",
+        searchFields: [
+          { key: "dictName", label: "字典名称", type: "text", placeholder: "请输入字典名称" },
+          { key: "dictType", label: "字典类型", type: "text", placeholder: "请输入字典类型" }
+        ],
+        headers: ["字典名称", "字典类型", "状态", "备注", "更新时间", "操作"],
+        formFields: [
+          { key: "dictName", label: "字典名称", type: "text" },
+          { key: "dictType", label: "字典类型", type: "text" },
+          { key: "status", label: "状态", type: "select", options: ["启用", "停用"] },
+          { key: "remark", label: "备注", type: "textarea" }
+        ]
+      },
+      "sys-log": {
+        dataKey: "logs",
+        title: "操作日志",
+        desc: "记录用户在系统中的查询、编辑、删除等操作轨迹。",
+        searchFields: [
+          { key: "module", label: "模块", type: "text", placeholder: "请输入模块名称" },
+          { key: "operator", label: "操作人", type: "text", placeholder: "请输入操作人" },
+          { key: "status", label: "状态", type: "select", options: ["", "成功", "失败"] }
+        ],
+        headers: ["模块", "业务类型", "操作人", "状态", "IP", "时间", "操作"],
+        formFields: [
+          { key: "module", label: "模块", type: "text" },
+          { key: "businessType", label: "业务类型", type: "text" },
+          { key: "operator", label: "操作人", type: "text" },
+          { key: "operatorType", label: "操作身份", type: "text" },
+          { key: "status", label: "状态", type: "select", options: ["成功", "失败"] },
+          { key: "ip", label: "IP 地址", type: "text" },
+          { key: "time", label: "操作时间", type: "text" },
+          { key: "detail", label: "详情", type: "textarea" }
+        ]
+      }
+    };
+
+    function getSystemRecords(page) {
+      const cfg = SYSTEM_PAGE_CONFIGS[page];
+      return cfg ? systemStore[cfg.dataKey] : [];
+    }
+
+    function getSystemFilters(page) {
+      return systemState.search[page] || {};
+    }
+
+    function getSystemStatusBadge(status) {
+      const text = String(status || "").trim();
+      if (["启用", "成功"].includes(text)) return `<span class="sys-status is-success">${escapeHtml(text)}</span>`;
+      if (["停用", "失败"].includes(text)) return `<span class="sys-status is-danger">${escapeHtml(text)}</span>`;
+      return `<span class="sys-status is-warning">${escapeHtml(text || "/")}</span>`;
+    }
+
+    function renderSystemSearchField(field, page) {
+      const value = getSystemFilters(page)[field.key] || "";
+      if (field.type === "select") {
+        return `<div class="field"><label>${field.label}</label><select data-sys-search-field="${field.key}" data-sys-page="${page}">${(field.options || []).map((option) => `<option value="${escapeHtml(option)}"${String(option) === String(value) ? " selected" : ""}>${option || "全部"}</option>`).join("")}</select></div>`;
+      }
+      return `<div class="field"><label>${field.label}</label><input type="text" data-sys-search-field="${field.key}" data-sys-page="${page}" value="${escapeHtml(value)}" placeholder="${escapeHtml(field.placeholder || "")}"></div>`;
+    }
+
+    function matchSystemRecord(record, page) {
+      const filters = getSystemFilters(page);
+      return Object.keys(filters).every((key) => {
+        const needle = String(filters[key] || "").trim().toLowerCase();
+        if (!needle) return true;
+        return String(record[key] || "").toLowerCase().includes(needle);
+      });
+    }
+
+    function getSystemFilteredRecords(page) {
+      return getSystemRecords(page).filter((record) => matchSystemRecord(record, page));
+    }
+
+    function getSystemPaginationState(page) {
+      if (!systemState.pagination[page]) {
+        systemState.pagination[page] = { page: 1, pageSize: 5 };
+      }
+      return systemState.pagination[page];
+    }
+
+    function getSystemVisibleRecords(page) {
+      const filtered = getSystemFilteredRecords(page);
+      if (page !== "sys-menu") {
+        return {
+          filtered,
+          rows: filtered,
+          total: filtered.length,
+          currentPage: 1,
+          totalPages: 1,
+          pageSize: filtered.length || 5
+        };
+      }
+      const pager = getSystemPaginationState(page);
+      const pageSize = Math.max(1, Number(pager.pageSize) || 5);
+      const total = filtered.length;
+      const totalPages = Math.max(1, Math.ceil(total / pageSize));
+      const currentPage = Math.min(Math.max(1, Number(pager.page) || 1), totalPages);
+      pager.page = currentPage;
+      const start = (currentPage - 1) * pageSize;
+      return {
+        filtered,
+        rows: filtered.slice(start, start + pageSize),
+        total,
+        currentPage,
+        totalPages,
+        pageSize
+      };
+    }
+
+    function renderSystemRow(page, record) {
+      const editBtn = `<button class="table-action-link" type="button" data-sys-edit="${page}" data-id="${record.id}">编辑</button>`;
+      const deleteBtn = `<button class="table-action-link" type="button" data-sys-delete="${page}" data-id="${record.id}">删除</button>`;
+      const viewBtn = `<button class="table-action-link" type="button" data-sys-view="${page}" data-id="${record.id}">查看</button>`;
+      if (page === "sys-menu") {
+        return `<tr><td><input type="checkbox" data-sys-select="${page}" data-id="${record.id}"${systemState.selectedIds[page]?.has(String(record.id)) ? " checked" : ""}></td><td><span style="margin-left:${Math.max(0, Number(record.level || 0)) * 16}px">${escapeHtml(record.menuName)}</span></td><td>${escapeHtml(record.type)}</td><td>${escapeHtml(record.path)}</td><td>${escapeHtml(record.perms || "-")}</td><td>${escapeHtml(record.orderNum)}</td><td>${getSystemStatusBadge(record.status)}</td><td>${viewBtn}${editBtn}${deleteBtn}</td></tr>`;
+      }
+      if (page === "sys-role") {
+        return `<tr><td><input type="checkbox" data-sys-select="${page}" data-id="${record.id}"${systemState.selectedIds[page]?.has(String(record.id)) ? " checked" : ""}></td><td>${escapeHtml(record.roleName)}</td><td>${escapeHtml(record.roleKey)}</td><td>${escapeHtml(record.dataScope)}</td><td>${escapeHtml(record.sort)}</td><td>${getSystemStatusBadge(record.status)}</td><td>${escapeHtml(record.remark)}</td><td>${viewBtn}${editBtn}${deleteBtn}</td></tr>`;
+      }
+      if (page === "sys-dict") {
+        return `<tr><td><input type="checkbox" data-sys-select="${page}" data-id="${record.id}"${systemState.selectedIds[page]?.has(String(record.id)) ? " checked" : ""}></td><td>${escapeHtml(record.dictName)}</td><td>${escapeHtml(record.dictType)}</td><td>${getSystemStatusBadge(record.status)}</td><td>${escapeHtml(record.remark)}</td><td>${escapeHtml(record.updatedAt)}</td><td>${viewBtn}${editBtn}${deleteBtn}</td></tr>`;
+      }
+      if (page === "sys-log") {
+        return `<tr><td><input type="checkbox" data-sys-select="${page}" data-id="${record.id}"${systemState.selectedIds[page]?.has(String(record.id)) ? " checked" : ""}></td><td>${escapeHtml(record.module)}</td><td>${escapeHtml(record.businessType)}</td><td>${escapeHtml(record.operator)}</td><td>${getSystemStatusBadge(record.status)}</td><td>${escapeHtml(record.ip)}</td><td>${escapeHtml(record.time)}</td><td>${viewBtn}${deleteBtn}</td></tr>`;
+      }
+      return `<tr><td><input type="checkbox" data-sys-select="${page}" data-id="${record.id}"${systemState.selectedIds[page]?.has(String(record.id)) ? " checked" : ""}></td><td>${escapeHtml(record.username)}</td><td>${escapeHtml(record.nickName)}</td><td><span class="sys-role-badge">${escapeHtml(record.roleName)}</span></td><td>${escapeHtml(record.dept)}</td><td>${escapeHtml(record.phone)}</td><td>${getSystemStatusBadge(record.status)}</td><td>${escapeHtml(record.createTime)}</td><td>${viewBtn}${editBtn}${deleteBtn}</td></tr>`;
+    }
+
+    function renderSystemPage(page) {
+      const cfg = SYSTEM_PAGE_CONFIGS[page];
+      const pageEl = document.getElementById(`page-${page}`);
+      if (!cfg || !pageEl) return;
+      const searchHtml = cfg.searchFields.map((field) => renderSystemSearchField(field, page)).join("");
+      const { rows, total, currentPage, totalPages, pageSize } = getSystemVisibleRecords(page);
+      const paginationHtml = page === "sys-menu"
+        ? `<div class="result-footer twod-result-footer">${renderSharedPaginationFooter({ total, currentPage, totalPages, pageSize, pageSizeId: "sysMenuPageSize", pageAttr: "data-sys-menu-page", jumpModule: "sys-menu" })}</div>`
+        : "";
+      pageEl.innerHTML = `
+        <div class="sys-page-shell">
+          <section class="sys-search-card card">
+            <div class="sys-search-grid">${searchHtml}</div>
+            <div class="twod-action-bar" style="margin-top:14px;"><div class="action-row"><button class="btn-primary" type="button" data-sys-search="${page}">查询</button><button class="btn" type="button" data-sys-reset="${page}">重置</button></div></div>
+          </section>
+          <section class="sys-table-card card">
+            <div class="sys-toolbar">
+              <div><h3>${cfg.title}</h3><p>${cfg.desc}</p></div>
+              <div class="sys-toolbar-actions"><span class="sys-count">共 <strong>${rows.length}</strong> 条</span><button class="btn-primary" type="button" data-sys-add="${page}">新增</button></div>
+            </div>
+            <div class="table-wrap twod-result-table-wrap"><table class="twod-result-table"><thead><tr><th style="width:44px;"><input type="checkbox" data-sys-select-all="${page}"></th>${cfg.headers.map((item) => `<th>${item}</th>`).join("")}</tr></thead><tbody>${rows.length ? rows.map((record) => renderSystemRow(page, record)).join("") : `<tr><td colspan="${cfg.headers.length + 1}"><div class="sys-empty">暂无数据</div></td></tr>`}</tbody></table></div>
+          </section>
+        </div>
+      `;
+    }
+
+    function renderSystemPages() {
+      Object.keys(SYSTEM_PAGE_CONFIGS).forEach((page) => renderSystemPage(page));
+    }
+
+    const baseRenderSystemPage = renderSystemPage;
+    renderSystemPage = function (page) {
+      baseRenderSystemPage(page);
+      const pageEl = document.getElementById(`page-${page}`);
+      if (!pageEl) return;
+      const { rows, total, currentPage, totalPages, pageSize } = getSystemVisibleRecords(page);
+      const countNode = pageEl.querySelector(".sys-count strong");
+      if (countNode) {
+        countNode.textContent = String(total);
+      }
+      const selectAllNode = pageEl.querySelector(`[data-sys-select-all="${page}"]`);
+      if (selectAllNode) {
+        selectAllNode.checked = rows.length > 0 && rows.every((record) => (systemState.selectedIds[page] || new Set()).has(String(record.id)));
+      }
+      if (page !== "sys-menu") return;
+      const tableCard = pageEl.querySelector(".sys-table-card");
+      if (!tableCard || tableCard.querySelector("[data-sys-menu-page]")) return;
+      tableCard.insertAdjacentHTML(
+        "beforeend",
+        `<div class="result-footer twod-result-footer">${renderSharedPaginationFooter({ total, currentPage, totalPages, pageSize, pageSizeId: "sysMenuPageSize", pageAttr: "data-sys-menu-page", jumpModule: "sys-menu" })}</div>`
+      );
+    };
+
+    function openSystemCrudModal(page, mode, id = null) {
+      const cfg = SYSTEM_PAGE_CONFIGS[page];
+      const body = document.getElementById("systemCrudModalBody");
+      const footer = document.getElementById("systemCrudModalFooter");
+      const title = document.getElementById("systemCrudModalTitle");
+      const subtitle = document.getElementById("systemCrudModalSubtitle");
+      const record = id == null ? {} : getSystemRecords(page).find((item) => String(item.id) === String(id)) || {};
+      systemState.modal = { page, mode, id };
+      if (title) title.textContent = `${cfg.title} - ${mode === "add" ? "新增" : mode === "edit" ? "编辑" : "查看"}`;
+      if (subtitle) subtitle.textContent = "支持基础增删改查";
+      body.innerHTML = `<form class="sys-modal-form" id="systemCrudForm"><div class="sys-form-grid">${cfg.formFields.map((field) => {
+        const value = record[field.key] ?? "";
+        const disabled = mode === "view" ? " disabled" : "";
+        if (field.type === "textarea") return `<div class="field" style="grid-column:1 / -1;"><label>${field.label}</label><textarea name="${field.key}"${disabled}>${escapeHtml(value)}</textarea></div>`;
+        if (field.type === "select") return `<div class="field"><label>${field.label}</label><select name="${field.key}"${disabled}>${(field.options || []).map((option) => `<option value="${escapeHtml(option)}"${String(option) === String(value) ? " selected" : ""}>${option}</option>`).join("")}</select></div>`;
+        return `<div class="field"><label>${field.label}</label><input name="${field.key}" type="${field.type === "number" ? "number" : "text"}" value="${escapeHtml(value)}"${disabled}></div>`;
+      }).join("")}</div></form>`;
+      footer.innerHTML = mode === "view"
+        ? `<button class="btn-primary" type="button" data-close-modal="systemCrudModal">关闭</button>`
+        : `<button class="btn" type="button" data-close-modal="systemCrudModal">取消</button><button class="btn-primary" type="button" data-sys-save="${page}">保存</button>`;
+      openModal("systemCrudModal");
+    }
+
+    function saveSystemRecord() {
+      const { page, mode, id } = systemState.modal;
+      const cfg = SYSTEM_PAGE_CONFIGS[page];
+      const form = document.getElementById("systemCrudForm");
+      if (!cfg || !form) return;
+      const payload = {};
+      cfg.formFields.forEach((field) => {
+        const input = form.elements.namedItem(field.key);
+        payload[field.key] = input ? String(input.value || "").trim() : "";
+      });
+      if (mode === "add") {
+        const nextId = Math.max(0, ...getSystemRecords(page).map((item) => Number(item.id) || 0)) + 1;
+        systemStore[cfg.dataKey].unshift({ id: nextId, createTime: new Date().toISOString().slice(0, 16).replace("T", " "), updatedAt: new Date().toISOString().slice(0, 16).replace("T", " "), ...payload });
+      } else {
+        const record = getSystemRecords(page).find((item) => String(item.id) === String(id));
+        if (record) Object.assign(record, payload, { updatedAt: new Date().toISOString().slice(0, 16).replace("T", " ") });
+      }
+      closeModal("systemCrudModal");
+      renderSystemPages();
+      showToast("保存成功", `${cfg.title} 已更新。`);
+    }
+
+    function deleteSystemRecords(page, ids) {
+      const cfg = SYSTEM_PAGE_CONFIGS[page];
+      if (!ids.length) return;
+      if (!confirm(`确认删除选中的 ${ids.length} 条记录吗？`)) return;
+      systemStore[cfg.dataKey] = getSystemRecords(page).filter((item) => !ids.includes(String(item.id)));
+      systemState.selectedIds[page] = new Set();
+      renderSystemPages();
+      showToast("删除成功", `${cfg.title} 已删除选中记录。`);
+    }
+
+    function bindSystemManagementInteractions() {
+      if (document.body.dataset.systemBound === "true") return;
+      document.body.dataset.systemBound = "true";
+      document.body.addEventListener("click", (event) => {
+        const searchBtn = event.target.closest("[data-sys-search]");
+        const resetBtn = event.target.closest("[data-sys-reset]");
+        const addBtn = event.target.closest("[data-sys-add]");
+        const editBtn = event.target.closest("[data-sys-edit]");
+        const viewBtn = event.target.closest("[data-sys-view]");
+        const deleteBtn = event.target.closest("[data-sys-delete]");
+        const batchDeleteBtn = event.target.closest("[data-sys-batch-delete]");
+        const batchEditBtn = event.target.closest("[data-sys-batch-edit]");
+        const refreshBtn = event.target.closest("[data-sys-refresh]");
+        const saveBtn = event.target.closest("[data-sys-save]");
+        const closeBtn = event.target.closest('[data-close-modal="systemCrudModal"]');
+
+        if (searchBtn) {
+          const page = searchBtn.dataset.sysSearch;
+          document.querySelectorAll(`[data-sys-page="${page}"][data-sys-search-field]`).forEach((field) => {
+            systemState.search[page][field.dataset.sysSearchField] = field.value || "";
+          });
+          if (page === "sys-menu") {
+            getSystemPaginationState(page).page = 1;
+          }
+          renderSystemPage(page);
+        } else if (resetBtn) {
+          const page = resetBtn.dataset.sysReset;
+          systemState.search[page] = Object.fromEntries(Object.keys(systemState.search[page]).map((key) => [key, ""]));
+          if (page === "sys-menu") {
+            getSystemPaginationState(page).page = 1;
+          }
+          renderSystemPage(page);
+        } else if (addBtn) {
+          openSystemCrudModal(addBtn.dataset.sysAdd, "add");
+        } else if (editBtn) {
+          openSystemCrudModal(editBtn.dataset.sysEdit, "edit", editBtn.dataset.id);
+        } else if (viewBtn) {
+          openSystemCrudModal(viewBtn.dataset.sysView, "view", viewBtn.dataset.id);
+        } else if (deleteBtn) {
+          deleteSystemRecords(deleteBtn.dataset.sysDelete, [String(deleteBtn.dataset.id)]);
+        } else if (batchDeleteBtn) {
+          const page = batchDeleteBtn.dataset.sysBatchDelete;
+          deleteSystemRecords(page, Array.from(systemState.selectedIds[page] || []));
+        } else if (batchEditBtn) {
+          const page = batchEditBtn.dataset.sysBatchEdit;
+          const selected = Array.from(systemState.selectedIds[page] || []);
+          if (selected.length !== 1) {
+            showToast("编辑提示", "请选择一条记录进行编辑。");
+          } else {
+            openSystemCrudModal(page, "edit", selected[0]);
+          }
+        } else if (refreshBtn) {
+          renderSystemPage(refreshBtn.dataset.sysRefresh);
+        } else if (saveBtn) {
+          saveSystemRecord();
+        } else if (closeBtn) {
+          closeModal("systemCrudModal");
+        }
+
+        const selectAll = event.target.closest("[data-sys-select-all]");
+        const selectItem = event.target.closest("[data-sys-select]");
+        if (selectAll) {
+          const page = selectAll.dataset.sysSelectAll;
+          const visibleRows = getSystemVisibleRecords(page).rows;
+          const currentSet = new Set(systemState.selectedIds[page] || []);
+          if (selectAll.checked) {
+            visibleRows.forEach((item) => currentSet.add(String(item.id)));
+          } else {
+            visibleRows.forEach((item) => currentSet.delete(String(item.id)));
+          }
+          systemState.selectedIds[page] = currentSet;
+          renderSystemPage(page);
+        } else if (selectItem) {
+          const page = selectItem.dataset.sysSelect;
+          const set = systemState.selectedIds[page] || new Set();
+          if (selectItem.checked) set.add(String(selectItem.dataset.id)); else set.delete(String(selectItem.dataset.id));
+          systemState.selectedIds[page] = set;
+          if (page === "sys-menu") {
+            renderSystemPage(page);
+          }
+        }
+      });
+    }
+
+    const baseUpdateBreadcrumbForSystem = updateBreadcrumb;
+    updateBreadcrumb = function (page) {
+      const meta = SYSTEM_PAGE_META[page];
+      if (meta) {
+        const breadcrumb = document.getElementById("breadcrumb");
+        if (!breadcrumb) return;
+        breadcrumb.innerHTML = `<span>系统管理</span><span>/</span><strong>${meta.title}</strong>`;
+        return;
+      }
+      baseUpdateBreadcrumbForSystem(page);
+    };
+
+    const baseSyncPageMetaForSystem = syncPageMeta;
+    syncPageMeta = function (page) {
+      const meta = SYSTEM_PAGE_META[page];
+      if (meta) {
+        setOpenSidebarGroup(meta.group);
+        document.querySelectorAll(".portal-link").forEach((node) => {
+          node.classList.toggle("active", node.dataset.portal === meta.portal);
+        });
+        updateBreadcrumb(page);
+        return;
+      }
+      baseSyncPageMetaForSystem(page);
+    };
+
     function init() {
       bindSidebar();
       bindPageSwitching();
       bindLoginInteractions();
+      renderSystemPages();
+      bindSystemManagementInteractions();
       bindTabs();
       bindTwodInteractions();
       bindUnifiedPaginationActions();
