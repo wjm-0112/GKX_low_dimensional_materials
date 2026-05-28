@@ -9176,21 +9176,20 @@
       line-height: 22px;
     }
 
-    .twod-visual-gallery-list {
+    .twod-visual-gallery-grid {
       display: grid;
-      gap: 14px;
+      gap: 18px;
     }
 
     .twod-visual-thumb {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 16px;
-      align-items: center;
+      gap: 14px;
       border: 1px solid #dce6f8;
       border-radius: 18px;
       background: #ffffff;
-      padding: 16px 18px;
+      padding: 18px;
       box-shadow: 0 10px 24px rgba(48, 86, 163, 0.06);
+      cursor: default;
     }
 
     .twod-visual-thumb.active {
@@ -9235,6 +9234,122 @@
       gap: 10px;
       flex-wrap: wrap;
       justify-content: flex-end;
+    }
+
+    .twod-visual-gallery-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .twod-visual-gallery-head h5 {
+      margin: 0;
+      color: #203555;
+      font-size: 18px;
+      line-height: 28px;
+    }
+
+    .twod-visual-gallery-head p {
+      margin: 6px 0 0;
+      color: #5d7391;
+      font-size: 13px;
+      line-height: 22px;
+    }
+
+    .twod-visual-gallery-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #eef4ff;
+      color: #2451c6;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .twod-visual-gallery-desc {
+      display: grid;
+      gap: 12px;
+    }
+
+    .twod-visual-gallery-desc details {
+      border: 1px solid #d9e5f7;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(246,250,255,0.98) 100%);
+      overflow: hidden;
+    }
+
+    .twod-visual-gallery-desc summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 14px 18px;
+      color: #264061;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .twod-visual-gallery-desc summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .twod-visual-gallery-desc summary::after {
+      content: "展开";
+      color: #6b80a0;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .twod-visual-gallery-desc details[open] summary::after {
+      content: "收起";
+    }
+
+    .twod-visual-gallery-desc-body {
+      padding: 0 18px 16px;
+      color: #5d7391;
+      font-size: 13px;
+      line-height: 22px;
+    }
+
+    .twod-visual-thumb-stage {
+      border: 1px solid #dfe8f8;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #fcfdff 0%, #f5f9ff 100%);
+      padding: 10px;
+      min-height: 280px;
+    }
+
+    .twod-visual-thumb-stage .material-line-chart-svg,
+    .twod-visual-thumb-stage .material-diagram-stage {
+      width: 100%;
+      height: 280px;
+      min-height: 280px;
+    }
+
+    .twod-visual-thumb-download {
+      justify-self: end;
+      border: 1px solid #d0ddf5;
+      border-radius: 10px;
+      background: #ffffff;
+      color: #264c94;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .twod-visual-thumb-download:hover {
+      border-color: #2451c6;
+      color: #1b42a7;
+      background: #f4f8ff;
     }
 
     .twod-visual-empty {
@@ -13091,6 +13206,7 @@
       <div class="modal-body modal-scroll" id="electrolyteUploadWizard"></div>
       <div class="modal-footer" id="electrolyteUploadFooter"></div>
       <input id="electrolyteUploadFileInput" type="file" hidden>
+      <input id="electrolyteUploadFileInputV2" type="file" hidden>
     </div>
   </div>
 
@@ -13411,6 +13527,7 @@
         <button class="btn" type="button" data-close-modal="mlffUploadModal">取消</button>
         <button class="btn-primary" type="button" id="mlffUploadSubmitBtn">确认上传</button>
       </div>
+      <input id="mlffUploadFileInputV2" type="file" hidden>
     </div>
   </div>
 
@@ -13547,6 +13664,7 @@
       <div class="modal-body modal-scroll" id="catalystUploadWizard"></div>
       <div class="modal-footer" id="catalystUploadFooter"></div>
       <input id="catalystUploadFileInput" type="file" hidden>
+      <input id="catalystUploadFileInputV2" type="file" hidden>
     </div>
   </div>
 
@@ -38626,6 +38744,44 @@
           min-width: 96px;
           justify-content: center;
         }
+        .mlff-basic-visual-card {
+          min-height: 100%;
+          padding: 18px 18px 16px;
+          display: grid;
+          gap: 14px;
+        }
+        .mlff-basic-visual-card .mlff-structure-stage {
+          min-height: 360px;
+          display: grid;
+          align-content: center;
+          justify-items: center;
+          gap: 16px;
+        }
+        .mlff-basic-visual-card .material-atom-cluster.mlff-scene {
+          width: 100%;
+          min-height: 280px;
+        }
+        .mlff-basic-visual-caption {
+          margin: 0;
+          color: #617695;
+          font-size: 13px;
+          line-height: 22px;
+          text-align: center;
+        }
+        #page-twod-detail[data-source="mlff"] .twod-detail-table-card {
+          padding: 18px 18px 16px;
+        }
+        #page-twod-detail[data-source="mlff"] .detail-kv-stack {
+          gap: 12px;
+        }
+        #page-twod-detail[data-source="mlff"] .detail-kv-item {
+          min-height: 0;
+        }
+        #page-twod-detail[data-source="mlff"] .detail-kv-label,
+        #page-twod-detail[data-source="mlff"] .detail-kv-value {
+          padding-top: 14px;
+          padding-bottom: 14px;
+        }
         @media (max-width: 900px) {
           #page-mlff .twod-mode-selector {
             width: 100%;
@@ -39055,6 +39211,7 @@
         { label: "PDB结构文件下载", value: `<div class="mlff-inline-actions"><button class="twod-detail-link-btn" type="button" onclick="return triggerMlffDownload('pdb')">下载</button><span>包含原子种类和原子三维坐标</span></div>` },
         { label: "XML力场文件下载", value: `<div class="mlff-inline-actions"><button class="twod-detail-link-btn" type="button" onclick="return triggerMlffDownload('xml')">下载</button><span>包含力场参数映射和结构节点信息</span></div>` }
       ];
+      const scene = buildMlffScene(material, "molecule");
       return `
         <div class="twod-detail-page-head">
           <div>
@@ -39062,7 +39219,6 @@
             <p>展示当前机器学习力场材料的基础信息与文件下载入口。</p>
           </div>
         </div>
-        ${buildMlffSectionFactCards(material)}
         <div class="twod-basic-card-grid">
           <section class="twod-detail-table-card">
             <h5 class="twod-detail-basic-title">基础信息</h5>
@@ -39071,20 +39227,11 @@
               ${renderDetailKvSection("文件下载", fileRows)}
             </div>
           </section>
-          <section class="twod-detail-visual-card">
-            <h5>分子结构预览</h5>
+          <section class="twod-detail-visual-card mlff-basic-visual-card">
+            <h5 class="twod-detail-basic-title">3D分子结构图</h5>
             <div class="mlff-structure-stage">
-              <div class="material-atom-cluster mlff-scene" data-mlff-scene-size="${buildMlffScene(material, "molecule").size}">${renderMlffSceneMarkup(buildMlffScene(material, "molecule"))}</div>
-              <div class="material-legend">${buildMlffScene(material, "molecule").legend.map((item) => {
-                const border = String(item.color).toLowerCase() === "#ffffff" || String(item.color).toLowerCase() === "#fff" || String(item.color).toLowerCase() === "#edf2fb" ? "border:1px solid #c7d5eb;" : "";
-                return `<span><i class="legend-dot" style="background:${item.color}; ${border}"></i>${item.label}</span>`;
-              }).join("")}</div>
-              <div class="chart-caption">${buildMlffScene(material, "molecule").caption}</div>
-            </div>
-            <div class="twod-structure-meta">
-              <article class="twod-structure-meta-item"><span>能量</span><strong>${material.energy} kcal/mol</strong></article>
-              <article class="twod-structure-meta-item"><span>偶极矩</span><strong>${material.dipole} D</strong></article>
-              <article class="twod-structure-meta-item"><span>数据来源</span><strong>${material.source}</strong></article>
+              <div class="material-atom-cluster mlff-scene" data-mlff-scene-size="${scene.size}">${renderMlffSceneMarkup(scene)}</div>
+              <p class="mlff-basic-visual-caption">${material.name} 的 3D 分子结构示意图，用于展示当前力场样本的原子组成与空间构型。</p>
             </div>
           </section>
         </div>
@@ -39092,7 +39239,6 @@
     }
 
     function renderMlffChargePage(material) {
-      const chart = buildMlffChargeChart(material);
       return `
         <div class="twod-detail-page-head">
           <div>
@@ -39100,16 +39246,6 @@
             <p>展示当前材料的原子电荷分布和对应的数值明细。</p>
           </div>
         </div>
-        ${buildMlffSectionFactCards(material)}
-        <section class="twod-detail-chart-card">
-          <h5>${material.name} 电荷分布</h5>
-          <div class="line-chart">${buildChartSvg(chart)}</div>
-          <div class="twod-chart-axis-note">
-            <span>X 轴：${chart.axisX}</span>
-            <span>Y 轴：${chart.axisY}</span>
-          </div>
-          <div class="chart-caption">电荷数据根据系统当前记录的原子电荷参数生成。</div>
-        </section>
         <section class="twod-detail-section-card">
           <h5>原子电荷明细</h5>
           <table class="mlff-data-table">
@@ -39131,7 +39267,6 @@
             <p>展示当前材料的偶极矩及相关参数摘要。</p>
           </div>
         </div>
-        ${buildMlffSectionFactCards(material)}
         <section class="twod-detail-section-card">
           <h5>多级矩参数摘要</h5>
           <div class="mlff-section-kpis">
@@ -39155,8 +39290,13 @@
     }
 
     function renderMlffStructurePage(material, tabKey, titleText, descText) {
-      const scene = buildMlffScene(material, tabKey);
       const facts = buildMlffDetailFacts(material, tabKey);
+      const structureRows = [
+        ...facts,
+        { label: "原子组成", value: material.atoms },
+        { label: "键长信息", value: material.bond },
+        { label: "引用说明", value: material.citation }
+      ];
       return `
         <div class="twod-detail-page-head">
           <div>
@@ -39164,32 +39304,10 @@
             <p>${descText}</p>
           </div>
         </div>
-        ${buildMlffSectionFactCards(material)}
-        <div class="twod-basic-card-grid">
-          <section class="twod-detail-visual-card">
-            <h5>${titleText}预览</h5>
-            <div class="mlff-structure-stage">
-              <div class="material-atom-cluster mlff-scene" data-mlff-scene-size="${scene.size}">${renderMlffSceneMarkup(scene)}</div>
-              <div class="material-legend">${scene.legend.map((item) => {
-                const border = String(item.color).toLowerCase() === "#ffffff" || String(item.color).toLowerCase() === "#fff" || String(item.color).toLowerCase() === "#edf2fb" ? "border:1px solid #c7d5eb;" : "";
-                return `<span><i class="legend-dot" style="background:${item.color}; ${border}"></i>${item.label}</span>`;
-              }).join("")}</div>
-              <div class="chart-caption">${scene.caption}</div>
-            </div>
-          </section>
-          <section class="twod-detail-table-card">
-            <h5 class="twod-detail-material-title">${titleText}信息</h5>
-            <table class="twod-detail-info-table">
-              <tbody>
-                <tr><th colspan="2">${titleText}</th></tr>
-                ${facts.map((item) => `<tr><td class="is-row-head">${item.label}</td><td>${item.value}</td></tr>`).join("")}
-                <tr><td class="is-row-head">原子组成</td><td>${material.atoms}</td></tr>
-                <tr><td class="is-row-head">键长信息</td><td>${material.bond}</td></tr>
-                <tr><td class="is-row-head">引用说明</td><td>${material.citation}</td></tr>
-              </tbody>
-            </table>
-          </section>
-        </div>
+        <section class="twod-detail-table-card">
+          <h5 class="twod-detail-material-title">${titleText}信息</h5>
+          ${renderDetailKvSection("", structureRows)}
+        </section>
       `;
     }
 
@@ -39215,6 +39333,8 @@
       const title = document.getElementById("twodDetailPageTitle");
       const subtitle = document.getElementById("twodDetailPageSubtitle");
       const content = document.getElementById("twodDetailPageContent");
+      const page = document.getElementById("page-twod-detail");
+      if (page) page.setAttribute("data-source", "mlff");
       if (title) title.textContent = `${material.name} 材料详情`;
       if (subtitle) subtitle.textContent = `材料编号：${material.id} / 查看基础信息、电荷、多级矩及不同尺度结构内容。`;
       if (!content) return;
@@ -40010,7 +40130,7 @@
             <p>展示当前有机电解液分子的基本信息、物性信息、安全信息与三维结构。</p>
           </div>
           <div class="twod-detail-page-action">
-            <button class="btn-primary" type="button" onclick="return triggerElectrolyteDetailDownload('section', 'basic')">下载</button>
+            <button class="btn-primary" type="button" onclick="return triggerElectrolyteDetailDownload('section', 'basic')">结构文件下载</button>
           </div>
         </div>
         ${buildElectrolyteSummaryPills(material)}
@@ -40044,10 +40164,9 @@
             <p>展示当前有机电解液的电子结构与热力学相关计算数据。</p>
           </div>
           <div class="twod-detail-page-action">
-            <button class="btn-primary" type="button" onclick="return triggerElectrolyteDetailDownload('section', 'compute')">下载</button>
+            <button class="btn-primary" type="button" onclick="return triggerElectrolyteDetailDownload('section', 'compute')">计算信息下载</button>
           </div>
         </div>
-        ${buildElectrolyteSummaryPills(material)}
         <section class="twod-detail-section-card">
           <h5>${material.name}计算数据</h5>
           <table class="twod-detail-info-table">
@@ -40069,24 +40188,6 @@
             <p>展示与当前分子相似的候选体系，仅保留文字归纳，不再展示推荐图像。</p>
           </div>
         </div>
-        ${buildElectrolyteSummaryPills(material)}
-        <section class="twod-detail-section-card">
-          <h5>文字归纳</h5>
-          <div class="electrolyte-reference-list">
-            <article class="electrolyte-reference-item">
-              <strong>相似度依据</strong>
-              <span>${material.similarityTrend || "依据介电常数、黏度、氧化稳定窗与成膜能力进行综合相似度评估。"}</span>
-            </article>
-            <article class="electrolyte-reference-item">
-              <strong>推荐结论</strong>
-              <span>${rows.map((item) => item.value).join(" / ") || "当前材料的推荐分子以高极性、低副反应倾向体系为主。"}</span>
-            </article>
-            <article class="electrolyte-reference-item">
-              <strong>使用建议</strong>
-              <span>可优先用于高电压电解液体系筛选与配方初选。</span>
-            </article>
-          </div>
-        </section>
         <section class="twod-detail-section-card">
           <h5>推荐结果</h5>
           <table class="twod-detail-info-table">
@@ -40122,7 +40223,7 @@
             <p>展示当前固态有机电解质的基础信息、单体信息、物性数据与三维结构。</p>
           </div>
           <div class="twod-detail-page-action">
-            <button class="btn-primary" type="button" onclick="return triggerElectrolyteDetailDownload('section', 'basic')">下载</button>
+            <button class="btn-primary" type="button" onclick="return triggerElectrolyteDetailDownload('section', 'basic')">结构文件下载</button>
           </div>
         </div>
         ${buildElectrolyteSummaryPills(material)}
@@ -40150,10 +40251,9 @@
             <p>展示当前固态有机电解质的热容、结合能等计算数据。</p>
           </div>
           <div class="twod-detail-page-action">
-            <button class="btn-primary" type="button" onclick="return triggerElectrolyteDetailDownload('section', 'compute')">下载</button>
+            <button class="btn-primary" type="button" onclick="return triggerElectrolyteDetailDownload('section', 'compute')">计算信息下载</button>
           </div>
         </div>
-        ${buildElectrolyteSummaryPills(material)}
         <section class="twod-detail-section-card">
           <h5>计算数据</h5>
           <table class="twod-detail-info-table">
@@ -40175,24 +40275,6 @@
             <p>展示当前固态有机电解质的推荐溶剂，仅保留文字描述，不再展示图像。</p>
           </div>
         </div>
-        ${buildElectrolyteSummaryPills(material)}
-        <section class="twod-detail-section-card">
-          <h5>文字归纳</h5>
-          <div class="electrolyte-reference-list">
-            <article class="electrolyte-reference-item">
-              <strong>相容性结论</strong>
-              <span>${rows.find((item) => item.label.includes("相容"))?.value || "推荐溶剂以高相容性、低界面副反应为优先原则。"}</span>
-            </article>
-            <article class="electrolyte-reference-item">
-              <strong>溶剂建议</strong>
-              <span>${rows.find((item) => item.label.includes("推荐溶剂"))?.value || "优先选择醚类与低黏度体系，提升浸润和离子传输性能。"}</span>
-            </article>
-            <article class="electrolyte-reference-item">
-              <strong>配方提示</strong>
-              <span>${rows.find((item) => item.label.includes("推荐理由"))?.value || "适合用于固态有机电解质前驱体溶胀和工艺窗口筛选。"}</span>
-            </article>
-          </div>
-        </section>
         <section class="twod-detail-section-card">
           <h5>推荐溶剂</h5>
           <table class="twod-detail-info-table">
@@ -40225,7 +40307,7 @@
             <p>展示当前固态无机电解质的基础信息、晶胞参数、晶系与结构文件下载入口。</p>
           </div>
           <div class="twod-detail-page-action">
-            <button class="btn-primary" type="button" onclick="return triggerElectrolyteDetailDownload('section', 'basic')">下载</button>
+            <button class="btn-primary" type="button" onclick="return triggerElectrolyteDetailDownload('section', 'basic')">结构文件下载</button>
           </div>
         </div>
         ${buildElectrolyteSummaryPills(material)}
@@ -40296,10 +40378,9 @@
             <p>展示当前固态无机电解质的形成能、费米能级、带隙等计算数据。</p>
           </div>
           <div class="twod-detail-page-action">
-            <button class="btn-primary" type="button" onclick="return triggerElectrolyteDetailDownload('section', 'compute')">下载</button>
+            <button class="btn-primary" type="button" onclick="return triggerElectrolyteDetailDownload('section', 'compute')">计算信息下载</button>
           </div>
         </div>
-        ${buildElectrolyteSummaryPills(material)}
         <section class="twod-detail-section-card">
           <h5>计算数据</h5>
           <table class="twod-detail-info-table">
@@ -40342,7 +40423,6 @@
             <p>展示当前有机电解液的红外、拉曼与核磁共振谱图信息，并支持下载。</p>
           </div>
         </div>
-        ${buildElectrolyteSummaryPills(material)}
         ${renderElectrolyteVisualBlock(material, ["ir", "raman", "nmr"])}
       `;
     }
@@ -40355,7 +40435,6 @@
             <p>展示当前固态无机电解质的能带结构、态密度、X射线衍射与吸收谱图信息。</p>
           </div>
         </div>
-        ${buildElectrolyteSummaryPills(material)}
         ${renderElectrolyteVisualBlock(material, ["band", "dos", "xrd", "absorption"])}
       `;
     }
@@ -40369,24 +40448,6 @@
             <p>展示与当前固态无机电解质相关的推荐体系，仅保留文字归纳，不再展示图像。</p>
           </div>
         </div>
-        ${buildElectrolyteSummaryPills(material)}
-        <section class="twod-detail-section-card">
-          <h5>文字归纳</h5>
-          <div class="electrolyte-reference-list">
-            <article class="electrolyte-reference-item">
-              <strong>推荐逻辑</strong>
-              <span>基于晶体骨架、阴阳离子配位环境与离子迁移通道相似性进行筛选。</span>
-            </article>
-            <article class="electrolyte-reference-item">
-              <strong>体系归纳</strong>
-              <span>${rows.map((item) => item.value).join(" / ") || "当前材料暂无可归纳的相关体系。"}</span>
-            </article>
-            <article class="electrolyte-reference-item">
-              <strong>应用提示</strong>
-              <span>适合作为横向材料对比和离子传导机制类比的参考体系。</span>
-            </article>
-          </div>
-        </section>
         <section class="twod-detail-section-card">
           <h5>相关体系推荐</h5>
           <table class="twod-detail-info-table">
@@ -40411,7 +40472,6 @@
             <p>仅展示参考文献数量、主要来源与代表性说明，不再展开完整映射列表。</p>
           </div>
         </div>
-        ${buildElectrolyteSummaryPills(material)}
         <section class="twod-detail-section-card">
           <h5>参考文献概览</h5>
           <div class="electrolyte-reference-summary-grid">
@@ -43381,33 +43441,51 @@
       const { visualTabs, visuals, currentKey } = getTwodVisualProfile(material, state.selectedMaterialVisual);
       state.selectedMaterialVisual = currentKey;
       const hasVisuals = visualTabs.length > 0;
+      const displayTabs = visualTabs.filter((item) => visuals[item.key]).slice(0, 5);
       return `
         <div class="twod-detail-page-head">
           <div>
             <h4>物理性质可视化图集</h4>
-            <p>${material.name} 的多类物理性质可视化资源统一展示。</p>
-          </div>
-          <div class="twod-detail-page-action">
-            <button class="btn-primary" type="button" data-twod-download="visual-page"${hasVisuals ? "" : " disabled"}>下载</button>
+            <p>本模块收录该材料的晶体结构、电子性质、光学特性等多类物理性质可视化图谱，后续将根据实际数据集进行展示。</p>
           </div>
         </div>
-        <div class="twod-visual-gallery-intro">本模块收录该材料的晶体结构、电子性质、光学特性等多类物理性质可视化图谱</div>
-        ${hasVisuals ? `
+        <section class="twod-visual-gallery-desc">
+          <div class="twod-visual-gallery-intro">
+            围绕当前材料的电子结构、热学稳定性、光学响应与缺陷特征等方向，页面仅展示系统当前已收录的可视化图谱内容。
+          </div>
+          <details>
+            <summary>支持的图类说明</summary>
+            <div class="twod-visual-gallery-desc-body">
+              支持展示能带结构、态密度、声子谱、光学系数、缺陷结构等典型图谱，用于辅助观察材料在能级分布、稳定性、吸收响应以及缺陷演化方面的变化趋势。具体呈现内容将随当前材料的实际数据情况动态加载。
+            </div>
+          </details>
+        </section>
+        ${hasVisuals && displayTabs.length ? `
           <section class="twod-visual-gallery-grid">
-            ${visualTabs.map((item) => {
+            ${displayTabs.map((item, index) => {
               const config = visuals[item.key];
               if (!config) return "";
               return `
-                <article class="twod-visual-thumb${item.key === currentKey ? " active" : ""}" data-twod-visual-preview="${item.key}" title="${item.label}">
-                  <div class="twod-visual-thumb-stage">${buildChartSvg(config)}</div>
-                  <button class="twod-visual-thumb-download" type="button" data-twod-visual-download="${item.key}">下载</button>
+                <article class="twod-visual-thumb${item.key === currentKey ? " active" : ""}">
+                  <div class="twod-visual-gallery-head">
+                    <div>
+                      <span class="twod-visual-thumb-index">图谱 ${index + 1}</span>
+                      <h5>${item.label}</h5>
+                      <p>${material.name} 的${item.label}静态预览，支持查看图中坐标轴、图例与趋势分布。</p>
+                    </div>
+                    <div class="twod-visual-thumb-actions">
+                      <span class="twod-visual-gallery-note">静态预览</span>
+                      <button class="twod-visual-thumb-download" type="button" data-twod-visual-download="${item.key}">下载</button>
+                    </div>
+                  </div>
+                  <div class="twod-visual-thumb-stage" data-twod-visual-preview="${item.key}" title="${item.label}">${buildChartSvg(config)}</div>
                 </article>
               `;
             }).join("")}
           </section>
         ` : `
           <div class="twod-visual-empty">
-            <h5>暂无该材料相关物理性质可视化图像，资源持续补充中</h5>
+            <h5>该材料暂无物理性质可视化图谱，后续将根据数据补充更新。</h5>
           </div>
         `}
       `;
@@ -43868,6 +43946,12 @@
         materialType: getElectrolyteCategoryLabel(state.electrolyteCategory),
         dataSource: "实验测量"
       };
+      const input = document.getElementById("electrolyteUploadFileInputV2");
+      if (input) input.value = "";
+    }
+
+    function canProceedElectrolyteUploadV2() {
+      return Boolean(state.electrolyteUploadDraft?.fileName);
     }
 
     function canSubmitElectrolyteUploadV2() {
@@ -43907,7 +43991,6 @@
                 </div>
                 <button class="btn-primary" type="button" data-ely-upload-open-v2>点击上传</button>
               </div>
-              <input id="electrolyteUploadFileInputV2" type="file" hidden>
               <div class="twod-upload-file-list upload-asset-panel">${buildSimpleUploadFileSummary(draft)}</div>
             </div>
           </section>
@@ -43958,7 +44041,7 @@
         </div>
       `;
       footer.innerHTML = state.electrolyteUploadStep === 1
-        ? `<button class="btn" type="button" data-close-modal="electrolyteUploadModal">取消</button><button class="btn-primary" type="button" data-ely-upload-next-v2 ${draft.fileName ? "" : "disabled"}>下一步</button>`
+        ? `<button class="btn" type="button" data-close-modal="electrolyteUploadModal">取消</button><button class="btn-primary" type="button" data-ely-upload-next-v2 ${canProceedElectrolyteUploadV2() ? "" : "disabled"}>下一步</button>`
         : `<button class="btn" type="button" data-ely-upload-prev-v2>上一步</button><button class="btn-primary" type="button" data-ely-upload-submit-v2 ${canSubmitElectrolyteUploadV2() ? "" : "disabled"}>提交审核</button>`;
     }
 
@@ -44059,6 +44142,18 @@
       });
     }
 
+    function ensureElectrolyteUploadEntrypointsV2() {
+      document.querySelectorAll("[data-ely-open-add]").forEach((button) => {
+        if (button.dataset.uploadOverrideBound === "true") return;
+        button.dataset.uploadOverrideBound = "true";
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          openElectrolyteUploadModal();
+        }, true);
+      });
+    }
+
     function getMlffUploadTypeOptions() {
       return ["分子结构", "电荷参数", "多极矩参数", "小体系结构", "大体系结构"];
     }
@@ -44079,6 +44174,12 @@
         materialType: "分子结构",
         dataSource: "实验计算"
       };
+      const input = document.getElementById("mlffUploadFileInputV2");
+      if (input) input.value = "";
+    }
+
+    function canProceedMlffUploadV2() {
+      return Boolean(state.mlffUploadDraft?.fileName);
     }
 
     function canSubmitMlffUploadV2() {
@@ -44120,7 +44221,6 @@
                 </div>
                 <button class="btn-primary" type="button" data-mlff-upload-open-v2>点击上传</button>
               </div>
-              <input id="mlffUploadFileInputV2" type="file" hidden>
               <div class="twod-upload-file-list upload-asset-panel">${buildSimpleUploadFileSummary(draft)}</div>
             </div>
           </section>
@@ -44170,7 +44270,7 @@
         </div>
       `;
       footer.innerHTML = state.mlffUploadStep === 1
-        ? `<button class="btn" type="button" data-close-modal="mlffUploadModal">取消</button><button class="btn-primary" type="button" data-mlff-upload-next-v2 ${draft.fileName ? "" : "disabled"}>下一步</button>`
+        ? `<button class="btn" type="button" data-close-modal="mlffUploadModal">取消</button><button class="btn-primary" type="button" data-mlff-upload-next-v2 ${canProceedMlffUploadV2() ? "" : "disabled"}>下一步</button>`
         : `<button class="btn" type="button" data-mlff-upload-prev-v2>上一步</button><button class="btn-primary" type="button" data-mlff-upload-submit-v2 ${canSubmitMlffUploadV2() ? "" : "disabled"}>提交审核</button>`;
     }
 
@@ -44264,6 +44364,18 @@
       });
     }
 
+    function ensureMlffUploadEntrypointsV2() {
+      document.querySelectorAll("[data-mlff-open-upload]").forEach((button) => {
+        if (button.dataset.uploadOverrideBound === "true") return;
+        button.dataset.uploadOverrideBound = "true";
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          openMlffUploadModal();
+        }, true);
+      });
+    }
+
     function getCatalystUploadTypeOptions() {
       return ["HER催化材料", "OER催化材料", "ORR催化材料", "CO2RR催化材料"];
     }
@@ -44284,6 +44396,12 @@
         materialType: "HER催化材料",
         dataSource: "实验测量"
       };
+      const input = document.getElementById("catalystUploadFileInputV2");
+      if (input) input.value = "";
+    }
+
+    function canProceedCatalystUploadV2() {
+      return Boolean(state.catalystUploadDraft?.fileName);
     }
 
     function canSubmitCatalystUploadV2() {
@@ -44322,7 +44440,6 @@
                 </div>
                 <button class="btn-primary" type="button" data-catalyst-upload-open-v2>点击上传</button>
               </div>
-              <input id="catalystUploadFileInputV2" type="file" hidden>
               <div class="twod-upload-file-list upload-asset-panel">${buildSimpleUploadFileSummary(draft)}</div>
             </div>
           </section>
@@ -44372,7 +44489,7 @@
         </div>
       `;
       footer.innerHTML = state.catalystUploadStep === 1
-        ? `<button class="btn" type="button" data-close-modal="catalystUploadModal">取消</button><button class="btn-primary" type="button" data-catalyst-upload-next-v2 ${draft.fileName ? "" : "disabled"}>下一步</button>`
+        ? `<button class="btn" type="button" data-close-modal="catalystUploadModal">取消</button><button class="btn-primary" type="button" data-catalyst-upload-next-v2 ${canProceedCatalystUploadV2() ? "" : "disabled"}>下一步</button>`
         : `<button class="btn" type="button" data-catalyst-upload-prev-v2>上一步</button><button class="btn-primary" type="button" data-catalyst-upload-submit-v2 ${canSubmitCatalystUploadV2() ? "" : "disabled"}>提交审核</button>`;
     }
 
@@ -44463,6 +44580,18 @@
           renderCatalystModule();
           showToast("数据上传", "文件已提交审核，审核通过后将写入催化材料数据库。");
         }
+      });
+    }
+
+    function ensureCatalystUploadEntrypointsV2() {
+      document.querySelectorAll("[data-catalyst-open-add], [data-catalyst-open-upload]").forEach((button) => {
+        if (button.dataset.uploadOverrideBound === "true") return;
+        button.dataset.uploadOverrideBound = "true";
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          openCatalystUploadWorkflow();
+        }, true);
       });
     }
 
@@ -44591,6 +44720,9 @@
     bindElectrolyteUploadWizardOverride();
     bindMlffUploadWizardOverride();
     bindCatalystUploadWizardOverride();
+    ensureElectrolyteUploadEntrypointsV2();
+    ensureMlffUploadEntrypointsV2();
+    ensureCatalystUploadEntrypointsV2();
     bindCatalystSiteWorkbenchOverrides();
     bindCatalystBuildReadonlyOverrides();
     normalizeTwodUtilityEntrances();
