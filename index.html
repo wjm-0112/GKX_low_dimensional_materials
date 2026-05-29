@@ -10321,6 +10321,130 @@
       line-height: 22px;
     }
 
+    .electrolyte-query-tabs {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #dde7f4;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .electrolyte-query-tab {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid #d9e4f4;
+      background: #f6f9ff;
+      color: #425c7f;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 700;
+    }
+
+    .electrolyte-inline-query-shell {
+      display: block;
+    }
+
+    .electrolyte-query-tab.active {
+      border-color: #2f66d0;
+      background: #eaf1ff;
+      color: #214fb5;
+    }
+
+    .electrolyte-inline-query {
+      display: grid;
+      gap: 12px;
+    }
+
+    .electrolyte-inline-row {
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .electrolyte-inline-row > strong {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: #31465f;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 700;
+    }
+
+    .electrolyte-inline-row-body {
+      display: grid;
+      gap: 10px;
+    }
+
+    .electrolyte-organic-condition-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .electrolyte-organic-condition-row {
+      display: grid;
+      grid-template-columns: minmax(200px, 240px) minmax(240px, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .electrolyte-organic-range {
+      display: block;
+    }
+
+    .electrolyte-inline-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .electrolyte-mini-btn {
+      min-width: 42px;
+      min-height: 42px;
+      padding: 0 12px;
+      border-radius: 12px;
+      color: #305bbf;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .electrolyte-safety-inline {
+      display: grid;
+      grid-template-columns: minmax(180px, 220px) minmax(260px, 420px);
+      gap: 10px;
+    }
+
+    @media (max-width: 1180px) {
+      .electrolyte-organic-condition-row {
+        grid-template-columns: 1fr;
+      }
+
+      .electrolyte-inline-actions {
+        justify-content: flex-end;
+      }
+
+      .electrolyte-safety-inline {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .electrolyte-inline-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+    }
+
     .electrolyte-name-stack {
       display: grid;
       gap: 4px;
@@ -10490,7 +10614,7 @@
 
     .opto-property-condition-row {
       display: grid;
-      grid-template-columns: 110px 220px 260px minmax(280px, 1fr);
+      grid-template-columns: 220px 260px minmax(280px, 1fr) auto;
       gap: 12px;
       align-items: center;
     }
@@ -10525,6 +10649,24 @@
       text-align: center;
       color: #67809f;
       font-weight: 600;
+    }
+
+    .opto-property-row-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .opto-property-mini-btn {
+      min-width: 42px;
+      min-height: 42px;
+      padding: 0 12px;
+      border-radius: 12px;
+      color: #2451c6;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 700;
     }
 
     .opto-result-tag {
@@ -27556,45 +27698,43 @@
       }
     };
 
+    const ELECTROLYTE_COMPUTE_FIELD_MAP = {
+      organicLiquid: [
+        { key: "homo", label: "HOMO", unit: "eV", valueKey: "homo" },
+        { key: "lumo", label: "LUMO", unit: "eV", valueKey: "lumo" },
+        { key: "dipole", label: "偶极矩", unit: "D", valueKey: "dipole" },
+        { key: "heatForm", label: "生成焓", unit: "kJ/mol", valueKey: "heatForm" },
+        { key: "gibbs", label: "Gibbs自由能", unit: "kJ/mol", valueKey: "gibbs" },
+        { key: "solvation", label: "溶剂化自由能", unit: "kJ/mol", valueKey: "solvation" }
+      ],
+      solidOrganic: [
+        { key: "heatCapacity", label: "摩尔热容", unit: "J/mol·K", valueKey: "heatCapacity" },
+        { key: "bindingEnergy", label: "结合能", unit: "kJ/mol", valueKey: "bindingEnergy" }
+      ],
+      solidInorganic: [
+        { key: "formationEnergy", label: "形成能", unit: "eV/atom", valueKey: "formationEnergy" },
+        { key: "fermi", label: "费米能级", unit: "eV", valueKey: "fermi" },
+        { key: "bandGapValue", label: "带隙", unit: "eV", valueKey: "bandGapValue" }
+      ]
+    };
+
     const ELECTROLYTE_PROPERTY_DEFAULTS = {
       organicLiquid: {
-        spectra: [],
-        homoMin: "",
-        homoMax: "",
-        lumoMin: "",
-        lumoMax: "",
-        dipoleMin: "",
-        dipoleMax: "",
-        heatMin: "",
-        heatMax: "",
-        gibbsMin: "",
-        gibbsMax: "",
-        solvationMin: "",
-        solvationMax: "",
+        conditions: [
+          { field: "", range: "" }
+        ],
         hazard: "不限",
-        ghs: "",
-        reference: "",
-        trend: ""
+        ghs: ""
       },
       solidOrganic: {
-        heatMin: "",
-        heatMax: "",
-        bindMin: "",
-        bindMax: "",
-        target: "",
-        solventPreference: "不限"
+        conditions: [
+          { field: "", range: "" }
+        ]
       },
       solidInorganic: {
-        spectra: [],
-        formationMin: "",
-        formationMax: "",
-        fermiMin: "",
-        fermiMax: "",
-        bandGapMin: "",
-        bandGapMax: "",
-        elements: "",
-        reference: "",
-        onlyLinked: false
+        conditions: [
+          { field: "", range: "" }
+        ]
       }
     };
 
@@ -27606,6 +27746,68 @@
 
     function cloneElectrolyteValue(value) {
       return JSON.parse(JSON.stringify(value));
+    }
+
+    function createElectrolyteOrganicCondition(field = "") {
+      return { field, range: "" };
+    }
+
+    function getElectrolyteComputeFieldMeta(category, fieldKey) {
+      return (ELECTROLYTE_COMPUTE_FIELD_MAP[category] || []).find((item) => item.key === fieldKey) || null;
+    }
+
+    function normalizeElectrolyteComputeConditions(filters) {
+      const conditions = Array.isArray(filters?.conditions) ? filters.conditions : [];
+      return conditions.map((condition) => ({
+        field: condition?.field || "",
+        range: String(
+          condition?.range != null
+            ? condition.range
+            : [condition?.min || "", condition?.max || ""].filter(Boolean).join("-")
+        ).trim()
+      }));
+    }
+
+    function parseElectrolyteRangeText(rangeText) {
+      const text = String(rangeText || "").trim();
+      if (!text) return { min: null, max: null };
+      const normalized = text.replace(/[~～—–]/g, "-").replace(/\s+/g, "");
+      if (!normalized.includes("-")) {
+        const value = parseNumberValue(normalized);
+        return { min: value, max: value };
+      }
+      const parts = normalized.split("-");
+      const min = parseNumberValue(parts[0]);
+      const max = parseNumberValue(parts.slice(1).join("-"));
+      return { min, max };
+    }
+
+    function getElectrolyteComputeActiveConditions(filters) {
+      const conditions = normalizeElectrolyteComputeConditions(filters);
+      return conditions.filter((condition) => {
+        const hasField = Boolean(condition.field);
+        const hasRange = String(condition.range || "").trim() !== "";
+        return hasField && hasRange;
+      });
+    }
+
+    function hasElectrolyteOrganicPropertyFilters(filters) {
+      if (!filters) return false;
+      return getElectrolyteComputeActiveConditions(filters).length > 0 || filters.hazard !== "不限" || String(filters.ghs || "").trim() !== "";
+    }
+
+    function hasElectrolyteComputePropertyFilters(filters) {
+      if (!filters) return false;
+      return getElectrolyteComputeActiveConditions(filters).length > 0;
+    }
+
+    function updateElectrolytePropertyApplyState() {
+      const applyBtn = document.querySelector("#page-electrolyte [data-ely-apply]");
+      if (!applyBtn) return;
+      const category = state.electrolyteCategory;
+      const mode = getActiveElectrolyteMode(category);
+      if (mode !== "property") return;
+      applyBtn.disabled = !hasElectrolyteActiveFilters(category, mode, state.electrolyteSearchDrafts[category].property);
     }
 
     function createElectrolyteDraftState() {
@@ -27716,85 +27918,62 @@
         return String(filters).trim().length > 0;
       }
       if (category === "organicLiquid") {
-        return (
-          filters.spectra.length > 0 ||
-          ["homoMin", "homoMax", "lumoMin", "lumoMax", "dipoleMin", "dipoleMax", "heatMin", "heatMax", "gibbsMin", "gibbsMax", "solvationMin", "solvationMax", "ghs", "reference", "trend"]
-            .some((key) => String(filters[key] || "").trim()) ||
-          filters.hazard !== "不限"
-        );
+        return hasElectrolyteOrganicPropertyFilters(filters);
       }
       if (category === "solidOrganic") {
-        return ["heatMin", "heatMax", "bindMin", "bindMax", "target"].some((key) => String(filters[key] || "").trim()) || filters.solventPreference !== "不限";
+        return hasElectrolyteComputePropertyFilters(filters);
       }
-      return (
-        filters.spectra.length > 0 ||
-        ["formationMin", "formationMax", "fermiMin", "fermiMax", "bandGapMin", "bandGapMax", "elements", "reference"]
-          .some((key) => String(filters[key] || "").trim()) ||
-        Boolean(filters.onlyLinked)
-      );
+      return hasElectrolyteComputePropertyFilters(filters);
     }
 
     function filterElectrolyteByProperty(category, filters, list) {
       if (category === "organicLiquid") {
-        const numberChecks = [
-          ["homo", "homoMin", "homoMax"],
-          ["lumo", "lumoMin", "lumoMax"],
-          ["dipole", "dipoleMin", "dipoleMax"],
-          ["heatForm", "heatMin", "heatMax"],
-          ["gibbs", "gibbsMin", "gibbsMax"],
-          ["solvation", "solvationMin", "solvationMax"]
-        ];
+        const activeConditions = getElectrolyteComputeActiveConditions(filters);
         return list.filter((item) => {
-          const numericMatch = numberChecks.every(([key, minKey, maxKey]) => {
-            const min = parseNumberValue(filters[minKey]);
-            const max = parseNumberValue(filters[maxKey]);
-            const current = Number(item[key]);
+          const numericMatch = activeConditions.every((condition) => {
+            const meta = getElectrolyteComputeFieldMeta(category, condition.field);
+            if (!meta) return true;
+            const { min, max } = parseElectrolyteRangeText(condition.range);
+            const current = Number(item[meta.valueKey]);
+            if (Number.isNaN(current)) return false;
             if (min != null && current < min) return false;
             if (max != null && current > max) return false;
             return true;
           });
-          const spectraMatch = filters.spectra.every((key) => item.visuals[key]);
           const hazardMatch = filters.hazard === "不限" || item.hazardLevel === filters.hazard;
           const ghsMatch = !filters.ghs || String(item.ghs || "").toLowerCase().includes(filters.ghs.toLowerCase());
-          const referenceText = `${item.name} ${item.alias || ""} ${item.cas || ""}`.toLowerCase();
-          const referenceMatch = !filters.reference || referenceText.includes(filters.reference.toLowerCase());
-          const trendMatch = !filters.trend || item.similarityTrend === filters.trend;
-          return numericMatch && spectraMatch && hazardMatch && ghsMatch && referenceMatch && trendMatch;
+          return numericMatch && hazardMatch && ghsMatch;
         });
       }
 
       if (category === "solidOrganic") {
+        const activeConditions = getElectrolyteComputeActiveConditions(filters);
         return list.filter((item) => {
-          const heatMin = parseNumberValue(filters.heatMin);
-          const heatMax = parseNumberValue(filters.heatMax);
-          const bindMin = parseNumberValue(filters.bindMin);
-          const bindMax = parseNumberValue(filters.bindMax);
-          const heatMatch = (heatMin == null || item.heatCapacity >= heatMin) && (heatMax == null || item.heatCapacity <= heatMax);
-          const bindMatch = (bindMin == null || item.bindingEnergy >= bindMin) && (bindMax == null || item.bindingEnergy <= bindMax);
-          const targetText = `${item.name} ${item.alias || ""} ${item.solventTarget || ""}`.toLowerCase();
-          const targetMatch = !filters.target || targetText.includes(filters.target.toLowerCase());
-          const solventMatch = filters.solventPreference === "不限" || (filters.solventPreference === "极性醚类" && item.alias === "PEO");
-          return heatMatch && bindMatch && targetMatch && solventMatch;
+          return activeConditions.every((condition) => {
+            const meta = getElectrolyteComputeFieldMeta(category, condition.field);
+            if (!meta) return true;
+            const { min, max } = parseElectrolyteRangeText(condition.range);
+            const current = Number(item[meta.valueKey]);
+            if (Number.isNaN(current)) return false;
+            if (min != null && current < min) return false;
+            if (max != null && current > max) return false;
+            return true;
+          });
         });
       }
 
+      const activeConditions = getElectrolyteComputeActiveConditions(filters);
       return list.filter((item) => {
-        const formationMin = parseNumberValue(filters.formationMin);
-        const formationMax = parseNumberValue(filters.formationMax);
-        const fermiMin = parseNumberValue(filters.fermiMin);
-        const fermiMax = parseNumberValue(filters.fermiMax);
-        const bandGapMin = parseNumberValue(filters.bandGapMin);
-        const bandGapMax = parseNumberValue(filters.bandGapMax);
-        const formationMatch = (formationMin == null || item.formationEnergy >= formationMin) && (formationMax == null || item.formationEnergy <= formationMax);
-        const fermiMatch = (fermiMin == null || item.fermi >= fermiMin) && (fermiMax == null || item.fermi <= fermiMax);
-        const bandGapMatch = (bandGapMin == null || item.bandGapValue >= bandGapMin) && (bandGapMax == null || item.bandGapValue <= bandGapMax);
-        const elements = parseElectrolyteElementText(filters.elements || "");
-        const elementsMatch = !elements.length || elements.every((element) => item.elements.includes(element));
-        const referenceText = `${item.name} ${item.formula} ${item.source || ""}`.toLowerCase();
-        const refMatch = !filters.reference || referenceText.includes(filters.reference.toLowerCase());
-        const linkMatch = !filters.onlyLinked || Boolean(item.detailTabs.external);
-        const spectraMatch = filters.spectra.every((key) => item.visuals[key]);
-        return formationMatch && fermiMatch && bandGapMatch && elementsMatch && refMatch && linkMatch && spectraMatch;
+        return activeConditions.every((condition) => {
+          const meta = getElectrolyteComputeFieldMeta(category, condition.field);
+          if (!meta) return true;
+          const { min, max } = parseElectrolyteRangeText(condition.range);
+          const current = Number(item[meta.valueKey]);
+          if (Number.isNaN(current)) return false;
+          if (min != null && current < min) return false;
+          if (max != null && current > max) return false;
+          return true;
+        });
       });
     }
 
@@ -27860,160 +28039,89 @@
       let cards = "";
 
       if (category === "organicLiquid") {
+        const conditions = normalizeElectrolyteComputeConditions(filters).length
+          ? normalizeElectrolyteComputeConditions(filters)
+          : [createElectrolyteOrganicCondition()];
         cards = `
-          <article class="electrolyte-property-card">
-            <h4>图谱信息</h4>
-            <div class="electrolyte-check-grid">
-              ${[
-                { key: "ir", label: "红外光谱" },
-                { key: "raman", label: "拉曼光谱" },
-                { key: "nmr", label: "核磁共振光谱" }
-              ].map((item) => `
-                <label class="electrolyte-check-item">
-                  <input type="checkbox" data-ely-property-spectra="${item.key}" ${filters.spectra.includes(item.key) ? "checked" : ""}>
-                  <span>${item.label}</span>
-                </label>
-              `).join("")}
-            </div>
-          </article>
-          <article class="electrolyte-property-card">
-            <h4>计算信息</h4>
-            <div class="electrolyte-range-grid">
-              ${renderElectrolyteRangeField("HOMO (eV)", "homoMin", "homoMax", filters)}
-              ${renderElectrolyteRangeField("LUMO (eV)", "lumoMin", "lumoMax", filters)}
-              ${renderElectrolyteRangeField("偶极矩 (D)", "dipoleMin", "dipoleMax", filters)}
-              ${renderElectrolyteRangeField("生成焓 (kJ/mol)", "heatMin", "heatMax", filters)}
-              ${renderElectrolyteRangeField("Gibbs自由能 (kJ/mol)", "gibbsMin", "gibbsMax", filters)}
-              ${renderElectrolyteRangeField("溶剂化自由能 (kJ/mol)", "solvationMin", "solvationMax", filters)}
-            </div>
-          </article>
-          <article class="electrolyte-property-card">
-            <h4>安全信息</h4>
-            <div class="electrolyte-inline-grid">
-              <div class="field">
-                <label>危险等级</label>
-                <select data-ely-property-key="hazard">
-                  <option value="不限" ${filters.hazard === "不限" ? "selected" : ""}>不限</option>
-                  <option value="低风险" ${filters.hazard === "低风险" ? "selected" : ""}>低风险</option>
-                  <option value="中等风险" ${filters.hazard === "中等风险" ? "selected" : ""}>中等风险</option>
-                  <option value="高风险" ${filters.hazard === "高风险" ? "selected" : ""}>高风险</option>
-                </select>
-              </div>
-              <div class="field">
-                <label>GHS说明</label>
-                <input type="text" data-ely-property-key="ghs" value="${filters.ghs || ""}" placeholder="请输入 GHS 代码">
+          <div class="electrolyte-inline-query">
+            <div class="electrolyte-inline-row">
+              <strong>计算数据</strong>
+              <div class="electrolyte-inline-row-body">
+                <div class="electrolyte-organic-condition-list">
+                  ${conditions.map((condition, index) => {
+                    return `
+                      <div class="electrolyte-organic-condition-row">
+                        <select data-ely-organic-row="${index}" data-ely-organic-role="field">
+                          <option value="">选择参数</option>
+                          ${(ELECTROLYTE_COMPUTE_FIELD_MAP[category] || []).map((item) => `<option value="${item.key}" ${condition.field === item.key ? "selected" : ""}>${item.label} (${item.unit})</option>`).join("")}
+                        </select>
+                        <div class="electrolyte-organic-range">
+                          <input type="text" data-ely-organic-row="${index}" data-ely-organic-role="range" value="${condition.range || ""}" placeholder="输入数值范围（如 0-10）">
+                        </div>
+                        <div class="electrolyte-inline-actions">
+                          ${index === conditions.length - 1 ? `<button class="btn electrolyte-mini-btn" type="button" data-ely-organic-add aria-label="新增条件">+</button>` : ""}
+                        </div>
+                      </div>
+                    `;
+                  }).join("")}
+                </div>
               </div>
             </div>
-          </article>
-          <article class="electrolyte-property-card">
-            <h4>相似分子推荐</h4>
-            <div class="electrolyte-inline-grid">
-              <div class="field">
-                <label>参考分子</label>
-                <input type="text" data-ely-property-key="reference" value="${filters.reference || ""}" placeholder="请输入分子名称、别名或 CAS 号">
-              </div>
-              <div class="field">
-                <label>性质变化趋势</label>
-                <select data-ely-property-key="trend">
-                  <option value="" ${filters.trend === "" ? "selected" : ""}>请选择</option>
-                  <option value="极性相近" ${filters.trend === "极性相近" ? "selected" : ""}>极性相近</option>
-                  <option value="锂盐相近" ${filters.trend === "锂盐相近" ? "selected" : ""}>锂盐相近</option>
-                  <option value="低粘度相近" ${filters.trend === "低粘度相近" ? "selected" : ""}>低粘度相近</option>
-                </select>
+            <div class="electrolyte-inline-row">
+              <strong>安全信息</strong>
+              <div class="electrolyte-inline-row-body">
+                <div class="electrolyte-safety-inline">
+                  <select data-ely-property-key="hazard">
+                    <option value="不限" ${filters.hazard === "不限" ? "selected" : ""}>危险等级：不限</option>
+                    <option value="低风险" ${filters.hazard === "低风险" ? "selected" : ""}>危险等级：低风险</option>
+                    <option value="中等风险" ${filters.hazard === "中等风险" ? "selected" : ""}>危险等级：中等风险</option>
+                    <option value="高风险" ${filters.hazard === "高风险" ? "selected" : ""}>危险等级：高风险</option>
+                  </select>
+                  <input type="text" data-ely-property-key="ghs" value="${filters.ghs || ""}" placeholder="请输入 GHS 说明">
+                </div>
               </div>
             </div>
-          </article>
+          </div>
         `;
-      } else if (category === "solidOrganic") {
+      } else if (category === "solidOrganic" || category === "solidInorganic") {
+        const conditions = normalizeElectrolyteComputeConditions(filters).length
+          ? normalizeElectrolyteComputeConditions(filters)
+          : [createElectrolyteOrganicCondition()];
         cards = `
-          <article class="electrolyte-property-card">
-            <h4>计算信息</h4>
-            <div class="electrolyte-range-grid">
-              ${renderElectrolyteRangeField("摩尔热容 (J/mol·K)", "heatMin", "heatMax", filters)}
-              ${renderElectrolyteRangeField("结合能 (kJ/mol)", "bindMin", "bindMax", filters)}
-            </div>
-          </article>
-          <article class="electrolyte-property-card">
-            <h4>溶解溶剂推荐</h4>
-            <div class="electrolyte-inline-grid">
-              <div class="field">
-                <label>目标材料</label>
-                <input type="text" data-ely-property-key="target" value="${filters.target || ""}" placeholder="请输入目标电解质名称或别名">
-              </div>
-              <div class="field">
-                <label>溶剂偏好</label>
-                <select data-ely-property-key="solventPreference">
-                  <option value="不限" ${filters.solventPreference === "不限" ? "selected" : ""}>不限</option>
-                  <option value="极性醚类" ${filters.solventPreference === "极性醚类" ? "selected" : ""}>极性醚类</option>
-                  <option value="碳酸酯类" ${filters.solventPreference === "碳酸酯类" ? "selected" : ""}>碳酸酯类</option>
-                </select>
-              </div>
-            </div>
-          </article>
-        `;
-      } else {
-        cards = `
-          <article class="electrolyte-property-card">
-            <h4>图谱信息</h4>
-            <div class="electrolyte-check-grid">
-              ${[
-                { key: "band", label: "能带结构" },
-                { key: "dos", label: "态密度" },
-                { key: "xrd", label: "X射线衍射图谱" },
-                { key: "absorption", label: "X射线吸收图谱" }
-              ].map((item) => `
-                <label class="electrolyte-check-item">
-                  <input type="checkbox" data-ely-property-spectra="${item.key}" ${filters.spectra.includes(item.key) ? "checked" : ""}>
-                  <span>${item.label}</span>
-                </label>
-              `).join("")}
-            </div>
-          </article>
-          <article class="electrolyte-property-card">
-            <h4>计算信息</h4>
-            <div class="electrolyte-range-grid">
-              ${renderElectrolyteRangeField("形成能 (eV/atom)", "formationMin", "formationMax", filters)}
-              ${renderElectrolyteRangeField("费米能级 (eV)", "fermiMin", "fermiMax", filters)}
-              ${renderElectrolyteRangeField("带隙 (eV)", "bandGapMin", "bandGapMax", filters)}
-            </div>
-          </article>
-          <article class="electrolyte-property-card">
-            <h4>外部数据关联</h4>
-            <div class="electrolyte-inline-grid">
-              <div class="field">
-                <label>元素组成</label>
-                <input type="text" data-ely-property-key="elements" value="${filters.elements || ""}" placeholder="请输入元素组合，如 Li+P+S">
-              </div>
-              <div class="field">
-                <label>参考来源</label>
-                <input type="text" data-ely-property-key="reference" value="${filters.reference || ""}" placeholder="请输入参考文献、数据库或 DOI">
+          <div class="electrolyte-inline-query">
+            <div class="electrolyte-inline-row">
+              <strong>计算数据</strong>
+              <div class="electrolyte-inline-row-body">
+                <div class="electrolyte-organic-condition-list">
+                  ${conditions.map((condition, index) => `
+                    <div class="electrolyte-organic-condition-row">
+                      <select data-ely-organic-row="${index}" data-ely-organic-role="field">
+                        <option value="">选择参数</option>
+                        ${(ELECTROLYTE_COMPUTE_FIELD_MAP[category] || []).map((item) => `<option value="${item.key}" ${condition.field === item.key ? "selected" : ""}>${item.label} (${item.unit})</option>`).join("")}
+                      </select>
+                      <div class="electrolyte-organic-range">
+                        <input type="text" data-ely-organic-row="${index}" data-ely-organic-role="range" value="${condition.range || ""}" placeholder="输入数值范围（如 0-10）">
+                      </div>
+                      <div class="electrolyte-inline-actions">
+                        ${index === conditions.length - 1 ? `<button class="btn electrolyte-mini-btn" type="button" data-ely-organic-add aria-label="新增条件">+</button>` : ""}
+                      </div>
+                    </div>
+                  `).join("")}
+                </div>
               </div>
             </div>
-            <div class="field" style="margin-top:12px;">
-              <label class="electrolyte-check-item">
-                <input type="checkbox" data-ely-property-key="onlyLinked" ${filters.onlyLinked ? "checked" : ""}>
-                <span>仅显示已建立外部关联的数据</span>
-              </label>
-            </div>
-          </article>
+          </div>
         `;
       }
 
       return `
         <div class="twod-mode-panel active">
           <div class="twod-property-panel">
-            <div class="twod-property-panel-head">
-              <div>
-                <h3>性质数据检索</h3>
-                <p>${ELECTROLYTE_MODULE_CONFIG[category].modes.find((item) => item.key === "property").helper}</p>
-              </div>
-            </div>
-            <div class="electrolyte-property-grid">${cards}</div>
-            <div class="twod-platform-actions">
-              <div class="twod-status-text">当前仅展示“性质数据检索”对应的条件项，输入后点击检索更新结果栏。</div>
+            <div class="${["organicLiquid", "solidOrganic", "solidInorganic"].includes(category) ? "electrolyte-inline-query-shell" : "electrolyte-property-grid"}">${cards}</div>
+            <div class="twod-platform-actions electrolyte-property-actions">
               <div class="twod-detail-actions">
                 <button class="btn twod-search-reset" type="button" data-ely-reset>清空条件</button>
-                <button class="btn-primary" type="button" data-ely-apply>检索</button>
+                <button class="btn-primary" type="button" data-ely-apply ${hasElectrolyteActiveFilters(category, "property", filters) ? "" : "disabled"}>检索</button>
               </div>
             </div>
           </div>
@@ -28089,7 +28197,7 @@
             <div class="twod-search-hero">
               <div class="twod-search-copy">
                 <span class="twod-search-eyebrow">电解质材料数据应用模块</span>
-                <h3>电解质材料检索平台</h3>
+                <h3>${config.title}检索平台</h3>
                 <p>先在三类电解质子应用中切换，再选择对应检索方式。下方结果栏默认展示当前子应用已收录的全部数据。</p>
               </div>
               <div class="electrolyte-category-selector" id="electrolyteCategorySelector">
@@ -28411,23 +28519,44 @@
           state.electrolyteSearchDrafts[state.electrolyteCategory][modeInput] = event.target.value;
           return;
         }
+        const organicRow = event.target.getAttribute("data-ely-organic-row");
+        const organicRole = event.target.getAttribute("data-ely-organic-role");
+        if (organicRow !== null && organicRole === "range") {
+          const row = state.electrolyteSearchDrafts[state.electrolyteCategory].property.conditions?.[Number(organicRow)];
+          if (row) row.range = event.target.value;
+          updateElectrolytePropertyApplyState();
+          return;
+        }
         const propKey = event.target.getAttribute("data-ely-property-key");
         if (propKey && event.target.type !== "checkbox") {
           state.electrolyteSearchDrafts[state.electrolyteCategory].property[propKey] = event.target.value;
+          updateElectrolytePropertyApplyState();
         }
       });
 
       root.addEventListener("change", (event) => {
         const propKey = event.target.getAttribute("data-ely-property-key");
         const propSpectra = event.target.getAttribute("data-ely-property-spectra");
+        const organicRow = event.target.getAttribute("data-ely-organic-row");
+        const organicRole = event.target.getAttribute("data-ely-organic-role");
         if (event.target.id === "electrolytePageSize") {
           state.electrolytePageSize = Number(event.target.value);
           state.electrolyteCurrentPage = 1;
           renderElectrolyteModule();
           return;
         }
+        if (organicRow !== null && organicRole === "field") {
+          const row = state.electrolyteSearchDrafts[state.electrolyteCategory].property.conditions?.[Number(organicRow)];
+          if (row) {
+            row.field = event.target.value;
+            row.range = "";
+          }
+          renderElectrolyteModule();
+          return;
+        }
         if (propKey) {
           state.electrolyteSearchDrafts[state.electrolyteCategory].property[propKey] = event.target.type === "checkbox" ? event.target.checked : event.target.value;
+          updateElectrolytePropertyApplyState();
           return;
         }
         if (propSpectra) {
@@ -28436,6 +28565,7 @@
           if (!event.target.checked) {
             state.electrolyteSearchDrafts[state.electrolyteCategory].property.spectra = target.filter((item) => item !== propSpectra);
           }
+          updateElectrolytePropertyApplyState();
         }
       });
 
@@ -28455,6 +28585,13 @@
         const pageButton = event.target.closest("[data-ely-page]");
         const uploadButton = event.target.closest("[data-ely-open-upload]");
         const materialButton = event.target.closest("[data-open-material]");
+        const addOrganicCondition = event.target.closest("[data-ely-organic-add]");
+
+        if (addOrganicCondition) {
+          state.electrolyteSearchDrafts[state.electrolyteCategory].property.conditions.push(createElectrolyteOrganicCondition());
+          renderElectrolyteModule();
+          return;
+        }
 
         if (categoryButton) {
           state.electrolyteCategory = categoryButton.dataset.elyCategory;
@@ -29107,25 +29244,36 @@
     OPTO_COMBO_FIELDS.splice(0, OPTO_COMBO_FIELDS.length, ...optoComboFieldsOverride);
 
     const OPTO_PROPERTY_CATEGORY_OPTIONS = [
-      { key: "physicochemical", label: "物理化学参数" },
+      { key: "electronic", label: "电子结构参数" },
       { key: "photoelectric", label: "光电性能参数" },
-      { key: "electronic", label: "电子结构参数" }
+      { key: "physicochemical", label: "物理化学参数" },
+      { key: "device", label: "器件性能参数" }
     ];
 
     const OPTO_PROPERTY_FIELD_MAP = {
-      physicochemical: [
-        { key: "molecularWeight", label: "分子量", unit: "g/mol" },
-        { key: "density", label: "密度", unit: "g/cm³" }
-      ],
-      photoelectric: [
-        { key: "peakAbsorption", label: "吸收峰位", unit: "nm" },
-        { key: "peakEmission", label: "发射峰位", unit: "nm" },
-        { key: "quantumYield", label: "量子产率", unit: "%" }
-      ],
       electronic: [
         { key: "homo", label: "HOMO", unit: "eV" },
         { key: "lumo", label: "LUMO", unit: "eV" },
-        { key: "bandGap", label: "带隙", unit: "eV" }
+        { key: "bandGap", label: "带隙", unit: "eV" },
+        { key: "electrochemicalPotential", label: "电化学势", unit: "eV" }
+      ],
+      photoelectric: [
+        { key: "quantumYield", label: "量子产率", unit: "%" },
+        { key: "lifetime", label: "寿命", unit: "ns" },
+        { key: "transitionDipole", label: "跃迁偶极矩", unit: "Debye" },
+        { key: "stokesShift", label: "斯托克斯位移", unit: "nm" }
+      ],
+      physicochemical: [
+        { key: "meltingPoint", label: "熔点 (Tm)", unit: "°C" },
+        { key: "glassTransitionTemp", label: "玻璃化转变温度 (Tg)", unit: "°C" },
+        { key: "decompositionTemp", label: "热分解温度 (Td)", unit: "°C" },
+        { key: "density", label: "密度", unit: "g/cm³" }
+      ],
+      device: [
+        { key: "deviceEfficiency", label: "最大外量子效率 / PCE", unit: "%" },
+        { key: "deviceVoltage", label: "启亮/工作电压", unit: "V" },
+        { key: "deviceOutput", label: "最大亮度 / Jsc", unit: "cd/m² 或 mA/cm²" },
+        { key: "deviceMetricTail", label: "CIE x / FF", unit: "" }
       ]
     };
 
@@ -29135,8 +29283,8 @@
       { key: "NOT", label: "NOT" }
     ];
 
-    function createOptoPropertyCondition(category = "physicochemical") {
-      const firstField = OPTO_PROPERTY_FIELD_MAP[category]?.[0]?.key || "molecularWeight";
+    function createOptoPropertyCondition(category = "electronic") {
+      const firstField = OPTO_PROPERTY_FIELD_MAP[category]?.[0]?.key || "homo";
       return {
         logic: "AND",
         category,
@@ -29153,8 +29301,6 @@
     ) {
       state.optoSearchDraft.property = {
         conditions: [
-          createOptoPropertyCondition("physicochemical"),
-          createOptoPropertyCondition("photoelectric"),
           createOptoPropertyCondition("electronic")
         ]
       };
@@ -29162,6 +29308,23 @@
 
     function getOptoValueByKey(item, key) {
       if (key === "density") return parseFloat(String(item.density || ""));
+      if (key === "electrochemicalPotential") return Number(((Number(item.homo) + Number(item.lumo)) / 2).toFixed(2));
+      if (key === "lifetime") {
+        const text = String(item.lifetime || "").trim().toLowerCase();
+        const value = parseFloat(text);
+        if (Number.isNaN(value)) return NaN;
+        if (text.includes("μs") || text.includes("us")) return value * 1000;
+        return value;
+      }
+      if (key === "transitionDipole") return Number((5.1 + Math.abs(Number(item.lumo || 0)) * 0.8).toFixed(1));
+      if (key === "stokesShift") return Math.max(20, Number(item.peakEmission || 0) - Number(item.peakAbsorption || 0));
+      if (key === "meltingPoint") return Math.round(220 + Number(item.bandGap || 0) * 15);
+      if (key === "glassTransitionTemp") return Math.round(90 + Math.abs(Number(item.homo || 0)) * 6);
+      if (key === "decompositionTemp") return Math.round(360 + Number(item.bandGap || 0) * 24);
+      if (key === "deviceEfficiency") return parseFloat(String(item.deviceMetrics?.[0] || "").replace(/[^\d.-]/g, ""));
+      if (key === "deviceVoltage") return parseFloat(String(item.deviceMetrics?.[1] || "").replace(/[^\d.-]/g, ""));
+      if (key === "deviceOutput") return parseFloat(String(item.deviceMetrics?.[2] || "").replace(/[^\d.-]/g, ""));
+      if (key === "deviceMetricTail") return parseFloat(String(item.deviceMetrics?.[3] || "").replace(/[^\d.-]/g, ""));
       return Number(item[key]);
     }
 
@@ -29198,28 +29361,15 @@
         return hasField && (hasMin || hasMax);
       });
       if (!activeConditions.length) return optoMaterials.slice();
-      return optoMaterials.filter((item) => {
-        let result = null;
-        activeConditions.forEach((condition, index) => {
-          const min = parseNumberValue(condition.min);
-          const max = parseNumberValue(condition.max);
-          const current = getOptoValueByKey(item, condition.field);
-          let matches = !Number.isNaN(current);
-          if (matches && min != null && current < min) matches = false;
-          if (matches && max != null && current > max) matches = false;
-          if (condition.logic === "NOT") matches = !matches;
-          if (index === 0) {
-            result = matches;
-            return;
-          }
-          if (condition.logic === "OR") {
-            result = result || matches;
-          } else {
-            result = result && matches;
-          }
-        });
-        return Boolean(result);
-      });
+      return optoMaterials.filter((item) => activeConditions.every((condition) => {
+        const min = parseNumberValue(condition.min);
+        const max = parseNumberValue(condition.max);
+        const current = getOptoValueByKey(item, condition.field);
+        if (Number.isNaN(current)) return false;
+        if (min != null && current < min) return false;
+        if (max != null && current > max) return false;
+        return true;
+      }));
     }
 
     function clearCurrentOptoModeDraft() {
@@ -29233,8 +29383,6 @@
       if (state.optoSearchMode === "property") {
         state.optoSearchDraft.property = {
           conditions: [
-            createOptoPropertyCondition("physicochemical"),
-            createOptoPropertyCondition("photoelectric"),
             createOptoPropertyCondition("electronic")
           ]
         };
@@ -29271,15 +29419,9 @@
     function renderOptoPropertyConditionRow(condition, index) {
       const fieldOptions = getOptoPropertyFieldOptions(condition.category);
       const fieldMeta = getOptoPropertyFieldMeta(condition.category, condition.field);
+      const conditions = state.optoSearchDraft.property?.conditions || [];
       return `
         <div class="opto-property-condition-row">
-          <div class="opto-property-logic${index === 0 ? " is-first" : ""}">
-            ${index === 0 ? `<span class="opto-property-logic-text">首项</span>` : `
-              <select data-opto-property-row="${index}" data-opto-property-role="logic">
-                ${OPTO_PROPERTY_LOGIC_OPTIONS.map((item) => `<option value="${item.key}" ${condition.logic === item.key ? "selected" : ""}>${item.label}</option>`).join("")}
-              </select>
-            `}
-          </div>
           <div class="opto-property-type">
             <select data-opto-property-row="${index}" data-opto-property-role="category">
               ${OPTO_PROPERTY_CATEGORY_OPTIONS.map((item) => `<option value="${item.key}" ${condition.category === item.key ? "selected" : ""}>${item.label}</option>`).join("")}
@@ -29294,6 +29436,10 @@
             <input type="text" data-opto-property-row="${index}" data-opto-property-role="min" value="${condition.min || ""}" placeholder="最小值">
             <span>-</span>
             <input type="text" data-opto-property-row="${index}" data-opto-property-role="max" value="${condition.max || ""}" placeholder="最大值">
+          </div>
+          <div class="opto-property-row-actions">
+            ${conditions.length > 1 ? `<button class="btn opto-property-mini-btn" type="button" data-opto-property-remove="${index}" aria-label="删除条件">-</button>` : ""}
+            ${index === conditions.length - 1 ? `<button class="btn opto-property-mini-btn" type="button" data-opto-property-add aria-label="新增条件">+</button>` : ""}
           </div>
         </div>
       `;
@@ -29545,15 +29691,9 @@
     function renderOptoPropertyConditionRow(condition, index) {
       const fieldOptions = getOptoPropertyFieldOptions(condition.category);
       const fieldMeta = getOptoPropertyFieldMeta(condition.category, condition.field);
+      const conditions = state.optoSearchDraft.property?.conditions || [];
       return `
         <div class="opto-property-condition-row">
-          <div class="opto-property-logic${index === 0 ? " is-first" : ""}">
-            ${index === 0 ? `<span class="opto-property-logic-text">首项</span>` : `
-              <select data-opto-property-row="${index}" data-opto-property-role="logic">
-                ${OPTO_PROPERTY_LOGIC_OPTIONS.map((item) => `<option value="${item.key}" ${condition.logic === item.key ? "selected" : ""}>${item.label}</option>`).join("")}
-              </select>
-            `}
-          </div>
           <div class="opto-property-type">
             <select data-opto-property-row="${index}" data-opto-property-role="category">
               ${OPTO_PROPERTY_CATEGORY_OPTIONS.map((item) => `<option value="${item.key}" ${condition.category === item.key ? "selected" : ""}>${item.label}</option>`).join("")}
@@ -29568,6 +29708,10 @@
             <input type="text" data-opto-property-row="${index}" data-opto-property-role="min" value="${condition.min || ""}" placeholder="最小值">
             <span>-</span>
             <input type="text" data-opto-property-row="${index}" data-opto-property-role="max" value="${condition.max || ""}" placeholder="最大值">
+          </div>
+          <div class="opto-property-row-actions">
+            ${conditions.length > 1 ? `<button class="btn opto-property-mini-btn" type="button" data-opto-property-remove="${index}" aria-label="删除条件">-</button>` : ""}
+            ${index === conditions.length - 1 ? `<button class="btn opto-property-mini-btn" type="button" data-opto-property-add aria-label="新增条件">+</button>` : ""}
           </div>
         </div>
       `;
@@ -29595,23 +29739,20 @@
       }
       if (mode === "property") {
         const currentConditions = state.optoSearchDraft.property?.conditions || [
-          createOptoPropertyCondition("physicochemical"),
-          createOptoPropertyCondition("photoelectric"),
           createOptoPropertyCondition("electronic")
         ];
         state.optoSearchDraft.property = {
           conditions: currentConditions.map((condition, index) => {
             const categoryInput = page.querySelector(`[data-opto-property-row="${index}"][data-opto-property-role="category"]`);
-            const category = categoryInput ? categoryInput.value : (condition.category || "physicochemical");
+            const category = categoryInput ? categoryInput.value : (condition.category || "electronic");
             const fieldOptions = getOptoPropertyFieldOptions(category);
             const fieldInput = page.querySelector(`[data-opto-property-row="${index}"][data-opto-property-role="field"]`);
-            const fieldValue = fieldInput ? fieldInput.value : fieldOptions[0]?.key || "molecularWeight";
-            const validField = fieldOptions.some((item) => item.key === fieldValue) ? fieldValue : fieldOptions[0]?.key || "molecularWeight";
-            const logicInput = page.querySelector(`[data-opto-property-row="${index}"][data-opto-property-role="logic"]`);
+            const fieldValue = fieldInput ? fieldInput.value : fieldOptions[0]?.key || "homo";
+            const validField = fieldOptions.some((item) => item.key === fieldValue) ? fieldValue : fieldOptions[0]?.key || "homo";
             const minInput = page.querySelector(`[data-opto-property-row="${index}"][data-opto-property-role="min"]`);
             const maxInput = page.querySelector(`[data-opto-property-row="${index}"][data-opto-property-role="max"]`);
             return {
-              logic: index === 0 ? "AND" : (logicInput ? logicInput.value : (condition.logic || "AND")),
+              logic: "AND",
               category,
               field: validField,
               min: minInput ? minInput.value : "",
@@ -29629,8 +29770,6 @@
       } else if (mode === "property") {
         state.optoSearchDraft.property = {
           conditions: [
-            createOptoPropertyCondition("physicochemical"),
-            createOptoPropertyCondition("photoelectric"),
             createOptoPropertyCondition("electronic")
           ]
         };
@@ -29678,26 +29817,15 @@
       }
       const activeConditions = (filters.conditions || []).filter((condition) => String(condition.min || "").trim() || String(condition.max || "").trim());
       if (!activeConditions.length) return optoMaterials.slice();
-      return optoMaterials.filter((item) => {
-        let result = null;
-        activeConditions.forEach((condition, index) => {
-          const min = parseNumberValue(condition.min);
-          const max = parseNumberValue(condition.max);
-          const current = getOptoValueByKey(item, condition.field);
-          let matches = !Number.isNaN(current);
-          if (matches && min != null && current < min) matches = false;
-          if (matches && max != null && current > max) matches = false;
-          if (condition.logic === "NOT") matches = !matches;
-          if (index === 0) {
-            result = matches;
-          } else if (condition.logic === "OR") {
-            result = result || matches;
-          } else {
-            result = result && matches;
-          }
-        });
-        return Boolean(result);
-      });
+      return optoMaterials.filter((item) => activeConditions.every((condition) => {
+        const min = parseNumberValue(condition.min);
+        const max = parseNumberValue(condition.max);
+        const current = getOptoValueByKey(item, condition.field);
+        if (Number.isNaN(current)) return false;
+        if (min != null && current < min) return false;
+        if (max != null && current > max) return false;
+        return true;
+      }));
     }
 
     function renderOptoModeWorkspace() {
@@ -29745,16 +29873,9 @@
         return `
           <div class="twod-mode-panel active">
             <div class="twod-property-panel">
-              <div class="twod-property-panel-head">
-                <div>
-                  <h3>性质数据检索</h3>
-                  <p>${OPTO_MODE_CONFIG.property.helper}</p>
-                </div>
-              </div>
               <div class="opto-property-query">
                 <div class="opto-property-query-head">
-                  <span>条件设置</span>
-                  <span>先选择参数类型，再选择对应参数，输入最小值和最大值；后续条件可用 AND、OR、NOT 组合筛选。</span>
+                  <span>特征参数</span>
                 </div>
                 <div class="opto-property-condition-list">
                   ${(filters.conditions || []).map((condition, index) => renderOptoPropertyConditionRow(condition, index)).join("")}
@@ -30049,7 +30170,7 @@
           const conditions = state.optoSearchDraft.property?.conditions || [];
           if (conditions[rowIndex]) {
             const nextCategory = event.target.value;
-            const firstField = getOptoPropertyFieldOptions(nextCategory)[0]?.key || "molecularWeight";
+            const firstField = getOptoPropertyFieldOptions(nextCategory)[0]?.key || "homo";
             conditions[rowIndex].category = nextCategory;
             conditions[rowIndex].field = firstField;
             renderOptoModule();
@@ -30076,10 +30197,30 @@
         const resetButton = event.target.closest("[data-opto-reset]");
         const pageButton = event.target.closest("[data-opto-page]");
         const materialButton = event.target.closest("[data-open-material]");
+        const addPropertyButton = event.target.closest("[data-opto-property-add]");
+        const removePropertyButton = event.target.closest("[data-opto-property-remove]");
 
         if (modeButton) {
           state.optoSearchMode = modeButton.dataset.optoMode;
           state.optoAppliedSearch = { mode: "", filters: null };
+          renderOptoModule();
+          return;
+        }
+
+        if (addPropertyButton) {
+          const conditions = [...(state.optoSearchDraft.property?.conditions || [])];
+          conditions.push(createOptoPropertyCondition("electronic"));
+          state.optoSearchDraft.property = { conditions };
+          renderOptoModule();
+          return;
+        }
+
+        if (removePropertyButton) {
+          const rowIndex = Number(removePropertyButton.dataset.optoPropertyRemove);
+          const conditions = (state.optoSearchDraft.property?.conditions || []).filter((_, index) => index !== rowIndex);
+          state.optoSearchDraft.property = {
+            conditions: conditions.length ? conditions : [createOptoPropertyCondition("electronic")]
+          };
           renderOptoModule();
           return;
         }
@@ -30119,13 +30260,20 @@
     ];
 
     const MLFF_PROPERTY_FIELDS = [
-      { key: "parameterName", label: "参数项" },
-      { key: "parameterValue", label: "参数值" },
-      { key: "forceField", label: "力场类型" },
-      { key: "method", label: "计算方法" },
-      { key: "energy", label: "能量" },
-      { key: "dipole", label: "偶极矩" }
+      { key: "charge", label: "电荷" },
+      { key: "multipole", label: "多级矩" },
+      { key: "molecule", label: "分子结构" },
+      { key: "smallSystem", label: "小体系结构" },
+      { key: "largeSystem", label: "大体系结构" }
     ];
+
+    const MLFF_PROPERTY_PLACEHOLDERS = {
+      charge: "如 -0.98、0.33 e、RESP charge set",
+      multipole: "如 1.47 D、3.92 D、多极矩",
+      molecule: "如 methane、carbonate、C-O: 1.41 A",
+      smallSystem: "如 water、ammonia、N-H: 1.01 A",
+      largeSystem: "如 GAFF2、TraPPE、DFT/M06-2X"
+    };
 
     const MLFF_UPLOAD_FILE_TYPES = [
       { key: "forceField", label: "参数力场文件", accept: ".prm,.ff,.dat,.json,.txt,.csv,.xml" },
@@ -30595,9 +30743,12 @@
         state.mlffSearchDraft = {
           name: "",
           formula: "",
-          propertyField: "parameterName",
+          propertyField: "charge",
           propertyKeyword: ""
         };
+      }
+      if (!MLFF_PROPERTY_FIELDS.some((item) => item.key === state.mlffSearchDraft.propertyField)) {
+        state.mlffSearchDraft.propertyField = MLFF_PROPERTY_FIELDS[0].key;
       }
       if (!state.mlffAppliedSearch) {
         state.mlffAppliedSearch = {
@@ -30669,7 +30820,7 @@
       if (mode === "name") state.mlffSearchDraft.name = "";
       if (mode === "formula") state.mlffSearchDraft.formula = "";
       if (mode === "property") {
-        state.mlffSearchDraft.propertyField = "parameterName";
+        state.mlffSearchDraft.propertyField = MLFF_PROPERTY_FIELDS[0].key;
         state.mlffSearchDraft.propertyKeyword = "";
       }
       state.mlffAppliedSearch = { mode: "", filters: null };
@@ -30691,18 +30842,55 @@
         return mlffMaterials.filter((item) => String(item.formula || "").toLowerCase().includes(keyword));
       }
 
-      const field = filters.field || "parameterName";
+      const field = filters.field || MLFF_PROPERTY_FIELDS[0].key;
       const keyword = String(filters.keyword || "").toLowerCase();
       return mlffMaterials.filter((item) => {
         if (!keyword) return true;
-        if (field === "energy") return String(item.energy).toLowerCase().includes(keyword);
-        if (field === "dipole") return String(item.dipole).toLowerCase().includes(keyword);
-        if (field === "forceField") return String(item.forceField || "").toLowerCase().includes(keyword);
-        if (field === "method") return String(item.method || "").toLowerCase().includes(keyword);
-        if (field === "parameterValue") {
-          return `${item.parameterValue} ${item.energy} ${item.dipole}`.toLowerCase().includes(keyword);
-        }
-        return `${item.parameterName} ${item.forceField} ${item.method}`.toLowerCase().includes(keyword);
+        const chargeText = [
+          item.parameterName,
+          item.parameterValue,
+          item.chargeValues?.map((value) => Number(value).toFixed(3)).join(", "),
+          item.chargeValues?.join(", ")
+        ].filter(Boolean).join(" ");
+        const multipoleText = [
+          item.parameterName,
+          item.parameterValue,
+          item.dipole != null ? `${item.dipole} D` : "",
+          item.energy != null ? `${item.energy}` : ""
+        ].filter(Boolean).join(" ");
+        const moleculeText = [
+          item.name,
+          item.english,
+          item.formula,
+          item.atoms,
+          item.bond,
+          item.structureType
+        ].filter(Boolean).join(" ");
+        const smallSystemText = [
+          item.name,
+          item.formula,
+          item.atoms,
+          item.bond,
+          item.structureType,
+          item.parameterName,
+          item.parameterValue
+        ].filter(Boolean).join(" ");
+        const largeSystemText = [
+          item.forceField,
+          item.method,
+          item.parameterName,
+          item.parameterValue,
+          item.citation,
+          item.source
+        ].filter(Boolean).join(" ");
+        const searchSourceMap = {
+          charge: chargeText,
+          multipole: multipoleText,
+          molecule: moleculeText,
+          smallSystem: smallSystemText,
+          largeSystem: largeSystemText
+        };
+        return String(searchSourceMap[field] || moleculeText).toLowerCase().includes(keyword);
       });
     }
 
@@ -30724,32 +30912,32 @@
     function renderMlffModeWorkspace() {
       const mode = state.mlffSearchMode;
       if (mode === "property") {
+        const currentField = state.mlffSearchDraft.propertyField || MLFF_PROPERTY_FIELDS[0].key;
+        const canApply = Boolean(state.mlffSearchDraft.propertyKeyword.trim());
         return `
           <div class="twod-mode-panel active">
             <div class="twod-property-panel">
               <div class="twod-property-panel-head">
                 <div>
                   <h3>性质数据检索</h3>
-                  <p>${MLFF_SEARCH_MODES.find((item) => item.key === "property").helper}</p>
                 </div>
               </div>
               <div class="search-grid two">
                 <div class="field">
-                  <label>性质项</label>
+                  <label>性质数据</label>
                   <select id="mlffPropertyField">
-                    ${MLFF_PROPERTY_FIELDS.map((item) => `<option value="${item.key}" ${state.mlffSearchDraft.propertyField === item.key ? "selected" : ""}>${item.label}</option>`).join("")}
+                    ${MLFF_PROPERTY_FIELDS.map((item) => `<option value="${item.key}" ${currentField === item.key ? "selected" : ""}>${item.label}</option>`).join("")}
                   </select>
                 </div>
                 <div class="field">
-                  <label>检索值</label>
-                  <input id="mlffPropertyKeyword" type="text" value="${state.mlffSearchDraft.propertyKeyword}" placeholder="请输入性质项对应的关键词或参数值">
+                  <label>输入内容</label>
+                  <input id="mlffPropertyKeyword" type="text" value="${state.mlffSearchDraft.propertyKeyword}" placeholder="${MLFF_PROPERTY_PLACEHOLDERS[currentField] || "请输入对应内容"}">
                 </div>
               </div>
               <div class="twod-platform-actions">
-                <div class="twod-status-text">当前仅显示“性质数据检索”对应条件项，输入后点击检索即可刷新结果。</div>
                 <div class="twod-detail-actions">
                   <button class="btn twod-search-reset" type="button" data-mlff-reset>清空条件</button>
-                  <button class="btn-primary" type="button" data-mlff-apply>检索</button>
+                  <button class="btn-primary" type="button" data-mlff-apply ${canApply ? "" : "disabled"}>检索</button>
                 </div>
               </div>
             </div>
@@ -31634,6 +31822,12 @@
           const modeInput = event.target.getAttribute("data-mlff-mode-input");
           if (modeInput) {
             state.mlffSearchDraft[modeInput] = event.target.value;
+            return;
+          }
+          if (event.target.id === "mlffPropertyKeyword") {
+            state.mlffSearchDraft.propertyKeyword = event.target.value;
+            const applyAction = page.querySelector("[data-mlff-apply]");
+            if (applyAction) applyAction.disabled = !state.mlffSearchDraft.propertyKeyword.trim();
           }
         });
 
@@ -31646,6 +31840,10 @@
           }
           if (event.target.id === "mlffPropertyField") {
             state.mlffSearchDraft.propertyField = event.target.value;
+            const propertyInput = document.getElementById("mlffPropertyKeyword");
+            if (propertyInput) {
+              propertyInput.placeholder = MLFF_PROPERTY_PLACEHOLDERS[event.target.value] || "请输入对应内容";
+            }
           }
         });
 
@@ -31653,6 +31851,9 @@
           if (event.key !== "Enter") return;
           if (!event.target.matches("[data-mlff-mode-input], #mlffPropertyKeyword")) return;
           event.preventDefault();
+          if (event.target.id === "mlffPropertyKeyword") {
+            state.mlffSearchDraft.propertyKeyword = event.target.value;
+          }
           applyMlffSearch();
           renderMlffModule();
         });
@@ -31889,7 +32090,7 @@
       { key: "keyword", label: "关键词检索", placeholder: "请输入中间产物、催化材料种类、材料成分、表面参数或催化性能关键词", helper: "支持按中间产物、催化材料种类、材料成分、表面参数和催化性能等关键词进行特定范围搜索。" },
       { key: "combo", label: "条件组合检索", placeholder: "请输入组合条件，如 100、Pt、Fe-N4、(111)", helper: "支持多条件文本组合检索，例如输入 100 即可筛选包含 (100) 的所有表面。" },
       { key: "elements", label: "元素组成检索", placeholder: "请输入元素组成，如 Pt、Fe,N,C 或 Ni Fe O H", helper: "按元素组成检索催化剂体系，多个元素将按“同时包含”规则筛选。" },
-      { key: "route", label: "反应路线检索", placeholder: "请输入反应物、生成物或反应路线关键词，如 ORR、OER、HER、O2、H2O", helper: "通过输入合成路线中的反应物、生成物或反应路线名称查询相应催化剂，并直观展示反应路径信息。" },
+      { key: "route", label: "反应路线检索", placeholder: "", helper: "通过反应物和生成物条件检索催化反应路线对应的材料记录。" },
       { key: "property", label: "性质详情检索", helper: "按材料性质详情项进行筛选，可检索元素组成、结构特征、体系特征、晶格参数、原子结构和电子性质等内容。" }
     ];
 
@@ -33557,11 +33758,14 @@
           keyword: "",
           combo: "",
           elements: "",
-          route: "",
+          routeReactant: "",
+          routeProduct: "",
           propertyField: "surface",
           propertyKeyword: ""
         };
       }
+      if (typeof state.catalystSearchDraft.routeReactant !== "string") state.catalystSearchDraft.routeReactant = "";
+      if (typeof state.catalystSearchDraft.routeProduct !== "string") state.catalystSearchDraft.routeProduct = "";
       if (!state.catalystAppliedSearch) {
         state.catalystAppliedSearch = {
           mode: "",
@@ -33613,6 +33817,7 @@
     function hasCatalystActiveFilters(mode, filters) {
       if (!filters) return false;
       if (mode === "property") return Boolean(String(filters.field || "").trim() || String(filters.keyword || "").trim());
+      if (mode === "route") return Boolean(String(filters.reactant || "").trim() || String(filters.product || "").trim());
       return Boolean(String(filters || "").trim());
     }
 
@@ -33623,6 +33828,15 @@
         her: "H+ -> *H -> H2"
       };
       return `${item.reactionType} ${item.routeLabel} ${item.route} ${routeMap[item.route] || ""} ${item.intermediate}`;
+    }
+
+    function getCatalystRouteTermSet(item) {
+      const preset = {
+        orr: { reactant: "O2", product: "H2O" },
+        oer: { reactant: "H2O", product: "O2" },
+        her: { reactant: "H+", product: "H2" }
+      };
+      return preset[item.route] || { reactant: "", product: "" };
     }
 
     function buildCatalystSearchText(item) {
@@ -33655,8 +33869,16 @@
         return catalystMaterials.filter((item) => includesAllCatalystElements(item, String(filters)));
       }
       if (mode === "route") {
-        const keyword = String(filters).toLowerCase();
-        return catalystMaterials.filter((item) => buildCatalystRouteText(item).toLowerCase().includes(keyword));
+        const reactant = String(filters.reactant || "").toLowerCase();
+        const product = String(filters.product || "").toLowerCase();
+        return catalystMaterials.filter((item) => {
+          const routeTerms = getCatalystRouteTermSet(item);
+          const reactantText = `${routeTerms.reactant} ${item.reactionType} ${item.routeLabel} ${item.route}`.toLowerCase();
+          const productText = `${routeTerms.product} ${item.reactionType} ${item.routeLabel} ${item.route}`.toLowerCase();
+          const reactantMatch = !reactant || reactantText.includes(reactant);
+          const productMatch = !product || productText.includes(product);
+          return reactantMatch && productMatch;
+        });
       }
       if (mode === "combo") {
         const keyword = String(filters).toLowerCase();
@@ -33707,6 +33929,11 @@
           field: state.catalystSearchDraft.propertyField,
           keyword: state.catalystSearchDraft.propertyKeyword.trim()
         };
+      } else if (mode === "route") {
+        filters = {
+          reactant: state.catalystSearchDraft.routeReactant.trim(),
+          product: state.catalystSearchDraft.routeProduct.trim()
+        };
       } else {
         filters = String(state.catalystSearchDraft[mode] || "").trim();
       }
@@ -33719,6 +33946,9 @@
       if (mode === "property") {
         state.catalystSearchDraft.propertyField = "surface";
         state.catalystSearchDraft.propertyKeyword = "";
+      } else if (mode === "route") {
+        state.catalystSearchDraft.routeReactant = "";
+        state.catalystSearchDraft.routeProduct = "";
       } else {
         state.catalystSearchDraft[mode] = "";
       }
@@ -33739,12 +33969,6 @@
         return `
           <div class="twod-mode-panel active">
             <div class="twod-property-panel">
-              <div class="twod-property-panel-head">
-                <div>
-                  <h3>性质详情检索</h3>
-                  <p>${CATALYST_SEARCH_MODES.find((item) => item.key === "property").helper}</p>
-                </div>
-              </div>
               <div class="search-grid two">
                 <div class="field">
                   <label>性质项</label>
@@ -33758,7 +33982,30 @@
                 </div>
               </div>
               <div class="twod-platform-actions">
-                <div class="twod-status-text">当前仅显示“性质详情检索”对应条件项，输入后点击检索即可刷新结果。</div>
+                <div class="twod-detail-actions">
+                  <button class="btn twod-search-reset" type="button" data-catalyst-platform-reset>清空条件</button>
+                  <button class="btn-primary" type="button" data-catalyst-platform-apply>检索</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      if (mode === "route") {
+        return `
+          <div class="twod-mode-panel active">
+            <div class="twod-property-panel">
+              <div class="search-grid two">
+                <div class="field">
+                  <label>反应物</label>
+                  <input id="catalystRouteReactant" type="text" value="${state.catalystSearchDraft.routeReactant || ""}" placeholder="请输入反应物，如 O2、H2O、H+">
+                </div>
+                <div class="field">
+                  <label>生成物</label>
+                  <input id="catalystRouteProduct" type="text" value="${state.catalystSearchDraft.routeProduct || ""}" placeholder="请输入生成物，如 H2O、O2、H2">
+                </div>
+              </div>
+              <div class="twod-platform-actions">
                 <div class="twod-detail-actions">
                   <button class="btn twod-search-reset" type="button" data-catalyst-platform-reset>清空条件</button>
                   <button class="btn-primary" type="button" data-catalyst-platform-apply>检索</button>
@@ -35410,6 +35657,8 @@
           const mode = event.target.getAttribute("data-catalyst-mode-input");
           if (mode) state.catalystSearchDraft[mode] = event.target.value;
           if (event.target.id === "catalystPropertyKeywordPlatform") state.catalystSearchDraft.propertyKeyword = event.target.value;
+          if (event.target.id === "catalystRouteReactant") state.catalystSearchDraft.routeReactant = event.target.value;
+          if (event.target.id === "catalystRouteProduct") state.catalystSearchDraft.routeProduct = event.target.value;
         });
 
         page.addEventListener("change", (event) => {
@@ -35465,7 +35714,7 @@
 
         page.addEventListener("keydown", (event) => {
           if (event.key !== "Enter") return;
-          if (!event.target.matches("[data-catalyst-mode-input], #catalystPropertyKeywordPlatform")) return;
+          if (!event.target.matches("[data-catalyst-mode-input], #catalystPropertyKeywordPlatform, #catalystRouteReactant, #catalystRouteProduct")) return;
           event.preventDefault();
           applyCatalystPlatformSearch();
           renderCatalystModule();
@@ -37433,7 +37682,7 @@
         ]
       },
       'catalyst-visualizer': {
-        name: '催化材料结构可视化生成器',
+        name: '材料结构文件可视化生成器',
         effect: [
           '支持催化材料晶面选取、吸附分子添加与构型位置调控；',
           '可移动吸附分子位置并调整其与界面的接触构型；',
@@ -37522,6 +37771,52 @@
           '周期表属性基于标准物性数据库，特殊同位素需自行修正；',
           '编码维度需与模型输入层维度严格匹配；',
           '建议对编码结果做归一化处理后再输入模型。'
+        ]
+      },
+      'catalyst-onehot': {
+        name: '独热元素编码',
+        effect: [
+          '针对催化材料元素组成自动生成 One-hot 离散编码向量；',
+          '适用于元素类别识别、催化剂体系粗粒度分类与基础特征拼接；',
+          '支持单元素、多元素及批量结构文件统一编码输出；',
+          '输出维度清晰、可直接衔接传统机器学习与深度学习模型输入；',
+          '可与结构特征、电子性质特征联合拼接构建复合特征集。'
+        ],
+        operation: [
+          '本地部署后，导入元素列表或催化材料结构文件；',
+          '选择 One-hot 编码模式并确认元素全集范围；',
+          '系统自动生成对应维度的离散编码向量；',
+          '查看编码维度、元素映射关系与输出摘要；',
+          '导出编码结果文件并接入下游模型训练流程。'
+        ],
+        notice: [
+          '独热编码在本地执行，平台不提供在线特征计算服务；',
+          '新增元素体系时需同步刷新元素全集，避免维度不一致；',
+          '编码结果适合与连续型结构特征联合使用，单独使用表达能力有限；',
+          '导出后建议统一字段顺序，便于批量训练与版本管理。'
+        ]
+      },
+      'catalyst-periodic': {
+        name: '元素周期表信息编码',
+        effect: [
+          '基于元素周期表标准属性生成多维元素信息编码；',
+          '可编码族数、周期、电负性、原子半径、价电子等核心物性参数；',
+          '适用于催化材料元素性质表征、活性趋势建模与性能预测任务；',
+          '支持批量元素编码与结构文件自动拆解后编码；',
+          '输出标准化连续特征向量，便于直接接入机器学习模型。'
+        ],
+        operation: [
+          '本地部署后，导入元素列表或催化材料结构文件；',
+          '选择周期表属性编码方式并确认输出字段；',
+          '系统自动抽取各元素标准物性并生成编码向量；',
+          '查看属性字段说明、特征分布与缺失值提示；',
+          '导出编码结果用于催化性能预测与特征分析。'
+        ],
+        notice: [
+          '周期表信息编码在本地执行，平台不承载特征计算任务；',
+          '属性数据来源于标准元素物性库，特殊价态体系需人工复核；',
+          '不同模型对连续特征尺度敏感，建议后续统一做归一化处理；',
+          '若自定义扩展元素属性，请确保字段顺序与训练数据保持一致。'
         ]
       },
       'model-traditional': {
@@ -37730,6 +38025,11 @@
       { id: "inverse-dft-post", name: "第一性原理计算软件后处理接口", parent: "第一性原理计算软件接口", category: "二维材料多目标逆向设计工具", detailId: "inverse-dft-post" },
       { id: "clean-engine", name: "分子数据集智能清洗和质量控制工具", parent: "-", category: "分子数据集智能清洗和质量控制工具", detailId: "clean-engine" },
       { id: "assistant-build", name: "复杂系统模拟智能助手工具", parent: "-", category: "复杂系统模拟智能助手工具", detailId: "assistant-build" },
+      { id: "catalyst-visualizer", name: "材料结构文件可视化生成器", parent: "-", category: "高效催化剂设计优化工具", detailId: "catalyst-visualizer" },
+      { id: "catalyst-gcn", name: "吸附分子广义配位数生成器", parent: "催化材料结构特征生成器", category: "高效催化剂设计优化工具", detailId: "catalyst-gcn" },
+      { id: "catalyst-symmetry", name: "材料结构对称性函数生成器", parent: "催化材料结构特征生成器", category: "高效催化剂设计优化工具", detailId: "catalyst-symmetry" },
+      { id: "catalyst-onehot", name: "独热元素编码", parent: "催化材料元素特征生成器", category: "高效催化剂设计优化工具", detailId: "catalyst-onehot" },
+      { id: "catalyst-periodic", name: "元素周期表信息编码", parent: "催化材料元素特征生成器", category: "高效催化剂设计优化工具", detailId: "catalyst-periodic" },
       { id: "model-traditional", name: "传统机器学习模型接口", parent: "-", category: "机器学习模型接口", detailId: "model-traditional" },
       { id: "model-nn", name: "全连接神经网络模型接口", parent: "-", category: "机器学习模型接口", detailId: "model-nn" },
       { id: "model-gnn", name: "经典图神经网络模型接口", parent: "-", category: "机器学习模型接口", detailId: "model-gnn" }
@@ -38877,32 +39177,32 @@
       ensureMlffPageStylesOverride();
       const mode = state.mlffSearchMode;
       if (mode === "property") {
+        const currentField = state.mlffSearchDraft.propertyField || MLFF_PROPERTY_FIELDS[0].key;
+        const canApply = Boolean(state.mlffSearchDraft.propertyKeyword.trim());
         return `
           <div class="twod-mode-panel active">
             <div class="twod-property-panel">
               <div class="twod-property-panel-head">
                 <div>
                   <h3>性质数据检索</h3>
-                  <p>按性质字段与关键词检索电荷、力场参数、计算方法、能量和偶极矩等数据。</p>
                 </div>
               </div>
               <div class="search-grid two">
                 <div class="field">
-                  <label>性质字段</label>
+                  <label>性质数据</label>
                   <select id="mlffPropertyField">
-                    ${MLFF_PROPERTY_FIELDS.map((item) => `<option value="${item.key}" ${state.mlffSearchDraft.propertyField === item.key ? "selected" : ""}>${item.label}</option>`).join("")}
+                    ${MLFF_PROPERTY_FIELDS.map((item) => `<option value="${item.key}" ${currentField === item.key ? "selected" : ""}>${item.label}</option>`).join("")}
                   </select>
                 </div>
                 <div class="field">
-                  <label>检索关键词</label>
-                  <input id="mlffPropertyKeyword" type="text" value="${state.mlffSearchDraft.propertyKeyword}" placeholder="请输入性质关键词或参数值">
+                  <label>输入内容</label>
+                  <input id="mlffPropertyKeyword" type="text" value="${state.mlffSearchDraft.propertyKeyword}" placeholder="${MLFF_PROPERTY_PLACEHOLDERS[currentField] || "请输入对应内容"}">
                 </div>
               </div>
               <div class="twod-platform-actions">
-                <div class="twod-status-text">选择性质字段并输入关键词后点击检索，结果列表才会显示。</div>
                 <div class="twod-detail-actions">
-                  <button class="btn twod-search-reset" type="button" data-mlff-reset>重置</button>
-                  <button class="btn-primary" type="button" data-mlff-apply>检索</button>
+                  <button class="btn twod-search-reset" type="button" data-mlff-reset>清空条件</button>
+                  <button class="btn-primary" type="button" data-mlff-apply ${canApply ? "" : "disabled"}>检索</button>
                 </div>
               </div>
             </div>
@@ -39572,6 +39872,17 @@
           padding: 0;
           border: none;
           background: transparent;
+        }
+        #page-electrolyte .electrolyte-inline-query-shell {
+          padding: 16px 18px;
+          border: 1px solid #dbe5f4;
+          border-radius: 18px;
+          background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+        }
+        #page-electrolyte .electrolyte-property-actions {
+          justify-content: flex-end;
+          margin-top: 12px;
         }
         #page-electrolyte .twod-property-panel-head {
           margin-bottom: 12px;
