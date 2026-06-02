@@ -29324,6 +29324,9 @@
     }
 
     function getOptoValueByKey(item, key) {
+      if (key === "molecularWeight") {
+        return parseFloat(String(item.molecularWeight ?? "").replace(/,/g, ""));
+      }
       if (key === "density") return parseFloat(String(item.density || ""));
       if (key === "electrochemicalPotential") return Number(((Number(item.homo) + Number(item.lumo)) / 2).toFixed(2));
       if (key === "lifetime") {
@@ -38570,6 +38573,7 @@
         { label: "中文名称", value: material.name },
         { label: "英文名称", value: material.fullName },
         { label: "分子式", value: material.formula },
+        { label: "分子量", value: material.molecularWeight != null && material.molecularWeight !== "" ? `${Number(material.molecularWeight).toLocaleString()} g/mol` : "暂无数据" },
         { label: "分子编号", value: material.code }
       ];
       return renderDetailKvSection("基础信息", rows);
