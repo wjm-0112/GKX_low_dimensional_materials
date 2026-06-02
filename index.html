@@ -1786,6 +1786,324 @@
       font-size: 14px;
     }
 
+    .algorithm-overview-shell,
+    .algorithm-detail-shell-v2 {
+      border: 1px solid #dbe6f7;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      box-shadow: 0 10px 24px rgba(25, 65, 141, 0.05);
+      padding: 24px;
+    }
+
+    .algorithm-overview-head {
+      margin-bottom: 18px;
+    }
+
+    .algorithm-overview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .algorithm-overview-card {
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+      padding: 22px;
+      border-radius: 18px;
+      border: 1px solid #d7e4fb;
+      background: #ffffff;
+      box-shadow: 0 8px 20px rgba(36, 83, 212, 0.05);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .algorithm-overview-card:hover {
+      transform: translateY(-2px);
+      border-color: #9bb8f0;
+      box-shadow: 0 12px 24px rgba(36, 83, 212, 0.10);
+    }
+
+    .algorithm-overview-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .algorithm-overview-icon.blue { background: #e7f0ff; color: #2453d4; }
+    .algorithm-overview-icon.purple { background: #f2eaff; color: #7c3aed; }
+    .algorithm-overview-icon.green { background: #e8f8ef; color: #17925b; }
+    .algorithm-overview-icon.orange { background: #fff0de; color: #ef6b00; }
+
+    .algorithm-overview-body {
+      min-width: 0;
+    }
+
+    .algorithm-overview-body h4 {
+      margin: 0 0 10px;
+      color: #16294d;
+      font-size: 19px;
+      line-height: 28px;
+    }
+
+    .algorithm-overview-body p {
+      margin: 0;
+      color: #617695;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    .algorithm-overview-foot {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding-top: 16px;
+      border-top: 1px solid #edf2fb;
+    }
+
+    .algorithm-overview-foot span {
+      color: #4f6485;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .algorithm-detail-topbar {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .algorithm-detail-heading h3 {
+      margin: 0 0 8px;
+      color: #16294d;
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    .algorithm-detail-heading p {
+      margin: 0;
+      color: #607492;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    .algorithm-detail-layout-v2 {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .algorithm-detail-sidebar-v2 {
+      border: 1px solid #dbe6f7;
+      border-radius: 18px;
+      background: #ffffff;
+      padding: 18px;
+    }
+
+    .algorithm-detail-sidebar-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .algorithm-detail-sidebar-head h4 {
+      margin: 0;
+      color: #16294d;
+      font-size: 16px;
+    }
+
+    .algorithm-detail-sidebar-head span {
+      color: #6a7f9f;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .algorithm-detail-sidebar-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .algorithm-parent-item {
+      width: 100%;
+      text-align: left;
+      display: grid;
+      gap: 6px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid #d9e5f8;
+      background: #f9fbff;
+      color: #24406a;
+      transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+    }
+
+    .algorithm-parent-item strong {
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    .algorithm-parent-item span {
+      font-size: 12px;
+      line-height: 18px;
+      color: #7085a6;
+    }
+
+    .algorithm-parent-item.active {
+      border-color: #6f9bee;
+      background: linear-gradient(180deg, #eef4ff 0%, #e6efff 100%);
+      color: #1f4fc6;
+      box-shadow: 0 8px 18px rgba(36, 83, 212, 0.08);
+    }
+
+    .algorithm-parent-item.is-disabled {
+      border-color: #e3e9f5;
+      background: #f4f7fb;
+      color: #93a3bc;
+      cursor: not-allowed;
+      box-shadow: none;
+      opacity: 0.82;
+    }
+
+    .algorithm-parent-item.is-disabled span {
+      color: #9aa8be;
+    }
+
+    .algorithm-detail-content-v2 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .algorithm-detail-panel {
+      border: 1px solid #dbe6f7;
+      border-radius: 18px;
+      background: #ffffff;
+      padding: 20px;
+    }
+
+    .algorithm-detail-panel-head {
+      margin-bottom: 16px;
+    }
+
+    .algorithm-detail-kicker {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: #edf4ff;
+      color: #2453d4;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .algorithm-detail-panel-head h4 {
+      margin: 0 0 8px;
+      color: #16294d;
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    .algorithm-detail-panel-head p {
+      margin: 0;
+      color: #607492;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    .algorithm-detail-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .algorithm-detail-summary-card {
+      border: 1px solid #e5edf9;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #fcfdff 0%, #f4f8ff 100%);
+      padding: 18px;
+    }
+
+    .algorithm-detail-summary-card span {
+      display: block;
+      color: #7286a5;
+      font-size: 12px;
+      line-height: 18px;
+      margin-bottom: 6px;
+    }
+
+    .algorithm-detail-summary-card strong {
+      display: block;
+      color: #16315c;
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 8px;
+    }
+
+    .algorithm-detail-summary-card p {
+      margin: 0;
+      color: #5b6f8f;
+      font-size: 13px;
+      line-height: 22px;
+    }
+
+    .algorithm-detail-actions-v2 {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .algorithm-detail-preview-v2 {
+      border-top: 1px solid #edf2fb;
+      padding-top: 16px;
+    }
+
+    .algorithm-detail-preview-v2 h5 {
+      margin: 0 0 12px;
+      color: #16294d;
+      font-size: 15px;
+    }
+
+    .algorithm-detail-preview-v2 ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .algorithm-detail-preview-v2 li {
+      display: grid;
+      gap: 6px;
+      padding: 14px 16px;
+      border: 1px solid #e6edf8;
+      border-radius: 14px;
+      background: #fbfdff;
+    }
+
+    .algorithm-detail-preview-v2 li strong {
+      color: #16315c;
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    .algorithm-detail-preview-v2 li span {
+      color: #607492;
+      font-size: 13px;
+      line-height: 22px;
+    }
+
     /* ===== 数据工具开发模块静态展示样式 ===== */
     .tool-static-card {
       border-radius: 12px;
@@ -1862,6 +2180,14 @@
     .tool-static-meta .tag-blue { background: #eff6ff; color: #1a56db; }
     .tool-static-meta .tag-green { background: #f0fdf4; color: #15803d; }
     .tool-static-meta .tag-orange { background: #fff7ed; color: #c2410c; }
+
+    @media (max-width: 1100px) {
+      .algorithm-overview-grid,
+      .algorithm-detail-layout-v2,
+      .algorithm-detail-summary-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
     .tool-static-actions {
       display: flex;
@@ -12771,66 +13097,13 @@
         <div class="page-head">
           <div>
             <h2>数据应用算法</h2>
-            <p>算法知识库 - 多级筛选选择所需算法，查看使用手册、查看算法和下载代码包。所有能力均通过外部 API 数据服务返回结果，不在系统内展示算力执行过程。</p>
+            <p>算法知识库采用算法大类分层展示方式，可按大类进入详情页查看父类算法、通用说明文档和代码包下载入口。</p>
           </div>
           <div class="page-tools">
-            <button class="btn" id="algoResetBtn">⟳ 重置筛选</button>
+            <button class="btn" id="algoResetBtn">⟳ 返回列表</button>
           </div>
         </div>
-
-        <div class="card algorithm-shell">
-          <section class="algorithm-step">
-            <div class="algorithm-step-title">
-              <span class="algorithm-step-mark">⏷</span>
-              <h3>第一步：选择算法大类</h3>
-            </div>
-            <div class="algorithm-category-grid" id="algorithmCategoryGrid"></div>
-          </section>
-
-          <section class="algorithm-step">
-            <div class="algorithm-step-title">
-              <span class="algorithm-step-mark">⌘</span>
-              <h3>第二步：选择子分类</h3>
-            </div>
-            <div class="algorithm-subcategory-grid" id="algorithmSubcategoryGrid"></div>
-          </section>
-
-          <section class="algorithm-step">
-            <div class="algorithm-step-title">
-              <span class="algorithm-step-mark">☷</span>
-              <h3>第三步：选择算法</h3>
-            </div>
-            <div class="algorithm-card-grid" id="algorithmCardGrid"></div>
-          </section>
-        </div>
-
-        <div class="card table-card module-list-shell">
-          <div class="module-list-head">
-            <div>
-              <h3>算法列表</h3>
-              <p>以数据列表形式统一展示算法，支持查看、使用手册和代码包下载。</p>
-            </div>
-            <div class="module-list-summary">
-              <span class="module-list-stat" id="algorithmListCategoryCount">算法类别 0</span>
-              <span class="module-list-stat" id="algorithmListTotalCount">算法总数 0</span>
-            </div>
-          </div>
-          <div class="table-wrap module-list-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>算法名称</th>
-                  <th>父类算法</th>
-                  <th>算法类别</th>
-                  <th>操作</th>
-                </tr>
-              </thead>
-              <tbody id="algorithmListTableBody"></tbody>
-            </table>
-          </div>
-          <div class="result-footer twod-result-footer" id="algorithmListFooter"></div>
-          <div class="module-list-empty" id="algorithmListEmpty" hidden>当前暂无算法数据。</div>
-        </div>
+        <div id="algorithmPageMount"></div>
 
       </section>
 
@@ -12870,282 +13143,13 @@
         <div class="page-head">
           <div>
             <h2>数据工具开发平台</h2>
-            <p>涵盖逆向设计、数据质控、模拟辅助、催化剂优化与机器学习模型训练的一站式工具链。</p>
+            <p>工具资源采用工具大类分层展示方式，可按大类进入详情页查看工具列表、使用手册和代码包下载入口。</p>
+          </div>
+          <div class="page-tools">
+            <button class="btn" id="toolPageBackBtn">⟳ 返回列表</button>
           </div>
         </div>
-
-        <div class="card table-card module-list-shell">
-          <div class="module-list-head">
-            <div>
-              <h3>工具列表</h3>
-              <p>以数据列表形式统一展示工具，支持查看、使用手册和代码包下载。</p>
-            </div>
-            <div class="module-list-summary">
-              <span class="module-list-stat" id="toolListCategoryCountMain">工具类别 0</span>
-              <span class="module-list-stat" id="toolListTotalCountMain">工具总数 0</span>
-            </div>
-          </div>
-          <div class="table-wrap module-list-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>工具名称</th>
-                  <th>父类工具</th>
-                  <th>工具类别</th>
-                  <th>操作</th>
-                </tr>
-              </thead>
-              <tbody id="toolListTableBodyMain"></tbody>
-            </table>
-          </div>
-          <div class="result-footer twod-result-footer" id="toolListFooterMain"></div>
-          <div class="module-list-empty" id="toolListEmptyMain" hidden>当前暂无工具数据。</div>
-        </div>
-
-        <div class="card tabs-shell tooldev-shell">
-          <div class="tab-row" data-tabs="tools">
-            <button class="tab-btn active" data-tab="tool-inverse">逆向设计</button>
-            <button class="tab-btn" data-tab="tool-clean">数据质控</button>
-            <button class="tab-btn" data-tab="tool-assistant">模拟辅助</button>
-            <button class="tab-btn" data-tab="tool-catalyst">催化剂优化</button>
-            <button class="tab-btn" data-tab="tool-model">模型接口</button>
-          </div>
-
-          <div class="tab-panel active" id="tool-inverse">
-            <div class="tool-static-card">
-              <div class="tool-static-header">
-                <div class="tool-static-icon blue">◧</div>
-                <div class="tool-static-title-group">
-                  <h3>二维材料多目标逆向设计工具</h3>
-                  <p>本工具面向二维材料研发，具备数据智能质控清洗、多目标材料逆向筛选、晶体结构可视化适配、主流第一性原理计算软件接口适配能力，支撑材料数据标准化管理与科研批量筛选、文件生成需求。</p>
-                </div>
-              </div>
-            </div>
-            <div class="tool-submodule-grid">
-              <div class="tool-submodule-card">
-                <div class="tool-submodule-icon blue">&#9672;</div>
-                <div class="tool-submodule-info">
-                  <h4>材料结构文件可视化生成器</h4>
-                  <p>支持晶体结构预览、原子编辑、键长键角测量、声子振动模式可视化，可导出 PNG / DAE / GLTF / POSCAR / CIF 等格式。</p>
-                  <div class="tool-submodule-actions">
-                    <button class="btn-primary" type="button" onclick="tdDownloadCode('inverse-visualizer')">下载代码包</button>
-                    <button class="btn" type="button" onclick="tdOpenGuide('inverse-visualizer')">查看指引</button>
-                  </div>
-                </div>
-              </div>
-              <div class="tool-submodule-card">
-                <div class="tool-submodule-icon blue">&#9673;</div>
-                <div class="tool-submodule-info">
-                  <h4>第一性原理计算软件接口</h4>
-                  <p>提供 VASP 和 QE 两种主流软件接口，自动生成输入文件，支持能带、声子、电荷等计算结果对标校验。</p>
-                  <div class="tool-submodule-actions">
-                    <button class="btn-primary" type="button" onclick="tdDownloadCode('inverse-dft')">下载代码包</button>
-                    <button class="btn" type="button" onclick="tdOpenGuide('inverse-dft')">查看指引</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-panel" id="tool-clean">
-            <div class="tool-static-card">
-              <div class="tool-static-header">
-                <div class="tool-static-icon green">⚙</div>
-                <div class="tool-static-title-group">
-                  <h3>分子数据集智能清洗和质量控制工具</h3>
-                  <p>面向分子科学研究与产业应用，提供分子数据集批量智能清洗、多维度质量校验、分子结构合理性判别、计算收敛性检测能力，保障分子数据准确、完整、规范，支撑模型构建与科研成果转化。</p>
-                </div>
-              </div>
-            </div>
-            <div class="tool-submodule-grid">
-              <div class="tool-submodule-card">
-                <div class="tool-submodule-icon green">&#9672;</div>
-                <div class="tool-submodule-info">
-                  <h4>分子数据集智能清洗引擎</h4>
-                  <p>适配单条存入与批量提取场景，自动筛查格式违规、逻辑矛盾、数值越界等异常数据并生成质检报告。</p>
-                  <div class="tool-submodule-actions">
-                    <button class="btn-primary" type="button" onclick="tdDownloadCode('clean-engine')">下载代码包</button>
-                    <button class="btn" type="button" onclick="tdOpenGuide('clean-engine')">查看指引</button>
-                  </div>
-                </div>
-              </div>
-              <div class="tool-submodule-card">
-                <div class="tool-submodule-icon green">&#9673;</div>
-                <div class="tool-submodule-info">
-                  <h4>分子结构合理性判别模块</h4>
-                  <p>从分子构成、原子排列、拓扑连接多维度智能判别结构化学合理性，确保存入数据科学可信。</p>
-                  <div class="tool-submodule-actions">
-                    <button class="btn-primary" type="button" onclick="tdDownloadCode('clean-structure')">下载代码包</button>
-                    <button class="btn" type="button" onclick="tdOpenGuide('clean-structure')">查看指引</button>
-                  </div>
-                </div>
-              </div>
-              <div class="tool-submodule-card">
-                <div class="tool-submodule-icon green">&#9670;</div>
-                <div class="tool-submodule-info">
-                  <h4>计算收敛性监测模块</h4>
-                  <p>动态监测分子性质计算收敛性，结合行业校验规则智能判定计算结果合理性，规避未收敛偏差。</p>
-                  <div class="tool-submodule-actions">
-                    <button class="btn-primary" type="button" onclick="tdDownloadCode('clean-convergence')">下载代码包</button>
-                    <button class="btn" type="button" onclick="tdOpenGuide('clean-convergence')">查看指引</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-panel" id="tool-assistant">
-            <div class="tool-static-card">
-              <div class="tool-static-header">
-                <div class="tool-static-icon purple">◫</div>
-                <div class="tool-static-title-group">
-                  <h3>复杂系统模拟智能助手工具</h3>
-                  <p>针对复杂分子体系，提供智能化结构搭建、力场参数匹配、跨模拟软件格式转换、模拟输入文件解析与参数管理能力，降低多软件协同模拟门槛，保障仿真结果一致性与可靠性。</p>
-                </div>
-              </div>
-            </div>
-            <div class="tool-submodule-grid">
-              <div class="tool-submodule-card">
-                <div class="tool-submodule-icon purple">&#9672;</div>
-                <div class="tool-submodule-info">
-                  <h4>分子结构搭建与力场匹配模块</h4>
-                  <p>辅助完成从分子结构初步搭建到力场参数精准匹配的全流程，确保建模科学性与力场设置合理性。</p>
-                  <div class="tool-submodule-actions">
-                    <button class="btn-primary" type="button" onclick="tdDownloadCode('assistant-build')">下载代码包</button>
-                    <button class="btn" type="button" onclick="tdOpenGuide('assistant-build')">查看指引</button>
-                  </div>
-                </div>
-              </div>
-              <div class="tool-submodule-card">
-                <div class="tool-submodule-icon purple">&#9673;</div>
-                <div class="tool-submodule-info">
-                  <h4>跨模拟软件格式转换模块</h4>
-                  <p>自动导出符合 LAMMPS、GROMACS 等主流分子模拟软件标准的输入文件，避免手动转换错误。</p>
-                  <div class="tool-submodule-actions">
-                    <button class="btn-primary" type="button" onclick="tdDownloadCode('assistant-convert')">下载代码包</button>
-                    <button class="btn" type="button" onclick="tdOpenGuide('assistant-convert')">查看指引</button>
-                  </div>
-                </div>
-              </div>
-              <div class="tool-submodule-card">
-                <div class="tool-submodule-icon purple">&#9670;</div>
-                <div class="tool-submodule-info">
-                  <h4>模拟输入文件解析管理模块</h4>
-                  <p>系统化解析模型结构信息与模拟参数，支持结构化存储、在线编辑与跨软件参数统一校验。</p>
-                  <div class="tool-submodule-actions">
-                    <button class="btn-primary" type="button" onclick="tdDownloadCode('assistant-parse')">下载代码包</button>
-                    <button class="btn" type="button" onclick="tdOpenGuide('assistant-parse')">查看指引</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-panel" id="tool-catalyst">
-            <div class="tool-static-card">
-              <div class="tool-static-header">
-                <div class="tool-static-icon orange">⚗</div>
-                <div class="tool-static-title-group">
-                  <h3>高效催化剂设计优化工具</h3>
-                  <p>聚焦催化材料研发，集成催化材料结构可视化建模、吸附分子构型调控、广义配位数、结构对称性函数、元素特征编码等专用生成工具，支撑催化剂结构设计与机器学习特征工程构建。</p>
-                </div>
-              </div>
-            </div>
-            <div class="tool-submodule-grid">
-              <div class="tool-submodule-card">
-                <div class="tool-submodule-icon orange">&#9672;</div>
-                <div class="tool-submodule-info">
-                  <h4>催化材料结构可视化生成器</h4>
-                  <p>支持晶面选取、吸附分子添加与构型调控，可移动吸附分子位置并调整接触构型，生成 POSCAR 结构文件。</p>
-                  <div class="tool-submodule-actions">
-                    <button class="btn-primary" type="button" onclick="tdDownloadCode('catalyst-visualizer')">下载代码包</button>
-                    <button class="btn" type="button" onclick="tdOpenGuide('catalyst-visualizer')">查看指引</button>
-                  </div>
-                </div>
-              </div>
-              <div class="tool-submodule-card">
-                <div class="tool-submodule-icon orange">&#9673;</div>
-                <div class="tool-submodule-info">
-                  <h4>吸附分子广义配位数生成器</h4>
-                  <p>自动计算 GCN 特征，支持多种维度填充策略，适配电催化局部吸附环境表征与机器学习特征工程。</p>
-                  <div class="tool-submodule-actions">
-                    <button class="btn-primary" type="button" onclick="tdDownloadCode('catalyst-gcn')">下载代码包</button>
-                    <button class="btn" type="button" onclick="tdOpenGuide('catalyst-gcn')">查看指引</button>
-                  </div>
-                </div>
-              </div>
-              <div class="tool-submodule-card">
-                <div class="tool-submodule-icon orange">&#9670;</div>
-                <div class="tool-submodule-info">
-                  <h4>材料结构对称性函数生成器</h4>
-                  <p>快速生成高斯核函数、球谐函数等结构向量化特征，减少多尺度模拟与机器学习建模的代码工作量。</p>
-                  <div class="tool-submodule-actions">
-                    <button class="btn-primary" type="button" onclick="tdDownloadCode('catalyst-symmetry')">下载代码包</button>
-                    <button class="btn" type="button" onclick="tdOpenGuide('catalyst-symmetry')">查看指引</button>
-                  </div>
-                </div>
-              </div>
-              <div class="tool-submodule-card">
-                <div class="tool-submodule-icon orange">&#9635;</div>
-                <div class="tool-submodule-info">
-                  <h4>催化材料元素特征生成器</h4>
-                  <p>提供 One-hot 编码与元素周期表 11 维属性编码两种方式，支撑催化材料机器学习模型的特征构建。</p>
-                  <div class="tool-submodule-actions">
-                    <button class="btn-primary" type="button" onclick="tdDownloadCode('catalyst-element')">下载代码包</button>
-                    <button class="btn" type="button" onclick="tdOpenGuide('catalyst-element')">查看指引</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-panel" id="tool-model">
-            <div class="tool-static-card">
-              <div class="tool-static-header">
-                <div class="tool-static-icon blue">▦</div>
-                <div class="tool-static-title-group">
-                  <h3>机器学习模型接口</h3>
-                  <p>集成传统机器学习、全连接神经网络、图神经网络三大类模型接口，提供数据降维、可视化、模型训练、超参数配置、自动格式适配能力，适配催化与材料性能预测建模场景。</p>
-                </div>
-              </div>
-            </div>
-            <div class="tool-submodule-grid">
-              <div class="tool-submodule-card">
-                <div class="tool-submodule-icon blue">&#9672;</div>
-                <div class="tool-submodule-info">
-                  <h4>传统机器学习模型接口</h4>
-                  <p>内置 GBDT、岭回归、随机森林等算法，支持 PCA / t-SNE 降维与高维数据可视化，适配材料性能回归预测。</p>
-                  <div class="tool-submodule-actions">
-                    <button class="btn-primary" type="button" onclick="tdDownloadCode('model-traditional')">下载代码包</button>
-                    <button class="btn" type="button" onclick="tdOpenGuide('model-traditional')">查看指引</button>
-                  </div>
-                </div>
-              </div>
-              <div class="tool-submodule-card">
-                <div class="tool-submodule-icon blue">&#9673;</div>
-                <div class="tool-submodule-info">
-                  <h4>全连接神经网络模型接口</h4>
-                  <p>可视化搭建神经网络结构，支持自定义层数、神经元数、激活函数与池化方式，减少代码编写与调试时间。</p>
-                  <div class="tool-submodule-actions">
-                    <button class="btn-primary" type="button" onclick="tdDownloadCode('model-nn')">下载代码包</button>
-                    <button class="btn" type="button" onclick="tdOpenGuide('model-nn')">查看指引</button>
-                  </div>
-                </div>
-              </div>
-              <div class="tool-submodule-card">
-                <div class="tool-submodule-icon blue">&#9670;</div>
-                <div class="tool-submodule-info">
-                  <h4>经典图神经网络模型接口</h4>
-                  <p>适配 CGCNN、SchNet、DimeNet++ 等模型，自动完成数据格式转换，免去大量预处理与代码适配工作。</p>
-                  <div class="tool-submodule-actions">
-                    <button class="btn-primary" type="button" onclick="tdDownloadCode('model-gnn')">下载代码包</button>
-                    <button class="btn" type="button" onclick="tdOpenGuide('model-gnn')">查看指引</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div id="toolPageMount"></div>
       </section>
       <section class="page" id="page-sys-user"></section>
       <section class="page" id="page-sys-role"></section>
@@ -14549,8 +14553,12 @@
       selectedAlgorithmCategory: "twod",
       selectedAlgorithmSubcategory: "twod-relaxation",
       selectedAlgorithmItem: "twod-relax-nonmagnetic",
+      algorithmPageView: "overview",
       activeAlgorithmResourceId: "twod-relax-nonmagnetic",
       algorithmRequestPayload: "",
+      toolPageView: "overview",
+      selectedToolCategory: "二维材料多目标逆向设计工具",
+      selectedToolItem: "inverse-visualizer",
       toolListPage: 1,
       toolListPageSize: 5,
       sidebarCollapsed: false,
@@ -23528,6 +23536,141 @@
       ];
     }
 
+    function getAlgorithmCategoryCount(categoryKey) {
+      const category = algorithms[categoryKey];
+      if (!category) return 0;
+      return Object.values(category.subcategories).reduce((sum, item) => sum + item.algorithms.length, 0);
+    }
+
+    function getAlgorithmCategoryDescription(categoryKey) {
+      const descriptionMap = {
+        twod: "用于二维材料结构驰豫、电子性质计算等场景，支撑二维材料数据库的结构优化与多物性分析。",
+        lowdim: "用于低维材料数据爬取、数据分类与标签整理等场景，支撑低维材料数据资源治理与归档。",
+        mlff: "用于经典力场参数拟合、多极极化势能建模及图神经网络力场预测等场景。",
+        catalyst: "用于催化性能预测、结构演化分析与吸附状态预测等场景，支撑催化材料筛选与性能评估。"
+      };
+      return descriptionMap[categoryKey] || "用于特定材料体系的数据处理、性质分析与资源调用场景。";
+    }
+
+    function getAlgorithmCategoryGuideText(category) {
+      return `${category.title}围绕 ${Object.values(category.subcategories).map((item) => item.title).join("、")} 等父类算法展开，适用于 ${category.subtitle} 相关科研任务。`;
+    }
+
+    function getAlgorithmCategoryScenarios(category) {
+      const scenarioMap = {
+        twod: "适用于二维材料结构优化、能带计算、热学与光学性质分析等场景。",
+        lowdim: "适用于低维材料数据采集、外部数据库归档、结构标签分类与属性整理等场景。",
+        mlff: "适用于力场参数拟合、极化势能建模、分子体系能量与力预测等场景。",
+        catalyst: "适用于催化材料表面性能评估、吸附状态分析、催化结构演化与高通量筛选等场景。"
+      };
+      return scenarioMap[state.selectedAlgorithmCategory] || `${category.title}适用于相关材料数据分析与资源调用场景。`;
+    }
+
+    function getAlgorithmResourceTarget(category, subcategory) {
+      return subcategory?.algorithms?.find((item) => item.status !== "maintenance") || subcategory?.algorithms?.[0] || getSelectedAlgorithm();
+    }
+
+    function renderAlgorithmOverviewPage() {
+      const mount = document.getElementById("algorithmPageMount");
+      if (!mount) return;
+      mount.innerHTML = `
+        <section class="card algorithm-overview-shell">
+          <div class="module-list-head algorithm-overview-head">
+            <div>
+              <h3>算法列表</h3>
+              <p>按算法大类分类查看平台算法资源，点击进入对应大类详情页获取父类算法、使用手册和代码包下载入口。</p>
+            </div>
+          </div>
+          <div class="algorithm-overview-grid">
+            ${Object.entries(algorithms).map(([key, item]) => `
+              <article class="algorithm-overview-card ${item.tone}">
+                <div class="algorithm-overview-icon ${item.tone}">${item.icon}</div>
+                <div class="algorithm-overview-body">
+                  <h4>${item.title}</h4>
+                  <p>${getAlgorithmCategoryDescription(key)}</p>
+                </div>
+                <div class="algorithm-overview-foot">
+                  <span>算法总数 ${getAlgorithmCategoryCount(key)}</span>
+                  <button class="btn-primary" type="button" data-algo-enter-category="${key}">进入查看</button>
+                </div>
+              </article>
+            `).join("")}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderAlgorithmCategoryDetailPage() {
+      const mount = document.getElementById("algorithmPageMount");
+      const category = getSelectedAlgorithmCategory();
+      const subcategory = getSelectedAlgorithmSubcategory();
+      const targetAlgorithm = getAlgorithmResourceTarget(category, subcategory);
+      if (!mount || !category || !subcategory) return;
+      mount.innerHTML = `
+        <section class="card algorithm-detail-shell-v2">
+          <div class="algorithm-detail-topbar">
+            <button class="btn" type="button" data-algo-back>返回</button>
+            <div class="algorithm-detail-heading">
+              <h3>${category.title}详情</h3>
+              <p>${getAlgorithmCategoryGuideText(category)}</p>
+            </div>
+          </div>
+          <div class="algorithm-detail-layout-v2">
+            <aside class="algorithm-detail-sidebar-v2">
+              <div class="algorithm-detail-sidebar-head">
+                <h4>父类算法</h4>
+                <span>${Object.keys(category.subcategories).length} 项</span>
+              </div>
+              <div class="algorithm-detail-sidebar-list">
+                ${Object.entries(category.subcategories).map(([key, item]) => `
+                  <button class="algorithm-parent-item${state.selectedAlgorithmSubcategory === key ? " active" : ""}" type="button" data-algo-subcategory="${key}">
+                    <strong>${item.title}</strong>
+                    <span>${item.countLabel}</span>
+                  </button>
+                `).join("")}
+              </div>
+            </aside>
+            <section class="algorithm-detail-content-v2">
+              <div class="algorithm-detail-panel">
+                <div class="algorithm-detail-panel-head">
+                  <div>
+                    <span class="algorithm-detail-kicker">${category.title}</span>
+                    <h4>${subcategory.title}</h4>
+                    <p>${getAlgorithmCategoryScenarios(category)}</p>
+                  </div>
+                </div>
+                <div class="algorithm-detail-summary-grid">
+                  <article class="algorithm-detail-summary-card">
+                    <span>父类算法说明</span>
+                    <strong>${subcategory.title}</strong>
+                    <p>当前父类下共收录 ${subcategory.algorithms.length} 个具体算法，覆盖 ${subcategory.algorithms.map((item) => item.title).join("、")} 等内容。</p>
+                  </article>
+                  <article class="algorithm-detail-summary-card">
+                    <span>适用场景</span>
+                    <strong>资源调用与结果获取</strong>
+                    <p>支持科研人员按父类算法查看功能简介、适用场景，并获取对应的使用手册与代码包资源。</p>
+                  </article>
+                </div>
+              </div>
+              <div class="algorithm-detail-panel">
+                <div class="algorithm-detail-panel-head">
+                  <div>
+                    <span class="algorithm-detail-kicker">资源下载</span>
+                    <h4>说明与代码资源</h4>
+                    <p>下载入口统一适配当前父类算法下的默认算法资源，可继续扩展为具体算法预览内容。</p>
+                  </div>
+                </div>
+                <div class="algorithm-detail-actions-v2">
+                  <button class="btn" type="button" data-algo-action="manual" data-algo-id="${targetAlgorithm.id}">使用手册下载</button>
+                  <button class="btn-primary" type="button" data-algo-action="${targetAlgorithm.status === "maintenance" ? "maintenance" : "code"}" data-algo-id="${targetAlgorithm.id}">代码包下载</button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+      `;
+    }
+
     function populateAlgorithmRequestForm() {
       const algorithm = getSelectedAlgorithm();
       const nameInput = document.getElementById("algorithmRequestName");
@@ -23541,70 +23684,6 @@
         input.checked = input.value === "站内通知";
       });
       document.getElementById("algorithmRequestNote").value = `目标算法：${algorithm.title}\n接口地址：${algorithm.endpoint}\n返回内容：${algorithm.output}`;
-    }
-
-    function renderAlgorithmCategories() {
-      const wrap = document.getElementById("algorithmCategoryGrid");
-      wrap.innerHTML = Object.entries(algorithms).map(([key, item]) => `
-        <button class="algorithm-category-card${state.selectedAlgorithmCategory === key ? " active" : ""}" type="button" data-algo-category="${key}">
-          <span class="algorithm-category-icon ${item.tone}">${item.icon}</span>
-          <div>
-            <h4>${item.title}</h4>
-            <p>${item.subtitle}</p>
-          </div>
-        </button>
-      `).join("");
-    }
-
-    function renderAlgorithmSubcategories() {
-      const category = getSelectedAlgorithmCategory();
-      const wrap = document.getElementById("algorithmSubcategoryGrid");
-      wrap.innerHTML = Object.entries(category.subcategories).map(([key, item]) => `
-        <button class="algorithm-subcategory-card${state.selectedAlgorithmSubcategory === key ? " active" : ""}" type="button" data-algo-subcategory="${key}">
-          <div class="algorithm-subcategory-main">
-            <span class="algorithm-subcategory-icon ${category.tone}">▣</span>
-            <div>
-              <h4>${item.title}</h4>
-              <span class="count">${item.countLabel}</span>
-            </div>
-          </div>
-          <span class="algorithm-subcategory-arrow">›</span>
-        </button>
-      `).join("");
-    }
-
-    function renderAlgorithmCards() {
-      const category = getSelectedAlgorithmCategory();
-      const subcategory = getSelectedAlgorithmSubcategory();
-      const wrap = document.getElementById("algorithmCardGrid");
-      if (!subcategory.algorithms.length) {
-        wrap.innerHTML = `<div class="algorithm-empty"><p>当前子分类暂无算法资源。</p></div>`;
-        return;
-      }
-
-      wrap.innerHTML = subcategory.algorithms.map((item) => `
-        <article class="algorithm-item-card${state.selectedAlgorithmItem === item.id ? " active" : ""}" data-algo-id="${item.id}">
-          <div class="algorithm-item-head">
-            <div class="algorithm-item-main">
-              <span class="algorithm-item-icon ${category.tone}">✦</span>
-              <div>
-                <div class="algorithm-item-title">${item.title}</div>
-                <div class="algorithm-item-subtitle">${item.enTitle}</div>
-              </div>
-            </div>
-            <span class="algorithm-status-pill ${item.status}">${getAlgorithmStatusText(item.status)}</span>
-          </div>
-          <p>${item.desc}</p>
-          <div class="algorithm-tag-row">
-            ${item.tags.map((tag) => `<span class="algorithm-tag">${tag}</span>`).join("")}
-          </div>
-          <div class="algorithm-actions">
-            <button class="algorithm-action-btn" type="button" data-algo-action="manual" data-algo-id="${item.id}">使用手册</button>
-            <button class="algorithm-action-btn" type="button" data-algo-action="doc" data-algo-id="${item.id}">查看算法</button>
-            <button class="algorithm-action-btn primary" type="button" data-algo-action="${item.status === "maintenance" ? "maintenance" : "code"}" data-algo-id="${item.id}">${item.status === "maintenance" ? "维护中" : "代码包"}</button>
-          </div>
-        </article>
-      `).join("");
     }
 
     function renderAlgorithmDetail() {
@@ -23760,96 +23839,26 @@
       openModal("algorithmRequestModal");
     }
 
-    function getAlgorithmListRows() {
-      const rows = [];
-      Object.values(algorithms).forEach((category) => {
-        Object.values(category.subcategories).forEach((subcategory) => {
-          subcategory.algorithms.forEach((algorithm) => {
-            rows.push({
-              id: algorithm.id,
-              name: algorithm.title,
-              enName: algorithm.enTitle,
-              parent: subcategory.title,
-              category: category.title,
-              status: algorithm.status
-            });
-          });
-        });
-      });
-      return rows;
-    }
-
-    function renderAlgorithmListTable() {
-      const body = document.getElementById("algorithmListTableBody");
-      const empty = document.getElementById("algorithmListEmpty");
-      const totalNode = document.getElementById("algorithmListTotalCount");
-      const categoryNode = document.getElementById("algorithmListCategoryCount");
-      const footer = document.getElementById("algorithmListFooter");
-      if (!body || !empty || !totalNode || !categoryNode || !footer) return;
-
-      const rows = getAlgorithmListRows();
-      const total = rows.length;
-      const totalPages = Math.max(1, Math.ceil(total / state.algorithmListPageSize));
-      state.algorithmListPage = Math.min(state.algorithmListPage, totalPages);
-      const startIndex = total ? (state.algorithmListPage - 1) * state.algorithmListPageSize : 0;
-      const pageRows = rows.slice(startIndex, startIndex + state.algorithmListPageSize);
-      categoryNode.textContent = `算法类别 ${Object.keys(algorithms).length}`;
-      totalNode.textContent = `算法总数 ${total}`;
-
-      if (!total) {
-        body.innerHTML = "";
-        empty.hidden = false;
-        footer.innerHTML = "";
-        return;
-      }
-
-      empty.hidden = true;
-      body.innerHTML = pageRows.map((row) => `
-        <tr>
-          <td>
-            <div class="module-list-name">
-              <strong>${row.name}</strong>
-              <span>${row.enName}</span>
-            </div>
-          </td>
-          <td class="module-list-cell-muted">${row.parent}</td>
-          <td class="module-list-cell-muted">${row.category}</td>
-          <td>
-            <div class="table-actions">
-              <button class="mini-btn primary" type="button" data-algo-action="doc" data-algo-id="${row.id}">查看</button>
-              <button class="mini-btn" type="button" data-algo-action="manual" data-algo-id="${row.id}">使用手册</button>
-              <button class="mini-btn" type="button" data-algo-action="${row.status === "maintenance" ? "maintenance" : "code"}" data-algo-id="${row.id}">代码包</button>
-            </div>
-          </td>
-        </tr>
-      `).join("");
-      footer.innerHTML = renderSharedPaginationFooter({
-        total,
-        currentPage: state.algorithmListPage,
-        totalPages,
-        pageSize: state.algorithmListPageSize,
-        pageSizeId: "algorithmListPageSize",
-        pageAttr: "data-algorithm-page",
-        jumpModule: "algorithm-list"
-      });
-    }
-
     function renderAlgorithms() {
       ensureAlgorithmSelection();
-      renderAlgorithmCategories();
-      renderAlgorithmSubcategories();
-      renderAlgorithmCards();
-      renderAlgorithmListTable();
+      if (state.algorithmPageView === "detail") {
+        renderAlgorithmCategoryDetailPage();
+        updateBreadcrumb("algorithms");
+        return;
+      }
+      renderAlgorithmOverviewPage();
+      updateBreadcrumb("algorithms");
     }
 
     function bindAlgorithmInteractions() {
       document.getElementById("algoResetBtn").addEventListener("click", () => {
+        state.algorithmPageView = "overview";
         state.selectedAlgorithmCategory = "twod";
         state.selectedAlgorithmSubcategory = "twod-relaxation";
         state.selectedAlgorithmItem = "twod-relax-nonmagnetic";
         state.algorithmListPage = 1;
         renderAlgorithms();
-        showToast("数据应用算法", "已重置算法筛选并恢复默认算法视图。");
+        showToast("数据应用算法", "已返回算法大类列表。");
       });
 
       document.getElementById("algorithmCodeConfirmBtn").addEventListener("click", () => {
@@ -23880,9 +23889,10 @@
           return;
         }
 
-        const categoryTrigger = event.target.closest("[data-algo-category]");
+        const categoryTrigger = event.target.closest("[data-algo-enter-category]");
         if (categoryTrigger) {
-          state.selectedAlgorithmCategory = categoryTrigger.dataset.algoCategory;
+          state.algorithmPageView = "detail";
+          state.selectedAlgorithmCategory = categoryTrigger.dataset.algoEnterCategory;
           state.selectedAlgorithmSubcategory = Object.keys(getSelectedAlgorithmCategory().subcategories)[0];
           state.selectedAlgorithmItem = getSelectedAlgorithmSubcategory().algorithms[0]?.id || "";
           renderAlgorithms();
@@ -23893,6 +23903,13 @@
         if (subcategoryTrigger) {
           state.selectedAlgorithmSubcategory = subcategoryTrigger.dataset.algoSubcategory;
           state.selectedAlgorithmItem = getSelectedAlgorithmSubcategory().algorithms[0]?.id || "";
+          renderAlgorithms();
+          return;
+        }
+
+        const backTrigger = event.target.closest("[data-algo-back]");
+        if (backTrigger) {
+          state.algorithmPageView = "overview";
           renderAlgorithms();
           return;
         }
@@ -36486,7 +36503,7 @@
       }
       if (moduleKey === "tool-list") {
         state.toolListPage = page;
-        renderToolListTable();
+        renderToolsPage();
         return;
       }
       if (moduleKey === "twod") {
@@ -36539,7 +36556,7 @@
         if (event.target.id === "toolListPageSize") {
           state.toolListPageSize = Number(event.target.value) || 5;
           state.toolListPage = 1;
-          renderToolListTable();
+          renderToolsPage();
           return;
         }
         if (event.target.id === "sysMenuPageSize") {
@@ -36564,7 +36581,7 @@
         const toolPage = event.target.closest("[data-tool-page]");
         if (toolPage?.dataset.toolPage) {
           state.toolListPage = Number(toolPage.dataset.toolPage) || 1;
-          renderToolListTable();
+          renderToolsPage();
           return;
         }
         const systemMenuPage = event.target.closest("[data-sys-menu-page]");
@@ -38035,6 +38052,44 @@
       { id: "model-gnn", name: "经典图神经网络模型接口", parent: "-", category: "机器学习模型接口", detailId: "model-gnn" }
     ];
 
+    const toolCategoryConfigs = {
+      "二维材料多目标逆向设计工具": {
+        tone: "blue",
+        icon: "◧",
+        desc: "用于二维材料结构可视化、计算软件接口适配和后处理结果解析等场景。",
+        summary: "面向二维材料研发，支持结构可视化、第一性原理输入输出适配与结果后处理。",
+        scenario: "适用于二维材料结构文件生成、主流计算软件接口调用和结构性质结果整理归档。"
+      },
+      "分子数据集智能清洗和质量控制工具": {
+        tone: "green",
+        icon: "⚙",
+        desc: "用于分子数据集智能清洗、结构合理性判别和计算收敛性检测等场景。",
+        summary: "面向分子数据质控与清洗流程，提供异常筛查、结构判别和收敛监测能力。",
+        scenario: "适用于分子数据入库前质检、批量清洗、异常定位和结果可信度评估场景。"
+      },
+      "复杂系统模拟智能助手工具": {
+        tone: "purple",
+        icon: "◫",
+        desc: "用于复杂分子体系结构搭建、力场匹配、格式转换和输入文件解析等场景。",
+        summary: "面向复杂系统模拟建模，提供结构搭建、参数匹配和跨软件输入文件管理能力。",
+        scenario: "适用于多软件协同仿真、分子体系建模、输入文件解析与参数统一校验场景。"
+      },
+      "高效催化剂设计优化工具": {
+        tone: "orange",
+        icon: "⚗",
+        desc: "用于催化材料结构生成、吸附构型特征构建、对称性函数与元素编码等场景。",
+        summary: "聚焦催化剂设计优化，提供结构生成、局部环境特征和元素编码等专用工具。",
+        scenario: "适用于催化材料结构设计、特征工程构建与机器学习建模前的数据准备场景。"
+      },
+      "机器学习模型接口": {
+        tone: "blue",
+        icon: "▦",
+        desc: "用于传统机器学习、全连接神经网络和图神经网络训练与推理等场景。",
+        summary: "面向材料与催化预测建模，提供传统模型、神经网络和图神经网络接口能力。",
+        scenario: "适用于材料性能预测、模型训练、超参数调优和结果导出分析场景。"
+      }
+    };
+
     toolSubmoduleData["inverse-dft-post"] = {
       name: "第一性原理计算软件后处理接口",
       effect: [
@@ -38098,72 +38153,191 @@
       openModal('toolDetailModal');
     }
 
-    function renderToolListTable() {
-      const body = document.getElementById("toolListTableBodyMain");
-      const empty = document.getElementById("toolListEmptyMain");
-      const totalNode = document.getElementById("toolListTotalCountMain");
-      const categoryNode = document.getElementById("toolListCategoryCountMain");
-      const footer = document.getElementById("toolListFooterMain");
-      if (!body || !empty || !totalNode || !categoryNode || !footer) return;
+    function getToolRowsByCategory(categoryName) {
+      return toolListRows.filter((item) => item.category === categoryName);
+    }
 
-      const total = toolListRows.length;
-      const categoryCount = new Set(toolListRows.map((item) => item.category)).size;
-      const totalPages = Math.max(1, Math.ceil(total / state.toolListPageSize));
-      state.toolListPage = Math.min(state.toolListPage, totalPages);
-      const startIndex = total ? (state.toolListPage - 1) * state.toolListPageSize : 0;
-      const pageRows = toolListRows.slice(startIndex, startIndex + state.toolListPageSize);
-      categoryNode.textContent = `工具类别 ${categoryCount}`;
-      totalNode.textContent = `工具总数 ${total}`;
+    function getSelectedToolRow() {
+      const list = getToolRowsByCategory(state.selectedToolCategory);
+      return list.find((item) => item.id === state.selectedToolItem) || list[0] || null;
+    }
 
-      if (!total) {
-        body.innerHTML = "";
-        empty.hidden = false;
-        footer.innerHTML = "";
+    function ensureToolSelection() {
+      const categories = Object.keys(toolCategoryConfigs);
+      if (!toolCategoryConfigs[state.selectedToolCategory]) {
+        state.selectedToolCategory = categories[0];
+      }
+      const currentList = getToolRowsByCategory(state.selectedToolCategory);
+      if (!currentList.some((item) => item.id === state.selectedToolItem)) {
+        state.selectedToolItem = currentList[0]?.id || "";
+      }
+    }
+
+    function renderToolOverviewPage() {
+      const mount = document.getElementById("toolPageMount");
+      if (!mount) return;
+      mount.innerHTML = `
+        <section class="card algorithm-overview-shell">
+          <div class="module-list-head algorithm-overview-head">
+            <div>
+              <h3>工具列表</h3>
+              <p>按工具大类分类查看平台工具资源，点击进入对应大类详情页获取工具列表、使用手册和代码包下载入口。</p>
+            </div>
+          </div>
+          <div class="algorithm-overview-grid">
+            ${Object.entries(toolCategoryConfigs).map(([categoryName, config]) => `
+              <article class="algorithm-overview-card ${config.tone}">
+                <div class="algorithm-overview-icon ${config.tone}">${config.icon}</div>
+                <div class="algorithm-overview-body">
+                  <h4>${categoryName}</h4>
+                  <p>${config.desc}</p>
+                </div>
+                <div class="algorithm-overview-foot">
+                  <span>工具总数 ${getToolRowsByCategory(categoryName).length}</span>
+                  <button class="btn-primary" type="button" data-tool-enter-category="${categoryName}">进入查看</button>
+                </div>
+              </article>
+            `).join("")}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderToolDetailPage() {
+      const mount = document.getElementById("toolPageMount");
+      const category = toolCategoryConfigs[state.selectedToolCategory];
+      const currentRow = getSelectedToolRow();
+      const currentTool = currentRow ? (toolSubmoduleData[currentRow.id] || toolDetailData[currentRow.id]) : null;
+      const rows = getToolRowsByCategory(state.selectedToolCategory);
+      const firstToolId = rows[0]?.id || "";
+      if (!mount || !category || !currentRow || !currentTool) return;
+      mount.innerHTML = `
+        <section class="card algorithm-detail-shell-v2">
+          <div class="algorithm-detail-topbar">
+            <button class="btn" type="button" data-tool-back>返回</button>
+            <div class="algorithm-detail-heading">
+              <h3>${state.selectedToolCategory}详情</h3>
+              <p>${category.summary}</p>
+            </div>
+          </div>
+          <div class="algorithm-detail-layout-v2">
+            <aside class="algorithm-detail-sidebar-v2">
+              <div class="algorithm-detail-sidebar-head">
+                <h4>工具列表</h4>
+                <span>${rows.length} 项</span>
+              </div>
+              <div class="algorithm-detail-sidebar-list">
+                ${rows.map((item) => {
+                  const isEnabled = item.id === firstToolId;
+                  const itemClass = [
+                    "algorithm-parent-item",
+                    state.selectedToolItem === item.id && isEnabled ? "active" : "",
+                    !isEnabled ? "is-disabled" : ""
+                  ].filter(Boolean).join(" ");
+                  return `
+                  <button class="${itemClass}" type="button" data-tool-item="${item.id}"${isEnabled ? "" : ' disabled title="当前仅保留首个工具可选"'}>
+                    <strong>${item.name}</strong>
+                    <span>${item.parent === "-" ? "独立工具" : item.parent}</span>
+                  </button>
+                `;
+                }).join("")}
+              </div>
+            </aside>
+            <section class="algorithm-detail-content-v2">
+              <div class="algorithm-detail-panel">
+                <div class="algorithm-detail-panel-head">
+                  <div>
+                    <span class="algorithm-detail-kicker">${state.selectedToolCategory}</span>
+                    <h4>${currentRow.name}</h4>
+                    <p>${category.scenario}</p>
+                  </div>
+                </div>
+                <div class="algorithm-detail-summary-grid">
+                  <article class="algorithm-detail-summary-card">
+                    <span>工具说明</span>
+                    <strong>${currentRow.name}</strong>
+                    <p>${currentTool.effect?.[0] || "当前工具说明后续可继续扩展。"}</p>
+                  </article>
+                  <article class="algorithm-detail-summary-card">
+                    <span>适用场景</span>
+                    <strong>${currentRow.parent === "-" ? "独立工具模块" : currentRow.parent}</strong>
+                    <p>${category.desc}</p>
+                  </article>
+                </div>
+              </div>
+              <div class="algorithm-detail-panel">
+                <div class="algorithm-detail-panel-head">
+                  <div>
+                    <span class="algorithm-detail-kicker">资源下载</span>
+                    <h4>说明与代码资源</h4>
+                    <p>当前工具支持查看功能简介、使用手册和代码包下载，后续可继续扩展具体工具详情预览内容。</p>
+                  </div>
+                </div>
+                <div class="algorithm-detail-actions-v2">
+                  <button class="btn" type="button" data-tool-action="detail" data-tool-id="${currentRow.id}">查看详情</button>
+                  <button class="btn" type="button" data-tool-action="guide" data-tool-id="${currentRow.id}">使用手册下载</button>
+                  <button class="btn-primary" type="button" data-tool-action="code" data-tool-id="${currentRow.id}">代码包下载</button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderToolsPage() {
+      ensureToolSelection();
+      const rows = getToolRowsByCategory(state.selectedToolCategory);
+      const firstToolId = rows[0]?.id || "";
+      if (state.toolPageView === "detail" && firstToolId && state.selectedToolItem !== firstToolId) {
+        state.selectedToolItem = firstToolId;
+      }
+      if (state.toolPageView === "detail") {
+        renderToolDetailPage();
+        updateBreadcrumb("tools");
         return;
       }
-
-      empty.hidden = true;
-      body.innerHTML = pageRows.map((item) => `
-        <tr>
-          <td>
-            <div class="module-list-name">
-              <strong>${item.name}</strong>
-              <span>${item.id}.zip</span>
-            </div>
-          </td>
-          <td class="module-list-cell-muted">${item.parent}</td>
-          <td class="module-list-cell-muted">${item.category}</td>
-          <td>
-            <div class="table-actions">
-              <button class="mini-btn primary" type="button" data-tool-action="detail" data-tool-id="${item.detailId}">查看</button>
-              <button class="mini-btn" type="button" data-tool-action="guide" data-tool-id="${item.id}">使用手册</button>
-              <button class="mini-btn" type="button" data-tool-action="code" data-tool-id="${item.id}">代码包</button>
-            </div>
-          </td>
-        </tr>
-      `).join("");
-      footer.innerHTML = renderSharedPaginationFooter({
-        total,
-        currentPage: state.toolListPage,
-        totalPages,
-        pageSize: state.toolListPageSize,
-        pageSizeId: "toolListPageSize",
-        pageAttr: "data-tool-page",
-        jumpModule: "tool-list"
-      });
+      renderToolOverviewPage();
+      updateBreadcrumb("tools");
     }
 
     function bindToolListInteractions() {
       if (document.body.dataset.toolListBound === "true") return;
       document.body.dataset.toolListBound = "true";
+      document.getElementById("toolPageBackBtn")?.addEventListener("click", () => {
+        state.toolPageView = "overview";
+        renderToolsPage();
+      });
       document.body.addEventListener("click", (event) => {
+        const enterCategory = event.target.closest("[data-tool-enter-category]");
+        if (enterCategory) {
+          state.toolPageView = "detail";
+          state.selectedToolCategory = enterCategory.dataset.toolEnterCategory;
+          state.selectedToolItem = getToolRowsByCategory(state.selectedToolCategory)[0]?.id || "";
+          renderToolsPage();
+          return;
+        }
+        const backTrigger = event.target.closest("[data-tool-back]");
+        if (backTrigger) {
+          state.toolPageView = "overview";
+          renderToolsPage();
+          return;
+        }
+        const itemTrigger = event.target.closest("[data-tool-item]");
+        if (itemTrigger) {
+          const firstToolId = getToolRowsByCategory(state.selectedToolCategory)[0]?.id || "";
+          if (itemTrigger.dataset.toolItem !== firstToolId) return;
+          state.selectedToolItem = itemTrigger.dataset.toolItem;
+          renderToolsPage();
+          return;
+        }
         const trigger = event.target.closest("[data-tool-action]");
         if (!trigger) return;
         const toolId = trigger.dataset.toolId;
         const action = trigger.dataset.toolAction;
-        if (action === "detail") tdOpenDetail(toolId, "effect");
         if (action === "guide") tdOpenGuide(toolId);
         if (action === "code") tdDownloadCode(toolId);
+        if (action === "detail") tdOpenDetail(toolId, "effect");
       });
     }
 
@@ -42289,6 +42463,19 @@
 
     const baseUpdateBreadcrumbForSystem = updateBreadcrumb;
     updateBreadcrumb = function (page) {
+      if (page === "algorithms" && state.algorithmPageView === "detail") {
+        const breadcrumb = document.getElementById("breadcrumb");
+        const category = getSelectedAlgorithmCategory();
+        if (!breadcrumb || !category) return;
+        breadcrumb.innerHTML = `<span>分析预测</span><span>/</span><span>数据应用算法</span><span>/</span><strong>${category.title}详情</strong>`;
+        return;
+      }
+      if (page === "tools" && state.toolPageView === "detail") {
+        const breadcrumb = document.getElementById("breadcrumb");
+        if (!breadcrumb) return;
+        breadcrumb.innerHTML = `<span>分析预测</span><span>/</span><span>数据工具开发</span><span>/</span><strong>${state.selectedToolCategory}详情</strong>`;
+        return;
+      }
       const meta = SYSTEM_PAGE_META[page];
       if (meta) {
         const breadcrumb = document.getElementById("breadcrumb");
@@ -42341,7 +42528,7 @@
       bindAlgorithmInteractions();
       bindGlobalSearch();
       bindStaticActions();
-      renderToolListTable();
+      renderToolsPage();
       bindToolListInteractions();
       bindToolDownloadInteractions();
       bindToolGuideInteractions();
