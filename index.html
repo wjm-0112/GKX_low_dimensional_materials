@@ -31057,12 +31057,6 @@
       `;
       return `
         <section class="card table-card mlff-glossary-anchor" id="mlffGlossarySection">
-          <div class="table-head">
-            <div>
-              <h3>数据术语表</h3>
-              <p class="section-subtitle">查看机器学习力场参数数据定义表与数据获取方法表。</p>
-            </div>
-          </div>
           <div style="padding:24px;">
             <div class="mlff-glossary-nav">
               <button class="btn${isDefinition ? "-primary" : ""}" type="button" data-mlff-glossary-tab="definition">参数数据定义表</button>
@@ -39222,6 +39216,25 @@
           min-width: 96px;
           justify-content: center;
         }
+        .mlff-basic-layout {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 18px;
+          align-items: stretch;
+        }
+        .mlff-basic-left-card,
+        .mlff-basic-right-column {
+          min-width: 0;
+        }
+        .mlff-basic-left-card {
+          padding: 18px 18px 16px;
+          height: 100%;
+        }
+        .mlff-basic-right-column {
+          display: grid;
+          grid-template-rows: minmax(0, 1fr) auto;
+          gap: 18px;
+        }
         .mlff-basic-visual-card {
           min-height: 100%;
           padding: 18px 18px 16px;
@@ -39245,6 +39258,11 @@
           font-size: 13px;
           line-height: 22px;
           text-align: center;
+        }
+        .mlff-file-card {
+          padding: 18px 18px 16px;
+          display: grid;
+          gap: 14px;
         }
         #page-twod-detail[data-source="mlff"] .twod-detail-table-card {
           padding: 18px 18px 16px;
@@ -39685,9 +39703,8 @@
         { label: "更新时间", value: material.updatedAt }
       ];
       const fileRows = [
-        { label: "参数力场文件下载", value: `<div class="mlff-inline-actions"><button class="twod-detail-link-btn" type="button" onclick="return triggerMlffDownload('package')">下载</button><span>包含分子结构PDB文件和力场XML文件</span></div>` },
-        { label: "PDB结构文件下载", value: `<div class="mlff-inline-actions"><button class="twod-detail-link-btn" type="button" onclick="return triggerMlffDownload('pdb')">下载</button><span>包含原子种类和原子三维坐标</span></div>` },
-        { label: "XML力场文件下载", value: `<div class="mlff-inline-actions"><button class="twod-detail-link-btn" type="button" onclick="return triggerMlffDownload('xml')">下载</button><span>包含力场参数映射和结构节点信息</span></div>` }
+        { label: "PDB结构文件", value: `<div class="mlff-inline-actions"><span>包含原子种类和原子三维坐标</span><button class="twod-detail-link-btn" type="button" onclick="return triggerMlffDownload('pdb')">下载</button></div>` },
+        { label: "XML力场文件", value: `<div class="mlff-inline-actions"><span>包含力场参数映射和结构节点信息</span><button class="twod-detail-link-btn" type="button" onclick="return triggerMlffDownload('xml')">下载</button></div>` }
       ];
       const scene = buildMlffScene(material, "molecule");
       return `
@@ -39697,21 +39714,24 @@
             <p>展示当前机器学习力场材料的基础信息与文件下载入口。</p>
           </div>
         </div>
-        <div class="twod-basic-card-grid">
-          <section class="twod-detail-table-card">
+        <div class="mlff-basic-layout">
+          <section class="twod-detail-table-card mlff-basic-left-card">
             <h5 class="twod-detail-basic-title">基础信息</h5>
-            <div class="detail-kv-stack">
-              ${renderDetailKvSection("材料基础信息", basicRows)}
-              ${renderDetailKvSection("文件下载", fileRows)}
-            </div>
+            ${renderDetailKvSection("材料基础信息", basicRows)}
           </section>
-          <section class="twod-detail-visual-card mlff-basic-visual-card">
-            <h5 class="twod-detail-basic-title">3D分子结构图</h5>
-            <div class="mlff-structure-stage">
-              <div class="material-atom-cluster mlff-scene" data-mlff-scene-size="${scene.size}">${renderMlffSceneMarkup(scene)}</div>
-              <p class="mlff-basic-visual-caption">${material.name} 的 3D 分子结构示意图，用于展示当前力场样本的原子组成与空间构型。</p>
-            </div>
-          </section>
+          <div class="mlff-basic-right-column">
+            <section class="twod-detail-visual-card mlff-basic-visual-card">
+              <h5 class="twod-detail-basic-title">3D分子结构图</h5>
+              <div class="mlff-structure-stage">
+                <div class="material-atom-cluster mlff-scene" data-mlff-scene-size="${scene.size}">${renderMlffSceneMarkup(scene)}</div>
+                <p class="mlff-basic-visual-caption">${material.name} 的 3D 分子结构示意图，用于展示当前力场样本的原子组成与空间构型。</p>
+              </div>
+            </section>
+            <section class="twod-detail-table-card mlff-file-card">
+              <h5 class="twod-detail-basic-title">参数力场文件</h5>
+              ${renderDetailKvSection("", fileRows)}
+            </section>
+          </div>
         </div>
       `;
     }
