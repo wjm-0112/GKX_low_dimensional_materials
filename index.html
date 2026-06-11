@@ -18900,7 +18900,21 @@
     }
 
     function parseElectrolyteElementText(rawValue) {
-      return rawValue.split(/[+,，\s]+/).map((item) => item.trim()).filter(Boolean);
+      const text = String(rawValue || "").trim();
+      if (!text) return [];
+      const normalizeSymbol = (token) => {
+        const source = String(token || "").trim();
+        if (!source) return "";
+        return source.charAt(0).toUpperCase() + source.slice(1).toLowerCase();
+      };
+      const hasSeparator = /[+,，\s]+/.test(text);
+      const parts = hasSeparator ? text.split(/[+,，\s]+/).map((item) => item.trim()).filter(Boolean) : [text];
+      const symbols = parts.flatMap((part) => {
+        const matches = String(part).match(/[A-Za-z][a-z]?/g);
+        if (matches && matches.length) return matches.map(normalizeSymbol);
+        return [normalizeSymbol(part)];
+      }).filter(Boolean);
+      return Array.from(new Set(symbols));
     }
 
     function getElectrolyteTypeTagClass(typeTag) {
@@ -19485,7 +19499,21 @@
     }
 
     function parseElectrolyteElementText(rawValue) {
-      return rawValue.split(/[+,，\s]+/).map((item) => item.trim()).filter(Boolean);
+      const text = String(rawValue || "").trim();
+      if (!text) return [];
+      const normalizeSymbol = (token) => {
+        const source = String(token || "").trim();
+        if (!source) return "";
+        return source.charAt(0).toUpperCase() + source.slice(1).toLowerCase();
+      };
+      const hasSeparator = /[+,，\s]+/.test(text);
+      const parts = hasSeparator ? text.split(/[+,，\s]+/).map((item) => item.trim()).filter(Boolean) : [text];
+      const symbols = parts.flatMap((part) => {
+        const matches = String(part).match(/[A-Za-z][a-z]?/g);
+        if (matches && matches.length) return matches.map(normalizeSymbol);
+        return [normalizeSymbol(part)];
+      }).filter(Boolean);
+      return Array.from(new Set(symbols));
     }
 
     function getElectrolyteTypeTagClass(typeTag) {
@@ -41382,6 +41410,98 @@
         .catalyst-basic-grid-balanced > section {
           min-width: 0;
         }
+        .catalyst-external-card {
+          display: grid;
+          gap: 16px;
+        }
+        .catalyst-external-note {
+          margin: 0;
+          color: #617695;
+          font-size: 13px;
+          line-height: 22px;
+        }
+        .catalyst-external-summary {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 12px;
+        }
+        .catalyst-external-summary-card {
+          padding: 16px 18px;
+          border: 1px solid #d8e3f6;
+          border-radius: 14px;
+          background: linear-gradient(180deg, #fbfdff 0%, #ffffff 100%);
+          box-shadow: 0 8px 18px rgba(21, 67, 146, 0.05);
+        }
+        .catalyst-external-summary-card span {
+          display: block;
+          margin-bottom: 6px;
+          color: #6c7f9a;
+          font-size: 12px;
+          line-height: 18px;
+        }
+        .catalyst-external-summary-card strong {
+          color: #183157;
+          font-size: 20px;
+          line-height: 28px;
+          font-weight: 800;
+        }
+        .catalyst-external-layout {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 18px;
+          align-items: start;
+        }
+        .catalyst-external-section {
+          padding: 18px;
+          border: 1px solid #d8e3f6;
+          border-radius: 16px;
+          background: #ffffff;
+          box-shadow: 0 10px 24px rgba(21, 67, 146, 0.05);
+        }
+        .catalyst-external-section h5 {
+          margin: 0 0 12px;
+          font-size: 16px;
+          line-height: 24px;
+          color: #183157;
+        }
+        .catalyst-external-list {
+          display: grid;
+          gap: 12px;
+        }
+        .catalyst-external-item {
+          display: grid;
+          gap: 6px;
+          padding: 14px 16px;
+          border: 1px solid #e1e8f4;
+          border-radius: 14px;
+          background: #f9fbff;
+        }
+        .catalyst-external-item strong {
+          color: #20324f;
+          font-size: 14px;
+          line-height: 22px;
+        }
+        .catalyst-external-item p {
+          margin: 0;
+          color: #657b96;
+          font-size: 13px;
+          line-height: 21px;
+        }
+        .catalyst-external-link-row {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+        .catalyst-external-link-row a {
+          color: #2563eb;
+          font-weight: 700;
+          text-decoration: none;
+          word-break: break-all;
+        }
+        .catalyst-external-link-row a:hover {
+          text-decoration: underline;
+        }
         .catalyst-basic-panel .detail-kv-item {
           grid-template-columns: 148px minmax(0, 1fr);
         }
@@ -41688,12 +41808,120 @@
       ];
     }
 
+    function buildCatalystExternalAssociationData(material) {
+      const query = encodeURIComponent([material.name, material.formula, material.routeLabel, material.site, material.surface].filter(Boolean).join(" "));
+      return {
+        summary: [
+          { label: "第三方数据库", value: "3 个" },
+          { label: "论文数据关联", value: "3 个" },
+          { label: "可点击链接", value: "6 个" }
+        ],
+        databases: [
+          {
+            title: "Materials Project",
+            desc: "可用于横向对比材料结构与基础性质信息。",
+            href: "https://materialsproject.org/",
+            tip: `建议检索：${material.formula || material.name}`
+          },
+          {
+            title: "Catalysis-Hub",
+            desc: "可用于查询催化吸附、反应路径与相关计算数据。",
+            href: "https://www.catalysis-hub.org/",
+            tip: `建议检索：${material.name} / ${material.routeLabel}`
+          },
+          {
+            title: "OQMD",
+            desc: "可用于对比结构稳定性与材料组成相关数据。",
+            href: "https://oqmd.org/",
+            tip: `建议检索：${material.formula || material.composition || material.name}`
+          }
+        ],
+        literature: [
+          {
+            title: "中国知网",
+            desc: "查看该催化材料的论文、综述和实验报道。",
+            href: `https://kns.cnki.net/kns8s/defaultresult/index?kw=${query}`,
+            tip: `检索关键词：${material.name} ${material.routeLabel}`
+          },
+          {
+            title: "万方数据",
+            desc: "检索相关论文、专利与学位论文信息。",
+            href: `https://s.wanfangdata.com.cn/paper?q=${query}`,
+            tip: `检索关键词：${material.name} ${material.surface}`
+          },
+          {
+            title: "Google Scholar",
+            desc: "查看英文论文、引用与交叉验证数据。",
+            href: `https://scholar.google.com/scholar?q=${query}`,
+            tip: `检索关键词：${material.name} ${material.formula}`
+          }
+        ],
+        note: "以下链接仅提供网页地址，不提供第三方数据库用户权限。"
+      };
+    }
+
+    function renderCatalystExternalInfoPage(material) {
+      const externalData = buildCatalystExternalAssociationData(material);
+      return `
+        <div class="twod-detail-page-head">
+          <div>
+            <h4>外部信息关联</h4>
+            <p>汇集当前催化材料的第三方数据库与论文数据链接，便于快速横向比对不同数据库中的结构与性质信息。</p>
+          </div>
+        </div>
+        <section class="twod-detail-section-card catalyst-external-card">
+          <p class="catalyst-external-note">${externalData.note}</p>
+          <div class="catalyst-external-summary">
+            ${externalData.summary.map((item) => `
+              <article class="catalyst-external-summary-card">
+                <span>${item.label}</span>
+                <strong>${item.value}</strong>
+              </article>
+            `).join("")}
+          </div>
+          <div class="catalyst-external-layout">
+            <div class="catalyst-external-section">
+              <h5>第三方数据库关联</h5>
+              <div class="catalyst-external-list">
+                ${externalData.databases.map((item) => `
+                  <article class="catalyst-external-item">
+                    <strong>${item.title}</strong>
+                    <p>${item.desc}</p>
+                    <div class="catalyst-external-link-row">
+                      <a href="${item.href}" target="_blank" rel="noreferrer noopener">${item.href}</a>
+                      <span>${item.tip}</span>
+                    </div>
+                  </article>
+                `).join("")}
+              </div>
+            </div>
+            <div class="catalyst-external-section">
+              <h5>论文数据关联</h5>
+              <div class="catalyst-external-list">
+                ${externalData.literature.map((item) => `
+                  <article class="catalyst-external-item">
+                    <strong>${item.title}</strong>
+                    <p>${item.desc}</p>
+                    <div class="catalyst-external-link-row">
+                      <a href="${item.href}" target="_blank" rel="noreferrer noopener">${item.href}</a>
+                      <span>${item.tip}</span>
+                    </div>
+                  </article>
+                `).join("")}
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
     function renderCatalystDetailTreeOverride() {
       const wrap = document.getElementById("twodDetailTree");
       if (!wrap) return;
       const items = [
         { key: "basic", label: "基础信息" },
-        { key: "visual", label: "数据可视化" }
+        { key: "visual", label: "数据可视化" },
+        { key: "external", label: "外部信息关联" }
       ];
       wrap.innerHTML = items.map((item) => `
         <div class="twod-tree-item">
@@ -41788,7 +42016,9 @@
       renderCatalystDetailTreeOverride();
       content.innerHTML = state.selectedTwodDetailSection === "visual"
         ? renderCatalystDetailVisualPage(material)
-        : renderCatalystDetailBasicPage(material);
+        : state.selectedTwodDetailSection === "external"
+          ? renderCatalystExternalInfoPage(material)
+          : renderCatalystDetailBasicPage(material);
       syncCatalystDetailVisuals();
     }
 
@@ -44479,7 +44709,14 @@
     function canSubmitElectrolyteUploadV2() {
       const draft = state.electrolyteUploadDraft || {};
       const form = state.electrolyteUploadForm || {};
-      return Boolean(draft.fileName && form.materialName && form.dataSource);
+      return Boolean(draft.fileName && String(form.materialName || "").trim() && String(form.dataSource || "").trim());
+    }
+
+    function updateElectrolyteUploadFooterStateV2() {
+      const nextBtn = document.querySelector('#electrolyteUploadFooter [data-ely-upload-next-v2]');
+      if (nextBtn) nextBtn.disabled = !canProceedElectrolyteUploadV2();
+      const submitBtn = document.querySelector('#electrolyteUploadFooter [data-ely-upload-submit-v2]');
+      if (submitBtn) submitBtn.disabled = !canSubmitElectrolyteUploadV2();
     }
 
     function renderElectrolyteUploadModalV2() {
@@ -44565,6 +44802,7 @@
       footer.innerHTML = state.electrolyteUploadStep === 1
         ? `<button class="btn" type="button" data-close-modal="electrolyteUploadModal">取消</button><button class="btn-primary" type="button" data-ely-upload-next-v2 ${canProceedElectrolyteUploadV2() ? "" : "disabled"}>下一步</button>`
         : `<button class="btn" type="button" data-ely-upload-prev-v2>上一步</button><button class="btn-primary" type="button" data-ely-upload-submit-v2 ${canSubmitElectrolyteUploadV2() ? "" : "disabled"}>提交审核</button>`;
+      updateElectrolyteUploadFooterStateV2();
     }
 
     openElectrolyteUploadModal = function openElectrolyteUploadModalOverride() {
@@ -44579,20 +44817,24 @@
       modal.dataset.overrideBound = "true";
       modal.addEventListener("input", (event) => {
         if (!state.electrolyteUploadForm) return;
-        if (event.target.id === "electrolyteUploadMaterialNameV2") state.electrolyteUploadForm.materialName = event.target.value.trim();
-        if (event.target.id === "electrolyteUploadMaterialFormulaV2") state.electrolyteUploadForm.materialFormula = event.target.value.trim();
-        if (event.target.id === "electrolyteUploadMaterialTypeV2") state.electrolyteUploadForm.materialType = event.target.value;
-        renderElectrolyteUploadModalV2();
+        if (event.target.id === "electrolyteUploadMaterialNameV2") {
+          state.electrolyteUploadForm.materialName = event.target.value;
+          updateElectrolyteUploadFooterStateV2();
+          return;
+        }
+        if (event.target.id === "electrolyteUploadMaterialFormulaV2") {
+          state.electrolyteUploadForm.materialFormula = event.target.value;
+          return;
+        }
       });
       modal.addEventListener("change", (event) => {
         if (event.target.id === "electrolyteUploadDataSourceV2") {
           state.electrolyteUploadForm.dataSource = event.target.value;
-          renderElectrolyteUploadModalV2();
+          updateElectrolyteUploadFooterStateV2();
           return;
         }
         if (event.target.id === "electrolyteUploadMaterialTypeV2") {
           state.electrolyteUploadForm.materialType = event.target.value;
-          renderElectrolyteUploadModalV2();
           return;
         }
         if (event.target.id === "electrolyteUploadFileInputV2") {
